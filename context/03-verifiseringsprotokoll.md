@@ -1,6 +1,9 @@
 # Verifiseringsprotokoll
 
-*Sist oppdatert: 21. august 2026, kveld — Bench Boost-feilen rettet (bench-mekanikk forvekslet med kampdeltakelse), ny regel om kildealder, Konsa-punktet lukket, seks nye feillogger fra deadline-døgnet, verktøybegrensninger dokumentert.*
+*Sist oppdatert: 22. august 2026 — `05` innført som nivå 0, sjekkpunkt 9, keeper-BPS rettet med før/etter, tre nye feillogger.*
+*Forrige: 22. august 2026, GW1-oppgjør — ARS–COV-oppstilling ført inn, to åpne punkter avgjort, feillogg om startplass utledet av poengsum.*
+*Forrige: 22. august 2026 — to nye feillogger (tapt innhold i omskriving, filnavn lest fra opplastet kopi), Meslier lukket, filnavnsreferanse rettet.*
+*Forrige: 21. august 2026, kveld — Bench Boost-feilen rettet (bench-mekanikk forvekslet med kampdeltakelse), ny regel om kildealder, Konsa-punktet lukket, seks nye feillogger fra deadline-døgnet, verktøybegrensninger dokumentert.*
 
 Denne filen finnes fordi hver eneste feil under er faktisk begått i denne sesongforberedelsen. Sjekklistene er destillert av dem.
 
@@ -84,6 +87,7 @@ VM ble spilt sommeren 2026 og sesongstarten er skjøvet en uke. Dette forsvinner
 6. Hvor mange millioner av keeper- og forsvarsbudsjettet ligger på topplag etter byttet? Går tallet ned uten at det er bestemt, stopp.
 7. **Hva står igjen i banken etterpå, og hvilke planlagte sidebytter blokkeres av det?** Se salgsprisregelen.
 8. **Er hver kilde brukt yngre enn fire uker?** Se regelen øverst i filen.
+9. **Er poengregelen slått opp i `05`, eller husket?** Ingen påstand om hvordan en poengsum er satt sammen, og ingen påstand om hva en regel sier, uten at den er lest i `05-spillets-regler.md`. Står den ikke der, skal det sies at den ikke står der.
 
 ## Generalprøven er det sterkeste signalet — men les årsaken
 
@@ -111,6 +115,7 @@ Når en sekundærkilde skriver at noe *kan* skje, er det ikke et bevis for usikk
 
 ## Kildehierarki
 
+0. **`05-spillets-regler.md` for alt som gjelder spillets regler.** Bygget på FPLs egen regelside (Help → Rules), lastet ned 22. august 2026. Den slår enhver artikkel, også premierleague.coms egne nyhetssaker, fordi den er regelverket og ikke en omtale av det.
 1. Klubbens egen nettside for kamper og signeringer
 2. `fixtures-2627.csv` i prosjektet — validert mot åtte uavhengige ankere, **men kun på rundenivå**, ikke kampdato
 3. Premier Leagues egne sider for regler og priser
@@ -139,15 +144,61 @@ Tesen i `02` var delvis feil og ble etterprøvd mot fire uavhengige kilder.
 | Endring | Innhold | Konsekvens |
 |---|---|---|
 | CBI | 1 BPS per **tre**, mot 1 per to | Rammer stillestående midtstoppere |
-| Takler og ballerobringer | **Urørt** | Holdende midtbanespillere rammes lite |
+| Takler | **Urørt — 2 BPS, verifisert begge sesonger** | Holdende midtbanespillere rammes lite |
+| Ballerobringer | 1 per 3 i 2026/27. **2025/26-verdien er ikke verifisert** | «Urørt» kan ikke hevdes |
 | Å bli taklet | **−1-straffen fjernet** | Ballbærere og offensive backer vinner |
-| Keeperredning | **+2 BPS**, +1 for skudd i boksen | Favoriserer travle keepere, ikke toppklubbkeepere |
+| Keeperredning | **Netto per skudd er uendret.** 2025/26: 3 i boksen, 2 utenfor. 2026/27: 2 for enhver redning + 1 for skudd i boksen = 3 i boksen, 2 utenfor | Gevinsten ligger *ikke* i skuddredninger |
+| Keeper, reell gevinst | Redninger som **ikke** kommer av et skudd (f.eks. innlegg via medspiller) gir nå 2 BPS der de før ga null, pluss big chance-kategorien | Favoriserer travle keepere — men av en annen grunn enn tidligere ført |
 | Keeper, ny kategori | **+1 for big chance-redning** | Samme retning |
 | DefCon | **Uendret** (10 CBIT / 12 CBIRT → 2 poeng) | Der forsvarsverdien fortsatt ligger |
 
 **Størrelsesorden:** BPS avgjør kun bonus, maks 3 poeng per kamp, i konkurranse. En midtstopper taper anslagsvis 5–10 bonuspoeng over en sesong. **Tesen er nedgradert fra «viktigste enkeltendring» til andreordens rebalansering.**
 
 ## Feillogg
+
+### Ny feil, 22. august: regelendring utledet av at noe manglet i egen fil
+
+Claude meldte to ganger at «spisser får DefCon-poeng i 2026/27» som et nytt funn fra API-et, og skrev at det motsier `02`s «DefCon uendret». Begge deler var feil. Spisser har hatt DefCon siden 2025/26, og `02`s «uendret» var korrekt hele veien. Det eneste som manglet i `02` var at spisser ikke sto nevnt i en parentes.
+
+Grunnlaget for påstanden var at API-et viser `FWD: 2` mens `02` bare nevner forsvarere og midtbane. **Fraværet av en linje i vår egen fil ble lest som bevis på en endring i spillets regler.** Påstanden ble dessuten gjentatt som «den som faktisk kan flytte en beslutning» før den var slått opp.
+
+**Regelen som fulgte:** en fil kan være ufullstendig uten at verden har endret seg. Et avvik mellom en datakilde og en kontekstfil er først og fremst en hypotese om **filen**, ikke om regelverket. Regelendringer slås opp i regelverket — se sjekkpunkt 9 og nivå 0 i kildehierarkiet.
+
+### Ny feil, 22. august: reparert fil overskrevet med den ureparerte originalen
+
+Under arbeidet med regelfunnene kopierte Claude `02` fra opplastingsmappen inn i arbeidsmappen for å ha en «ren» fil. Opplastingen er **prosjektversjonen fra før reparasjonen**, så kopien slettet stirettingen `claude/04-…` → `04-…` og begge oppdaterte headerlinjer. Feilen ble oppdaget fordi et skript stoppet av en helt annen grunn og filen ble inspisert.
+
+**Regelen som fulgte:** opplastingsmappen er et **arkiv av det som ble sendt**, ikke en kilde til gjeldende versjon. Etter første redigering er arbeidsmappen fasit. Kopier aldri «tilbake til original» uten å sjekke hvilke endringer originalen mangler — det er samme feiltype som «opplastet kopi lest som kanonisk», bare i motsatt retning.
+
+### Kildekonflikt, 22. august: strafferedning oppgitt som −8 BPS
+
+En brukerlevert oppsummering av 2025/26-endringene (fpl.page) skriver at «a penalty save deduction was adjusted to -8 BPS». Det er feil fortegn. premierleague.com skriver 20. juli 2026 at en keeper **tjente** 8 BPS for en strafferedning i 2025/26, og at tallet faller til 7 i 2026/27. `05` bekrefter 7 for inneværende sesong.
+
+**Vi stoler på premierleague.com og `05`.** De øvrige påstandene i samme oppsummering — straffemål 12 flatt, mål 24/18/12 etter posisjon, redning på strek 9, takling 2 — stemmer alle mot `05`, og er derfor brukt som bekreftelse på at de kategoriene er uendret fra 2025/26. **Én gal rad diskvalifiserer ikke kilden, men den avgjør at ingen rad derfra brukes uten kryssjekk mot `05`.**
+
+### Ny feil, 22. august: startplass utledet av en poengsum
+
+Claude skrev «Tzolis startet og fikk 6» på grunnlag av miniligafilens poengtabell. Poengsummen alene beviser ikke start. Seks poeng for en midtbanespiller går opp på minst tre måter, og **1 (innbytt under 60 min) + 5 (mål) = 6** er én av dem. Påstanden om start kom altså før beviset for den.
+
+Konklusjonen viste seg riktig da kamptroppen ble slått opp — Tzolis sto i elleveren. Men det er femte gang mønsteret **riktig konklusjon, gal begrunnelse** er loggført i denne filen, og det er mønsteret som er problemet, ikke utfallet.
+
+**Regelen som fulgte:** en poengsum er et *resultat*, ikke en *oppstilling*. Den kan bekrefte at en spiller deltok, aldri at han startet. Skal startplass hevdes, skal den hentes fra kamptroppen. Dette er en utvidelse av «oppstillingen vinner over projeksjonen» til også å gjelde bakover: **oppstillingen vinner også over poengsummen.**
+
+### Ny feil, 22. august: innhold slettet i en omskriving uten at slettingen ble flagget
+
+Ved omskrivingen av `01` 21. august kveld forsvant linjen om at **Arteta selv navnga Illan Meslier** som ny Arsenal-signering. Femten linjer ble fjernet i den økten. Fjorten var erstatninger — en linje byttet mot en som inneholdt den. Én var et rent tap. Ingen så det før `git diff` viste det dagen etter.
+
+Faktumet overlevde i `03`s «mangler»-rad, men kilden gjorde det ikke. En nivå 1-observasjon ble redusert til en huskelapp om at noe manglet i en prisliste.
+
+**Regelen som fulgte:** når en seksjon skrives om, list hva som **fjernes**, ikke bare hva som legges til. Fra nå gjør git dette automatisk. Det er hovedgrunnen til at filene skal ligge i repo og ikke bare i prosjektet — prosjektet viser siste versjon, git viser hva siste versjon kostet.
+
+### Ny feil, 22. august: opplastet kopi lest som kanonisk filnavn
+
+Claude hevdet at fem referanser til `fixtures-2627.csv` i `02` og `03` var brutte, og at filen skulle hete `fixtures2627.csv`. Motsatt var sant: den lokale filen heter `fixtures-2627.csv` med identisk hash, og det var **opplastingen til prosjektet som strippet bindestreken**. De fem referansene var riktige hele veien.
+
+De to som faktisk var brutte — `03` i avsnittet om manglende rader, og `04` i innledningen — ble aldri nevnt, fordi de brukte akkurat det navnet Claude trodde var korrekt. Diagnosen pekte altså på de riktige og forbi de gale samtidig.
+
+**Regelen som fulgte:** én observert artefakt slår ikke fem samstemte referanser. Dette er samme mønster som «oppstilling lest uten årsak» — artefakten ble lest uten forklaringen som lå ved siden av. **Ved konflikt mellom et filnavn på disk og navnet som brukes i tekstene: flertallet av interne referanser vinner, og opplastede kopier er mistenkte, ikke fasit** (prosjektopplasting flater `claude/04-…` til `claude_04-…` og stripper bindestreker).
 
 ### Ny feil, 21. august kveld: bench-mekanikk forvekslet med kampdeltakelse
 
@@ -258,19 +309,27 @@ Tre feil på under 48 timer hadde identisk rotårsak. Alle tre kom av at en seku
 
 | Punkt | Frist | Hva som avgjør det |
 |---|---|---|
-| **Tzolis' plass** | GW1–3 | Arsenal spilte 21:00 norsk, tre timer etter deadline. Slottet ble låst blindt. Gakpo £7,0m er førstevalget hvis han ryker |
-| **Calafiori/Hincapié** | GW1–3 | Artetas parformulering 20. august. Ett gult flagg, ingen handling |
+| **Tzolis' plass** | ~~GW1~~ → GW2–3 | **GW1 avgjort:** startet mot Coventry, bekreftet fra kamptroppen. Det blinde slottet leverte. Gakpo £7,0m står fortsatt som førstevalg hvis han ryker senere |
+| **Calafiori/Hincapié** | ~~GW1~~ → GW2–3 | **GW1 avgjort:** Calafiori startet, Hincapié på benken. Parformuleringen ga ikke utslag i første uttak |
 | **Šeško tar nieren?** | GW3–5 | Avgjør om Mbeumo er permanent kantspiller. Ikke et salgssignal i seg selv |
 | **Citys tilførsel** | Løpende | Seks avganger/skader på fjorten dager. Berører Haaland direkte og GW13-planen for O'Reilly |
 | Slaters og Davis' plass | 1. september 23:00 BST | Vinduet stenger **etter** GW2-deadline. Opprykkslagene bygger fortsatt tropp |
 | **Konsa** | — | **Lukket 21. august.** Arsenal kjøpte ham fra Villa (£51m + £4m, Sky Sports/ESPN/Just Arsenal). Ikke spilleberettiget GW1 — rakk ikke registreringsfristen torsdag. Se `01` og `02`. |
-| Full gjennomgang av prislisten | Etter 1. september | Trafford-feilen viser at klubbkolonnen drifter under vinduet. **Meslier (ARS) og Cherki (MCI) mangler** |
-| BPS-tesen — holder den? | Etter GW5 | Mekanikken er verifisert. Det som gjenstår er faktisk bonusfordeling. Avgjør GW16-keepervalget, som nå gjelder Verbruggen/Kinsky → Raya |
+| Full gjennomgang av prislisten | Etter 1. september | Trafford-feilen viser at klubbkolonnen drifter under vinduet. **Cherki (MCI) mangler.** Meslier (ARS) £5,0m lagt inn i `01` 22. august |
+| BPS-tesen — holder den? | Etter GW5 | **Mekanikken er nå verifisert mot regelsiden, ikke bare mot artikler** (se `05`). Keeperdelen er korrigert: netto per skuddredning er uendret. Det som gjenstår er faktisk bonusfordeling. Avgjør GW16-keepervalget, som nå gjelder Verbruggen/Kinsky → Raya |
+| **2025/26-BPS som sammenligningsgrunnlag** | Før GW16 | `05` gir 2026/27-tabellen komplett. Fjorårets tabell er kun delvis verifisert (straffemål 12, takling 2, redning på strek 9, posisjonsbaserte mål 24/18/12 — alle uendret). **Ballerobringsverdien for 2025/26 mangler.** Uten den kan «urørt» ikke hevdes om den halve |
 | **Manglende rader i `02`s vanskelighetstabell** | Før GW6 | Brighton, Brentford, Aston Villa, Sunderland, Newcastle, Coventry, Everton, Fulham, Palace og Bournemouth mangler. **Verbruggen ble kjøpt uten et beregnet fikstursstall for Brighton.** Roefs og Thiaw ble ført som «uvurdert», ikke avvist, av samme grunn |
 
-⚠️ **Den siste raden er den viktigste.** `02`-tabellen dekker ti av tjue klubber, og halve troppens beslutningsgrunnlag hviler på tall som ikke finnes for motparten. Beregn de ti resterende fra `fixtures2627.csv` før GW6, med samme metode som de eksisterende.
+⚠️ **Den siste raden er den viktigste.** `02`-tabellen dekker ti av tjue klubber, og halve troppens beslutningsgrunnlag hviler på tall som ikke finnes for motparten. Beregn de ti resterende fra `fixtures-2627.csv` før GW6, med samme metode som de eksisterende.
 
 ## Referanseoppstillinger
+
+**Arsenal 3–0 Coventry, 21. august 2026, Emirates. GW1.**
+Arsenal: Raya; White, Mosquera, Gabriel, Calafiori; Ødegaard, Rice, Lewis-Skelly; Saka, Havertz, Tzolis. Benk brukt: Nwaneri, Dowman, Hincapié, Zubimendi.
+Coventry: Rushworth; **Van Ewijk**, B.Thomas, Amenda, DaSilva; Onyeka, Yirenkyi, Grimes; Thomas-Asante, Simms, Tchaouna.
+Mål 15', 23', 49'. Coventry hadde **ett skudd på mål** i hele kampen. Arsenals bakre firer er identisk med Community Shield — Mosquera holder plassen så lenge Saliba er ute og Konsa ikke er integrert.
+
+⚠️ **Datapunkt til BPS-etterprøvingen etter GW5:** Raya endte på 6 poeng med **én redning** — nøyaktig profilen `02` beskriver som taperen av keeperomskrivingen (toppklubbkeeper, få redninger, verdien i clean sheet). Ett datapunkt beviser ingenting. Før det inn i GW5-gjennomgangen.
 
 **Community Shield 16. august, Principality Stadium, Arsenal 3–0 Man City.**
 Arsenal (4-3-3): Raya; White, Mosquera, Gabriel, Calafiori; Ødegaard, Guimarães, Lewis-Skelly; Madueke, Havertz, Tzolis.

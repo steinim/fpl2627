@@ -1,6 +1,9 @@
 # Regler 2026/27 og sesongplan
 
-*Sist oppdatert: 21. august 2026, kveld — Konsa-kjøpet til Arsenal bekreftet (ikke spilleberettiget GW1), trenerlisten komplettert til 20 av 20, Bench Boost avblokkert, City-risikoen oppgradert fra rykte til faktum.*
+*Sist oppdatert: 22. august 2026 — chip-seksjonen omskrevet: skillet mellom planlagt og utløserbasert, overlappet oppløst, spisser lagt inn i DefCon-linjen.*
+*Forrige: 22. august 2026, sluttgjennomgang — spisser lagt inn i DefCon-linjen.*
+*Forrige: 22. august 2026 — chip-bindinger fra `05` (én chip per runde, Free Hit ikke to runder på rad, hva som kan avbrytes), BPS-punkt 1 presisert, GW6- og GW19-deadline ført inn, rettet sti til `04`.*
+*Forrige: 21. august 2026, kveld — Konsa-kjøpet til Arsenal bekreftet (ikke spilleberettiget GW1), trenerlisten komplettert til 20 av 20, Bench Boost avblokkert, City-risikoen oppgradert fra rykte til faktum.*
 
 ## Nøkkeldatoer
 
@@ -15,10 +18,12 @@
 | GW4-deadline | lørdag 12. september, 13:30 BST / 14:30 norsk |
 | Sesongen | 21. august 2026 – 30. mai 2027 |
 | Overgangsvindu stenger | tirsdag 1. september 2026, 23:00 BST / 00:00 norsk tid natt til 2. sept. |
-| Første chip-sett må brukes innen | GW19-deadline |
+| Første chip-sett må brukes innen | **GW19-deadline, lør 2. januar 14:30 norsk** |
+| GW6-deadline | **lør 10. oktober 12:00 norsk** (11:00 britisk) |
+| Full deadlineliste, alle 38 runder | `05-spillets-regler.md` — **oppgitt i norsk tid**, kryssjekket mot API-et på fem ankere |
 | Landslagspauser | etter GW5 (19. sep → 10. okt) og etter GW10 (7. nov → 21. nov) |
 
-⚠️ **Rettelse 20. august:** denne tabellen sa tidligere «GW1 spilles 21.–23. august». Det er feil. Fulham–Chelsea ligger mandag 24. august 20:00 (Sky Sports), bekreftet på premierleague.com og chelseafc.com. **João Pedro spiller mandag.** GW1 er dermed ikke ferdig før mandag kveld, bonus/DefCon låses tirsdag 25. august 09:00 UK, og prisendringene før GW2-deadline fredag går på et fire dager kort vindu. Full verifisert kampliste for GW1–3, med deadliner og betingede endringer, ligger i `claude/04-kampprogram-og-endringslogg.md`.
+⚠️ **Rettelse 20. august:** denne tabellen sa tidligere «GW1 spilles 21.–23. august». Det er feil. Fulham–Chelsea ligger mandag 24. august 20:00 (Sky Sports), bekreftet på premierleague.com og chelseafc.com. **João Pedro spiller mandag.** GW1 er dermed ikke ferdig før mandag kveld, bonus/DefCon låses tirsdag 25. august 09:00 UK, og prisendringene før GW2-deadline fredag går på et fire dager kort vindu. Full verifisert kampliste for GW1–3, med deadliner og betingede endringer, ligger i `04-kampprogram-og-endringslogg.md`.
 
 **To av de tre neste deadlinene er fredager**, fordi både GW2 og GW3 åpner med fredagskamp (Palace–City 28.8., Ipswich–Liverpool 4.9.). Regel 5 i `01` — «ingen bytter før torsdag» — gir dermed under ett døgn margin i GW2 og GW3.
 
@@ -40,7 +45,17 @@
 
 **Tre korreksjoner til den opprinnelige tesen:**
 
-1. **«Holdende midtbanespillere taper» holder ikke.** Endringen treffer kun C, B og I. **Takler og ballerobringer er urørt** — og det er de to som utgjør mesteparten av en midtbanespillers CBIRT-terskel på 12. En dyptliggende midtbanespiller som bærer ball *vinner* dessuten på at taklet-straffen er borte. Midtstopper-halvdelen av tesen står; midtbane-halvdelen gjør det ikke.
+1. **«Holdende midtbanespillere taper» holder ikke.** Endringen treffer kun C, B og I. **Takler er urørt** — verifisert på begge sider: 2 BPS per vunnet takling både i 2025/26 og i 2026/27-tabellen i `05`. En dyptliggende midtbanespiller som bærer ball *vinner* dessuten på at taklet-straffen er borte. Midtstopper-halvdelen av tesen står; midtbane-halvdelen gjør det ikke.
+
+⚠️ **Presisert 22. august mot `05`.** Denne linjen sa tidligere «takler **og ballerobringer** er urørt», og behandlet de tre kategoriene som sammenlignbare. Det er de ikke:
+
+| Kategori | BPS 2026/27 | Per aksjon |
+|---|---|---|
+| Vellykket takling | 2 | **2,00** |
+| Ballerobring | 1 per 3 | 0,33 |
+| Klarering, blokkering, interception | 1 per 3 | 0,33 |
+
+En takling er verdt **seks ganger** så mye per aksjon som en klarering, og CBI ligger nå på nøyaktig samme rate som ballerobringer. Ballerobringsverdien for 2025/26 er **ikke** verifisert, så «urørt» gjelder bare taklingene. Retningen i tesen står; premisset var grovere enn tabellen tillater.
 
 2. **«Keepere vinner» er riktigere enn antatt, men peker motsatt vei av sesongplanen.** Gevinsten er ikke bare relativ — det er en ny big chance-kategori og +1 for skudd i boksen. Men det er **redningsdrevet**. En keeper som redder seks skudd, hvorav to store sjanser, henter langt mer BPS enn en toppklubbkeeper med én redning i en 3–0-seier. **Endringen favoriserer travle keepere i midt- og bunnlag.** Se merknaden til GW16 under.
 
@@ -50,7 +65,7 @@
 
 **Etterprøves etter GW5:** faktisk bonusfordeling mellom keepere, backer og midtstoppere i GW1–5.
 
-**Uendret:** DefCon-poeng (forsvarere 10 CBIT, midtbane 12 CBIRT → 2 poeng), 5 rullerende frie bytter med tak på 5, to sett med chips (Wildcard, Free Hit, Triple Captain, Bench Boost per halvsesong).
+**Uendret:** DefCon-poeng (forsvarere 10 CBIT, **midtbane og spisser** 12 CBIRT → 2 poeng, tak på 2 per kamp — se `05`), 5 rullerende frie bytter med tak på 5, to sett med chips (Wildcard, Free Hit, Triple Captain, Bench Boost per halvsesong).
 
 **Nytt ellers:** live poeng, rank og miniligaoppdatering. Projisert bonus etter 20 minutter. Offisiell price change predictor, som fjerner mye av informasjonsfortrinnet i prisspekulasjon. Lockdown flyttet til 09:00 UK dagen etter siste kamp.
 
@@ -205,13 +220,33 @@ Byttet kan fortsatt være riktig **på clean sheet-aksen** i Arsenals 1,67-blokk
 
 ## Chip-plassering
 
-| Chip | Plan | Merknad |
+⚠️ **Omskrevet 22. august. Den forrige tabellen planla fire chips i faste vinduer. To av dem lot seg ikke planlegge, og de to vinduene kolliderte.**
+
+**Den harde bindingen:** hele første chip-sett forfaller ved **GW19-deadline, lørdag 2. januar 14:30 norsk tid**. Ubrukt er tapt.
+
+### Hvorfor to av fire ikke kan planlegges nå
+
+`04` fastslår at blank- og dobbeltrunder normalt ikke bekreftes før **januar/februar**, når FA-cupomberammingene foreligger. Første chip-sett forfaller **2. januar**. Informasjonen som skulle styre timingen kommer altså i praksis etter fristen for å bruke den.
+
+Kontrollert mot `fixtures-2627.csv` 22. august: **alle 38 runder har nøyaktig 10 kamper**, 190 i hver halvsesong. Ingen blank- eller dobbeltrunde ligger i det opprinnelige programmet. De kan bare oppstå gjennom utsettelser — og det er nettopp derfor de kunngjøres sent.
+
+**Konsekvens:** «Triple Captain på dobbeltrunde» og «Free Hit GW16–19 på blank- eller dobbeltrunde» var ikke planer. Det var betingelser uten kjent utløser. De føres nå som **utløserbaserte beslutninger**, ikke som runder i en tabell.
+
+### Plan
+
+| Chip | Status | Grunnlag |
 |---|---|---|
-| Wildcard 1 | GW16–17 | Ikke GW6 — de fem sparte byttene gjør den jobben |
-| Bench Boost 1 | etter GW16 | **Avblokkert 21. august.** Dúbravka → Verbruggen gir en toerkeeper som spiller 38 kamper. Benken er fortsatt svak (Kinsky, Davis, Diop, Slater = £17,0m), men chipen er ikke lenger strukturelt død |
-| Triple Captain 1 | Haaland, dobbeltrunde | Ikke GW3 mot Coventry — 18 runder å finne noe bedre i |
-| Free Hit 1 | GW16–19 | Blank- eller dobbeltrunder |
+| **Wildcard 1** | **Planlagt: GW16–17** | Den eneste av de fire som *kan* planlegges. Fikstursblokker er kjent hele sesongen. Restrukturering inn i Arsenals GW17–22 (1,67). Ikke GW6 — de fem sparte byttene gjør den jobben. **Kan ikke avbrytes** |
+| **Bench Boost 1** | **Betinget: etter Wildcard 1** | Halvplanlagt. Avhenger av benken, som du styrer selv. Avblokkert 21. august: Verbruggen spiller 38 kamper. Benken er fortsatt svak (Kinsky, Davis, Diop, Slater = £17,0m) — chipen er verdt lite før wildcardet har bygget den. **Kan avbrytes** |
+| **Triple Captain 1** | **Utløserbasert** | Spilles på beste tilgjengelige Haaland-kamp innen GW19-fristen. Kommer det ingen dobbeltrunde, brennes den på en enkeltrunde mot svak motstand — ikke på GW3 mot Coventry, men ikke spart til den går tapt heller. **Kan avbrytes** |
+| **Free Hit 1** | **Utløserbasert** | Spilles kun hvis en blankrunde faktisk kunngjøres før GW19. Skjer ikke det, er den svakeste av de fire og er den som ofres. **Kan ikke avbrytes.** Kan ikke spilles i to påfølgende runder — legges den i GW19, er Free Hit 2 blokkert til GW21 |
 
-Fire chips på 18 runder er stramt. Bench Boost er den svakeste og bør ofres først hvis kalenderen ikke går opp.
+**Overlappet er dermed borte.** Konflikten oppsto fordi Wildcard og Free Hit begge var tildelt spekulative vinduer rundt GW16. Kun Wildcard har et vindu nå, og «én chip per runde» er ikke lenger brutt.
 
-⚠️ Chip-timing rundt blank- og dobbeltrunder kan ikke planlegges fra `fixtures-2627.csv`. Se begrensningen over.
+### Beslutningspunkt
+
+**Sjekk kunngjorte omberamminger ved hver månedsskifte fra november.** Kommer en blankrunde før GW19, aktiveres Free Hit. Kommer den ikke, tas Triple Captain på en enkeltrunde og Free Hit ofres bevisst. **Det som ikke skal skje, er at fristen passerer mens begge står som «venter på dobbeltrunde».**
+
+**Rekkefølge ved knapphet:** Wildcard er verdt mest og har lavest usikkerhet. Free Hit er svakest og ofres først.
+
+**Merk om avbryting:** Wildcard og Free Hit låses idet byttene bekreftes. Bench Boost og Triple Captain kan trekkes fram til deadline. I GW1 landet fire av femten spilleres lagnytt på deadline-dagen, én pressekonferanse én time før. For de to første finnes ingen angremulighet etter det.

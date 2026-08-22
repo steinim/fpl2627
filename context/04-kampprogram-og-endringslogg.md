@@ -2,7 +2,7 @@
 
 *Opprettet 20. august 2026. Vedlikeholdes av den planlagte kampprogram-sjekken.*
 
-Denne filen er fasit for **datoer og klokkeslett**. `fixtures2627.csv` er fasit for **hvem som møter hvem i hvilken runde** — den er kontrollert 20. august og stemmer 30/30 på kamppar i GW1–3, men datokolonnen er ubrukelig fordi den setter hele runden til samme dag.
+Denne filen er fasit for **datoer og klokkeslett**. `fixtures-2627.csv` er fasit for **hvem som møter hvem i hvilken runde** — den er kontrollert 20. august og stemmer 30/30 på kamppar i GW1–3, men datokolonnen er ubrukelig fordi den setter hele runden til samme dag.
 
 ## Status per 20. august 2026
 

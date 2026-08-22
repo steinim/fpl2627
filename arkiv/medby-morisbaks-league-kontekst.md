@@ -1,7 +1,14 @@
 # Medby Morisbaks League — motstanderkontekst
 
-**Sesong:** 2026/27 · **Sist oppdatert:** GW1 (skjermbilder tatt mens runden fortsatt pågikk)
-**Mål:** toppe ligaen.
+**Sesong:** 2026/27 · **Sist oppdatert:** GW1, midt i runden (skjermbilder tatt mens kamper fortsatt pågikk)
+
+> ⚠️ **Statusen til denne filen, fastsatt 22. august.** Dette er et **arkivert øyeblikksbilde**, ikke en styrende kontekstfil. Den ligger i `arkiv/` og skal ikke lastes opp til prosjektet.
+>
+> **Målet er «topp 100k overall» (`01`).** Linjen «Mål: toppe ligaen» sto her tidligere og er fjernet — to filer med hver sin målsetning er samme feiltype som anti-drift, bare på formål i stedet for klubbeksponering. Miniligaplassering er en **konsekvens**, ikke et mål, og ingen beslutning i `01` skal begrunnes med den.
+>
+> **Hva filen kan brukes til:** uavhengig registrering av *din egen* tropp og kaptein, ført av deg og ikke av Claude. Den lukket Verbruggen-forbeholdet i `01` 22. august, og det er dens dokumenterte nytte.
+>
+> **Hva den ikke kan brukes til:** tabellen er tatt midt i runden med åtte av elleve startere til gode — plasseringene er støy. Motstandertroppene har ingen beslutningsverdi mot et mål som måles mot 8,4 millioner lag. Klubbtilhørighet er lest av draktfarger og rangerer under enhver tekstkilde.
 
 > **Lesehjelp:** Spillere som viser et **tall** hadde ferdigspilt kamp da skjermbildet ble tatt.
 > Spillere som viser **MOTSTANDER (H/A)** hadde kampen til gode — poengsummene under er altså
@@ -178,11 +185,10 @@ hele benken hadde kampen igjen.
   Overganger som avviker fra tidligere sesonger: Guéhi og Anderson (Man City), Rogers og
   Lacroix (Chelsea), Bruno G. og Tzolis (Arsenal), Šeško og Mbeumo og Cunha (Man Utd),
   Calvert-Lewin (Leeds), Brobbey (Sunderland).
-- **van Ewijk** (Red devils' benk) — klubb ikke sikkert identifisert fra drakten.
-  Utledning: han hadde ferdigspilt kamp, og den eneste ferdigspilte kampen ellers var
-  Arsenals. Klubbene som er synlige i skjermbildene dekker 19 av 20 lag — van Ewijks klubb
-  er altså det 20. laget, Arsenals GW1-motstander. Blå/hvit stripet drakt peker mot
-  Coventry (der van Ewijk spilte tidligere), men dette er en antakelse, ikke lest av.
+- ~~**van Ewijk** — klubb ikke sikkert identifisert fra drakten.~~ **Avklart 22. august:**
+  Milan van Ewijk startet som forsvarer for **Coventry** mot Arsenal 21. august. Bekreftet fra
+  kamptroppen. Utledningen i den opprinnelige teksten var riktig, men den var en antakelse fra
+  draktfarge — nå er den lest av en oppstilling.
 - Poengsummene er fra en pågående GW1. Endelige tall bør oppdateres når runden er ferdig.
   Merk at Man Utd- og Man City-tunge lag (Godfot, Red devils, FK Fotballmafia) fortsatt
   hadde det meste til gode.

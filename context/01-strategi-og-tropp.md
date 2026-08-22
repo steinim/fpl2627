@@ -1,8 +1,11 @@
 # Strategi og tropp
 
-*Sist oppdatert: 21. august 2026, kveld — feilrettet Kinsky-benkpåstand (se `03`), Konsa-kjøpet til Arsenal bekreftet og vurdert (avvist som GW1-bytte), Dúbravka → Verbruggen, Mbeumo-begrunnelsen omskrevet, Šeško tilbake. Se `03` feillogg.*
+*Sist oppdatert: 22. august 2026, sluttgjennomgang — Scout-overlappet rettet fra 6 til 5 (Dúbravka var solgt).*
+*Forrige: 22. august 2026, GW1-oppgjør — Verbruggen-forbeholdet lukket, Tzolis- og Calafiori-risikoene avgjort på oppstilling.*
+*Forrige: 22. august 2026 — Meslier gjenopprettet fra nivå 1-kilde (tapt i kveldsomskrivingen 21. aug), forbehold om API-et som statistikkilde.*
+*Forrige: 21. august 2026, kveld — feilrettet Kinsky-benkpåstand (se `03`), Konsa-kjøpet til Arsenal bekreftet og vurdert (avvist som GW1-bytte), Dúbravka → Verbruggen, Mbeumo-begrunnelsen omskrevet, Šeško tilbake. Se `03` feillogg.*
 
-> ⚠️ **Forutsetning for hele denne versjonen:** filen er skrevet som om Dúbravka → Verbruggen **er gjennomført** før deadline 21. august 19:30. Ble byttet ikke gjennomført, er troppstabellen, benkerekkefølgen, klubbfordelingen og anti-drift-tallet under gale, og forrige versjon gjelder.
+> ✅ **Forbeholdet er lukket 22. august.** Filen ble skrevet som om Dúbravka → Verbruggen var gjennomført. **Det er det.** Bekreftet mot faktisk lagoppstilling i FPL under GW1: Verbruggen i mål, Kinsky på benken, alle 15 som i troppstabellen under. Troppstabellen, benkerekkefølgen, klubbfordelingen og anti-drift-tallet står dermed på bekreftet grunnlag, ikke på forutsetning.
 
 ## Mål og profil
 
@@ -49,8 +52,9 @@ Scouts lag: Kinsky, Dúbravka · Gabriel, Mosquera, Maguire, Greaves, Thomas · 
 
 | | |
 |---|---|
-| Felles med vår tropp | 6: Haaland, B.Fernandes, Mbeumo, João Pedro, Kinsky, Dúbravka |
-| Avvik | 9 |
+| Felles med vår tropp | **5**: Haaland, B.Fernandes, Mbeumo, João Pedro, Kinsky |
+| Avvik | **10** |
+| ⚠️ Rettet 22. august | Raden sa tidligere «6 … Dúbravka». **Dúbravka ble solgt 21. august** (→ Verbruggen), og Verbruggen står ikke i Scouts lag. Overlappet falt dermed med én uten at tallet ble oppdatert. Separasjonskilden er ett slott større enn filen har hevdet siden byttet |
 | Vurdering | Overlappet ligger der det skal — premium og keeper. Avviket ligger der separasjonen skal ligge. |
 
 **Dette er ikke et argument for å kopiere laget.** `Mål og profil` sier at ren template lander lenger ned enn 100k. De seks felles spillerne er nettopp de slottene regel 1 sier skal være template. De ni avvikene er hele separasjonskilden. Å konvergere mot Scout-laget fjerner den.
@@ -251,9 +255,13 @@ Ingen i troppen er sen VM-returnerende. Det er en reell strukturell fordel i GW1
 
 ## Verifiserte priser på aktuelle mål
 
-**Keepere:** Raya (ARS) £6,0m · Donnarumma (MCI) £5,5m · Alisson (LIV) £5,5m · Roefs (SUN) £5,0m · Lammens (MUN) £5,0m · Trafford (LEE) £5,0m · Mamardashvili (LIV) £5,0m · **Verbruggen (BHA) £4,5m** · Kinsky (TOT) £4,5m · Tzolakis (HUL) £4,5m · Scherpen (IPS) £4,5m · Dúbravka (TOT) £4,0m
+**Keepere:** Raya (ARS) £6,0m · Donnarumma (MCI) £5,5m · Alisson (LIV) £5,5m · Roefs (SUN) £5,0m · Lammens (MUN) £5,0m · Trafford (LEE) £5,0m · Mamardashvili (LIV) £5,0m · **Meslier (ARS) £5,0m** · **Verbruggen (BHA) £4,5m** · Kinsky (TOT) £4,5m · Tzolakis (HUL) £4,5m · Scherpen (IPS) £4,5m · Dúbravka (TOT) £4,0m
 
 *Vicario strøket — utlånt til Juventus. Alisson bekreftet Liverpools ener under Iraola; Mamardashvili kobles til utlån. Donnarumma bekreftet Citys ener (Community Shield).*
+
+**Meslier (ARS) £5,0m — gjenopprettet 22. august.** Linjen sto i ettermiddagsversjonen av `01` («Arteta nevnte Illan Meslier som ny Arsenal-signering») og forsvant i kveldsomskrivingen samme dag, uten erstatning. Faktumet overlevde indirekte i `03`, men **provenienset gjorde det ikke** — at navnet kom fra Arteta selv er nivå 1. Verifisert mot FPL-API-et 22. august: `team_join_date` 2026-07-09, 0 minutter, 0,0 % eid. Arsenal har tre registrerte keepere: Raya £6,0m, Arrizabalaga £5,0m, Meslier £5,0m. Berører ikke troppen; står som notat til GW16-keeperspørsmålet.
+
+⚠️ **Forbehold om API-et som kilde:** samme oppslag fører Meslier med `minutes: 0` og samtidig `goals_scored: 11`. Feltet er åpenbart galt. API-et er beste tilgjengelige kilde på **pris, status, klubbtilhørighet og spillets regler** — det er ikke feilfritt på **historisk statistikk**. Skillet gjelder til det er etterprøvd.
 
 **Verbruggen £4,5m — kjøpt 21. august som toerkeeper.** Verifisert samme dag: 37 av 37 ligakamper i 2025/26, ti clean sheets, 101 redninger (delt fjerde flest i ligaen), 1 152 pasninger — flest av alle keepere. Står i Brightons oppstilling mot Villa. Brighton har Villa (H), Chelsea (B), Leeds (H), Coventry (B), Arsenal (H) i GW1–5.
 
@@ -321,8 +329,8 @@ Det er ikke en degradering, og `03` er tydelig på at fravær av negativt signal
 
 | Risiko | Hvorfor den står | Følges |
 |---|---|---|
-| **Tzolis låses blindt** | Arsenal spiller 21:00 norsk, **tre timer etter deadline**. Kjøpt 19. august på én Community Shield-start. Han er den nyeste i XI-en, og Saka er nå meldt klar (Arteta, 20. aug). Ryker han, får du vite det for sent | GW1–3. Gakpo £7,0m er førstevalget hvis han mister plassen |
-| **Calafiori/Hincapié** | Se over | GW1–3 |
+| ~~**Tzolis låses blindt**~~ | **Lukket for GW1, 22. august.** Tzolis **startet** mot Coventry — bekreftet fra kamptroppen, ikke utledet av poengsummen. Arsenal (4-3-3): Raya; White, Mosquera, Gabriel, Calafiori; Ødegaard, Rice, Lewis-Skelly; Saka, Havertz, **Tzolis**. Han er ført som forward i datakilden, altså i angrepstrioen og ikke i midtbanetreeren | Følges videre GW2–3. Gakpo £7,0m står som førstevalg |
+| ~~**Calafiori/Hincapié**~~ | **Lukket for GW1, 22. august.** Calafiori startet i bakre firer; **Hincapié sto på benken**. Artetas parformulering 20. august ga ikke utslag i første uttak | Følges videre GW2–3 |
 | **Mbeumos posisjon** | Se Mbeumo-avsnittet. Startplassen er trygg, nieren er ikke | GW1–5 |
 | **Haalands tilførsel** | Rodri, Reijnders og Savinho ute av klubben. **Skadebildet er derimot lite:** Maresca bekreftet 21. august at kun Doku er ute (2–3 uker) og at Nunes er tilbake. Ingen bekreftelse på Marmoush | Løpende. Han blir stående — regel 3 |
 | **Kinsky som benket toer** | **Ingen reell risiko — presisert 21. august, kveld.** Begge keeperne spiller sine kamper. Den benkede teller ikke i normale runder (slik bench alltid fungerer), men ville telt fullt ut under Bench Boost. Se feilrettelsen over og i `03` | Kun relevant ved chip-planlegging, ikke løpende |
