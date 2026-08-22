@@ -1,6 +1,6 @@
 # Strategi og tropp
 
-*Sist oppdatert: 21. august 2026, ettermiddag — Dúbravka → Verbruggen, Mbeumo-begrunnelsen omskrevet, Šeško tilbake. Se `03` feillogg.*
+*Sist oppdatert: 21. august 2026, kveld — feilrettet Kinsky-benkpåstand (se `03`), Konsa-kjøpet til Arsenal bekreftet og vurdert (avvist som GW1-bytte), Dúbravka → Verbruggen, Mbeumo-begrunnelsen omskrevet, Šeško tilbake. Se `03` feillogg.*
 
 > ⚠️ **Forutsetning for hele denne versjonen:** filen er skrevet som om Dúbravka → Verbruggen **er gjennomført** før deadline 21. august 19:30. Ble byttet ikke gjennomført, er troppstabellen, benkerekkefølgen, klubbfordelingen og anti-drift-tallet under gale, og forrige versjon gjelder.
 
@@ -80,14 +80,14 @@ Scouts lag: Kinsky, Dúbravka · Gabriel, Mosquera, Maguire, Greaves, Thomas · 
 **GW1 (3-4-3):** Verbruggen; Calafiori, N.Williams, Shaw; B.Fernandes (VK), Mbeumo, Gibbs-White, Tzolis; Haaland (K), Calvert-Lewin, João Pedro
 
 *Visekaptein endret 19. august fra João Pedro til B.Fernandes:* høyere pris, straffer, og Hull borte mot Fulham borte. **Merk at slottet er nesten verdiløst** — VK utløses kun ved null minutter fra Haaland. Rotasjon eller et innhopp gir null.
-**Benk:** Kinsky, Davis, Diop, Slater
+**Benk:** Kinsky, Davis, Diop, Slater — **alle fire bekreftet startende i sine klubbkamper denne runden.**
 
 *Keepervalget, avgjort 21. august:* **Verbruggen starter.** Kinsky spiller Brentford **borte**; Verbruggen spiller Villa **hjemme** mot et lag i full ombygging — Emery bekreftet 21. august avgangene til Konsa, Digne, Tielemans og Rogers, og leter fortsatt etter midtstopper. Onana er ute.
 
 ⚠️ **Motargumentet, ført inn 21. august:** det ble tidligere hevdet at «Spurs' bakre firer ikke finnes» fordi Porro, Udogie og van de Ven manglet oppkjøringsminutter. De Zerbi utpekte samme dag fem lagkapteiner, og **van de Ven og Porro er to av dem**. Kapteinsutnevnelse er sesonglang og ikke uttaksbevis, men det er et navngitt positivt signal om at begge er i planen. Marginen mellom de to keeperne er mindre enn først framstilt.
  Verbruggen spiller Villa **hjemme** bak den samme firerkjeden han sto bak i alle 37 ligakamper forrige sesong. Clean sheet er 4 poeng; redninger er 1 per 3. Tolv redninger kreves for å hente inn ett hull i null, så clean sheet-sannsynligheten dominerer. **BPS-argumentet for Kinsky gjelder sesongverdien hans, ikke hvem som starter i GW1** — to ulike spørsmål.
 
-*Kostnaden, uttalt:* to keepere som begge spiller betyr at den benkede leverer null hver runde. Det er prisen for at slottet ikke lenger er dødt.
+*Kostnaden, presisert og feilrettet 21. august, kveld:* Kinsky spiller for Tottenham uansett hvem vi velger i vår startellever — han er nailed hos Spurs. At han er **benket hos oss** betyr null poeng i **normale** runder, fordi bench ikke teller da. Det gjelder ikke fordi han «ikke spiller», men fordi bench-mekanikken er slik i alle runder uten Bench Boost. Med chipen aktivert ville hans faktiske poeng fra Spurs-kampen telt fullt ut. Den forrige formuleringen her («den benkede leverer null hver runde») ble feilaktig brukt som argument mot å bruke Bench Boost i GW1 — se `03` for feilloggen.
 
 *Regel 8-merknad:* begge benkeforsvarerne er nå Ipswich med identisk kamp (Sunderland hjemme). Regel 8 har dermed ingen fikstursvekt igjen og reduseres til rolle. Davis først på offensivt tak — fire angrepsbidrag i oppkjøringen, flest i troppen, og han spilte høyere enn Maeda. Diop er den sikrere DefCon-kilden. **Rekkefølgen er en reell nærkamp, ikke en gitt.**
 
@@ -232,6 +232,8 @@ Punktet er lukket. Feilen er logget i `03` som «årsaksregelen anvendt på én 
 
 **Motargumentet som står:** Arsenal 2,46 er troppens svakeste GW1–5-blokk, og Tzolis er den nyeste i XI-en — altså den som ryker først hvis Arteta stokker om. Følges gjennom GW1–3.
 
+**Reversering vurdert 21. august, kveld — avvist.** Szoboszlais rolle ble sjekket på nytt med kun kilder ≤4 uker gamle. To uavhengige kilder (Yahoo 18.8., Sportsmole 21.8.) er samstemte om sentral midtbane ved siden av Gravenberch — samme rolle som i sted begrunnet salget. En tredje kilde (3addedminutes, 21.8.) sa høyrekant, men topartskonsensusen veier tyngre. Se `03` for kilderegelen. **Konklusjonen fra 19. august står, nå på bredere kildegrunnlag.**
+
 **Runner-up som ble avvist:** Gibbs-White £8,0m → Tzolis £6,5m. Beholder Liverpool, frigjør £1,5m — men £1,5m i banken er dødt uten et sted å bruke det, siden det ikke finnes midtbanespillere under £4,5m å nedgradere til.
 
 ## VM-status i troppen
@@ -259,17 +261,25 @@ Ingen i troppen er sen VM-returnerende. Det er en reell strukturell fordel i GW1
 
 **Trafford som keeperkandidat:** Leeds ligger på 2,14 i GW1–5 — identisk med Spurs. Ingen fikstursgevinst ved å bytte fra Kinsky. Byttet krever £0,5m som må hentes fra en annen nedgradering. Fram til fredag er det et rent pengespørsmål, ikke et byttespørsmål.
 
-**Forsvarere:** Gabriel (ARS) £8,0m · Timber (ARS) £6,5m · O'Reilly (MCI) £6,5m · Van Dijk (LIV) £6,5m · Saliba (ARS) £6,0m · Guehi (MCI) £6,0m · Tarkowski (EVE) £6,0m · Senesi (TOT) £6,0m · Mosquera/Hincapié/White/Calafiori (ARS) £5,5m · Gvardiol/Ait-Nouri/Dias/Khusanov (MCI) £5,5m · Kerkez/Frimpong (LIV) £5,5m · Muñoz (CRY) £5,5m · Mukiele (SUN) £5,5m · Thiaw (NEW) £5,0m · Bradley/Gomez/Jacquet/Tsimikas (LIV) £5,0m · Maguire (MUN) £5,0m · Van Hecke (TOT) £5,0m · Rico Lewis (MCI) £4,5m · alle forsvarere fra Coventry, Hull og Ipswich £4,0m, inkludert **Diop (IPS)**, **Greaves (IPS)**, **O'Shea (IPS, nå høyreback)**, **Mendy (HUL)**, **Herrington (HUL)**, **Ajayi (HUL)** og **Thomas (COV)**
+**Forsvarere:** Gabriel (ARS) £8,0m · Timber (ARS) £6,5m · O'Reilly (MCI) £6,5m · Van Dijk (LIV) £6,5m · Saliba (ARS) £6,0m · Guehi (MCI) £6,0m · Tarkowski (EVE) £6,0m · Senesi (TOT) £6,0m · Mosquera/Hincapié/White/Calafiori (ARS) £5,5m · Gvardiol/Ait-Nouri/Dias/Khusanov (MCI) £5,5m · Kerkez/Frimpong (LIV) £5,5m · Muñoz (CRY) £5,5m · Mukiele (SUN) £5,5m · Thiaw (NEW) £5,0m · Bradley/Gomez/Jacquet/Tsimikas (LIV) £5,0m · Maguire (MUN) £5,0m · Van Hecke (TOT) £5,0m · **Konsa (ARS) £4,5m — ny 21. august, se under** · Rico Lewis (MCI) £4,5m · alle forsvarere fra Coventry, Hull og Ipswich £4,0m, inkludert **Diop (IPS)**, **Greaves (IPS)**, **O'Shea (IPS, nå høyreback)**, **Mendy (HUL)**, **Herrington (HUL)**, **Ajayi (HUL)** og **Thomas (COV)**
 
 ⚠️ **Saliba og Timber er begge langtidsskadet** (rygg og lyske). Begge sto over Community Shield. Clarke fører dem likevel i Arsenals XI 17. august — se `03`.
 
 **Bekreftet fra primærkilde 20. august (arsenal.com, nivå 1):** Arteta om Timber — «*[han trener med gruppen om] de neste ukene. Han trener ikke med gruppen ennå*». Om Saliba omtaler han fraværet selv som langvarig. **Timber er dermed ute av GW6-regnestykket, ikke bare av GW1.**
 
-**Arteta bekreftet også at Arsenal aktivt søker en forsvarer:** klubben har «*et helt spesifikt problem i bakre kjede*» og forsterker når de er klare. Behovet er nå faktum fra primærkilde; navnet er det ikke. `02` har Konsa som rykte — ikke oppgradert.
+**Arteta bekreftet også at Arsenal aktivt søker en forsvarer:** klubben har «*et helt spesifikt problem i bakre kjede*» og forsterker når de er klare. Behovet var 20. august fortsatt et faktum uten navn. **Navnet kom dagen etter.**
 
-**Nytt navn:** Arteta nevnte **Illan Meslier** som ny Arsenal-signering. Står ikke i prislisten. Berører ikke troppen, men berører GW16-keeperspørsmålet.
+### Konsa-kjøpet — bekreftet 21. august, vurdert og avvist som GW1-bytte
 
-**Hvem er Arsenal-forsvareren?** Arsenals bakre fire i Community Shield var White, Mosquera, Gabriel, Calafiori. Mosqueras plass er betinget av at Saliba-fraværet varer, og Arsenal jakter Ezri Konsa. **Calafiori er den eneste Arsenal-forsvareren vi eier som ikke berøres av dette.**
+**Arsenal har kjøpt Ezri Konsa fra Aston Villa** for £51m + £4m i tillegg (Sky Sports, ESPN, Just Arsenal — alle 21. august, samstemte på fee). FPL-pris **£4,5m**, verifisert fra to uavhengige kilder (FFScout 20.8., FPL Mate på X 21.8.).
+
+⚠️ **Ikke spilleberettiget i GW1.** Sky Sports (20. august): Konsa **rakk ikke torsdagens registreringsfrist** for kampen mot Coventry fredag. Han har i tillegg **ingen oppkjøring** — Emery ga ham forlenget VM-ferie, han misset både Super Cup og generalprøven mot Gladbach. Tidligst tenkelige debut er **Villa borte, GW2 (mandag 31. august)** — ironisk mot hans eget forrige lag — men ikke garantert: FPL Mate (X, 21. august) skriver «far from guaranteed in GW2 either... may genuinely be an avoid until an early Wildcard».
+
+**Motstridende kilde, avklart:** Just Arsenal skriver at han er «likely to start matches in Saliba's place» uten å nevne GW1-fraværet. Vi stoler på Sky Sports her — konkret, sjekkbar detalj (registreringsfrist), mens Just Arsenal er vagere og ikke motsier fraværet direkte.
+
+**Vurdert 21. august: Diop → Konsa.** Avvist. Diop er bekreftet starter til £4,0m; Konsa leverer garantert null poeng i GW1 til £4,5m, og GW2 er usikker. Byttet ville kostet £0,5m for å bytte en startende spiller mot en benket.
+
+**Kandidat til GW6-planen.** Konsa er nå det bekreftede navnet for «Arsenal-forsvareren» i `02`s GW6-plan, forutsatt at han er integrert innen da og Saliba fortsatt er ute. **Calafiori er fortsatt den eneste Arsenal-forsvareren vi eier som ikke berøres av noe av dette.**
 
 ⚠️ **Nytt gult flagg på Calafiori, 20. august (arsenal.com, nivå 1).** På et spørsmål om Calafioris allsidighet svarte Arteta ved å løfte fram **Hincapié** i samme åndedrag — kalte ham *extraordinary* og sa at laget er bedre med begge to. Han gjorde et Calafiori-spørsmål om til et par.
 
@@ -296,13 +306,16 @@ Det er ikke en degradering, og `03` er tydelig på at fravær av negativt signal
 | Guimarães £7,0m | God spiller, feil tidspunkt. To ukers integrering, fem VM-starter. | Startet Community Shield, ut ved pause. Minuttbygging som antatt. Holder. |
 | Walle Egeli £4,5m | Rotasjonsspiller, høyreving klassifisert som spiss. | Står i Clarkes Ipswich-XI. Begrunnelsen er utdatert; prisklassen er dekket av Slater. |
 | Diop £4,0m | Ny signering, uavklart startplass. | **Omgjort 19. august — se Egan-avsnittet.** Startet begge siste to, står i Clarkes XI, utpekt som Ipswich' førstevalg til £4,0m. |
-| Mosquera £5,5m | Betinget startplass: har plassen fordi Saliba er skadet. Arsenal jakter Konsa. | Uendret. Vi eier Calafiori til samme pris uten betingelsen. |
-| ~~Tzolis £6,5m~~ | — | **Kjøpt 19. august.** Se Szoboszlai-avsnittet. |
+| Mosquera £5,5m | Betinget startplass: har plassen fordi Saliba er skadet. | **Presisert 21. august:** Arsenal jaktet Konsa som dekning — nå kjøpt, se eget avsnitt over. Uendret konklusjon: vi eier Calafiori til samme pris uten betingelsen. |
+| ~~Tzolis £6,5m~~ | — | **Kjøpt 19. august.** Se Szoboszlai-avsnittet. Reversering vurdert på nytt 21. august kveld — avvist. |
 | Groß £5,5m | 35 år, Brightons dype rotasjonsmidtbane. | Straffer, corner og frispark. **Merk: `01` sa «krever £1,0m» også etter at Tzolis-byttet frigjorde £0,5m — tallet var da £0,5m og filen var stale.** Etter Verbruggen-byttet er banken £0,0m og tallet er £1,0m igjen. Bevisst utsettelse. |
 | M.Sangare £5,5m | Ingen PL-minutter. Prisklassen dekket av Slater £4,5m. | Klubbrekordsignering fra Lens, DC-terskel nådd i 59,4 % av Ligue 1-kampene. **Lukket 19. august: samme finansieringsproblem som Groß. Bevisst utsettelse.** |
 | Kusi-Asare £4,5m | 19 år, ventes ikke å starte ifølge Scout selv. Blokkerer Bench Boost. | Uendret. |
 | Guehi £6,0m | Ikke tidligere vurdert. | **Avvist permanent 19. august.** Projisert i Citys bakre firer (Nunes, Guehi, Gvardiol, O'Reilly), men han er midtstopper — den ene profilen den verifiserte BPS-endringen faktisk rammer. O'Reilly i GW13 er det tesekonsistente City-valget. |
 | Gakpo £7,0m | Ikke tidligere vurdert. | Runner-up til Tzolis som Szoboszlai-erstatter: prisnøytral, beholder Liverpools 1,86, projisert på venstrekanten. Avvist fordi Ngumoha konkurrerer om samme slott og rollebeviset er svakere enn Tzolis'. **Førstevalg hvis Tzolis mister plassen.** |
+| **Konsa £4,5m** | — | **Vurdert og avvist som GW1-bytte 21. august.** Ikke spilleberettiget i GW1. Se eget avsnitt over. **Kandidat til GW6.** |
+| **Maguire £5,0m** (for Shaw) | Vurdert 21. august kveld. Begge starter i samme Man Utd-firer — ingen fikstursforskjell. Kun 1 mål/2 assists i PL 2025/26 (StatMuse), tar ikke dødballer (Fernandes/Mbeumo/Amad gjør). Profilen går mot BPS-tesen i `02` (rammes av CBI-endringen). | **Avvist. Marginalt, ikke en reell oppgradering.** |
+| **Semenyo £8,5m** (for Gibbs-White) | Vurdert 21. august kveld. Ikke i FFScouts predikerte GW1-ellever mot Bournemouth. Rotasjonsrisiko bak Doku/Foden/Marmoush. | **Avvist.** |
 
 ## Åpne risikoer inn i GW1 — ført 21. august
 
@@ -312,7 +325,8 @@ Det er ikke en degradering, og `03` er tydelig på at fravær av negativt signal
 | **Calafiori/Hincapié** | Se over | GW1–3 |
 | **Mbeumos posisjon** | Se Mbeumo-avsnittet. Startplassen er trygg, nieren er ikke | GW1–5 |
 | **Haalands tilførsel** | Rodri, Reijnders og Savinho ute av klubben. **Skadebildet er derimot lite:** Maresca bekreftet 21. august at kun Doku er ute (2–3 uker) og at Nunes er tilbake. Ingen bekreftelse på Marmoush | Løpende. Han blir stående — regel 3 |
-| **Kinsky som benket toer** | Etter Verbruggen-byttet har du to keepere som begge spiller. Den benkede leverer null | Vurder rekkefølgen hver runde på kamp, ikke på pris |
+| **Kinsky som benket toer** | **Ingen reell risiko — presisert 21. august, kveld.** Begge keeperne spiller sine kamper. Den benkede teller ikke i normale runder (slik bench alltid fungerer), men ville telt fullt ut under Bench Boost. Se feilrettelsen over og i `03` | Kun relevant ved chip-planlegging, ikke løpende |
+| **Konsa-prisrisiko** | Nykjøpt Arsenal-forsvarer til £4,5m, ikke spilleberettiget i GW1. Mulig tidlig eierandelsvekst kan presse prisen opp før vi henter ham til GW6-planen. **Ikke verifisert prisendringsdata i dag** — FFScouts og FPLedits' predictor-verktøy var begge under oppgradering 21. august og viste ingen tall. Sjekk kilden på nytt før GW2- og GW3-deadline | Løpende fram til GW6-beslutningen |
 
 ## Strukturell merknad — intern motstand i GW1
 
@@ -340,6 +354,8 @@ Da banken sto på £0,5m ble alle tilgjengelige oppgraderinger listet, ikke anta
 | Tzolis £6,5m | Gakpo £7,0m (LIV) | Avvist. Svakere rollebevis, dårligere GW1-kamp |
 | Gibbs-White £8,0m | Semenyo £8,5m (MCI) | **Avvist på pris.** Avvisningen sto opprinnelig på «å øke City-eksponering motsier City-risikoen» — men den risikoen var inflatert (se `03`). Korrekt begrunnelse: £0,5m for 0,20 i fikstursforskjell (City 1,94 mot Forest 2,14) er dårligere enn å fikse et slott som produserte null hver runde |
 | **Dúbravka £4,0m** | **Verbruggen £4,5m** | **Gjennomført** |
+| **Diop £4,0m** | **Konsa £4,5m** | **Vurdert og avvist 21. august.** Ikke spilleberettiget i GW1. Kandidat til GW6 i stedet. |
+| **Shaw £4,5m** | **Maguire £5,0m** | **Vurdert og avvist 21. august kveld.** Ville krevd reversering av Verbruggen-byttet for finansiering — se over. |
 
 Midtbanen har ingenting mellom £4,5m og £5,5m; spissene ingenting mellom £6,0m og £7,0m. £0,5m alene kunne derfor ikke oppgradere Slater eller Calvert-Lewin.
 
@@ -351,7 +367,7 @@ Alt under er primærkilde (trenerens egne ord), og gjelder **motstanderne** til 
 | Kamp | Funn | Retning for oss |
 |---|---|---|
 | Arsenal–Coventry | **Haji Wright ute i opptil 12 uker** (lårskade) | Marginalt positivt for Tzolis og Calafiori |
-| Brighton–Villa | Villa har mistet **Konsa, Digne, Tielemans og Rogers**; Onana ute; Emery bygger om og søker midtstopper. Villa har hentet **Wan-Bissaka** på sesonglån fra West Ham | Positivt for Verbruggens clean sheet |
+| Brighton–Villa | Villa har mistet **Konsa** (til Arsenal, se over)**, Digne, Tielemans og Rogers**; Onana ute; Emery bygger om. Villa har hentet **Wan-Bissaka** på sesonglån fra West Ham | Positivt for Verbruggens clean sheet |
 | Man City–Bournemouth | Rose har hatt god oppkjøring tross skader. Christie utestengt | Nøytralt for Haaland |
 | Fulham–Chelsea | **Cairney ute skadet** | Marginalt positivt for João Pedro |
 | Ipswich–Sunderland | Alle Sunderland-spillere tilgjengelige unntatt **Adingra** | Marginalt negativt for Davis og Diop |

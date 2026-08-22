@@ -1,6 +1,6 @@
 # Regler 2026/27 og sesongplan
 
-*Sist oppdatert: 21. august 2026 — trenerlisten komplettert til 20 av 20, Bench Boost avblokkert, City-risikoen oppgradert fra rykte til faktum.*
+*Sist oppdatert: 21. august 2026, kveld — Konsa-kjøpet til Arsenal bekreftet (ikke spilleberettiget GW1), trenerlisten komplettert til 20 av 20, Bench Boost avblokkert, City-risikoen oppgradert fra rykte til faktum.*
 
 ## Nøkkeldatoer
 
@@ -53,6 +53,8 @@
 **Uendret:** DefCon-poeng (forsvarere 10 CBIT, midtbane 12 CBIRT → 2 poeng), 5 rullerende frie bytter med tak på 5, to sett med chips (Wildcard, Free Hit, Triple Captain, Bench Boost per halvsesong).
 
 **Nytt ellers:** live poeng, rank og miniligaoppdatering. Projisert bonus etter 20 minutter. Offisiell price change predictor, som fjerner mye av informasjonsfortrinnet i prisspekulasjon. Lockdown flyttet til 09:00 UK dagen etter siste kamp.
+
+⚠️ **Status 21. august:** den offisielle predictoren og tredjeparts-verktøyene (FFScout, FPLedits) viste alle «under oppgradering, kommer tilbake før GW2-deadline» da vi sjekket. Ingen prisendringsprognose er dermed verifiserbar i dag for noen spiller, inkludert Konsa. Se `01` for konsekvensen.
 
 **11 posisjonsendringer:**
 - Til forsvar: Rio Cardines, Eric Moreira, Ryan Sessegnon, Mats Wieffer
@@ -163,6 +165,14 @@ To bevegelige deler før valget tas: Arsenal jakter **Ezri Konsa** fra Villa som
 **Vi eier allerede Calafiori.** Vurder derfor om GW6-byttet i det hele tatt skal gå til forsvar, eller om Arsenal-eksponeringen heller bør tas offensivt (Tzolis £6,5m startet Community Shield med to assists).
 
 **Merknad til GW6, oppdatert 19. august:** Arsenal-eksponeringen er **allerede tatt**, offensivt, via Tzolis £6,5m (Szoboszlai ut). GW6-byttet skal derfor ikke lenger gå til Arsenal-forsvar. Det frigjorte byttet går til Calvert-Lewin-utgangen alene.
+
+**Merknad til GW6, ny 21. august — Konsa-kjøpet bekreftet, rykte er nå fakta.** Arsenal har kjøpt **Ezri Konsa** fra Aston Villa: £51m + £4m i tillegg (Sky Sports, ESPN, Just Arsenal, alle 21. august). FPL-pris **£4,5m** (FFScout, FPL Mate).
+
+⚠️ **Ikke spilleberettiget i GW1.** Sky Sports (20. august): Konsa rakk ikke torsdagens registreringsfrist for kampen mot Coventry. Han har heller ingen oppkjøring — forlenget VM-ferie innvilget av Emery, misset Super Cup og generalprøven mot Gladbach. Tidligst tenkelige debut: **Villa borte, GW2 (31. august)** — ikke garantert (FPL Mate: «far from guaranteed in GW2 either»).
+
+**Konsekvens for GW6-planen:** Konsa er nå det bekreftede navnet for «Arsenal-forsvareren», forutsatt at han er integrert innen GW6 og Saliba fortsatt er ute. Mosqueras plass er fortsatt kortsiktig betinget av Saliba-fraværet. **Vurdert som GW1-bytte (Diop → Konsa) 21. august og avvist** — se `01` for detaljene. Beslutningen om Konsa til GW6 tas på faktisk spilletid i GW2–5, ikke nå.
+
+**Prisrisiko, uverifisert:** om Konsas eierandel stiger raskt før han faktisk spiller, kan prisen gå opp før GW6-vinduet. Verken FFScouts eller FPLedits' price change-verktøy leverte tall 21. august (begge under oppgradering). **Ingen prognose er mulig å gi i dag.** Sjekk `fantasyfootballscout.co.uk/fpl/price-predictions` og `livefpl.net/prices` på nytt før GW2- og GW3-deadline.
 
 **Merknad til GW9, oppdatert 21. august:** den forrige merknaden sa at Mbeumo er «projisert som Uniteds spiss». Det premisset er borte — Šeško er tilbake i trening og nierkonkurransen er fire-fem navn (se `01`). **GW9-utgangen står uendret, fordi den alltid hvilte på program og ikke på rolle.** Men begrunnelsen skal ikke lenger vise til spissrollen.
 

@@ -1,8 +1,16 @@
 # Verifiseringsprotokoll
 
-*Sist oppdatert: 21. august 2026, ettermiddag — seks nye feillogger fra deadline-døgnet, verktøybegrensninger dokumentert.*
+*Sist oppdatert: 21. august 2026, kveld — Bench Boost-feilen rettet (bench-mekanikk forvekslet med kampdeltakelse), ny regel om kildealder, Konsa-punktet lukket, seks nye feillogger fra deadline-døgnet, verktøybegrensninger dokumentert.*
 
 Denne filen finnes fordi hver eneste feil under er faktisk begått i denne sesongforberedelsen. Sjekklistene er destillert av dem.
+
+## Ny regel, 21. august: kilder eldre enn fire uker brukes ikke
+
+**Grense: artikler, pressekonferanser og oppstillinger publisert før ca. 24. juli 2026 er utenfor.** Gjelder nyheter, lagnytt, projeksjoner og prisdata — ikke historisk sesongstatistikk (CBIT-tall, målprosent, fjorårets minuttall) brukt som referansegrunnlag, som per natur er eldre.
+
+**Hvorfor regelen kom:** si.com-artikkelen brukt i Szoboszlai-vurderingen viste seg å omtale Arne Slot som Liverpool-manager. Det er feil sesong — Iraola er bekreftet manager for 2026/27. Artikkelen datostemplet «8-25-25» var fra august **2025**, ett år gammel, og ville vært luket ut av firukersregelen alene, uavhengig av at feil manager også avslørte den.
+
+**Praktisk konsekvens:** sjekk publiseringsdato **før** innholdet brukes, ikke bare når noe virker inkonsistent. Dette er en skjerpelse av kildehierarkiet under, ikke en erstatning for det.
 
 ## Spillets regler er også fakta som må slås opp
 
@@ -75,6 +83,7 @@ VM ble spilt sommeren 2026 og sesongstarten er skjøvet en uke. Dette forsvinner
 5. Hva blir klubbfordelingen etter byttet? Maks 3 per klubb.
 6. Hvor mange millioner av keeper- og forsvarsbudsjettet ligger på topplag etter byttet? Går tallet ned uten at det er bestemt, stopp.
 7. **Hva står igjen i banken etterpå, og hvilke planlagte sidebytter blokkeres av det?** Se salgsprisregelen.
+8. **Er hver kilde brukt yngre enn fire uker?** Se regelen øverst i filen.
 
 ## Generalprøven er det sterkeste signalet — men les årsaken
 
@@ -110,11 +119,14 @@ Når en sekundærkilde skriver at noe *kan* skje, er det ikke et bevis for usikk
 
 **Regel ved konflikt mellom projeksjon og oppstilling:** oppstillingen vinner. En projeksjon er en gjetning skrevet før kampen; en oppstilling er trenerens observerte valg.
 
+**Regel ved konflikt mellom to samtidige projeksjoner:** flertall blant uavhengige kilder vinner over en enkeltstående avviker, men flertallet skal navngis, ikke bare telles. To kilder som uavhengig lander på samme svar med dager mellom seg veier tyngre enn én kilde samme dag som avviker.
+
 | Tilfelle | Projeksjonen sa | Oppstillingen viste | Vi fulgte |
 |---|---|---|---|
 | Slater, 13.–15. aug | Scout: startplassen er «diskutabel» | Startet i pivot mot Nice 15. aug | Oppstillingen |
 | Mbeumo, 15.–17. aug | Scout: ventes å spille spiss, bedre valg enn Cunha | Cunha startet på nieren mot Milan 15. aug, Mbeumo inn for ham | Oppstillingen — punktet står åpent |
 | Egan, 15.–19. aug | Clarke: ikke i Hulls XI | Startet mot Nice 15. aug | **Ingen av dem — årsaksregelen avgjorde.** Mendy signerte 12. aug og satt på benken. |
+| Szoboszlais rolle, 18.–21. aug | Yahoo (18.8.) og Sportsmole (21.8.): sentral midtbane med Gravenberch. 3addedminutes (21.8.): høyrekant | — | **Topartskonsensusen** (Yahoo + Sportsmole, uavhengige, fire dager mellom seg) foran enkeltkilden samme dag |
 
 **Merk om premierleague.com:** nettstedet motsier seg selv. 17. august skrev Scout at Mbeumo ventes å spille spiss i Seskos fravær; samme dag førte Adrian Clarke Sesko i Uniteds XI. Samme artikkel fører Saliba og Timber i Arsenals XI og skriver i notatet under at begge er skadet. **Clarkes XI-artikkel er en fullt-skadefri-projeksjon merket som GW1-verktøy.** Behandle den som nivå 5, og bare på signeringer og roller.
 
@@ -137,7 +149,13 @@ Tesen i `02` var delvis feil og ble etterprøvd mot fire uavhengige kilder.
 
 ## Feillogg
 
-⚠️ **Seks nye oppføringer 20.–21. august. Alle er begått av Claude i løpet av det siste døgnet før GW1-deadline.**
+### Ny feil, 21. august kveld: bench-mekanikk forvekslet med kampdeltakelse
+
+Kinsky ble omtalt som «garantert null poeng» i en Bench Boost-vurdering, med begrunnelsen at han er benket i vår ellever. Det er sant i **normale** runder — bench teller ikke da, uansett hvem som er der. Men Kinsky **spiller** for Tottenham mot Brentford uansett, og med Bench Boost aktivert ville hans faktiske poeng fra den kampen ha telt fullt ut. Feilen ble brukt som argument for å utsette Bench Boost i GW1 — et argument som falt bort idet feilen ble rettet, men konklusjonen (vent til etter GW16-wildcarden) sto likevel, nå på riktig grunnlag: chipen er engangs, og et bevisst bygget benk i en dobbeltrunde har høyere forventet verdi enn en tilfeldig sammensatt GW1-benk, ikke fordi GW1-benken er «død».
+
+**Regelen som fulgte:** skill mellom «teller ikke i vårt lag» og «spiller ikke sin kamp». Det første er en konsekvens av chip-valg; det andre er en faktisk tilgjengelighetsstatus. Sjekk alltid om en benket spiller faktisk spiller for klubben sin før en påstand om «null poeng» brukes i en chip-vurdering — de to spørsmålene har forskjellige svar.
+
+⚠️ **Syv nye oppføringer 20.–21. august. Alle er begått av Claude i løpet av det siste døgnet før GW1-deadline.**
 
 | Feil | Hva skjedde | Regelen som fulgte |
 |---|---|---|
@@ -151,6 +169,11 @@ Tesen i `02` var delvis feil og ble etterprøvd mot fire uavhengige kilder.
 | **Aggregator prioritert foran klubbside** | Kl. 15:24 ble det meldt at «ingenting fra dagens pressekonferanser er publisert». Arsenal.com hadde da lagt ut fullt referat fra Artetas pressekonferanse. Det ble søkt på FFScouts liveblogg og generiske nyhetssøk, men ikke gått til klubbens egen nettside — **nivå 1 i kildehierarkiet**. | **Gå klubb for klubb til primærkilden før du melder at noe ikke finnes.** «Jeg fant det ikke» er ikke «det er ikke publisert». |
 | **Mbeumo-posisjonen revidert fire ganger på tre dager** | Framstillingen gikk fra «bekreftet spiss» til «uavklart» til «Cunha på nieren» til «uavklart» mellom 19. og 20. august, uten at noen beslutning endret seg. | **Når et spørsmål ikke lar seg besvare fra tilgjengelig bevis, skal det avklares som irrelevant — ikke besvares på nytt hver runde.** Spørsmålet som betydde noe var «starter han», og svaret var ja hele veien. |
 
+### Ny feil, 21. august kveld: årstall ikke sjekket før bruk
+
+Et si.com-oppslag om Szoboszlai ble brukt i Szoboszlai-vurderingen. Artikkelen omtalte Arne Slot som Liverpool-manager — han er avgått, Iraola er bekreftet manager for 2026/27. URL-en bar datostempelet «8-25-25»: artikkelen var fra august **2025**, ett år gammel. Feilen ble oppdaget fordi manager-navnet var åpenbart galt, ikke fordi datoen ble sjekket først.
+
+**Regelen som fulgte:** se firukersregelen øverst i filen. Sjekk publiseringsdato før innhold brukes, ikke som feilsøking etterpå.
 
 ### Regel, ny 21. august: skill parafrase fra sitat
 
@@ -174,6 +197,7 @@ Tre feil på under 48 timer hadde identisk rotårsak. Alle tre kom av at en seku
 | `web_fetch` mot `bbc.com` | **Blokkert** (SITE_BLOCKED). `feeds.bbci.co.uk` fungerer, men URL-en må først komme fra et søkeresultat |
 | BBCs liveblogg | Paginert. Én henting gir **én av sju sider**, nyeste først. En pressekonferanse fra kl. 13:00 ligger seks sider bakover |
 | `web_fetch` generelt | Avviser URL-er som ikke har stått i et tidligere søke- eller hentingsresultat, selv om de sto som lenke i en hentet side |
+| `web_fetch` mot bildebaserte oppstillingsgrafikker (FFScout predicted XI) | Leverer ofte kun rundtekst, ikke spillernavnene i selve grafikken. Posisjonsdetaljer må da bekreftes fra en tekstbasert kilde i tillegg |
 
 **Konsekvens:** når brukeren limer inn et transkript, er det som regel raskere og mer pålitelig enn noe Claude kan hente selv. Be om det tidlig i stedet for å bruke ti søk på å rekonstruere det.
 
@@ -227,6 +251,8 @@ Tre feil på under 48 timer hadde identisk rotårsak. Alle tre kom av at en seku
 | Mbeumos posisjon | **Avklart som irrelevant**, ikke lukket. Se `01` |
 | Torsdagens pressekonferanser | Gjennomgått. Ingen endret en beslutning; tre endret en begrunnelse (Timber, Calafiori, Šeško) |
 | Fredagens pressekonferanser | ⚠️ **Ikke lest.** O'Neil, De Zerbi og Maresca gikk 13:30 UK; ingen referater hadde landet da denne filen ble skrevet. Gjelder Davis, Diop, Kinsky og **Haaland** |
+| Maguire og Semenyo | **Vurdert og avvist 21. august kveld.** Se `01` |
+| Bench Boost i GW1 | **Avvist — men på riktig grunnlag etter rettelsen over.** Chip spares til etter GW16-wildcarden |
 
 ### Åpne punkter etter deadline
 
@@ -237,7 +263,7 @@ Tre feil på under 48 timer hadde identisk rotårsak. Alle tre kom av at en seku
 | **Šeško tar nieren?** | GW3–5 | Avgjør om Mbeumo er permanent kantspiller. Ikke et salgssignal i seg selv |
 | **Citys tilførsel** | Løpende | Seks avganger/skader på fjorten dager. Berører Haaland direkte og GW13-planen for O'Reilly |
 | Slaters og Davis' plass | 1. september 23:00 BST | Vinduet stenger **etter** GW2-deadline. Opprykkslagene bygger fortsatt tropp |
-| **Hvor gikk Konsa?** | 1. september | **Emery bekreftet 21. august at Konsa har forlatt Villa.** Arteta sa 20. august at Arsenal fortsatt søker en forsvarer og har ikke annonsert noe. **Destinasjonen er ukjent.** Punktet er omformulert, ikke lukket |
+| **Konsa** | — | **Lukket 21. august.** Arsenal kjøpte ham fra Villa (£51m + £4m, Sky Sports/ESPN/Just Arsenal). Ikke spilleberettiget GW1 — rakk ikke registreringsfristen torsdag. Se `01` og `02`. |
 | Full gjennomgang av prislisten | Etter 1. september | Trafford-feilen viser at klubbkolonnen drifter under vinduet. **Meslier (ARS) og Cherki (MCI) mangler** |
 | BPS-tesen — holder den? | Etter GW5 | Mekanikken er verifisert. Det som gjenstår er faktisk bonusfordeling. Avgjør GW16-keepervalget, som nå gjelder Verbruggen/Kinsky → Raya |
 | **Manglende rader i `02`s vanskelighetstabell** | Før GW6 | Brighton, Brentford, Aston Villa, Sunderland, Newcastle, Coventry, Everton, Fulham, Palace og Bournemouth mangler. **Verbruggen ble kjøpt uten et beregnet fikstursstall for Brighton.** Roefs og Thiaw ble ført som «uvurdert», ikke avvist, av samme grunn |
