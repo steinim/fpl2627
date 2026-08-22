@@ -1,6 +1,7 @@
 # Strategi og tropp
 
-*Sist oppdatert: 22. august 2026, sluttgjennomgang — Scout-overlappet rettet fra 6 til 5 (Dúbravka var solgt).*
+*Sist oppdatert: 22. august 2026 — ni permanent avviste/redundante spillervurderinger flyttet til `arkiv/01-vurderte-spillere.md`, Regel 8-merknad komprimert.*
+*Forrige: 22. august 2026, sluttgjennomgang — Scout-overlappet rettet fra 6 til 5 (Dúbravka var solgt).*
 *Forrige: 22. august 2026, GW1-oppgjør — Verbruggen-forbeholdet lukket, Tzolis- og Calafiori-risikoene avgjort på oppstilling.*
 *Forrige: 22. august 2026 — Meslier gjenopprettet fra nivå 1-kilde (tapt i kveldsomskrivingen 21. aug), forbehold om API-et som statistikkilde.*
 *Forrige: 21. august 2026, kveld — feilrettet Kinsky-benkpåstand (se `03`), Konsa-kjøpet til Arsenal bekreftet og vurdert (avvist som GW1-bytte), Dúbravka → Verbruggen, Mbeumo-begrunnelsen omskrevet, Šeško tilbake. Se `03` feillogg.*
@@ -93,7 +94,7 @@ Scouts lag: Kinsky, Dúbravka · Gabriel, Mosquera, Maguire, Greaves, Thomas · 
 
 *Kostnaden, presisert og feilrettet 21. august, kveld:* Kinsky spiller for Tottenham uansett hvem vi velger i vår startellever — han er nailed hos Spurs. At han er **benket hos oss** betyr null poeng i **normale** runder, fordi bench ikke teller da. Det gjelder ikke fordi han «ikke spiller», men fordi bench-mekanikken er slik i alle runder uten Bench Boost. Med chipen aktivert ville hans faktiske poeng fra Spurs-kampen telt fullt ut. Den forrige formuleringen her («den benkede leverer null hver runde») ble feilaktig brukt som argument mot å bruke Bench Boost i GW1 — se `03` for feilloggen.
 
-*Regel 8-merknad:* begge benkeforsvarerne er nå Ipswich med identisk kamp (Sunderland hjemme). Regel 8 har dermed ingen fikstursvekt igjen og reduseres til rolle. Davis først på offensivt tak — fire angrepsbidrag i oppkjøringen, flest i troppen, og han spilte høyere enn Maeda. Diop er den sikrere DefCon-kilden. **Rekkefølgen er en reell nærkamp, ikke en gitt.**
+*Regel 8:* Davis og Diop deler kamp (Ipswich–Sunderland H), så rekkefølgen avgjøres på rolle, ikke program — Davis for offensive returer, Diop for DefCon. Nærkamp.
 
 Klubbfordeling: Man Utd 3, Arsenal 2, Forest 2, Ipswich 2, Spurs 1, Brighton 1, Hull 1, Man City 1, Chelsea 1, Leeds 1. **Liverpool 0.**
 
@@ -307,23 +308,14 @@ Det er ikke en degradering, og `03` er tydelig på at fravær av negativt signal
 
 | Spiller | Hvorfor avvist | Status 19. august |
 |---|---|---|
-| Gabriel £8,0m | BPS-omskrivingen rammer profilen hans direkte. | **Avvisningen bekreftet 19. august, men premisset er svekket.** BPS-endringen er verifisert som liten: CBI faller fra 1 BPS per 2 til 1 per 3, og DefCon-poengene hans er uendret. Gabriel taper noen bonuspoeng, ikke sesongen. 28,2 % eierandel. Avvisningen står nå på **pris** (ikke finansierbar uten nedgradering), ikke på tesen. |
-| Rice £7,5m | Sen VM-returnerende, null oppkjøring, trangere konkurranse. | Ikke registrert i Community Shield-troppen. Bekreftet. |
-| Ødegaard £6,5m | Snittet under 60 minutter per kamp i fjor. | Startet Community Shield, byttet ut 84'. Uendret. |
-| Igor Jesus £6,0m | 2 ligamål på 23 kamper, 18 % skudd på mål. | Uttellingen er problemet, ikke startplassen. Holder. |
 | Guimarães £7,0m | God spiller, feil tidspunkt. To ukers integrering, fem VM-starter. | Startet Community Shield, ut ved pause. Minuttbygging som antatt. Holder. |
-| Walle Egeli £4,5m | Rotasjonsspiller, høyreving klassifisert som spiss. | Står i Clarkes Ipswich-XI. Begrunnelsen er utdatert; prisklassen er dekket av Slater. |
-| Diop £4,0m | Ny signering, uavklart startplass. | **Omgjort 19. august — se Egan-avsnittet.** Startet begge siste to, står i Clarkes XI, utpekt som Ipswich' førstevalg til £4,0m. |
 | Mosquera £5,5m | Betinget startplass: har plassen fordi Saliba er skadet. | **Presisert 21. august:** Arsenal jaktet Konsa som dekning — nå kjøpt, se eget avsnitt over. Uendret konklusjon: vi eier Calafiori til samme pris uten betingelsen. |
-| ~~Tzolis £6,5m~~ | — | **Kjøpt 19. august.** Se Szoboszlai-avsnittet. Reversering vurdert på nytt 21. august kveld — avvist. |
 | Groß £5,5m | 35 år, Brightons dype rotasjonsmidtbane. | Straffer, corner og frispark. **Merk: `01` sa «krever £1,0m» også etter at Tzolis-byttet frigjorde £0,5m — tallet var da £0,5m og filen var stale.** Etter Verbruggen-byttet er banken £0,0m og tallet er £1,0m igjen. Bevisst utsettelse. |
 | M.Sangare £5,5m | Ingen PL-minutter. Prisklassen dekket av Slater £4,5m. | Klubbrekordsignering fra Lens, DC-terskel nådd i 59,4 % av Ligue 1-kampene. **Lukket 19. august: samme finansieringsproblem som Groß. Bevisst utsettelse.** |
-| Kusi-Asare £4,5m | 19 år, ventes ikke å starte ifølge Scout selv. Blokkerer Bench Boost. | Uendret. |
-| Guehi £6,0m | Ikke tidligere vurdert. | **Avvist permanent 19. august.** Projisert i Citys bakre firer (Nunes, Guehi, Gvardiol, O'Reilly), men han er midtstopper — den ene profilen den verifiserte BPS-endringen faktisk rammer. O'Reilly i GW13 er det tesekonsistente City-valget. |
 | Gakpo £7,0m | Ikke tidligere vurdert. | Runner-up til Tzolis som Szoboszlai-erstatter: prisnøytral, beholder Liverpools 1,86, projisert på venstrekanten. Avvist fordi Ngumoha konkurrerer om samme slott og rollebeviset er svakere enn Tzolis'. **Førstevalg hvis Tzolis mister plassen.** |
 | **Konsa £4,5m** | — | **Vurdert og avvist som GW1-bytte 21. august.** Ikke spilleberettiget i GW1. Se eget avsnitt over. **Kandidat til GW6.** |
-| **Maguire £5,0m** (for Shaw) | Vurdert 21. august kveld. Begge starter i samme Man Utd-firer — ingen fikstursforskjell. Kun 1 mål/2 assists i PL 2025/26 (StatMuse), tar ikke dødballer (Fernandes/Mbeumo/Amad gjør). Profilen går mot BPS-tesen i `02` (rammes av CBI-endringen). | **Avvist. Marginalt, ikke en reell oppgradering.** |
-| **Semenyo £8,5m** (for Gibbs-White) | Vurdert 21. august kveld. Ikke i FFScouts predikerte GW1-ellever mot Bournemouth. Rotasjonsrisiko bak Doku/Foden/Marmoush. | **Avvist.** |
+
+*Arkivert 22. august: Igor Jesus, Walle Egeli, Kusi-Asare, Guehi, Maguire, Semenyo, Rice, Ødegaard, Gabriel — permanent avvist eller ferdig begrunnet, ingen gjenværende beslutningsverdi. Tzolis- og Diop-radene fjernet som redundante; begge står i troppstabellen. Se `arkiv/01-vurderte-spillere.md`.*
 
 ## Åpne risikoer inn i GW1 — ført 21. august
 

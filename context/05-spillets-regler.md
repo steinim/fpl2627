@@ -4,7 +4,7 @@
 
 **Kilde: Fantasy Premier Leagues egen regelside (Help → Rules), lastet ned 22. august 2026. Nivå 0 i kildehierarkiet i `03`** — regelverket selv, ikke en omtale av det. Hele filen er hentet derfra. Der noe kommer fra en annen kilde, står det i raden.
 
-> **Denne filen endres ikke gjennom sesongen.** Endres den, er det fordi en verdi var feil skrevet av — ikke fordi reglene har endret seg.
+> **Seksjon 1–8 endres ikke gjennom sesongen.** Endres de, er det fordi en verdi var feil skrevet av — ikke fordi reglene har endret seg. **Seksjon 9 er et unntak** — den sporer hva denne filen har rettet i `01`–`04`, og oppdateres når de filene endrer seg (sist: 22. august, etter at `02`s chip-overlapp ble løst).
 >
 > **Hvorfor filen finnes:** Claude regnet 21.–22. august tre ganger baklengs fra en poengsum til en konklusjon, uten tabellen foran seg. To av tre ble feil. Feilen var ikke manglende FPL-kunnskap, men at reglene ble hentet fra hukommelsen. **Ingen påstand om hvordan en poengsum er satt sammen uten at den er regnet mot tabellene under. Står ikke svaret her, skal det sies at det ikke står her.**
 
@@ -205,12 +205,17 @@ Maks 30 private ligaer, 5 offentlige. Automatisk påmelding til overall, land, f
 | Låsing 09:00 UK | Antatt | Bekreftet |
 | Sparte bytter, maks 5 | Antatt | Bekreftet |
 
-### Fire ting som ikke står i `01`–`04` og bør inn
+### Tre ting som ble ført inn i `02` 22. august
 
-1. **Free Hit kan ikke spilles i to påfølgende runder.** `02` planlegger Free Hit 1 i GW16–19. Legges den i GW19, er Free Hit 2 blokkert til GW21.
-2. **Wildcard og Free Hit kan ikke avbrytes.** Bench Boost og Triple Captain kan. `02`s chip-plan skiller ikke mellom dem, og forskjellen avgjør hvor sent en beslutning kan tas.
-3. **Kun én chip per runde.** `02` fører Wildcard GW16–17 og Free Hit GW16–19 i overlappende vinduer. De kan ikke deles på samme runde.
-4. **Kort fra benken teller som å ha spilt.** En ubrukt innbytter som får gult kort utløser ikke automatisk innbytte. Marginalt, men det er en regel som kan koste en runde.
+Alle tre er nå løst i `02`s chip-seksjon, ikke lenger åpne punkter:
+
+1. **Free Hit kan ikke spilles i to påfølgende runder.** `02` fører Free Hit 1 som utløserbasert (kun ved kunngjort blankrunde), ikke lenger som et fast vindu i GW16–19.
+2. **Wildcard og Free Hit kan ikke avbrytes; Bench Boost og Triple Captain kan.** `02` skiller nå eksplisitt mellom dem under «Merk om avbryting».
+3. **Kun én chip per runde.** Overlappet mellom Wildcard (GW16–17) og Free Hit (GW16–19) er oppløst — kun Wildcard har et fast vindu nå, Free Hit er utløserbasert uten eget vindu.
+
+### Én ting som fortsatt bør inn
+
+4. **Kort fra benken teller som å ha spilt.** En ubrukt innbytter som får gult kort utløser ikke automatisk innbytte. Marginalt, men det er en regel som kan koste en runde. Ikke nevnt i `01`–`04`.
 
 ### Fortsatt ubesvart
 
