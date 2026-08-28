@@ -1,6 +1,11 @@
 # Strategi og tropp
 
-*Sist oppdatert: 22. august 2026 — ni permanent avviste/redundante spillervurderinger flyttet til `arkiv/01-vurderte-spillere.md`, Regel 8-merknad komprimert.*
+*Sist oppdatert: 27. august 2026, verifiseringsrunde — to feil funnet og rettet: anti-drift-tallet hadde ikke fulgt Calafioris prisstigning, og et klokkeslettavsnitt blandet britisk og norsk tid. GW2-benken presisert til alle fire navn.*
+*Forrige: 27. august 2026, torsdag — Chelsea-beslutningspunkt oppdatert (europastatus lukket, formasjon fortsatt uavklart, eierandeler oppdatert, ingen bytte denne runden), GW2-laguttak ført inn (Kinsky for Verbruggen, Slater først på benk), Regel 7 fått overstyringsklausul.*
+*Forrige: 25. august 2026, kveld — GW1-snittet rettet til 50 (fasit etter låsing), Chelsea-beslutningspunkt ført inn, Gibbs-White-flagg, prisvarsel.*
+*Forrige: 25. august 2026 — GW1-fasit ført inn (46 poeng), Konsa-prisrisikoen snudd, Cherki lagt i prislisten, Egan-begrunnelsen feilrettet, Guehi og Semenyo gjenåpnet.*
+*Forrige: 22. august 2026, kveld — anti-drift-tallet rettet (N.Williams manglet, 45,3 % → 60,9 %), `arkiv/`-stien til vurderte-spillere-filen fjernet (filen ligger i prosjektroten).*
+*Forrige: 22. august 2026 — ni permanent avviste/redundante spillervurderinger flyttet til `01-vurderte-spillere.md`, Regel 8-merknad komprimert.*
 *Forrige: 22. august 2026, sluttgjennomgang — Scout-overlappet rettet fra 6 til 5 (Dúbravka var solgt).*
 *Forrige: 22. august 2026, GW1-oppgjør — Verbruggen-forbeholdet lukket, Tzolis- og Calafiori-risikoene avgjort på oppstilling.*
 *Forrige: 22. august 2026 — Meslier gjenopprettet fra nivå 1-kilde (tapt i kveldsomskrivingen 21. aug), forbehold om API-et som statistikkilde.*
@@ -42,8 +47,9 @@ Praktisk vindu: lagnytt torsdag 20. august, og pressekonferanser fredag formidda
 4. **Hit-budsjett: maks 4 hits (−16 poeng) hele sesongen.** Med 5 rullerende bytter trengs de nesten aldri. *Gjelder fra GW1.*
 5. **Ingen bytter før torsdag.** Pressekonferanser og lagnytt først.
 6. **Ett bytte per runde som normaltilstand.** Bank resten. *Gjelder fra GW1.*
-7. **Benkrekkefølge: forsvarere øverst når du spiller med tre bak.** En benket forsvarer kan dekke hull i alle tre posisjonene; en benket midtbanespiller kan ikke dekke en forsvarer, fordi du ikke kan gå under tre bak.
-8. **Mellom to benkede forsvarere avgjør forventet uttelling, ikke posisjon.** Regel 7 skiller ikke mellom dem. Rangér på kampprogram og rolle.
+7. **Benkrekkefølge: forsvarere øverst når du spiller med tre bak — som default.** En benket forsvarer kan dekke hull i alle tre posisjonene; en benket midtbanespiller kan ikke dekke en forsvarer, fordi du ikke kan gå under tre bak. **Motoren hopper uansett over en ugyldig erstatning**, så defaulten koster ingenting å følge når ingenting annet er kjent.
+   **Overstyring, lagt til 27. august:** når en navngitt startspiller har et konkret, tallfestet skadeflagg og en benket spiller i samme posisjon har klart bedre form og fikstur enn resten av benken, overstyrer det defaulten — for **den** spesifikke plasseringen, ikke som ny generalregel. Se Slater-vurderingen i GW2-seksjonen for anvendelsen.
+8. **Mellom to benkede spillere i samme kategori avgjør forventet uttelling, ikke posisjon.** Regel 7 skiller ikke mellom dem. Rangér på kampprogram og rolle.
 
 ## Scout Selection 17. august — templatemåling
 
@@ -108,11 +114,15 @@ Metrikken het tidligere «keeper- og forsvarsbudsjett» og ble regnet på forsva
 
 | | Verdi |
 |---|---|
-| Topplagsandel av GK+DEF | **£14,5m av £32,0m = 45,3 %** |
-| Fordelt på | Kinsky £4,5m (TOT 2,14) · Calafiori £5,5m (ARS — unntak, se under) · Shaw £4,5m (MUN 1,86) |
+| Topplagsandel av GK+DEF | **£19,6m av £32,1m = 61,1 %** |
+| Fordelt på | Kinsky £4,5m (TOT 2,14) · Calafiori £5,6m (ARS — unntak, se under) · Shaw £4,5m (MUN 1,86) · N.Williams £5,0m (NFO 2,14) |
 | Terskel for alarm | Faller under 40 % uten at det er besluttet |
 
+⚠️ **Oppdatert 27. august.** Calafiori steg til £5,6m natt til 27. august (se prisstatus-tabellen lenger ned). Tallet var £19,5m/£32,0m = 60,9 % så sent som 25. august — det har ikke stått uendret slik et senere avsnitt i denne filen hevdet før denne rettelsen. Terskelsjekken (40 %) er upåvirket av en så liten bevegelse, men et tall som ikke oppdateres når input endrer seg, er nøyaktig den feiltypen anti-drift-metrikken finnes for å fange andre steder i troppen.
+
 Arsenal ligger på 2,46 i GW1–5 og faller teknisk utenfor terskelen, men føres inn fordi eksponeringen er tatt bevisst mot GW6–10-blokken på 1,74. **Unntak skal navngis, ikke skjules i definisjonen.**
+
+⚠️ **Rettet 22. august, kveld.** Raden sa tidligere £14,5m/32,0m = 45,3 %, og talte kun Kinsky, Calafiori og Shaw. **N.Williams (Forest, £5,0m) var utelatt.** Forest ligger på 2,14 i GW1–5 — under egen 2,20-terskel, uten unntak — og skulle vært talt med fra første dag. Feilen ble ikke fanget av sjekkpunkt 6 i `03` fordi bytteforslaget (Egan → Diop) aldri involverte N.Williams, og anti-drift-tallet ble dermed aldri regnet på nytt etter at han kom inn i troppen. Reelt bilde: over 60 % av GK+DEF-budsjettet ligger på klubber med lett GW1–5-program. Det er ikke i seg selv en feil — spredning over gode fikstursblokker er poenget med en 3-4-3 med tre backer fra topplag-tabellen — men det var ikke tallet filen viste, og terskelsjekken («under 40 %») ble dermed aldri reelt testet mot riktig utgangspunkt.
 
 **Kjent svakhet, omformulert:** null Man City og null Liverpool i forsvaret. Det er fortsatt et valg, ikke en drift — £27,5m ligger på Haaland og Fernandes. Men det er ikke den krisen «£5,5m av £23,0m» antydet.
 
@@ -170,7 +180,15 @@ Mendy slår Egan på Egans egen målestokk, i en sterkere liga. Til referanse li
 
 **Erstatter: Diop (IPS) £4,0m.** Startet begge Ipswich' to siste oppkjøringskamper som midtstopper, står i Clarkes XI, og er utpekt som førstevalget blant Ipswich' tre £4,0m-stoppere. O'Shea har flyttet til høyreback, og er derfor ikke samme sak. Byttet er £4,0m → £4,0m, altså gratis i penger. Klubbfordeling etter: Ipswich 2, Hull 1. Topplagsandel av keeper- og forsvarsbudsjett uendret på £5,5m av £23,0m — ingen drift.
 
-**Bekreftelse 18.–19. august:** Hulls projiserte GW1-ellever fører **Mendy i midtstopperparet og Egan ute**. Ipswich' projiserte XI fører **Diop og Davis i bakre firer**. Byttet er ikke lenger valgfritt.
+~~**Bekreftelse 18.–19. august:** Hulls projiserte GW1-ellever fører **Mendy i midtstopperparet og Egan ute**. Ipswich' projiserte XI fører **Diop og Davis i bakre firer**. Byttet er ikke lenger valgfritt.~~
+
+⚠️ **Strøket 25. august. Den projiserte elleveren var feil, og ordet «obligatorisk» hørte aldri hjemme her.**
+
+Hulls faktiske GW1-ellever: Tzolakis; **Mendy, Egan**, Ajayi, Coyle, Stroud; Crooks, Slater, Giles; Belloumi, McBurnie. **Begge startet.** Ipswich-delen stemte — Diop og Davis startet begge, begge 90 minutter.
+
+GW1-fasit: **Egan 8 poeng** (21 DefCon, clean sheet, 27 BPS), **Diop 2**. Byttet kostet 6 poeng i runde én.
+
+Det gjør ikke byttet gal i seg selv — Hull kan fortsatt rotere, og én runde avgjør ingenting. Men begrunnelsen var gal på to nivåer: den brukte nivå 5-bevis som veto, og den valgte bort en spiller som samler DefCon (Egan 21) til fordel for en som ikke gjør det (Diop 5). **Det siste er verdt å merke seg mot BPS-tesen i `02`, som er hele grunnen til at vi eier billige forsvarere.** Se feilloggen i `03`.
 
 ⚠️ **Korrigert 19. august:** avsnittet under ble tidligere brukt som en del av begrunnelsen for byttet, med påstanden «Ipswich har tre realistiske clean sheet-kamper. Hull har én». `02` gir **begge klubbene 2,46 i GW1–5**. Ipswich er bedre i **GW1 alene**; over fem runder er det jevnt, og to av de tre «realistiske» kampene er bortekamper for et opprykkslag. **Byttet står på startplass, ikke på program.** Se feilloggen i `03`.
 
@@ -298,7 +316,7 @@ Det er ikke en degradering, og `03` er tydelig på at fravær av negativt signal
 
 ⚠️ **Det finnes ingen midtbanespillere under £4,5m i 2026/27.** Slater £4,5m ligger på gulvet for posisjonen. Enhver plan om å frigjøre penger fra det femte midtbaneslottet er dermed umulig — bekreftet 19. august.
 
-⚠️ **Cherki (MCI) står i Clarkes City-XI og mangler i denne listen.** Pris ikke verifisert.
+✅ **Cherki (MCI) £7,5m — pris verifisert 25. august.** Kom inn for O'Reilly på 63' mot Bournemouth og la **begge** målgivende (Guehi 84', Gvardiol 90'), 1 bonus. Innbytter, ikke starter — ingen handling, men han er nå priset og skal følges.
 
 **Spisser:** Haaland (MCI) £15,5m · Isak (LIV) £9,0m · Watkins (AVL) £8,0m · Igor Thiago (BRE) £8,0m · João Pedro (CHE) £7,5m · Ekitike (LIV) £7,5m *(langtidsskadet)* · Sesko (MUN) £7,0m *(tilbake i trening 20. aug; Carrick utelukket ham ikke fra Hull-troppen, men start usannsynlig)* · Calvert-Lewin (LEE) £6,0m · Igor Jesus (NFO) £6,0m · Brobbey (SUN) £6,0m · Welbeck (CHE) £6,0m · Emersonn (IPS) £5,5m · Isidor (SUN) £5,5m · Akpom (IPS) £5,0m · Kusi-Asare (FUL) £4,5m *(enabler, ventes ikke å starte)*
 
@@ -315,7 +333,7 @@ Det er ikke en degradering, og `03` er tydelig på at fravær av negativt signal
 | Gakpo £7,0m | Ikke tidligere vurdert. | Runner-up til Tzolis som Szoboszlai-erstatter: prisnøytral, beholder Liverpools 1,86, projisert på venstrekanten. Avvist fordi Ngumoha konkurrerer om samme slott og rollebeviset er svakere enn Tzolis'. **Førstevalg hvis Tzolis mister plassen.** |
 | **Konsa £4,5m** | — | **Vurdert og avvist som GW1-bytte 21. august.** Ikke spilleberettiget i GW1. Se eget avsnitt over. **Kandidat til GW6.** |
 
-*Arkivert 22. august: Igor Jesus, Walle Egeli, Kusi-Asare, Guehi, Maguire, Semenyo, Rice, Ødegaard, Gabriel — permanent avvist eller ferdig begrunnet, ingen gjenværende beslutningsverdi. Tzolis- og Diop-radene fjernet som redundante; begge står i troppstabellen. Se `arkiv/01-vurderte-spillere.md`.*
+*Arkivert 22. august: Igor Jesus, Walle Egeli, Kusi-Asare, Guehi, Maguire, Semenyo, Rice, Ødegaard, Gabriel — permanent avvist eller ferdig begrunnet, ingen gjenværende beslutningsverdi. Tzolis- og Diop-radene fjernet som redundante; begge står i troppstabellen. Se `01-vurderte-spillere.md`.*
 
 ## Åpne risikoer inn i GW1 — ført 21. august
 
@@ -326,7 +344,10 @@ Det er ikke en degradering, og `03` er tydelig på at fravær av negativt signal
 | **Mbeumos posisjon** | Se Mbeumo-avsnittet. Startplassen er trygg, nieren er ikke | GW1–5 |
 | **Haalands tilførsel** | Rodri, Reijnders og Savinho ute av klubben. **Skadebildet er derimot lite:** Maresca bekreftet 21. august at kun Doku er ute (2–3 uker) og at Nunes er tilbake. Ingen bekreftelse på Marmoush | Løpende. Han blir stående — regel 3 |
 | **Kinsky som benket toer** | **Ingen reell risiko — presisert 21. august, kveld.** Begge keeperne spiller sine kamper. Den benkede teller ikke i normale runder (slik bench alltid fungerer), men ville telt fullt ut under Bench Boost. Se feilrettelsen over og i `03` | Kun relevant ved chip-planlegging, ikke løpende |
-| **Konsa-prisrisiko** | Nykjøpt Arsenal-forsvarer til £4,5m, ikke spilleberettiget i GW1. Mulig tidlig eierandelsvekst kan presse prisen opp før vi henter ham til GW6-planen. **Ikke verifisert prisendringsdata i dag** — FFScouts og FPLedits' predictor-verktøy var begge under oppgradering 21. august og viste ingen tall. Sjekk kilden på nytt før GW2- og GW3-deadline | Løpende fram til GW6-beslutningen |
+| ~~**Konsa-prisrisiko**~~ | **Lukket 25. august, motsatt vei.** £4,5m uendret, 12,2 % eid, 94 054 solgt mot 18 675 kjøpt, offisiell prediktor på −35,8 %. Prisen stiger ikke. **Ny og motsatt risiko:** at han fortsatt ikke spiller når GW6 kommer | Spilletid i GW2–5 |
+| **Gibbs-White skadeflagget** | FPL fører ham 25. august med **«Knee injury – 75 % chance of playing»** (avlest i appen, ikke hentet fra API-et her). 75 % er FPLs mildeste flagg og er ikke et fravær. Men Forest spiller **Liverpool borte lørdag 12:30** i GW2, og han er den naturlige finansieringskilden til et Chelsea-bytte. Glasner presser sannsynligvis fredag, altså **etter** at man må ha bestemt seg | Glasners egne ord, Forests kanal. Torsdag |
+| **Uniteds tre slott** | Blokken ga 5 poeng av £24,5m i GW1 (Fernandes 2, Mbeumo 2, Shaw 1) i 0–2 borte mot et opprykkslag. `02` gir United 1,86 i GW1–5, delt beste blokk — **én kamp velter ikke det**, og GW9-utgangen står. Men klubbtaket er fullt brukt på blokken, så det finnes null fleksibilitet der uten å bryte planen | GW2–5, mot fikstursblokken og ikke mot enkeltkamper |
+| **Intern motstand i GW2** | **Man Utd–Ipswich** har B.Fernandes, Mbeumo og Shaw mot Davis og Diop — **fem av femten i én kamp**. **Chelsea–Brighton** har João Pedro mot Verbruggen. Sju av femten står på hver sin side av to kamper, mot tre i GW1 | Før GW2-deadline |
 
 ## Strukturell merknad — intern motstand i GW1
 
@@ -378,3 +399,235 @@ Alt under er primærkilde (trenerens egne ord), og gjelder **motstanderne** til 
 ⚠️ **Everton: Tarkowski er utnevnt til ny kaptein** etter Coleman. Han står i prislisten til £6,0m. Kapteinsbindet er startgaranti — noter ham som reell kandidat hvis Everton legges til i `02`s vanskelighetstabell.
 
 **Liverpool:** Curtis Jones nær Inter; Iraola vil ha en kantspiller før 1. september. Isak omtalt som svært viktig og i god form etter et godt VM. Troppen har null Liverpool-eksponering; det er fortsatt et bevisst valg med GW6 som inngangsvindu.
+
+## GW1-fasit — 46 poeng, ført inn 25. august 2026
+
+**Entry-ID 1561629. 46 poeng mot et rundesnitt på 50.** Høyeste enkeltlag i spillet: 131. Begge tall er hentet **etter** at runden ble låst (`finished: true`, `data_checked: true`) og er endelige.
+
+⚠️ **Fire poeng under snittet.** Tallet har vært gjennom tre versjoner: API-et før låsing sa 36, appen før låsing sa 48, fasit etter låsing er **50**. Kun det siste teller. Se regelen om poengaggregater i `03`. **Runde én er et tap på rank, ikke en gevinst.**
+
+### Startelleveren
+
+| Spiller | Min | Hendelser | DefCon | BPS | Bonus | Poeng |
+|---|---|---|---|---|---|---|
+| Verbruggen | 90 | clean sheet, **0 redninger** | 0 | 25 | 0 | **6** |
+| Calafiori | 80 | assist, clean sheet | 5 | 31 | 0 | **9** |
+| N.Williams | 90 | ingen clean sheet (Forest slapp inn 88') | 6 | 13 | 0 | **2** |
+| Shaw | 90 | 2 baklengs (−1) | 4 | 13 | 0 | **1** |
+| B.Fernandes (VK) | 90 | — | 6 | 18 | 0 | **2** |
+| Mbeumo | >70 | — | 4 | 12 | 0 | **2** |
+| Gibbs-White | 90 | — | 3 | 10 | 0 | **2** |
+| Tzolis | 75 | assist, clean sheet | 6 | 30 | 0 | **6** |
+| Haaland **(K)** | >75 | — | 3 | 6 | 0 | **2 → 4** |
+| Calvert-Lewin | ≥66 | gult kort (−1) | 2 | −2 | 0 | **1** |
+| João Pedro | 90 | mål + assist | 3 | 45 | 2 | **11** |
+
+**Sum 46.** Ingen automatiske innbyttere — alle elleve spilte.
+
+**Benken:** Kinsky 2 · Davis 2 · Diop 2 · **Slater 6** (assist på Mendys mål, Hull clean sheet). Bench Boost ville gitt **12**.
+
+### Hva som faktisk avgjorde runden
+
+| | Kostnad | Utbytte |
+|---|---|---|
+| João Pedro + Calafiori + Verbruggen + Tzolis | £24,0m | **32 poeng** |
+| Man Utd-blokken (Fernandes, Mbeumo, Shaw) | £24,5m | **5 poeng** |
+| Haaland, kaptein | £15,5m | **4 poeng** |
+| Slater — **benket** | £4,5m | **6 poeng** |
+
+**Kapteinsvalget kostet ingenting mot feltet.** Haaland var både mest eid og mest kapteinet i spillet, så blanken traff alle. Men troppen tapte likevel mot snittet, og det betyr at tapet ligger i de slottene som *ikke* er template.
+
+⚠️ **Anti-drift-metrikken består ikke sin egen test.** `01` fører at 60,9 % av keeper- og forsvarsbudsjettet ligger på «topplag» (GW1–5-vanskelighet under 2,20). Utbyttet av de £15,0m i forsvarere derfra: **Calafiori 9 + N.Williams 2 + Shaw 1 = 12**. Verbruggen til £4,5m, fra en klubb som ikke engang finnes i `02`s vanskelighetstabell, ga 6. **Terskelen måler klubb, ikke rolle eller pris**, og GW1 gir ingen støtte til at den fanger noe som betyr noe. Etterprøves etter GW5 sammen med BPS-tesen; ikke endre definisjonen på ett datapunkt.
+
+### Priser og eierandel etter GW1
+
+**Ingen prisendringer ennå** — alle femten står i kjøpspris. Prisendringer kjøres 00:00 britisk tid daglig.
+
+| Spiller | Pris | Eid |
+|---|---|---|
+| Haaland | £15,5m | **68,7 %** |
+| João Pedro | £7,5m | **65,1 %** |
+| B.Fernandes | £12,0m | **50,0 %** |
+| Calafiori | £5,5m | **40,5 %** |
+| Mbeumo | £8,0m | 37,2 % |
+| Calvert-Lewin | £6,0m | 30,0 % |
+| Tzolis | £6,5m | **25,4 %** |
+| Kinsky | £4,5m | 23,4 % |
+| Verbruggen | £4,5m | 21,6 % |
+| Shaw | £4,5m | 20,4 % |
+| Diop | £4,0m | 17,8 % |
+| Gibbs-White | £8,0m | 10,5 % |
+| N.Williams | £5,0m | 9,6 % |
+| Davis | £4,0m | 5,1 % |
+| Slater | £4,5m | 3,5 % |
+
+⚠️ **Separasjonskilden krymper.** Tzolis gikk fra 10,8 % (17. august) til 25,4 % på åtte dager. Calafiori er nå den femte mest eide spilleren i spillet. **To av de ni avvikene mot Scout-laget er i ferd med å bli template**, og de to er nettopp de to som leverte. Overlappstallet i Scout-seksjonen over bør regnes på nytt før GW6.
+
+De reelle differensialene som står igjen: **Slater 3,5 %, Davis 5,1 %, N.Williams 9,6 %, Gibbs-White 10,5 %.** Tre av de fire ga 2 poeng.
+
+### Priser og eierandel — Arsenal-siden, fra API-et
+
+| Spiller | Pris | Eid | Offisiell prisindikator |
+|---|---|---|---|
+| Calafiori | £5,5m | 40,5 % | **+63,7 %** — stiger |
+| Tzolis | £6,5m | 25,4 % | **+42,5 %** — stiger |
+| Konsa | £4,5m | 12,2 % | **−35,8 %** — faller |
+
+✅ **Den offisielle prisendringsprediktoren er i drift.** Feltene `price_change_percent` og `price_change_projections` ligger i `bootstrap-static` per spiller. Det lukker punktet i `02` og `01` om at ingen prognose var mulig 21. august. **Dette er nå nivå 3-kilde og skal brukes i stedet for FFScout og FPLedits.**
+
+### Kostnaden ved Tzolis-byttet — én runde
+
+| | GW1 |
+|---|---|
+| Tzolis (kjøpt) | 6 |
+| Szoboszlai (solgt) | mål, 29 BPS, 1 bonus — **8** |
+| Gakpo (runner-up) | mål, 33 BPS, 3 bonus — **10** |
+
+Begge Liverpool-midtbanespillerne som ble vurdert scoret i runde én. Rollebegrunnelsen for salget — «en dyptliggende åtter er svak eksponering mot en sterk blokk» — overlevde ikke første kontakt. **Én runde beviser ingenting om en rolle**, og byttet frigjorde £0,5m som finansierte Verbruggen, som ga 6. Ingen handling. Ført fordi det skal telles, ikke fordi det skal reverseres.
+
+### Gjenåpnet etter GW1
+
+| Spiller | Pris | Hvorfor gjenåpnet |
+|---|---|---|
+| **Guehi (MCI)** | £6,0m | Avvist som «midtstopper, rammes av BPS-endringen». Startet i midtbanen ifølge ESPNs referat, scoret, **10 poeng, 31 BPS, 2 bonus**. Premisset er borte. Rollen er sekundærkilde — bekreft mot mancity.com før kjøp |
+| **Semenyo (MCI)** | £8,5m | Avvist som «ikke i predikert ellever». **Startet**, bekreftet fra mancity.com. Premisset er borte |
+
+Begge er kandidater, ikke anbefalinger. **Begge er City, og troppen har allerede Haaland** — to City-spillere til ville fylle klubbtaket og binde tre slott til Marescas rotasjon i hans første sesong. Ingen av dem foreslås nå.
+
+## Beslutningspunkt: Chelseas angrepstrio — ført 25. august
+
+**Ingen handling nå. Frist for beslutning: torsdag 27. august, før GW2-deadline fredag 19:30.**
+
+### Rollen er bekreftet
+
+Chelsea mot Fulham (3-4-3): Sánchez; Colwill, Lacroix, Acheampong; Hato, Lavia, James, Gusto; **Rogers – João Pedro – Palmer**.
+
+Rogers venstre og Palmer høyre i angrepstrioen, begge **FPL-klassifisert som midtbanespillere**. Bekreftet på to uavhengige måter: samme elleve navn fra to kilder, og mekanisk fra poengberegningen — begge fikk **5 poeng for målet**, altså midtbanesatsen, mens João Pedros ga 4.
+
+Det er den strukturelt mest verdifulle konstellasjonen i FPL: angrepsproduksjon på midtbanesats, pluss 1 poeng for clean sheet der en spiss får 0.
+
+| Spiller | FPL-pos | Pris | Min | DefCon | BPS | Bonus | Poeng | Eid 25. aug | Eid 27. aug |
+|---|---|---|---|---|---|---|---|---|---|
+| **Palmer** | MID | £9,5m | 82 | 9 | **60** | 3 | 13 | 11,8 % | **14,6 %** |
+| João Pedro *(eies)* | FWD | £7,5m | 90 | 3 | 45 | 2 | 11 | 65,1 % | — |
+| **Rogers** | MID | £7,5m | 81 | 7 | 37 | 1 | 8 | 25,0 % | **25,8 %** |
+
+Palmers 60 BPS var **høyeste enkeltsum av alle spillere i alle ti GW1-kampene**. Nest høyest var Hinshelwood (BHA) på 54.
+
+⚠️ **Rettet 27. august: Rogers er ikke lenger en differensial i det hele tatt.** 25,8 % plasserer ham i samme sjikt som Tzolis (25,8 %) og Calafiori — template, ikke separasjon. **Gibbs-White/Mbeumo → Rogers-veiene under strykes som forslag** — hele poenget med dem var separasjon, og den er borte.
+
+### Eierandelene snur den intuitive rangeringen
+
+Palmer beveger seg roligere enn Rogers gjorde forbi ham: +2,8 prosentpoeng på to døgn, mot Tzolis' +14,6 pp på åtte døgn i samme periode forrige uke. **Fortsatt en reell differensial, men farten tilsier at vinduet lukkes — ikke at det allerede er lukket.**
+
+⚠️ **Det kolliderer med regel 1** («premium-slottene er template»). Palmer ville blitt troppens tredje dyreste spiller på 11,8 % eierandel. Konflikten skal navngis, ikke skjules. Motargumentet: regel 1 finnes for å beskytte kapteinsslottet mot kreativitet, og Palmer er ikke et kapteinsslott.
+
+### Pengene — bank £0,0m
+
+| Vei inn | Klubbfordeling etter | Bank | Dom |
+|---|---|---|---|
+| ~~Gibbs-White £8,0m → Rogers £7,5m~~ | NFO 1, CHE 2 | £0,5m | **Strøket 27. august.** Rogers er ikke lenger differensial (25,8 % eid) — se over |
+| ~~Mbeumo £8,0m → Rogers £7,5m~~ | **MUN 2**, CHE 2 | £0,5m | **Strøket 27. august.** Samme grunn |
+| **B.Fernandes £12,0m → Palmer £9,5m** | **MUN 2**, CHE 2 | **£2,5m** | Fortsatt mulig. Se under — **ikke gjennomført denne runden** |
+| Noe annet → Palmer | — | — | **Umulig.** Mangler £1,5m |
+
+**Anti-drift:** ingen av disse berører keeper- eller forsvarsslottene. **Topplagsandelen sto på £19,5m av £32,0m = 60,9 % da dette ble skrevet 25. august — se oppdatert tall (£19,6m av £32,1m = 61,1 %) i seksjonen «Anti-drift-metrikken» over, etter Calafioris prisstigning 27. august.**
+
+**B.Fernandes → Palmer er alternativet ingen hadde lagt på bordet.** Den løser tre ting: £2,5m i banken (opphever sidebyttelåsen fra salgsprisregelen i `03`), United fra tre slott til to, og bytter 50 % eierandel mot 11,8 % i et slott uten separasjon.
+
+**Argumentene mot, som står:** `02` gir United **1,86 i GW1–5**, delt beste blokk, med Ipswich hjemme i GW2. Chelsea ligger på 2,26. Fernandes tar dessuten Uniteds straffer. **Ett kampresultat velter ikke en femrundersblokk.**
+
+### Timingen taler for wildcardet, ikke for GW2
+
+`02`: Chelsea GW6–10 = **2,34** (dårligere enn Forest 2,26), GW16–20 = **1,86**, deres beste blokk i hele tabellen. GW16 er allerede wildcardrunden. **Det er den strukturelt riktige inngangen.**
+
+Det som eventuelt overstyrer det er prisløpet, ikke programmet.
+
+### Hva markedet faktisk gjør — LiveFPL, 25. august
+
+De ti hyppigste byttene i spillet akkurat nå inneholder fire som treffer denne troppen direkte:
+
+| # | Inn ← Ut | Antall |
+|---|---|---|
+| 3 | João Pedro ← **Calvert-Lewin** | 7 894 |
+| 5 | **Palmer ← Gibbs-White** | 6 482 |
+| 6 | M.Sangaré ← **Gibbs-White** | 6 201 |
+| 10 | **Palmer ← B.Fernandes** | 4 899 |
+
+⚠️ **Rettelse til avsnittet over.** B.Fernandes → Palmer ble ført inn som «alternativet ingen hadde lagt på bordet». **Det er det tiende hyppigste byttet i spillet.** 4 899 lag har gjort nøyaktig det. Ideen er ikke original — den er template under dannelse, og det svekker separasjonsargumentet den ble solgt på. Ført i feilloggen i `03`.
+
+**Gibbs-White er den mest solgte spilleren i tabellen** — 12 683 salg fordelt på to av de ti byttene, i tillegg til kneflagget. Prisen faller. **Det gjør venting dyrere**, men fallerlista mangler i det lagrede materialet, så hvor raskt er ikke tallfestet.
+
+**Calvert-Lewin selges også hardt**, og kjøpet er João Pedro — som troppen allerede eier. Planens GW6-exit av Calvert-Lewin er altså i takt med markedet, ikke mot det.
+
+### Åpne spørsmål før torsdag — status 27. august
+
+| Spørsmål | Status |
+|---|---|
+| ~~**Har Chelsea europacup i 2026/27?**~~ | **Lukket 27. august: nei.** Tre uavhengige kilder samstemte (Sky Sports, beIN Sports, LBC, alle fra sluttoppgjøret i mai 2026) — Sunderland og Bournemouth tok Europa League-plassene. Behandlet som strukturelt unntak fra firukersregelen, se `03`. Fjerner rotasjonsrisiko som argument mot å kjøpe Chelsea-aktiva nå — det var aldri et argument *for* å skynde seg, bare en bekymring som nå er borte |
+| **Er 3-4-2-1/tre bak Alonsos faste system?** | **Fortsatt uavklart, men styrket.** Taktisk forhåndsomtale (ats.io) beskrev formasjonen som overført fra Leverkusen *før* kampen; faktisk oppstilling mot Fulham bekreftet den. Ingen av delene er Alonsos egne ord om at det er permanent. Nivå 2–3, ikke nivå 1 |
+| **Palmers og Rogers' prisindikator** | **Delvis hentet.** Offisiell predictor (fantasy.premierleague.com) viser Palmer på **+86,4 %, «unlikely to change»** — under 100, utløser ikke stigning. Rogers ikke sjekket i dag |
+| **Palmers fysiske status** | **Bekreftet fin.** Alonso, pressekonferanse 26. august (chelseafc.com, nivå 1): «absolutely fine» etter Fulham-kampen |
+
+## Prisvarsel — kontrollert 25. august etter låsing
+
+Ingen priser har endret seg ennå. Neste prisendring kjøres **23:00 UTC / 00:00 britisk tid natt til 26. august.**
+
+⚠️ **Rettelse: Calafiori stiger ikke i natt.** Første versjon av dette avsnittet leste FPLs `price_change_projections` feil — `offset 0` er progresjonen **ved** kveldens kjøring, ikke et varsel om at den passeres. 92,3 % ved kveldens frist er under 100 og utløser ingenting. Begge prediktorer lander ham på 98 % i natt og på stigning **natt til torsdag**. Ført i feilloggen i `03`.
+
+To kilder, kontrollert mot hverandre 25. august:
+
+| Spiller | Pris | FPL offisiell | LiveFPL nå | Når |
+|---|---|---|---|---|
+| **João Pedro** *(eies)* | £7,5m | ikke hentbar | **91,4 %** | **Natt til torsdag** |
+| **Calafiori** *(eies)* | £5,5m | 92,3 % | **95,6 %** | **Natt til torsdag** |
+| **Tzolis** *(eies)* | £6,5m | 60,9 % | 63,4 % | Over to døgn |
+| **Palmer** *(kandidat)* | £9,5m | ikke hentbar | **56,6 %**, +1,53 %/t | **To døgn — natt til torsdag** |
+| **Rogers** *(kandidat)* | £7,5m | ikke hentbar | 46,0 %, +0,94 %/t | Over to døgn |
+| Konsa *(GW6-kandidat)* | £4,5m | −57,1 % | *(fallere ikke lagret)* | Faller |
+| Slater *(eies)* | £4,5m | ikke hentbar | 18,7 % | Over to døgn |
+
+**Der kildene overlapper er de enige om retning og tidspunkt.** LiveFPL ligger konsekvent 2–3 prosentpoeng høyere på progresjon enn FPLs eget tall. Bruk FPL som primærkilde; LiveFPL for spillere `bootstrap-static` ikke rekker.
+
+⚠️ **Den lagrede LiveFPL-sida har ingen tidsstempel**, og fallerlista ble ikke lagret med den. Prisfall — inkludert Gibbs-Whites — er derfor **ikke tallfestet**.
+
+**Konsekvensen for Chelsea-beslutningen:** Palmer treffer veggen natt til torsdag, altså før GW2-deadline fredag. Rogers gjør det ikke. Stiger Palmer til £10,0m, gir B.Fernandes-veien £2,0m i banken i stedet for £2,5m — den holder fortsatt. **Alle andre veier til Palmer er stengt uansett pris.**
+
+## Prisstatus 27. august, morgen — bekreftede endringer natt til 26.→27.
+
+| Spiller | Endring | Konsekvens |
+|---|---|---|
+| **João Pedro** *(eies)* | £7,5m → **£7,6m** | Ingen handling. Troppsverdi opp |
+| **Calafiori** *(eies)* | £5,5m → **£5,6m** | Ingen handling. Troppsverdi opp |
+| **Palmer** *(kandidat)* | Uendret, £9,5m | Predictor: **+86,4 %, «unlikely to change»** — akselererer, men krysset ikke i natt |
+| **Gibbs-White** *(eies)* | Uendret, £8,0m | Solgt av 155 824 → **188 914** på ett døgn. Faller ikke ennå, men salgspresset øker |
+
+Kilde: fantasy.premierleague.com sin egen prisendrings-side, kontrollert direkte av bruker (skjermbilde), samt premierleague.com/en/news for de bekreftede endringene. **Neste og siste kjøring før GW2-fristen (fredag 19:30) er natt til fredag** — kjøringen natt til lørdag kommer etter fristen og er irrelevant for denne runden.
+
+## GW2-beslutning, tatt 27. august: ingen bytte
+
+**Frikjøpet bankes. B.Fernandes → Palmer utsettes til GW9 som opprinnelig planlagt**, uendret av dagens funn. Chelseas bekreftede europafravær fjerner en bekymring, men var aldri argumentet for timingen — `02`s fikstursblokk (United 1,86 i GW1–5, delt beste i ligaen, med Ipswich hjemme i GW2) er det. Å selge Fernandes én runde etter ett dårlig GW1-resultat, før United har fått spilt en eneste kamp i den gode blokken, er samme feiltype som «ett kampresultat velter ikke en femrundersblokk» — bare med fortegnet snudd.
+
+**Trigger for å revurdere før fredag 19:30:** Palmer krysser prisgrensen i natt (rent pengespørsmål, endrer ikke konklusjonen i seg selv), eller Glasner bekrefter fredag at Gibbs-White ikke spiller.
+
+## GW2-laguttak, besluttet 27. august
+
+**Keeper: Kinsky starter, Verbruggen benkes.** Ikke et bytte — ren benkerekkefølge/uttak, koster ingenting.
+
+| | Kinsky (TOT) | Verbruggen (BHA) |
+|---|---|---|
+| Motstander | Newcastle, hjemme | **Chelsea, borte** |
+| Motstanders angrepsform | Joelinton + Burn bekreftet ute, Livramento tvilsom (Squawka, soccerballworld — begge ≤3 døgn) | **Alle tre i Chelseas kjedeangrep scoret i GW1.** Palmer 60 BPS var høyeste enkeltsum i hele runden |
+| Usikkerhet | Eget forsvar (Van de Ven, Porro) nevnt som tvilsomt til denne kampen — ikke bekreftet | — |
+
+⚠️ Én feilkorreksjon inngår i grunnlaget: Anthony Gordon ble først ført som «tvilsom» for Newcastle, men han spiller ikke lenger for klubben (solgt til Barcelona, 30. mai 2026). Feilen er loggført i `03`. Konklusjonen om Kinsky står — den hvilte primært på Chelseas angrepsform, ikke på Newcastles fravær — men står på litt svakere grunn enn først framstilt.
+
+**Benk: Slater først, foran Davis og Diop.** Anvendelse av Regel 7-overstyringen (se Operative regler): Gibbs-White har et tallfestet, stående skadeflagg (75 % sjanse for spill, uendret siden 25. august) og er eneste startende spiller med reell sannsynlighet for 0 minutter. Slater slår begge Ipswich-alternativene på både form (assist + 7 DefCon i GW1, høyest i troppen) og fikstur (Coventry borte — ligaens svakeste lag — mot Man Utd borte for Davis/Diop).
+
+**Full GW2-benk: Verbruggen, Slater, Davis, Diop.** Davis/Diop-rekkefølgen er **ikke** revurdert for GW2 — den står på GW1s regel 8-vurdering («nærkamp», Davis for offensive returer, Diop for DefCon), som ble satt for en annen kamp (Ipswich–Sunderland hjemme) enn GW2s faktiske (Man Utd borte, begge). Bør sjekkes på nytt før fredag hvis tid tillater det, men er ikke gjort i denne gjennomgangen.
+
+**Ikke bekreftet:** at Slater faktisk starter for Hull mot Coventry i GW2. Kun sjekket for GW1.
+
+**Uendret:** Kaptein Haaland, visekaptein B.Fernandes (regel 3 — ingen ny informasjon endrer dette). Man City–Crystal Palace sparkes i gang 20:00 britisk tid fredag — rundens første kamp, og nøyaktig **90 minutter** etter GW2-fristen (18:30 BST), i tråd med standardregelen i `05`. Ingen bekreftet oppstilling vil foreligge før laget må leveres. Ingen skademelding funnet på Haaland.
+
+⚠️ **Rettet ved gjennomgang 27. august.** Denne linjen sa opprinnelig «30 minutter etter GW2-fristen» — en sammenblanding av britisk og norsk klokkeslett (18:30 BST er fristen, ikke 19:30; 19:30 er norsk tid for samme frist). 20:00 minus 19:30 gir 30, men det er to ulike tidssoner satt opp mot hverandre. Riktig avstand, samme tidssone, er 90 minutter — som også er nøyaktig det `05` sier deadline skal ligge før første avspark. Ingen beslutning i denne seksjonen hvilte på det gale tallet, men det sto som en påstand og skulle vært riktig.

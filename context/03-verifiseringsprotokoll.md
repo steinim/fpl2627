@@ -1,11 +1,41 @@
 # Verifiseringsprotokoll
 
-*Sist oppdatert: 22. august 2026 — `05` innført som nivå 0, sjekkpunkt 9, keeper-BPS rettet med før/etter, tre nye feillogger.*
+*Sist oppdatert: 27. august 2026, verifiseringsrunde — to nye feillogger fra en full gjennomgang av alle seks filer før commit: anti-drift-tallet i `01` ikke oppdatert etter en prisendring nevnt i samme fil, og britisk/norsk tidssone blandet i et klokkeslettavsnitt.*
+*Forrige: 27. august 2026 — ny feillogg: firukersregelen brutt på egen kontrollert kilde (Gordon/Newcastle), Chelseas europastatus lukket som historisk unntak fra firukersregelen.*
+*Forrige: 25. august 2026, kveld — aggregatregelen presisert mot faktiske tall etter låsing, femte feillogg (kilde forkastet i sin helhet).*
+*Forrige: 25. august 2026 — GW1-oppgjør. Ny regel om aggregatfelt i API-et, fire nye feillogger, GW1-referanseoppstillinger, keeper-BPS-datapunkt, ny verktøybegrensning.*
+*Forrige: 22. august 2026, kveld — filnavnfeilloggen fra tidligere samme dag korrigert (prosjektfilen viste seg å mangle bindestrek likevel), fixtures2627.csv-referanser rettet i alle filer.*
+*Forrige: 22. august 2026 — `05` innført som nivå 0, sjekkpunkt 9, keeper-BPS rettet med før/etter, tre nye feillogger.*
 *Forrige: 22. august 2026, GW1-oppgjør — ARS–COV-oppstilling ført inn, to åpne punkter avgjort, feillogg om startplass utledet av poengsum.*
 *Forrige: 22. august 2026 — to nye feillogger (tapt innhold i omskriving, filnavn lest fra opplastet kopi), Meslier lukket, filnavnsreferanse rettet.*
 *Forrige: 21. august 2026, kveld — Bench Boost-feilen rettet (bench-mekanikk forvekslet med kampdeltakelse), ny regel om kildealder, Konsa-punktet lukket, seks nye feillogger fra deadline-døgnet, verktøybegrensninger dokumentert.*
 
 Denne filen finnes fordi hver eneste feil under er faktisk begått i denne sesongforberedelsen. Sjekklistene er destillert av dem.
+
+## Ny regel, 25. august: skill spillerdata fra aggregatdata i FPL-API-et
+
+**Elementnivået i API-et er pålitelig under runden. Aggregatfeltene i `events` er det ikke.**
+
+Verifisert 25. august: `bootstrap-static` ga samtidig **korrekte** poengsummer per spiller (Calafiori 9, Tzolis 6, Raya 6, White 11 — alle bekreftet mot faktisk lagpoengsum) og **gale** rundetall: `average_entry_score: 36` mot faktisk **48**, `highest_score: 114` mot faktisk **131**. Samme svar, samme henting.
+
+**Det utelukker at svaret var hurtiglagret** — da ville spillerdataene vært like gale. Feilen ligger i feltet, ikke i hentingen. Aggregatene skrives tilsynelatende først når `data_checked` blir `true`; fram til da står en delverdi der uten at noe markerer den som ufullstendig.
+
+**Presisert 25. august etter låsing.** Da `data_checked` snudde til `true`, ble hvert felt sammenlignet mot verdien før låsing. Bare tre av dem hadde flyttet seg:
+
+| Felt | Før låsing | Etter låsing | Dom |
+|---|---|---|---|
+| `average_entry_score` | 36 | **50** | **Ubrukelig før låsing** |
+| `highest_score` | 114 | **131** | **Ubrukelig før låsing** |
+| `highest_scoring_entry` | 331434 | 120245 | **Ubrukelig før låsing** |
+| `ranked_count` | 8 904 519 | 8 903 411 | Brukbar |
+| `chip_plays` | 814 606 / 250 816 | identisk | Brukbar |
+| `most_selected` · `most_captained` · `top_element` | 411 · 411 · 115 | identisk | Brukbar |
+
+**Regelen, endelig:** de tre **poengaggregatene** — rundesnitt, høyeste lag og hvilken entry som eier det — er verdiløse før `data_checked: true`. Resten av `events`-blokken er brukbar. `elements`-blokken og `fixtures`-endepunktet er gyldige straks kampen er ferdigspilt.
+
+**Appen er heller ikke fasit før låsing.** Appen viste snitt **48** kl. 08:45, altså femten minutter før låsing. Fasit ble **50**. Både API-et og appen bommet, i hver sin retning. Ingen kilde er pålitelig på rundesnitt før 09:00 britisk tid dagen etter siste kamp.
+
+**Generalisering:** at ett felt i en kilde er verifisert riktig, sier ingenting om nabofeltet. Nivå på kilde gjelder per felt, ikke per endepunkt. **Men det gjelder også motsatt vei:** at ett felt er galt, gjør ikke hele blokken gal. Første utkast til denne regelen satte åtte felter i karantene. Sju av dem var riktige.
 
 ## Ny regel, 21. august: kilder eldre enn fire uker brukes ikke
 
@@ -14,6 +44,10 @@ Denne filen finnes fordi hver eneste feil under er faktisk begått i denne seson
 **Hvorfor regelen kom:** si.com-artikkelen brukt i Szoboszlai-vurderingen viste seg å omtale Arne Slot som Liverpool-manager. Det er feil sesong — Iraola er bekreftet manager for 2026/27. Artikkelen datostemplet «8-25-25» var fra august **2025**, ett år gammel, og ville vært luket ut av firukersregelen alene, uavhengig av at feil manager også avslørte den.
 
 **Praktisk konsekvens:** sjekk publiseringsdato **før** innholdet brukes, ikke bare når noe virker inkonsistent. Dette er en skjerpelse av kildehierarkiet under, ikke en erstatning for det.
+
+⚠️ **Gjentatt 27. august, med signalet observert og ignorert denne gangen** — se feilloggen. Regelen tåler ikke å bli anvendt delvis: å oppdage at en kilde er fra feil periode og likevel bruke én annen detalj fra den er samme feil som å aldri sjekke datoen i utgangspunktet.
+
+**Unntak, presisert 27. august:** strukturelle, fastlåste fakta som avgjøres én gang per sesong (europeisk kvalifisering, sluttabell, opprykk/nedrykk) faller **ikke** inn under firukersregelen selv om kildene er eldre enn fire uker — de endrer seg ikke slik lagnytt, skader og priser gjør. Samme unntakskategori som «historisk sesongstatistikk» over. Brukt til å lukke Chelseas europastatus i `01` med kilder fra mai 2026.
 
 ## Spillets regler er også fakta som må slås opp
 
@@ -82,7 +116,7 @@ VM ble spilt sommeren 2026 og sesongstarten er skjøvet en uke. Dette forsvinner
 1. Er spilleren tilgjengelig? VM-status, skade, karantene.
 2. Har han spilt oppkjøringsminutter, og når?
 3. **Startet han generalprøven — og hvorfor?** Se avsnittet under.
-4. Hva sier kampprogrammet de neste fem rundene? Slå opp i `fixtures-2627.csv`.
+4. Hva sier kampprogrammet de neste fem rundene? Slå opp i `fixtures2627.csv`.
 5. Hva blir klubbfordelingen etter byttet? Maks 3 per klubb.
 6. Hvor mange millioner av keeper- og forsvarsbudsjettet ligger på topplag etter byttet? Går tallet ned uten at det er bestemt, stopp.
 7. **Hva står igjen i banken etterpå, og hvilke planlagte sidebytter blokkeres av det?** Se salgsprisregelen.
@@ -117,7 +151,7 @@ Når en sekundærkilde skriver at noe *kan* skje, er det ikke et bevis for usikk
 
 0. **`05-spillets-regler.md` for alt som gjelder spillets regler.** Bygget på FPLs egen regelside (Help → Rules), lastet ned 22. august 2026. Den slår enhver artikkel, også premierleague.coms egne nyhetssaker, fordi den er regelverket og ikke en omtale av det.
 1. Klubbens egen nettside for kamper og signeringer
-2. `fixtures-2627.csv` i prosjektet — validert mot åtte uavhengige ankere, **men kun på rundenivå**, ikke kampdato
+2. `fixtures2627.csv` i prosjektet — validert mot åtte uavhengige ankere, **men kun på rundenivå**, ikke kampdato
 3. Premier Leagues egne sider for regler og priser
 4. Fantasy Football Hub eller tilsvarende for projeksjoner — bra på tilgjengelighet, ikke bruk dem som fasit på sesonglang verdi
 5. Sekundærkilder som FFScout og RotoWire — gode på analyse, men gjenta aldri en fikstursvurdering derfra uten å se kampene selv
@@ -155,6 +189,79 @@ Tesen i `02` var delvis feil og ble etterprøvd mot fire uavhengige kilder.
 **Størrelsesorden:** BPS avgjør kun bonus, maks 3 poeng per kamp, i konkurranse. En midtstopper taper anslagsvis 5–10 bonuspoeng over en sesong. **Tesen er nedgradert fra «viktigste enkeltendring» til andreordens rebalansering.**
 
 ## Feillogg
+
+### Ny feil, 27. august, verifiseringsrunde: et tall i `01` fulgte ikke med da input endret seg
+
+Under en full gjennomgang av alle seks filer før commit ble to interne motsigelser funnet i `01`, begge fra samme økt tidligere samme dag.
+
+**1. Anti-drift-tallet.** Seksjonen «Anti-drift-metrikken» (fastsatt 19. august, definert som løpende, ikke historisk) ga £19,5m av £32,0m = 60,9 % — beregnet fra Calafioris kjøpspris £5,5m. Samme fil førte senere samme økt inn at Calafiori hadde steget til £5,6m natt til 27. august. **De to tallene sto side om side uten at det ene ble oppdatert etter det andre.** Chelsea-seksjonen gjentok i tillegg eksplisitt «Topplagsandelen står uendret på £19,5m» — en påstand skrevet før prisøkningen ble kjent, men aldri korrigert etter at den var det.
+
+**2. Klokkeslett i to tidssoner.** GW2-laguttaket skrev at Man City–Crystal Palace («20:00 britisk tid») sparkes i gang «30 minutter etter GW2-fristen». Fristen er 18:30 BST — 19:30 er den **norske** tiden for samme frist. 20:00 minus 19:30 (norsk) ga 30; riktig avstand i én tidssone er 90 minutter, som også er nøyaktig det `05` fastsetter som standardavstanden mellom frist og første avspark.
+
+Begge feilene ble funnet ved å kryssjekke `01` mot seg selv (mellom to seksjoner) og mot `04`/`05` (nivå 0-kilder for henholdsvis kamptid og regelverk) — ikke ved at brukeren pekte på dem.
+
+**Regelen som fulgte:** når et tall skrives inn ett sted i en fil, søk gjennom **resten av samme fil** etter avledede tall som bygger på det, i samme økt. Og: **konverter alltid til én tidssone før to klokkeslett trekkes fra hverandre** — spesielt når filen selv veksler mellom britisk og norsk tid slik denne gjør konsekvent ellers.
+
+### Ny feil, 27. august: firukersregelen brutt på egen kontrollert kilde
+
+I en vurdering av Newcastles laguttak til GW2 ble Anthony Gordon oppgitt som tvilsom, hentet fra en Spurs Web-artikkel. **Samme artikkel var i samme svar allerede identifisert som å inneholde en feil manager** (Thomas Frank i stedet for bekreftet De Zerbi) — nøyaktig det signalet firukersregelen (21. august) ble skrevet for å fange. Artikkelen viste seg datert **9. februar 2026**, over seks måneder gammel. I stedet for å forkaste hele kilden idet manager-feilen ble oppdaget, ble én annen detalj fra samme artikkel (Gordon) likevel brukt, uten kryssjekk mot en gyldig kilde.
+
+Brukeren fanget feilen. Oppslag viste at Gordon ble solgt til Barcelona, overgang fullført **30. mai 2026** (tre uavhengige kilder samstemte på beløp: ca. £69,3m / €80m). Han har ikke vært Newcastle-spiller siden.
+
+**Dette er nøyaktig samme mønster som Arne Slot-eksemplet regelen selv ble skrevet på grunnlag av** (se firukersregelen under): feil manager avslører feil sesong. Forskjellen er at denne gangen ble signalet faktisk observert — og likevel ikke fulgt til sin konklusjon.
+
+**Regelen som fulgte:** når én detalj i en kilde avslører feil sesong eller periode (feil manager, feil resultat, et datostempel som ikke stemmer), forkastes **hele** kilden i samme øyeblikk — ikke bare den detaljen som utløste mistanken. Dette gjelder også når en annen del av samme kilde virker plausibel eller ikke direkte er motsagt av noe annet. Dette er samme presisering som kildekonflikten 22. august («én gal rad diskvalifiserer ikke kilden»), men med motsatt fortegn: der gjaldt det én gal rad i en ellers pålitelig kilde, her gjelder det én rad som beviser at hele kilden er fra feil periode.
+
+### Ny feil, 25. august: aggregatfelt fra API-et ført som verifisert rundefasit
+
+Claude rapporterte «Snitt 36» og «Høyeste enkeltlag 114» i en tabell merket som API-verifisert. Faktisk: **48 og 131**. Brukeren måtte korrigere.
+
+Feilen har to lag. Det ytre er tallene. Det indre er at hele `events`-blokken ble behandlet som én kilde med én pålitelighet, fordi *andre* felter fra samme henting stemte. Claude skrev riktignok at runden ikke var låst, men lot så tallene stå i en tabell uten forbehold — **et generelt forbehold øverst opphever ikke en presis påstand lenger nede.**
+
+Samme henting ble brukt til chipbruk, rangerte lag, «mest kaptein: Haaland» og «rundens beste spiller: De Cuyper 17». **Alle disse viste seg riktige etter låsing** — se tabellen i regelen øverst. Bare de tre poengaggregatene var gale.
+
+**Det gir en andre feil i samme sak:** karantenen ble satt for bredt. Åtte felter ble erklært uverifiserte fordi to var gale, uten at de øvrige seks ble sjekket. Det er samme overkorreksjon i motsatt retning av den opprinnelige feilen — først for tillitsfull mot hele blokken, så for mistroisk mot hele blokken. **Ingen av delene er en sjekk.**
+
+**Regelen som fulgte:** se regelen om aggregatfelt øverst i filen. Og: når ett tall fra en kilde viser seg galt, karanteneres hele feltgruppen fra samme kilde til hver enkelt er etterprøvd — den skal ikke reddes felt for felt med «men dette virker riktig».
+
+### Ny feil, 25. august kveld: to påstander om marked og priser
+
+**1. `price_change_projections` lest feil.** Claude skrev at Calafiori «passerer 100 % i neste kjøring — stiger etter alt å dømme i natt», basert på `offset 0: 92,3 %` og `offset 1: 127,0 %`. **`offset 0` er progresjonen ved kveldens frist, ikke et varsel om at den passeres.** 92,3 % utløser ingenting. Riktig lesning: stigning natt til torsdag, ikke i natt. Bekreftet mot LiveFPL, som lander på samme døgn.
+
+**Regelen som fulgte:** `offset n` er en tilstand ved frist *n*, ikke en hendelse. En stigning inntreffer først i den første offseten der verdien er **over 100**.
+
+**2. «Alternativet ingen hadde lagt på bordet».** Claude presenterte B.Fernandes → Palmer som et upåaktet trekk. Det er det **tiende hyppigste byttet i spillet**, gjort av 4 899 lag. Påstanden var en retorisk figur uten datagrunnlag, i en fil hvor separasjon fra template er hele formålet.
+
+**Regelen som fulgte:** påstander om at et trekk er upåaktet krever byttetall. Uten dem skrives forslaget som forslag, uten adjektiv.
+
+### Ny feil, 25. august: en kilde forkastet i sin helhet fordi én kolonne var ubrukelig
+
+Claude skrev at Sportradars oppstilling for Fulham–Chelsea var «ubrukelig på banerolle» og begrunnet det med at den førte **seks forsvarere** i elleveren. Konklusjonen om posisjonsetikettene var riktig. Slutningen om at elleveren dermed ikke kunne brukes, var det ikke — **seks forsvarere er nøyaktig hva en treer bak med to wingbacker gir**, og alle elleve navnene stemte mot lagoppstillingsgrafikken brukeren la fram etterpå.
+
+Kilden inneholdt altså svaret Claude etterlyste, og Claude kastet den fordi én kolonne var feil.
+
+**Regelen som fulgte:** forkast felt, ikke kilder. Når noe i et datasett er åpenbart galt, skal det navngis **hvilken kolonne** som er gal og hva resten fortsatt kan brukes til. Dette er samme feiltype som karantenen av `events`-blokken over, begått i samme økt.
+
+### Ny feil, 25. august: projisert ellever brukt som avgjørende bevis (Egan → Diop)
+
+`01` skrev 19. august: «Hulls projiserte GW1-ellever fører **Mendy i midtstopperparet og Egan ute**. Ipswich' projiserte XI fører Diop og Davis i bakre firer. **Byttet er ikke lenger valgfritt.**»
+
+Hulls faktiske ellever mot Man Utd: Tzolakis; **Mendy, Egan**, Ajayi, Coyle, Stroud; Crooks, Slater, Giles; Belloumi, McBurnie. **Begge startet.** Egan: 21 DefCon, clean sheet, 27 BPS — 8 poeng (regnet mot `05`). Diop: 2 poeng.
+
+Konklusjonen om å eie en startende £4,0m-forsvarer var ikke gal i seg selv. Formuleringen **«ikke lenger valgfritt»** var det: den ga nivå 5-bevis vetorett over et valg, i direkte strid med kildehierarkiet i denne filen. Merk at årsaksregelen ble anvendt riktig (Mendy signerte 12. august), men på feil spørsmål — den svarte på «eier Egan drakta?» og ikke på «starter han i GW1?».
+
+**Regelen som fulgte:** en projisert ellever kan aldri gjøre et bytte obligatorisk. Den kan bare flytte et bytte fra «avvist» til «vurderes». Ord som «ikke lenger valgfritt», «tvunget» og «må» krever nivå 1–2-bevis.
+
+### Ny feil, 25. august: to avvisninger hvilte på premisser GW1 motbeviste
+
+| Spiller | Skrevet i `01-vurderte-spillere.md` | Hva som faktisk skjedde |
+|---|---|---|
+| **Guehi £6,0m** | «han er **midtstopper** — den ene profilen den verifiserte BPS-endringen faktisk rammer» | Spilte sentral midtbane i Citys 4-2-3-1, scoret utligningen, 31 BPS, 2 bonus. **10 poeng** (regnet mot `05`). Rollen er fra ESPNs kampreferat — sekundærkilde, ikke bekreftet fra mancity.com |
+| **Semenyo £8,5m** | «**Ikke i FFScouts predikerte GW1-ellever** mot Bournemouth» | Startet på venstrekanten i Dokus fravær. Bekreftet fra **mancity.com** sin egen elleverliste, nivå 1 |
+
+Semenyo-raden er samme feil som Egan-raden: en predikert ellever brukt som bevis for det motsatte av det som skjedde. Guehi-raden er en annen feiltype — **posisjon antatt fra fjorårets rolle og deretter brukt som tesegrunnlag.**
+
+**Regelen som fulgte:** en avvisning som hviler på posisjon skal oppgi *hvor* posisjonen er verifisert. FPLs posisjonsklassifisering er ikke bevis på hvor en spiller står på banen; den er bevis på hvordan poengene beregnes.
 
 ### Ny feil, 22. august: regelendring utledet av at noe manglet i egen fil
 
@@ -194,11 +301,11 @@ Faktumet overlevde i `03`s «mangler»-rad, men kilden gjorde det ikke. En nivå
 
 ### Ny feil, 22. august: opplastet kopi lest som kanonisk filnavn
 
-Claude hevdet at fem referanser til `fixtures-2627.csv` i `02` og `03` var brutte, og at filen skulle hete `fixtures2627.csv`. Motsatt var sant: den lokale filen heter `fixtures-2627.csv` med identisk hash, og det var **opplastingen til prosjektet som strippet bindestreken**. De fem referansene var riktige hele veien.
+Claude hevdet at fem referanser til `fixtures-2627.csv` (med bindestrek) i `02` og `03` var brutte, og at filen skulle hete `fixtures2627.csv` (uten). Konklusjonen den gang var at motsatt var sant — at den lokale filen hadde bindestrek med identisk hash, og at opplastingen til prosjektet hadde strippet den.
 
-De to som faktisk var brutte — `03` i avsnittet om manglende rader, og `04` i innledningen — ble aldri nevnt, fordi de brukte akkurat det navnet Claude trodde var korrekt. Diagnosen pekte altså på de riktige og forbi de gale samtidig.
+⚠️ **Den konklusjonen holdt ikke. Rettet 22. august, kveld.** Ved gjennomgangen samme kveld var prosjektfilen `fixtures2627.csv` — **uten bindestrek** — mens alle fem tekstreferansene fortsatt brukte bindestrek. Enten var «identisk hash»-sjekken feil den 22. august tidligere på dagen, eller filen ble lastet opp på nytt uten bindestrek i mellomtiden. Ingen av delene er etterprøvd nå; det faktiske filnavnet er verifisert direkte med `ls` mot `/mnt/project/`, ikke utledet. **Alle referanser i `01`–`04` og `CLAUDE.md` er rettet til `fixtures2627.csv`** for å matche det bekreftede filnavnet.
 
-**Regelen som fulgte:** én observert artefakt slår ikke fem samstemte referanser. Dette er samme mønster som «oppstilling lest uten årsak» — artefakten ble lest uten forklaringen som lå ved siden av. **Ved konflikt mellom et filnavn på disk og navnet som brukes i tekstene: flertallet av interne referanser vinner, og opplastede kopier er mistenkte, ikke fasit** (prosjektopplasting flater `claude/04-…` til `claude_04-…` og stripper bindestreker).
+**Regelen som fulgte, stående:** én observert artefakt slår ikke fem samstemte referanser *uten at artefakten er verifisert på nytt*. Men motsatt gjelder også: fem samstemte referanser beviser ikke et filnavn hvis ingen av dem er sjekket mot disk samme økt. **Ved filnavnkonflikt: sjekk disk direkte (`ls`) hver gang, stol aldri på forrige økts konklusjon om at det er avklart** — filnavn kan endre seg mellom opplastinger på en måte ingen tekstreferanse fanger opp.
 
 ### Ny feil, 21. august kveld: bench-mekanikk forvekslet med kampdeltakelse
 
@@ -249,6 +356,11 @@ Tre feil på under 48 timer hadde identisk rotårsak. Alle tre kom av at en seku
 | BBCs liveblogg | Paginert. Én henting gir **én av sju sider**, nyeste først. En pressekonferanse fra kl. 13:00 ligger seks sider bakover |
 | `web_fetch` generelt | Avviser URL-er som ikke har stått i et tidligere søke- eller hentingsresultat, selv om de sto som lenke i en hentet side |
 | `web_fetch` mot bildebaserte oppstillingsgrafikker (FFScout predicted XI) | Leverer ofte kun rundtekst, ikke spillernavnene i selve grafikken. Posisjonsdetaljer må da bekreftes fra en tekstbasert kilde i tillegg |
+| **`web_fetch` mot `event/{n}/live/` og `bootstrap-static`** | **Kutter etter ca. 120 000 tegn.** `live` gir kun element-ID 1–167; `bootstrap-static` gir `events`, `teams`, `element_types` og deretter kun de ~30 første spillerne. Spillere med høyere ID må hentes en annen vei. `text_content_token_limit` har ingen virkning — kuttet er fast |
+| **`element-summary/{id}/`** | **Avvises av `web_fetch`** med PERMISSIONS_ERROR, fordi den konkrete URL-en ikke har stått i et tidligere søkeresultat. Malen i dokumentasjonen teller ikke |
+| **`fantasy.premierleague.com` fra `bash`** | **Blokkert på vertsnivå** (HTTP 403, `x-deny-reason: host_not_allowed`). Må gå via `web_fetch` |
+| **LiveFPL Price Predictor, lagret som .mht** | Parses med `email.message_from_bytes`; sidas HTML ligger i den største `text/html`-delen. **Kun «Risers»-fanen lagres** — fallerlista er klientrendret og følger ikke med. Sida har **ingen tidsstempel**, så alderen på tallene må oppgis av den som lagret den |
+| ID → navn-oppslag | `raw.githubusercontent.com/vaastav/Fantasy-Premier-League/master/data/2026-27/player_idlist.csv` er tilgjengelig fra `bash` og gir hele ID-listen. **`players_raw.csv` i samme repo er et førsesongsnapshot** — priser og eierandeler der er utdaterte, kun ID, navn, klubb og posisjon kan brukes |
 
 **Konsekvens:** når brukeren limer inn et transkript, er det som regel raskere og mer pålitelig enn noe Claude kan hente selv. Be om det tidlig i stedet for å bruke ti søk på å rekonstruere det.
 
@@ -320,7 +432,7 @@ Tre feil på under 48 timer hadde identisk rotårsak. Alle tre kom av at en seku
 | **2025/26-BPS som sammenligningsgrunnlag** | Før GW16 | `05` gir 2026/27-tabellen komplett. Fjorårets tabell er kun delvis verifisert (straffemål 12, takling 2, redning på strek 9, posisjonsbaserte mål 24/18/12 — alle uendret). **Ballerobringsverdien for 2025/26 mangler.** Uten den kan «urørt» ikke hevdes om den halve |
 | **Manglende rader i `02`s vanskelighetstabell** | Før GW6 | Brighton, Brentford, Aston Villa, Sunderland, Newcastle, Coventry, Everton, Fulham, Palace og Bournemouth mangler. **Verbruggen ble kjøpt uten et beregnet fikstursstall for Brighton.** Roefs og Thiaw ble ført som «uvurdert», ikke avvist, av samme grunn |
 
-⚠️ **Den siste raden er den viktigste.** `02`-tabellen dekker ti av tjue klubber, og halve troppens beslutningsgrunnlag hviler på tall som ikke finnes for motparten. Beregn de ti resterende fra `fixtures-2627.csv` før GW6, med samme metode som de eksisterende.
+⚠️ **Den siste raden er den viktigste.** `02`-tabellen dekker ti av tjue klubber, og halve troppens beslutningsgrunnlag hviler på tall som ikke finnes for motparten. Beregn de ti resterende fra `fixtures2627.csv` før GW6, med samme metode som de eksisterende.
 
 ## Referanseoppstillinger
 
@@ -341,3 +453,40 @@ Benk inkluderte Mendy, Herrington, McNair, Targett, Dowell, McCarthy.
 
 **Coventry v Monaco, 15. august.**
 Coventry XI: Rushworth, van Ewijk, Thomas, Amenda, Dasilva, Onyeka, Grimes, Yirenkyi, Tchaouna, Simms, Thomas-Asante. Lampard gjorde bare to bytter — førstelagspreg.
+
+## GW1-referanseoppstillinger og datapunkter — ført inn 25. august
+
+**Hull City 2–0 Man Utd, 22. august, MKM Stadium.**
+Hull: Tzolakis; Mendy, Egan, Ajayi, Coyle, Stroud; Crooks, Slater, Giles; Belloumi, McBurnie. Innbyttere brukt: Herrington, Hjerto-Dahl, Drameh, Gourna-Douath (alle inn 64' eller senere).
+Man Utd: Lammens; Mazraoui, Maguire, Heaven, Shaw; Andrey Santos, Tielemans; Mbeumo, Fernandes, Dorgu; Cunha. Innbyttere brukt: Lacey, Mainoo, Yoro, Sesko, **Rashford (inn i pausen)**.
+Mål: Ajayi 17', Mendy 38' (**assist Slater**, frispark). ⚠️ **Hvem som gikk av for Rashford er ikke funnet i noen kilde.** Ikke ført som kjent.
+
+**Man City 2–1 Bournemouth, 23. august, Etihad.**
+City (mancity.com, nivå 1): Donnarumma; Khusanov, Dias (K), Guehi, Gvardiol, Lewis, Anderson, O'Reilly, Semenyo, Foden, Haaland.
+Bytter: Nunes for Rico Lewis 56', **Cherki for O'Reilly 63'**, Kovacic for E.Anderson (skade etter sammenstøt), én bytte 82'.
+Mål: Tavernier 26' (BOU), **Guehi 84'** (assist Cherki), **Gvardiol 90'** (assist Cherki). Haaland hadde skudd på mål 75' — **derfor over 60 minutter**, som er det eneste minuttbeviset vi har for ham.
+
+⚠️ **Uavklart: O'Reillys posisjon.** mancity.com lister elleveren uten posisjoner. FotMob fører 4-2-3-1 med Rico Lewis høyreback, Gvardiol venstreback og O'Reilly i treeren bak spissen — **nivå 5**. Sportradar klassifiserer ham som forsvarer, men det er FPL-posisjon, ikke banerolle. Én liveblogg skrev «you'd also have to assume Nico O'Reilly will be in midfield» — **hedget, ikke bevis** (se regelen om parafrase mot sitat). **Dette er ikke avklart, og GW13-planen i `02` kan ikke bygges om på det.** Krever bekreftelse fra mancity.com eller et fulltekstreferat.
+
+### Keeper-BPS — første datapunkt til etterprøvingen etter GW5
+
+Alle tall fra `fixtures`-endepunktet. Poengsummene er regnet mot `05` der de ikke er hentet direkte.
+
+| Keeper | Redninger | Clean sheet | BPS | Bonus | Poeng |
+|---|---|---|---|---|---|
+| Tzolakis (HUL) | 5 | ✓ | **41** | 3 | 10 |
+| Kelleher (BRE) | 4 | ✓ | 34 | 0 | **7** (API-verifisert) |
+| Trafford (LEE) | 3 | ✓ | 28 | 2 | 9 |
+| Verbruggen (BHA) | **0** | ✓ | 25 | 0 | **6** (API-verifisert) |
+| Raya (ARS) | 1 | ✓ | 24 | 0 | **6** (API-verifisert) |
+| Kinsky (TOT) | **5** | ✗ (3 baklengs) | 15 | 0 | 2 |
+
+**Hva raden Kinsky gjør med tesen:** `02` hevder at BPS-omskrivingen favoriserer travle keepere i midt- og bunnlag. Kinsky leverte akkurat den profilen — fem redninger bak et nybygget forsvar — og fikk 15 BPS. Verbruggen med **null** redninger fikk 25. Clean sheet dominerer fortsatt; redninger er en modifikator oppå den, ikke en erstatning for den. Retningen i tesen (travle keepere henter mer enn før) kan fortsatt stemme, men **den slår ikke ut uten clean sheet.** Ett datapunkt. Føres videre til GW5-gjennomgangen.
+
+### DefCon — første datapunkt
+
+**Null av de femten i troppen nådde terskelen** (forsvarere 10, midtbane/spiss 12). Høyeste: Davis 7, N.Williams 6, B.Fernandes 6, Tzolis 6.
+
+Til sammenligning i samme runde: Egan (HUL) 21, Acheampong (CHE) 15, Mendy (HUL) 13, Janelt (BRE) 13, Ajer (BRE) 10 — alle over terskel. Rundens høyestscorende spiller var **De Cuyper (BHA, DEF, £4,5m) med 17 poeng** (mål, assist, clean sheet, 2 bonus, 46 BPS) — men **DefCon-tallet hans var 4**. Han passer profilen tesen peker mot og hentet null poeng gjennom mekanismen tesen påberoper seg.
+
+**Merk:** at De Cuyper var rundens beste er hentet fra `top_element` i `events`-blokken og er derfor **ikke verifisert** — se regelen om aggregatfelt. De 17 poengene hans er derimot hentet fra elementnivået og står.

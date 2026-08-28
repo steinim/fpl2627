@@ -1,6 +1,8 @@
 # Regler 2026/27 og sesongplan
 
-*Sist oppdatert: 22. august 2026 — chip-seksjonen omskrevet: skillet mellom planlagt og utløserbasert, overlappet oppløst, spisser lagt inn i DefCon-linjen.*
+*Sist oppdatert: 25. august 2026, kveld — sesongplanens byttebegrunnelse korrigert, Chelseas GW16–20-blokk knyttet til wildcardet.*
+*Forrige: 25. august 2026 — GW13-premisset for O'Reilly markert som uavklart etter GW1, GW1-datapunkt lagt inn i BPS-seksjonen.*
+*Forrige: 22. august 2026 — chip-seksjonen omskrevet: skillet mellom planlagt og utløserbasert, overlappet oppløst, spisser lagt inn i DefCon-linjen.*
 *Forrige: 22. august 2026, sluttgjennomgang — spisser lagt inn i DefCon-linjen.*
 *Forrige: 22. august 2026 — chip-bindinger fra `05` (én chip per runde, Free Hit ikke to runder på rad, hva som kan avbrytes), BPS-punkt 1 presisert, GW6- og GW19-deadline ført inn, rettet sti til `04`.*
 *Forrige: 21. august 2026, kveld — Konsa-kjøpet til Arsenal bekreftet (ikke spilleberettiget GW1), trenerlisten komplettert til 20 av 20, Bench Boost avblokkert, City-risikoen oppgradert fra rykte til faktum.*
@@ -64,6 +66,10 @@ En takling er verdt **seks ganger** så mye per aksjon som en klarering, og CBI 
 **Nedgradert:** dette er **ikke** «den viktigste enkeltendringen for laguttak». Det er en andreordens rebalansering. Retningen — bort fra stillestående midtstoppere, mot offensive backer, ballbærere og travle keepere — er riktig. Vekten var overdrevet, og overdrivelsen drev en bekymring for forsvarsstrukturen som ikke var berettiget.
 
 **Etterprøves etter GW5:** faktisk bonusfordeling mellom keepere, backer og midtstoppere i GW1–5.
+
+⚠️ **GW1-datapunkt, ført inn 25. august.** Full keepertabell ligger i `03`. Kortversjon: Kinsky leverte akkurat profilen punkt 2 kaller vinneren — fem redninger bak et nybygget Spurs-forsvar — og fikk **15 BPS og 2 poeng**. Verbruggen med **null** redninger og clean sheet fikk **25 BPS og 6 poeng**. Tzolakis, som hadde begge deler, fikk 41 BPS og 3 bonus.
+
+**Konsekvens for punkt 2:** «endringen favoriserer travle keepere» er for upresist. Redninger løfter BPS *gitt* clean sheet; uten clean sheet gjør de lite. Det trekker GW16-vurderingen tilbake mot clean sheet-aksen, altså **mot** Raya, ikke bort fra ham. Ett datapunkt av fem — ingen beslutning endres nå.
 
 **Uendret:** DefCon-poeng (forsvarere 10 CBIT, **midtbane og spisser** 12 CBIRT → 2 poeng, tak på 2 per kamp — se `05`), 5 rullerende frie bytter med tak på 5, to sett med chips (Wildcard, Free Hit, Triple Captain, Bench Boost per halvsesong).
 
@@ -137,7 +143,7 @@ Pressekonferanselistene for 19.–21. august navngir hver enkelt trener med klub
 
 ## Fikstursvanskelighet per blokk
 
-Beregnet fra `fixtures-2627.csv`. Lavere er lettere for clean sheets. Motstandere i tre nivåer, justert for hjemme/borte.
+Beregnet fra `fixtures2627.csv`. Lavere er lettere for clean sheets. Motstandere i tre nivåer, justert for hjemme/borte.
 
 | Klubb | GW1–5 | 6–10 | 11–15 | 16–20 | 21–25 |
 |---|---|---|---|---|---|
@@ -154,9 +160,11 @@ Beregnet fra `fixtures-2627.csv`. Lavere er lettere for clean sheets. Motstander
 
 **Beste seksrundersvindu, GW6–25:** Arsenal GW17–22 (1,67) · Tottenham GW7–12 (1,67) · Man City GW13–18 (1,83) · Liverpool GW15–20 (1,83)
 
+⚠️ **Merknad 25. august:** **Chelseas beste blokk er GW16–20 på 1,86**, og GW16 er runden wildcardet allerede er planlagt til. Det er den strukturelt riktige inngangen for Chelsea-aktiva — ikke GW6, som gir dem 2,34, dårligere enn Forest-eksponeringen troppen alt har. Se beslutningspunktet i `01`.
+
 ### ⚠️ Begrensning i datasettet
 
-`fixtures-2627.csv` daterer alle kamper i en runde til samme dag. Faktiske avspark er spredt over fire dager: GW1 går fredag 21. til **mandag 24.** august (Hull–Man Utd 22., Man City–Bournemouth 23., **Fulham–Chelsea 24.**). GW2 går fredag 28. til mandag 31. august.
+`fixtures2627.csv` daterer alle kamper i en runde til samme dag. Faktiske avspark er spredt over fire dager: GW1 går fredag 21. til **mandag 24.** august (Hull–Man Utd 22., Man City–Bournemouth 23., **Fulham–Chelsea 24.**). GW2 går fredag 28. til mandag 31. august.
 
 **Konsekvens:** CSV-en er gyldig på rundenivå og for all fikstursvanskelighet. Den er **ikke** brukbar til kampdatoplanlegging — altså blankrunder, dobbeltrunder, kamputsettelser eller chip-timing knyttet til konkrete datoer. Bruk Premier Leagues egne sider til det.
 
@@ -173,6 +181,12 @@ Beregnet fra `fixtures-2627.csv`. Lavere er lettere for clean sheets. Motstander
 | 13 | O'Reilly £6,5m inn | Citys beste vindu er GW13–18. |
 | 16 | **Wildcard.** Restrukturer inn i Arsenals GW17–22. United ut permanent. Keeperbyttet er ikke lenger gitt — se under. | Spurs' verste blokk (2,66) møter Arsenals beste (1,67). United går inn i 2,74. Bruker også chipen før GW19-fristen. |
 
+⚠️ **Merknad til rad GW1–5, ny 25. august: begrunnelsen holder ikke som skrevet.**
+
+Raden begrunner sparingen med «fem frie ved GW6, taket er 5». Men planen **bruker ikke fem i GW6** — den bruker ett (Calvert-Lewin ut). Bytter kjøpt inn i GW2–5 kommer altså fra en beholdning planen selv ikke har jobb til.
+
+**Riktig formulering av kostnaden:** ett bytte i GW2 tar deg fra fem til fire ved GW6, og det femte hadde ingen oppgave. Den reelle kostnaden er derfor ikke byttet — den er **at du handler på ett kampdatapunkt**, som er det `03` finnes for å hindre. Argumentet mot tidlig handling er metodisk, ikke økonomisk. **Ikke bruk taket som unnskyldning når det ikke binder.**
+
 **Merknad til GW6, oppdatert 17. august:** planen sier «Arsenal-forsvarer inn». Saliba (rygg) og Timber (lyske) er begge langtidsskadet og sto over Community Shield. Arsenals faktiske bakre fire 16. august var **White, Mosquera, Gabriel, Calafiori** i 4-3-3. Kandidatlisten er altså Gabriel £8,0m, Mosquera £5,5m eller White £5,5m — ikke de to som var tenkt.
 
 To bevegelige deler før valget tas: Arsenal jakter **Ezri Konsa** fra Villa som forsvarsdekning, og Saliba kan være tilbake. Begge deler treffer Mosquera, som har plassen nettopp fordi Saliba mangler. Gabriel og Calafiori er de eneste to som ikke berøres.
@@ -187,11 +201,33 @@ To bevegelige deler før valget tas: Arsenal jakter **Ezri Konsa** fra Villa som
 
 **Konsekvens for GW6-planen:** Konsa er nå det bekreftede navnet for «Arsenal-forsvareren», forutsatt at han er integrert innen GW6 og Saliba fortsatt er ute. Mosqueras plass er fortsatt kortsiktig betinget av Saliba-fraværet. **Vurdert som GW1-bytte (Diop → Konsa) 21. august og avvist** — se `01` for detaljene. Beslutningen om Konsa til GW6 tas på faktisk spilletid i GW2–5, ikke nå.
 
-**Prisrisiko, uverifisert:** om Konsas eierandel stiger raskt før han faktisk spiller, kan prisen gå opp før GW6-vinduet. Verken FFScouts eller FPLedits' price change-verktøy leverte tall 21. august (begge under oppgradering). **Ingen prognose er mulig å gi i dag.** Sjekk `fantasyfootballscout.co.uk/fpl/price-predictions` og `livefpl.net/prices` på nytt før GW2- og GW3-deadline.
+⚠️ **Prisrisikoen er snudd — verifisert 25. august. Denne linjen er avlyst, ikke bekreftet.**
+
+Konsa star i **£4,5m uendret**, eierandel **12,2 %**, og markedet **selger**: 94 054 ut mot 18 675 inn i inneværende byttevindu. FPLs egen prisendringsprediktor gir **−35,8 %** mot prisfall.
+
+**Risikoen for at han blir dyrere før GW6 finnes ikke lenger. Den nye risikoen er motsatt: at han fortsatt ikke har spilletid når GW6 kommer.** Fallende pris og fallende eierandel på en nysignert spiller uten minutter er ikke et kjøpssignal — det er markedet som priser inn samme usikkerhet vi selv har ført.
+
+✅ **Verktøyspørsmålet er også løst.** `price_change_percent` og `price_change_projections` ligger nå per spiller i FPLs eget `bootstrap-static`. **Bruk den i stedet for FFScout og FPLedits** — det er samme kilde som prisene selv.
+
+**Historikk, skrevet 21. august:** «om Konsas eierandel stiger raskt før han faktisk spiller, kan prisen gå opp før GW6-vinduet. Verken FFScouts eller FPLedits' price change-verktøy leverte tall 21. august.»
 
 **Merknad til GW9, oppdatert 21. august:** den forrige merknaden sa at Mbeumo er «projisert som Uniteds spiss». Det premisset er borte — Šeško er tilbake i trening og nierkonkurransen er fire-fem navn (se `01`). **GW9-utgangen står uendret, fordi den alltid hvilte på program og ikke på rolle.** Men begrunnelsen skal ikke lenger vise til spissrollen.
 
-**Merknad til GW13, ny 17. august:** O'Reilly startet som venstreback i firer i Maresca's første konkurransekamp (Community Shield 16. august, 4-3-3: Donnarumma; Khusanov, Dias, Gvardiol, O'Reilly). Rollen er bekreftet under den nye treneren, ikke bare antatt fra i fjor. Han ble byttet ut etter 54 minutter i en 0-3-kamp. Planen står.
+**Merknad til GW13, ny 17. august:** O'Reilly startet som venstreback i firer i Maresca's første konkurransekamp (Community Shield 16. august, 4-3-3: Donnarumma; Khusanov, Dias, Gvardiol, O'Reilly). Rollen er bekreftet under den nye treneren, ikke bare antatt fra i fjor. Han ble byttet ut etter 54 minutter i en 0-3-kamp.
+
+⚠️ **Merknad til GW13, ny 25. august — premisset er nå usikkert, men ikke motbevist.**
+
+I seriedebuten (City 2–1 Bournemouth) startet O'Reilly igjen, men **Gvardiol spilte venstreback og scoret**, mens Rico Lewis startet i bakre kjede. **O'Reilly ble byttet ut på 63'** — bekreftet fra play-by-play. Det er de to harde faktaene.
+
+Hvor O'Reilly selv sto, er **ikke avklart**: mancity.com lister elleveren uten posisjoner, FotMob fører ham i midtbanen (nivå 5), og Sportradars «defender» er FPL-klassifisering, ikke banerolle. **Denne merknaden endrer derfor ikke planen.** Den flytter et punkt fra «bekreftet venstreback» til «uavklart rolle, bekreftet startplass, byttet ut på 63'».
+
+**To reelle risikoer å følge fram til GW13, uavhengig av rolleavklaringen:**
+1. **Minutter.** Byttet ut på 54' i Community Shield og 63' i seriedebuten. To av to under 65 minutter.
+2. **Konkurranse om venstrebacken.** Gvardiol tok den i seriedebuten og scoret.
+
+Rollen skal bekreftes fra mancity.com eller et fulltekstreferat før GW13-beslutningen tas. Se `03` for hvorfor den ikke føres inn som fakta nå.
+
+**Bonus fra samme kamp:** Guehi startet og scoret (10 poeng, £6,0m), Semenyo startet (mot det som var ført i arkivfila), og Cherki kom inn på 63' og la begge målgivende. Alle tre står i `01`.
 
 **Merknad til GW16, oppdatert 21. august — spørsmålet er nå Verbruggen/Kinsky → Raya.** Troppen har fra 21. august to keepere som begge spiller (Verbruggen £4,5m BHA, Kinsky £4,5m TOT). Et Raya-kjøp må derfor erstatte én av dem, ikke en død toer, og den frigjorte £4,5m-en må plasseres. Avveiningen under gjelder fortsatt.
 
@@ -228,7 +264,7 @@ Byttet kan fortsatt være riktig **på clean sheet-aksen** i Arsenals 1,67-blokk
 
 `04` fastslår at blank- og dobbeltrunder normalt ikke bekreftes før **januar/februar**, når FA-cupomberammingene foreligger. Første chip-sett forfaller **2. januar**. Informasjonen som skulle styre timingen kommer altså i praksis etter fristen for å bruke den.
 
-Kontrollert mot `fixtures-2627.csv` 22. august: **alle 38 runder har nøyaktig 10 kamper**, 190 i hver halvsesong. Ingen blank- eller dobbeltrunde ligger i det opprinnelige programmet. De kan bare oppstå gjennom utsettelser — og det er nettopp derfor de kunngjøres sent.
+Kontrollert mot `fixtures2627.csv` 22. august: **alle 38 runder har nøyaktig 10 kamper**, 190 i hver halvsesong. Ingen blank- eller dobbeltrunde ligger i det opprinnelige programmet. De kan bare oppstå gjennom utsettelser — og det er nettopp derfor de kunngjøres sent.
 
 **Konsekvens:** «Triple Captain på dobbeltrunde» og «Free Hit GW16–19 på blank- eller dobbeltrunde» var ikke planer. Det var betingelser uten kjent utløser. De føres nå som **utløserbaserte beslutninger**, ikke som runder i en tabell.
 
