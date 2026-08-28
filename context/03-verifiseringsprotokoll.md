@@ -1,6 +1,7 @@
 # Verifiseringsprotokoll
 
-*Sist oppdatert: 28. august 2026, kveld — ny feillogg: en Claude-økt hevdet en GW2-deadline-feil i `02` som ikke fantes, forårsaket av at et minnesammendrag hadde slettet skillet mellom BST og norsk tid. Samme feiltype som 27. august, nå utvidet til å gjelde minnesammendrag mot kildefil.*
+*Sist oppdatert: 28. august 2026, sent — ny feillogg: en benkerekkefølge-reversering ble selv reversert. Overstyringsklausulen i Regel 7 ble anvendt bokstavelig på det navngitte flagget uten å sjekke om auto-sub-mekanismen fortsatt talte for konklusjonen uavhengig av flagget. Den gjorde det.*
+*Forrige: 28. august 2026, kveld — ny feillogg: en Claude-økt hevdet en GW2-deadline-feil i `02` som ikke fantes, forårsaket av at et minnesammendrag hadde slettet skillet mellom BST og norsk tid. Samme feiltype som 27. august, nå utvidet til å gjelde minnesammendrag mot kildefil.*
 *Forrige: 28. august 2026 — Gibbs-White-skadeflagget verifisert lukket (offisiell presser slo appens prosentflagg), ny feillogg om filredigering på tvers av chatter uten fersk synk-sjekk.*
 *Forrige: 27. august 2026, verifiseringsrunde — to nye feillogger fra en full gjennomgang av alle seks filer før commit: anti-drift-tallet i `01` ikke oppdatert etter en prisendring nevnt i samme fil, og britisk/norsk tidssone blandet i et klokkeslettavsnitt.*
 *Forrige: 27. august 2026 — ny feillogg: firukersregelen brutt på egen kontrollert kilde (Gordon/Newcastle), Chelseas europastatus lukket som historisk unntak fra firukersregelen.*
@@ -191,6 +192,16 @@ Tesen i `02` var delvis feil og ble etterprøvd mot fire uavhengige kilder.
 **Størrelsesorden:** BPS avgjør kun bonus, maks 3 poeng per kamp, i konkurranse. En midtstopper taper anslagsvis 5–10 bonuspoeng over en sesong. **Tesen er nedgradert fra «viktigste enkeltendring» til andreordens rebalansering.**
 
 ## Feillogg
+
+### Ny feil, 28. august, sent: overstyringsklausul anvendt bokstavelig, uten å sjekke om mekanismen bak den fortsatt gjaldt
+
+Claude reverserte GW2-benkerekkefølgen fra Slater/Davis/Diop til Davis/Diop/Slater med begrunnelsen at Regel 7-overstyringens navngitte vilkår («et konkret, tallfestet skadeflagg») ikke lenger var oppfylt etter at både Gibbs-White- og N.Williams-flaggene ble lukket. Brukeren spurte hvorfor ikke den opprinnelige rekkefølgen sto ved lag, og ved gjennomgang viste reverseringen seg å være feil.
+
+**Hva som ble oversett:** selve mekanismen bak Regel 7 (motoren hopper over en ugyldig erstatning) gjør konsekvensen av rekkefølgen asymmetrisk. En benket forsvarer er ugyldig ved en forsvarerblank uansett hvor lavt han står — rekkefølgen er irrelevant der. Men en benket forsvarer *er* gyldig ved en midtbane- eller spissblank (3-4-3 → 4-3-3 er lovlig), og konkurrerer da reelt med en benket midtbanespiller om plassen. I det reelle valget avgjør ren benkerekkefølge hvem som spilles inn. Fiksturforskjellen mellom Slater (Coventry hjemme) og Davis/Diop (Man Utd borte) eksisterer helt uavhengig av om noen har et navngitt flagg. Flagget var aldri den bærende begrunnelsen for å sette Slater først — det var bare den letteste måten å utløse riktig konklusjon på, og da det forsvant, ble hele konklusjonen feilaktig behandlet som om grunnlaget var borte.
+
+**Regelen som fulgte:** når en klausul er skrevet med et konkret utløsende vilkår (her: et navngitt flagg), og vilkåret forsvinner, skal den **underliggende mekanismen** — ikke bare vilkårets bokstav — sjekkes på nytt før en konklusjon reverseres. Et utløsende vilkår er ofte bare én vei til en konklusjon, ikke den eneste. Regel 7s overstyringsklausul er foreslått omformulert i `01` til å gjelde forventet avkastning direkte, ikke et navngitt flagg — ikke besluttet, kun foreslått.
+
+**Ikke verifisert:** resonnementet om auto-sub-motorens skip-mekanikk ved to eller flere samtidige blank er ikke sjekket mot `05-spillets-regler.md` denne økten. Énblank-tilfellet (det klart vanligste) er robust; flerblank-tilfellet hviler på alminnelig forståelse av hvordan motoren virker, ikke på et fersk oppslag.
 
 ### Ny feil, 28. august, kveld: samme tidssoneforveksling gjentatt — denne gangen mellom minnesammendrag og prosjektfil
 
