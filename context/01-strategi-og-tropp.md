@@ -640,6 +640,8 @@ Ved to samtidige blank — én bak, én midtbane — dekker Slater midtbanehulle
 
 **Ikke bekreftet:** at Slater faktisk starter for Hull mot Coventry i GW2. Kun sjekket for GW1.
 
+**Pressedekning, ført fullt ut i `04`:** ni av ti GW2-klubber verifisert mot nivå 1-kilde (klubbenes egne sider) per fredag ettermiddag. **Ingen av troppens elleve startende utespillere er nevnt i noen pressekonferanse** — verken positivt eller negativt. Kinsky, Verbruggen, Davis og Diop har ingen kilde i det hele tatt, verken nivå 1 eller sekundær.
+
 **Uendret:** Kaptein Haaland, visekaptein B.Fernandes (regel 3 — ingen ny informasjon endrer dette). Man City–Crystal Palace sparkes i gang 20:00 britisk tid fredag — rundens første kamp, og nøyaktig **90 minutter** etter GW2-fristen (18:30 BST), i tråd med standardregelen i `05`. Ingen bekreftet oppstilling vil foreligge før laget må leveres. Ingen skademelding funnet på Haaland.
 
 ⚠️ **Rettet ved gjennomgang 27. august.** Denne linjen sa opprinnelig «30 minutter etter GW2-fristen» — en sammenblanding av britisk og norsk klokkeslett (18:30 BST er fristen, ikke 19:30; 19:30 er norsk tid for samme frist). 20:00 minus 19:30 gir 30, men det er to ulike tidssoner satt opp mot hverandre. Riktig avstand, samme tidssone, er 90 minutter — som også er nøyaktig det `05` sier deadline skal ligge før første avspark. Ingen beslutning i denne seksjonen hvilte på det gale tallet, men det sto som en påstand og skulle vært riktig.

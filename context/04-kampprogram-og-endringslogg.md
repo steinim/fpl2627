@@ -1,7 +1,8 @@
 # Kampprogram — verifisert kalender og endringslogg
 
 *Opprettet 20. august 2026. Vedlikeholdes av den planlagte kampprogram-sjekken.*
-*Sist oppdatert 28. august 2026 — Chelsea–Luton-resultatet (2–0) ført inn i ligacuptabellen, Leeds' runde 3-motstander dermed avgjort (Chelsea, borte). GW2-deadlinen re-verifisert, ingen endring.*
+*Sist oppdatert 28. august 2026, sent — full pressekonferansetabell for GW2 ført inn (13 klubber, ni av ti relevante klubber verifisert mot nivå 1-kilde), ingen skadeflagg funnet i troppen.*
+*Forrige: 28. august 2026 — Chelsea–Luton-resultatet (2–0) ført inn i ligacuptabellen, Leeds' runde 3-motstander dermed avgjort (Chelsea, borte). GW2-deadlinen re-verifisert, ingen endring.*
 *Forrige: 27. august 2026 — begge betingede endringene i GW4 og GW5 er avgjort etter ligacuptrekningen 26. august. GW4-tabellen ført inn.*
 
 Denne filen er fasit for **datoer og klokkeslett**. `fixtures2627.csv` er fasit for **hvem som møter hvem i hvilken runde** — den er kontrollert 20. august og stemmer 30/30 på kamppar i GW1–3, men datokolonnen er ubrukelig fordi den setter hele runden til samme dag.
@@ -187,6 +188,58 @@ Endringen flytter ingen kamp ut av sin runde og har derfor ingen poengkonsekvens
 **Mønster å planlegge etter i GW2:** klubber som spiller sent i runden legger pressekonferansen på fredag, og enkelte så sent som 17:30 UK — **én time før deadline**. I GW1 fikk fire av femten spillere lagnytt først på deadline-dagen, inkludert kapteinen.
 
 **Motstridende tidsangivelse, uavklart:** FFScout oppga Carrick 17:30 UK, The Peoples Person oppga 16:30. BBCs liveblogg tidsstempler første Carrick-innlegg 17:36. **FFScout stemte best.**
+
+## Pressekonferanser før GW2 — faktisk avviklet
+
+| Dag | Tid UK | Trener | Klubb |
+|---|---|---|---|
+| ons 26.8. | — | Sage | Crystal Palace |
+| tor 27.8. | 10:30 | Maresca | Man City |
+| tor 27.8. | 13:00 | Jakirović | Hull |
+| tor 27.8. | 13:30 | Arteta · Rose · Iraola | Arsenal · Bournemouth · Liverpool |
+| tor 27.8. | 14:30 | Lampard | Coventry |
+| tor 27.8., kveld | (embargo til fre. ettermiddag) | Alonso | Chelsea |
+| tor 27.8. | 18:30 | Jaissle | Newcastle |
+| fre 28.8. | 09:00 | Hürzeler · Glasner | Brighton · Forest |
+| fre 28.8. | 10:00 | Arbeloa | Fulham |
+| fre 28.8. | 10:30 | Moyes | Everton |
+| fre 28.8. | 13:15 | Carrick | Man Utd |
+| fre 28.8. | 13:30 | Andrews · O'Neil · Farke · Le Bris · De Zerbi | Brentford · Ipswich · Leeds · Sunderland · Tottenham |
+| fre 28.8. | 14:00 | Emery | Aston Villa |
+
+**Avvik fra planlagt skjema:** FFScouts forhåndsvarslede tidspunkt for Alonso var fredag 13:30, men Chelsea la faktisk pressen torsdag kveld med sitatene sperret til fredag ettermiddag. Planlagte klokkeslett i denne typen skjema er altså varsler, ikke garantier — samme lærdom som Carrick-avviket i GW1-tabellen over.
+
+**Troppens elleve startende utespillere — dekning per klubb:**
+
+| Klubb | Spiller(e) | Nevnt i noen presser? |
+|---|---|---|
+| Arsenal | Calafiori, Tzolis | Nei |
+| Man City | Haaland | Nei |
+| Man Utd | B.Fernandes, Mbeumo, Shaw | Nei |
+| Tottenham | Kinsky | Nei |
+| Chelsea | João Pedro | Nei |
+| Brighton | Verbruggen | Nei |
+| Everton | Calvert-Lewin | Nei |
+| Ipswich | Davis, Diop | Nei |
+| Nottingham Forest | N.Williams, Gibbs-White | **Ja — begge friskmeldt** (Glasner, se `01`) |
+
+**Konklusjon: null skadeflagg i troppen inn mot GW2**, verifisert mot primærkilde (klubbenes egne nettsider) for ni av ti klubber. Kryssjekket mot sekundærkilde (FFScout) for samtlige.
+
+## Kilder — tillegg 27.–28. august
+
+| Dato | Kilde | Funn |
+|---|---|---|
+| 27.8. | mancity.com | Fullt Maresca-referat, Bouaddi/Doku/Nunes. **Nivå 1** |
+| 27.8. | arsenal.com | Fullt Arteta-referat, Guimarães/Konsa/Timber/Saliba. **Nivå 1** |
+| 27.8. | leedsunited.com | Farke-referat, Gruev/Gudmundsson/Gnonto. **Nivå 1** |
+| 27.8. | (klubbside, Liverpool-mønster) | Iraola på Chiesa. Domenet ikke eksplisitt vist i innsendingen — ikke ført som nivå 1 uten bekreftet URL |
+| 27.8. | (klubbside, Newcastle-mønster) | Jaissle på González. Domenet ikke eksplisitt vist — samme forbehold |
+| 26.8. | chelseafc.com | Alonso-referat, Caicedo/Palestra/Palmer. **Nivå 1**, bekrefter tidligere funn |
+| 28.8. | manutd.com | Fullt Carrick-referat, Amad/Mount/Baleba/de Ligt. **Nivå 1** |
+| 28.8. | evertonfc.com | Moyes-referat, Hackney/Nørgaard/Garner. **Nivå 1** |
+| 26.8. | (klubbside, Crystal Palace-mønster) | Sage på Sarr/Riad/Disasi. Domenet ikke eksplisitt vist — samme forbehold |
+
+**Ikke funnet noe sted, verken nivå 1 eller sekundærkilde:** Kinsky, Verbruggen, Davis, Diop nevnt ved navn i noen pressekonferanse. Fraværet er konsistent på tvers av alle kilder som er sjekket, men er fortsatt fravær av bevis, ikke bevis for fravær av risiko.
 
 ## Kilder — tillegg 20.–21. august
 
