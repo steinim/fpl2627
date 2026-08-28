@@ -1,6 +1,7 @@
 # Verifiseringsprotokoll
 
-*Sist oppdatert: 27. august 2026, verifiseringsrunde — to nye feillogger fra en full gjennomgang av alle seks filer før commit: anti-drift-tallet i `01` ikke oppdatert etter en prisendring nevnt i samme fil, og britisk/norsk tidssone blandet i et klokkeslettavsnitt.*
+*Sist oppdatert: 28. august 2026 — Gibbs-White-skadeflagget verifisert lukket (offisiell presser slo appens prosentflagg), ny feillogg om filredigering på tvers av chatter uten fersk synk-sjekk.*
+*Forrige: 27. august 2026, verifiseringsrunde — to nye feillogger fra en full gjennomgang av alle seks filer før commit: anti-drift-tallet i `01` ikke oppdatert etter en prisendring nevnt i samme fil, og britisk/norsk tidssone blandet i et klokkeslettavsnitt.*
 *Forrige: 27. august 2026 — ny feillogg: firukersregelen brutt på egen kontrollert kilde (Gordon/Newcastle), Chelseas europastatus lukket som historisk unntak fra firukersregelen.*
 *Forrige: 25. august 2026, kveld — aggregatregelen presisert mot faktiske tall etter låsing, femte feillogg (kilde forkastet i sin helhet).*
 *Forrige: 25. august 2026 — GW1-oppgjør. Ny regel om aggregatfelt i API-et, fire nye feillogger, GW1-referanseoppstillinger, keeper-BPS-datapunkt, ny verktøybegrensning.*
@@ -189,6 +190,12 @@ Tesen i `02` var delvis feil og ble etterprøvd mot fire uavhengige kilder.
 **Størrelsesorden:** BPS avgjør kun bonus, maks 3 poeng per kamp, i konkurranse. En midtstopper taper anslagsvis 5–10 bonuspoeng over en sesong. **Tesen er nedgradert fra «viktigste enkeltendring» til andreordens rebalansering.**
 
 ## Feillogg
+
+### Ny feil, 28. august: prosjektfiler redigert på tvers av chat uten fersk sjekk
+
+Claude kopierte `01` og `03` fra `/mnt/project` i én chat og redigerte dem direkte, uten å spørre om en parallell chat kunne ha endret dem siden siste synk. Brukerens dokumenterte arbeidsflyt går på tvers av flere chatter og enheter (Mac og mobil). Resultatet var filer som, hvis lastet opp direkte, ville slettet GW2-beslutningen, GW2-laguttaket, prisstatusoppdateringen 27. august, anti-drift-korrigeringen, Chelsea-europastatusen, Rogers-revurderingen og tidssonerettelsen — alt utført i den andre chatten i mellomtiden. Brukeren fanget det selv, ved å diffe før opplasting.
+
+**Regelen som fulgte:** samme prinsipp som filnavnregelen («stol aldri på en tidligere økts konklusjon uten fersk `ls`»), utvidet til å gjelde på tvers av chatter — spør eksplisitt om en fil kan være endret et annet sted før redigering når arbeidsflyten er kjent å gå på tvers av økter, og lever endringer som isolerte patcher mot brukerens egen innlimte/opplastede tekst når det er noen tvil om hvilken versjon som er gjeldende, ikke som fulle filerstatninger fra en antatt kanonisk kopi.
 
 ### Ny feil, 27. august, verifiseringsrunde: et tall i `01` fulgte ikke med da input endret seg
 
@@ -490,3 +497,13 @@ Alle tall fra `fixtures`-endepunktet. Poengsummene er regnet mot `05` der de ikk
 Til sammenligning i samme runde: Egan (HUL) 21, Acheampong (CHE) 15, Mendy (HUL) 13, Janelt (BRE) 13, Ajer (BRE) 10 — alle over terskel. Rundens høyestscorende spiller var **De Cuyper (BHA, DEF, £4,5m) med 17 poeng** (mål, assist, clean sheet, 2 bonus, 46 BPS) — men **DefCon-tallet hans var 4**. Han passer profilen tesen peker mot og hentet null poeng gjennom mekanismen tesen påberoper seg.
 
 **Merk:** at De Cuyper var rundens beste er hentet fra `top_element` i `events`-blokken og er derfor **ikke verifisert** — se regelen om aggregatfelt. De 17 poengene hans er derimot hentet fra elementnivået og står.
+
+## Verifisert 28. august: Gibbs-White-skadeflagget løst — presser slår appens prosentflagg
+
+FPL-appen viste 25. august «Knee injury – 75 % chance of playing» for Gibbs-White (nivå 5, modellert av FPL selv, ikke en klubbkilde). Glasner bekreftet 28. august i offisiell pressekonferanse foran Liverpool-kampen (nottinghamforest.co.uk, nivå 1): «Morgan is available and Ryan Yates is available, which is good news.» Spiller.
+
+Samtidig kom informasjon som ikke fantes 25. august: **Ibrahim Sangaré ute** — mindre leggskade fra onsdagens trening (skjedde etter at 75 %-flagget ble avlest, kan derfor ikke ha vært priset inn i det). **Ryan Yates tilgjengelig for første gang denne sesongen.** Savona **ikke nevnt** i sitatet — fravær av opplysning er ikke bekreftet tilgjengelighet, og føres ikke som det.
+
+**Regelen som fulgte:** FPLs prosentflagg er en modellert sannsynlighet på avlesningstidspunktet, ikke en prognose fram til kampdag. Et 70–90 %-flagg lest flere dager før kamp skal ikke behandles som avgjort — hverken i positiv eller negativ retning — før en fersk offisiell kilde (klubbside, pressekonferanse nær kampen) foreligger. Jo lenger tid mellom avlesning og kamp, desto svakere er flagget som bevis.
+
+Lukket i `01-strategi-og-tropp.md`, raden «Gibbs-White skadeflagget» i tabellen «Åpne risikoer inn i GW1». **Følgeeffekt ikke lukket:** GW2-benkbegrunnelsen for Slater i samme fil hviler delvis på dette flagget og er markert for revurdering, ikke revurdert i denne økten.
