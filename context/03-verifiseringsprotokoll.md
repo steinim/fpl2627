@@ -1,6 +1,7 @@
 # Verifiseringsprotokoll
 
-*Sist oppdatert: 28. august 2026 — Gibbs-White-skadeflagget verifisert lukket (offisiell presser slo appens prosentflagg), ny feillogg om filredigering på tvers av chatter uten fersk synk-sjekk.*
+*Sist oppdatert: 28. august 2026, kveld — ny feillogg: en Claude-økt hevdet en GW2-deadline-feil i `02` som ikke fantes, forårsaket av at et minnesammendrag hadde slettet skillet mellom BST og norsk tid. Samme feiltype som 27. august, nå utvidet til å gjelde minnesammendrag mot kildefil.*
+*Forrige: 28. august 2026 — Gibbs-White-skadeflagget verifisert lukket (offisiell presser slo appens prosentflagg), ny feillogg om filredigering på tvers av chatter uten fersk synk-sjekk.*
 *Forrige: 27. august 2026, verifiseringsrunde — to nye feillogger fra en full gjennomgang av alle seks filer før commit: anti-drift-tallet i `01` ikke oppdatert etter en prisendring nevnt i samme fil, og britisk/norsk tidssone blandet i et klokkeslettavsnitt.*
 *Forrige: 27. august 2026 — ny feillogg: firukersregelen brutt på egen kontrollert kilde (Gordon/Newcastle), Chelseas europastatus lukket som historisk unntak fra firukersregelen.*
 *Forrige: 25. august 2026, kveld — aggregatregelen presisert mot faktiske tall etter låsing, femte feillogg (kilde forkastet i sin helhet).*
@@ -190,6 +191,16 @@ Tesen i `02` var delvis feil og ble etterprøvd mot fire uavhengige kilder.
 **Størrelsesorden:** BPS avgjør kun bonus, maks 3 poeng per kamp, i konkurranse. En midtstopper taper anslagsvis 5–10 bonuspoeng over en sesong. **Tesen er nedgradert fra «viktigste enkeltendring» til andreordens rebalansering.**
 
 ## Feillogg
+
+### Ny feil, 28. august, kveld: samme tidssoneforveksling gjentatt — denne gangen mellom minnesammendrag og prosjektfil
+
+I en vurdering av et GW2-nyhetsbrev hevdet Claude at deadline var oppgitt til «19:30» i egne notater, at nyhetsbrevets «18:30 BST» dermed avvek fra det, og tilbød å rette en «feil» i `02`. Etter at brukeren lastet opp den faktiske filen, viste `02` seg å ha vært riktig hele tiden: **18:30 BST / 19:30 norsk** — samme klokkeslett i to tidssoner, ikke to ulike klokkeslett. Ingen feil fantes i prosjektet.
+
+Feilen lå i det komprimerte minnesammendraget Claude hadde tilgang til før filene ble lastet opp. Sammendraget skrev «GW2 Friday 19:30 lock» uten å bevare skillet mellom BST og norsk tid som `02` selv holder konsekvent i hver eneste rad. Claude sammenlignet dette upresise tallet direkte mot nyhetsbrevets BST-oppgitte klokkeslett, uten å åpne kildefilen først.
+
+**Dette er nøyaktig samme feiltype som ble loggført 27. august** («Klokkeslett i to tidssoner» — 20:00 minus 19:30 norsk ga feilaktig 30 minutter i stedet for riktig 90). Forskjellen er hvor de to tallene kom fra: den 27. august sto begge i samme fil; denne gangen kom det ene fra et minnesammendrag og det andre fra en ekstern kilde. Regelen fra 27. august dekket ikke dette tilfellet eksplisitt, og ble derfor ikke anvendt.
+
+**Regelen som fulgte:** utvid 27.-august-regelen. Før et tidsavvik påstås — uansett om begge tallene står i én fil, én står i et minnesammendrag, eller én kommer fra en ekstern kilde — konverter til én tidssone **og** åpne kildefilen for å lese den fulle originalteksten, ikke et sammendrag av den. Et komprimert minne kan slette et skille (som BST/norsk) uten at det er synlig at noe mangler. «Jeg har notert X» er aldri sterkere bevis enn kildefilen X angivelig kommer fra.
 
 ### Ny feil, 28. august: prosjektfiler redigert på tvers av chat uten fersk sjekk
 

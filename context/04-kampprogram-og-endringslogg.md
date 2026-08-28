@@ -1,7 +1,8 @@
 # Kampprogram — verifisert kalender og endringslogg
 
 *Opprettet 20. august 2026. Vedlikeholdes av den planlagte kampprogram-sjekken.*
-*Sist oppdatert 27. august 2026 — begge betingede endringene i GW4 og GW5 er avgjort etter ligacuptrekningen 26. august. GW4-tabellen ført inn.*
+*Sist oppdatert 28. august 2026 — Chelsea–Luton-resultatet (2–0) ført inn i ligacuptabellen, Leeds' runde 3-motstander dermed avgjort (Chelsea, borte). GW2-deadlinen re-verifisert, ingen endring.*
+*Forrige: 27. august 2026 — begge betingede endringene i GW4 og GW5 er avgjort etter ligacuptrekningen 26. august. GW4-tabellen ført inn.*
 
 Denne filen er fasit for **datoer og klokkeslett**. `fixtures2627.csv` er fasit for **hvem som møter hvem i hvilken runde** — den er kontrollert 20. august og stemmer 30/30 på kamppar i GW1–3, men datokolonnen er ubrukelig fordi den setter hele runden til samme dag.
 
@@ -155,6 +156,7 @@ Endringen flytter ingen kamp ut av sin runde og har derfor ingen poengkonsekvens
 | **27.8.2026** | **101greatgoals (26.8.2026) — nivå 5** | **Full trekningsliste for runde 3. Se konsistenssjekken under** |
 | **27.8.2026** | **Sky Sports (27.5.2026 og 26.8.2026)** | **Ni engelske europacuplag: Arsenal, Man City, Man Utd, Aston Villa, Liverpool (CL); Bournemouth, Sunderland, Crystal Palace (EL); Brighton (Conference). Chelsea er ikke blant dem** |
 | **27.8.2026** | **uefa.com** | **CL-ligafasetrekning 27. august. Runde 3 spilles 20.–21. oktober** |
+| **28.8.2026** | **ESPN, Sky Sports (begge 27.8.2026)** | **Chelsea slo Luton 2–0 i ligacupens runde 2 (Welbeck 50', Odofin selvmål 79'). Leeds' runde 3-motstander dermed avgjort: Chelsea (borte), ikke lenger betinget** |
 
 **Konsistenssjekk av trekningslisten (nivå 5-kilden).** De ni engelske europacuplagene kommer inn først i runde 3 og spilte ikke runde 2. Nøyaktig ni lag i trekningslisten har ikke spilt runde 2: Crystal Palace, Man Utd, Brighton, Man City, Sunderland, Arsenal, Aston Villa, Bournemouth og Liverpool. Det er identisk med listen fra Sky. Chelsea spilte runde 2 mot Luton og er dermed ikke europacuplag. Listen er intern konsistent, og Leeds-raden er dessuten bekreftet fra klubbens egen side. **Konklusjonen om at ingen av de to betingelsene utløses, hviler ikke på nivå 5-kilden alene.**
 
@@ -231,8 +233,8 @@ Ført inn 27. august 2026 fordi cupkampene i uken fra 7. og 14. september ligger
 | Brighton | — (europacuplag) | Man Utd (borte) |
 | Ipswich | Slo Leicester 3–1 | Arsenal (hjemme) |
 | Hull | Slo Stoke på straffer | Sunderland (borte) |
-| Leeds | Slo Nottingham Forest 2–0 | Chelsea eller Luton (borte) |
-| Chelsea | Luton (hjemme), 27. august | Leeds (hjemme) hvis de vinner |
+| Leeds | Slo Nottingham Forest 2–0 | **Chelsea (borte)** — avgjort 27. august |
+| Chelsea | **Slo Luton 2–0 (hjemme), 27. august** (Welbeck 50', Odofin selvmål 79') | Leeds (hjemme) |
 | Nottingham Forest | **Ute** — tapte 0–2 for Leeds | — |
 | Tottenham | Slo Charlton | Liverpool (borte) |
 

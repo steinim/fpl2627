@@ -1,6 +1,7 @@
 # Regler 2026/27 og sesongplan
 
-*Sist oppdatert: 25. august 2026, kveld — sesongplanens byttebegrunnelse korrigert, Chelseas GW16–20-blokk knyttet til wildcardet.*
+*Sist oppdatert: 28. august 2026 — GW2-deadlinen (18:30 BST / 19:30 norsk) uavhengig re-verifisert mot tre kilder (Fantasy Football Scout, premierleague.com, onsidearena.com) etter at en Claude-økt feilaktig hevdet et avvik mot et komprimert minnesammendrag. Ingen endring i tallet — se feilloggen i `03` for hva som gikk galt.*
+*Forrige: 25. august 2026, kveld — sesongplanens byttebegrunnelse korrigert, Chelseas GW16–20-blokk knyttet til wildcardet.*
 *Forrige: 25. august 2026 — GW13-premisset for O'Reilly markert som uavklart etter GW1, GW1-datapunkt lagt inn i BPS-seksjonen.*
 *Forrige: 22. august 2026 — chip-seksjonen omskrevet: skillet mellom planlagt og utløserbasert, overlappet oppløst, spisser lagt inn i DefCon-linjen.*
 *Forrige: 22. august 2026, sluttgjennomgang — spisser lagt inn i DefCon-linjen.*
