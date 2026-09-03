@@ -208,6 +208,35 @@ Tesen i `02` var delvis feil og ble etterprøvd mot fire uavhengige kilder.
 
 ## Feillogg
 
+### Ny feil, 3. september: komprimert minnesammendrag brukt som kilde på troppssammensetning
+
+Claude listet benken som «Dúbravka, Davis, Diop, Slater» i sitt første svar i økten.
+**Dúbravka ble solgt 21. august** (→ Verbruggen), noe `01` sier eksplisitt i både
+troppstabellen og endringsloggen. Feilen ble oppdaget først da benkens faktiske poeng
+ble hentet fra `entry/picks/gw2.csv`, der Verbruggen står på benken.
+
+Samme feil lå uavhengig i prosjektets minnesammendrag, som daterte seg til GW2
+(28. august) men bar en troppssammensetning fra før 21. august. Sammendraget hadde
+også anti-drift-nevneren på **£31,5m** — tallet fra før Dúbravka→Verbruggen. `01`
+linje 115 sier «Nå £32,0m etter Verbruggen-byttet (var £31,5m)», og tallet er £32,1m
+i dag etter Calafioris prisstigning. To feil, én årsak.
+
+**Rotårsak:** et komprimert sammendrag er en gjengivelse av filene på et tidspunkt,
+ikke filene. Det bærer ingen mekanisme for å oppdatere avledede tall når input endrer
+seg, og det oppgir sin egen dato uten å garantere at alt innholdet er fra den datoen.
+Å lese det som fasit er samme feiltype som er loggført 27. august («et tall i `01`
+fulgte ikke med da input endret seg») og 28. august («tidssoneforveksling mellom
+minnesammendrag og prosjektfil») — tredje gang på under to uker.
+
+**Regelen som fulgte:** **et komprimert minnesammendrag er aldri kilde på
+troppssammensetning, priser, eierandeler eller andre tall som endrer seg. Det er en
+peker til hvor svaret står, ikke svaret.** Skal et slikt tall nevnes, hentes det først
+fra `01`, fra `context/`-filene eller fra `fpl-data`. Gjelder også når sammendraget
+virker ferskt og internt konsistent — begge disse gjorde det.
+
+**Avledet sidekonsekvens:** samme regel gjelder Claudes egne tidligere svar i økten.
+Filen leses fra disk før hver redigering, ikke fra det Claude selv skrev lenger opp.
+
 ### Ny feil, 28. august, sent: overstyringsklausul anvendt bokstavelig, uten å sjekke om mekanismen bak den fortsatt gjaldt
 
 Claude reverserte GW2-benkerekkefølgen fra Slater/Davis/Diop til Davis/Diop/Slater med begrunnelsen at Regel 7-overstyringens navngitte vilkår («et konkret, tallfestet skadeflagg») ikke lenger var oppfylt etter at både Gibbs-White- og N.Williams-flaggene ble lukket. Brukeren spurte hvorfor ikke den opprinnelige rekkefølgen sto ved lag, og ved gjennomgang viste reverseringen seg å være feil.
