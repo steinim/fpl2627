@@ -38,4 +38,10 @@ Enkeltbytter som hver for seg gir mening kan sammen endre lagets form uten at no
 | `fixtures2627.csv` | Kamppar per runde. Ikke kampdato |
 | `01-vurderte-spillere.md` | Historiske øyeblikksbilder uten styrende status — les kun hvis eksplisitt bedt om |
 
+### Hvor filene ligger — ført inn 3. september 2026
+
+**Kanonisk kilde: `/Users/steinim/src/fpl2627/context/`.** Er Filesystem-verktøyet tilgjengelig, les og skriv der — alltid, også for enkeltoppslag. Prosjektopplastingen under `/mnt/project/` er et speil som kan være dager gammelt, og skal kun brukes når Filesystem-verktøyet mangler (mobil). Skjer det, si eksplisitt i svaret at grunnlaget er et mulig utdatert speil, og lever endringer som patch til nedlasting i stedet for å skrive.
+
+**Ved skriving:** les fila fra disk først, aldri fra hukommelse eller fra et tidligere svar i samme økt. Vis diffen. Commit gjør brukeren.
+
 **Når en beslutning eller antakelse endres:** oppdater filen samme økt, ikke senere. En kjent feil i kontekstfilene rettes samme time den oppdages (se `03`). List alltid hva som *fjernes* når en seksjon skrives om, ikke bare hva som legges til.

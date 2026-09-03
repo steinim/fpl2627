@@ -159,6 +159,21 @@ Når en sekundærkilde skriver at noe *kan* skje, er det ikke et bevis for usikk
 4. Fantasy Football Hub eller tilsvarende for projeksjoner — bra på tilgjengelighet, ikke bruk dem som fasit på sesonglang verdi
 5. Sekundærkilder som FFScout og RotoWire — gode på analyse, men gjenta aldri en fikstursvurdering derfra uten å se kampene selv
 
+### Snapshot-repoet — ført inn 3. september 2026
+
+`github.com/steinim/fpl-data` speiler FPL-APIet på timeplan og er tilgjengelig fra `bash_tool` via `raw.githubusercontent.com`. **Innholdet er APIets egne felt, ikke en omtale av dem** — for din egen tropp, egne poeng og egen plassering rangerer det på **nivå 0**, på linje med `05`. For spillerdata gjelder fortsatt skillet i «Ny regel, 25. august»: spillerfelt er fasit etter låsing, aggregatfelt er det ikke.
+
+| Sti under `data/` | Innhold | Rangering |
+|---|---|---|
+| `entry/history.csv` | Per runde: `points`, `gw_rank`, `overall_rank`, `total_points`, `value`, `bank`, `transfers`, `hit`, **`bench_points`** | Nivå 0 for egen tropp |
+| `entry/picks/gw{n}.csv` | Ditt laguttak per runde med `multiplier`, `captain`, `vice`, `minutes`, `raw_points`, `effective_points`, `bps`, `bonus` | Nivå 0 for egen tropp |
+| `live/gw{n}.csv` | Alle spilleres rundefasit: minutter, mål, assist, clean sheet, redninger, `defensive_contribution`, bonus, BPS, `total_points` | Nivå 0 **etter** låsing 09:00 UK |
+| `players.csv` | 652 spillere: pris, eierandel, form, `ep_next`, `status`, `news`, overganger inn/ut denne runden | Nivå 0 på spillerfelt, **ikke** på aggregat |
+| `events.csv` | Rundesnitt, høyeste score, mest kapteinet, **antall spilte chips per type** | Nivå 0 |
+| `fixtures.csv`, `fixtures.json` | APIets eget kampprogram med kampdato | **Slår `fixtures2627.csv` på kampdato**, som kun er validert på rundenivå |
+
+**`bench_points` spores hver runde.** Den er utløseren for Bench Boost i `02` og er den eneste direkte målingen av om benken faktisk er verdt en chip.
+
 **Regel ved konflikt mellom projeksjon og oppstilling:** oppstillingen vinner. En projeksjon er en gjetning skrevet før kampen; en oppstilling er trenerens observerte valg.
 
 **Regel ved konflikt mellom to samtidige projeksjoner:** flertall blant uavhengige kilder vinner over en enkeltstående avviker, men flertallet skal navngis, ikke bare telles. To kilder som uavhengig lander på samme svar med dager mellom seg veier tyngre enn én kilde samme dag som avviker.
@@ -387,7 +402,8 @@ Tre feil på under 48 timer hadde identisk rotårsak. Alle tre kom av at en seku
 | `web_fetch` mot bildebaserte oppstillingsgrafikker (FFScout predicted XI) | Leverer ofte kun rundtekst, ikke spillernavnene i selve grafikken. Posisjonsdetaljer må da bekreftes fra en tekstbasert kilde i tillegg |
 | **`web_fetch` mot `event/{n}/live/` og `bootstrap-static`** | **Kutter etter ca. 120 000 tegn.** `live` gir kun element-ID 1–167; `bootstrap-static` gir `events`, `teams`, `element_types` og deretter kun de ~30 første spillerne. Spillere med høyere ID må hentes en annen vei. `text_content_token_limit` har ingen virkning — kuttet er fast |
 | **`element-summary/{id}/`** | **Avvises av `web_fetch`** med PERMISSIONS_ERROR, fordi den konkrete URL-en ikke har stått i et tidligere søkeresultat. Malen i dokumentasjonen teller ikke |
-| **`fantasy.premierleague.com` fra `bash`** | **Blokkert på vertsnivå** (HTTP 403, `x-deny-reason: host_not_allowed`). Må gå via `web_fetch` |
+| **`fantasy.premierleague.com` fra `bash`** | **Blokkert på vertsnivå** (HTTP 403, `x-deny-reason: host_not_allowed`). ⚠️ **Løst 3. september:** gå ikke via `web_fetch` lenger — bruk snapshot-repoet, som gir samme data uten kutt og uten 403. `curl -s https://raw.githubusercontent.com/steinim/fpl-data/main/data/{fil}` |
+| **`api.github.com` fra `bash`** | Uautentiserte kall treffer ratebegrensning raskt. For å liste filer i repoet: hent `https://github.com/steinim/fpl-data/tree/main/data/{katalog}` og `grep` ut `"path":"..."` fra HTML-en i stedet |
 | **LiveFPL Price Predictor, lagret som .mht** | Parses med `email.message_from_bytes`; sidas HTML ligger i den største `text/html`-delen. **Kun «Risers»-fanen lagres** — fallerlista er klientrendret og følger ikke med. Sida har **ingen tidsstempel**, så alderen på tallene må oppgis av den som lagret den |
 | ID → navn-oppslag | `raw.githubusercontent.com/vaastav/Fantasy-Premier-League/master/data/2026-27/player_idlist.csv` er tilgjengelig fra `bash` og gir hele ID-listen. **`players_raw.csv` i samme repo er et førsesongsnapshot** — priser og eierandeler der er utdaterte, kun ID, navn, klubb og posisjon kan brukes |
 

@@ -1,6 +1,8 @@
 # Regler 2026/27 og sesongplan
 
-*Sist oppdatert: 28. august 2026 — GW2-deadlinen (18:30 BST / 19:30 norsk) uavhengig re-verifisert mot tre kilder (Fantasy Football Scout, premierleague.com, onsidearena.com) etter at en Claude-økt feilaktig hevdet et avvik mot et komprimert minnesammendrag. Ingen endring i tallet — se feilloggen i `03` for hva som gikk galt.*
+*Sist oppdatert: 3. september 2026, kveld — Triple Captain flyttet fra utløserbasert uten dato til planlagt GW7 med GW5 som reserve. Bench Boost-utløseren utvidet fra étt til tre ledd.*
+*Forrige: 3. september 2026 — Bench Boost-raden tallfestet mot faktiske benkepoeng fra snapshot-repoet (12 og 10 i GW1–2). Betingelsen «avhenger av benken» var uten målestokk; den har nå en utløser. Datakilden ført inn i `03`.*
+*Forrige: 28. august 2026 — GW2-deadlinen (18:30 BST / 19:30 norsk) uavhengig re-verifisert mot tre kilder (Fantasy Football Scout, premierleague.com, onsidearena.com) etter at en Claude-økt feilaktig hevdet et avvik mot et komprimert minnesammendrag. Ingen endring i tallet — se feilloggen i `03` for hva som gikk galt.*
 *Forrige: 25. august 2026, kveld — sesongplanens byttebegrunnelse korrigert, Chelseas GW16–20-blokk knyttet til wildcardet.*
 *Forrige: 25. august 2026 — GW13-premisset for O'Reilly markert som uavklart etter GW1, GW1-datapunkt lagt inn i BPS-seksjonen.*
 *Forrige: 22. august 2026 — chip-seksjonen omskrevet: skillet mellom planlagt og utløserbasert, overlappet oppløst, spisser lagt inn i DefCon-linjen.*
@@ -274,15 +276,15 @@ Kontrollert mot `fixtures2627.csv` 22. august: **alle 38 runder har nøyaktig 10
 | Chip | Status | Grunnlag |
 |---|---|---|
 | **Wildcard 1** | **Planlagt: GW16–17** | Den eneste av de fire som *kan* planlegges. Fikstursblokker er kjent hele sesongen. Restrukturering inn i Arsenals GW17–22 (1,67). Ikke GW6 — de fem sparte byttene gjør den jobben. **Kan ikke avbrytes** |
-| **Bench Boost 1** | **Betinget: etter Wildcard 1** | Halvplanlagt. Avhenger av benken, som du styrer selv. Avblokkert 21. august: Verbruggen spiller 38 kamper. Benken er fortsatt svak (Kinsky, Davis, Diop, Slater = £17,0m) — chipen er verdt lite før wildcardet har bygget den. **Kan avbrytes** |
-| **Triple Captain 1** | **Utløserbasert** | Spilles på beste tilgjengelige Haaland-kamp innen GW19-fristen. Kommer det ingen dobbeltrunde, brennes den på en enkeltrunde mot svak motstand — ikke på GW3 mot Coventry, men ikke spart til den går tapt heller. **Kan avbrytes** |
+| **Bench Boost 1** | **Betinget: etter Wildcard 1.** Terskel tallfestet 3. september | Benken er £17,0m og leverte **12 poeng i GW1 og 10 i GW2** (`entry/history.csv`, kolonne `bench_points`). Målt mot rundesnittet per startende spiller — 4,5 i GW1, 7,4 i GW2 — ga benken 3,0 og 2,5, altså **67 % og 34 %**. Keeperslottet er dødvekten: 6 og 0, snitt 3 per runde for £4,5m, uten oppside utover clean sheet. **Utløser, alle tre ledd må være oppfylt:** (1) benkepoeng over 20 i minst to av de tre foregående rundene, (2) alle fire benkespillere bekreftet i startellevern for målrunden, (3) fikstursjekk mot `fixtures2627.csv` for målrunden. Ledd 1 alene er utilstrekkelig — det måler realisert avkastning bakover, mens beslutningen er framoverrettet, og kan utløses av en benk som nettopp har hatt tre gode kamper og møter topplag i målrunden. Det inntreffer ikke før wildcardet har bygget benken. **Kan avbrytes** |
+| **Triple Captain 1** | **Planlagt: GW7.** Dato satt 3. september | Kvaliteten som finnes før GW19 er City hjemme mot opprykkslag. Kandidatene er **GW3 Coventry (H), GW7 Ipswich (H), GW16 Hull (H)** — kontrollert mot `fixtures2627.csv`. **GW16 er blokkert av wildcardet** (én chip per runde). GW3 og GW7 er likeverdige på fikstur, så å vente koster ingenting i fikstursverdi og beholder opsjonen på en kunngjort dobbeltrunde. Restkandidater hvis begge ryker: GW5 Sunderland (H), GW13 Leeds (H, midtukerunde med rotasjonsrisiko). **Utløser: spilles i GW7 med mindre en dobbeltrunde er kunngjort først. Reserve GW5 hvis Haaland flagges eller City-rotasjon varsles før GW7.** Startplass verifiseres ved deadline; chipen **kan avbrytes**. Hard bakstopp: GW19-deadline 2. januar |
 | **Free Hit 1** | **Utløserbasert** | Spilles kun hvis en blankrunde faktisk kunngjøres før GW19. Skjer ikke det, er den svakeste av de fire og er den som ofres. **Kan ikke avbrytes.** Kan ikke spilles i to påfølgende runder — legges den i GW19, er Free Hit 2 blokkert til GW21 |
 
 **Overlappet er dermed borte.** Konflikten oppsto fordi Wildcard og Free Hit begge var tildelt spekulative vinduer rundt GW16. Kun Wildcard har et vindu nå, og «én chip per runde» er ikke lenger brutt.
 
 ### Beslutningspunkt
 
-**Sjekk kunngjorte omberamminger ved hver månedsskifte fra november.** Kommer en blankrunde før GW19, aktiveres Free Hit. Kommer den ikke, tas Triple Captain på en enkeltrunde og Free Hit ofres bevisst. **Det som ikke skal skje, er at fristen passerer mens begge står som «venter på dobbeltrunde».**
+**Sjekk kunngjorte omberamminger ved hver månedsskifte fra november.** Kommer en blankrunde før GW19, aktiveres Free Hit. Kommer den ikke, ofres Free Hit bevisst. **Triple Captain er ikke lenger avhengig av dette — den har fått en dato (GW7) og trenger ingen kunngjøring for å fyre.** Det som ikke skal skje, er at fristen passerer mens en chip står som «venter på dobbeltrunde».
 
 **Rekkefølge ved knapphet:** Wildcard er verdt mest og har lavest usikkerhet. Free Hit er svakest og ofres først.
 
