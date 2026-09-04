@@ -209,6 +209,18 @@ Tesen i `02` var delvis feil og ble etterprøvd mot fire uavhengige kilder.
 
 ## Feillogg
 
+### Ny feil, 3. september, sent: sekundærkilde avvist på en antakelse i stedet for et oppslag
+
+Claude forkastet en merknad fra starting11.com om at City hadde Champions League-kamp tre dager etter Coventry-kampen, med begrunnelsen at «det stemmer ikke med et normalt UCL-oppsett i september». Merknaden var korrekt: ligafasen 2026/27 starter tirsdag 8. september, og City spiller Porto borte den kvelden (UEFA.com, nivå 1 for egen turnering). Kampen mot Coventry er lørdag 5. september.
+
+Avvisningen hvilte på et mønster fra tidligere sesonger, der ligafasen har startet midt i september. Kalenderen ble aldri slått opp. Feilen forplantet seg: Triple Captain ble låst til GW7 uten at europakalenderen var kontrollert, og GW7 viste seg å ligge mellom MD2 og MD3 — den verste av kandidatrundene, ikke den beste.
+
+**Rotårsak:** en antakelse om hva som er normalt ble brukt som grunnlag for å forkaste en kilde. Det er samme handling som regel 1 forbyr, utført i motsatt retning — ikke å gjette et svar, men å gjette at et svar er galt. «Jeg fant ingen» dekker begge retninger: fravær av bekreftelse er ikke motbevis.
+
+**Regelen som fulgte:** **en sekundærkilde forkastes kun mot et oppslag, aldri mot en antakelse om hva som er sannsynlig.** Kan påstanden ikke kontrolleres i øyeblikket, merkes den som ubekreftet og tas med videre — den forsvinner ikke.
+
+**Avledet regel for chip-planlegging:** **europakalenderen (UCL, EL, Conference) og landslagsvinduer skal kontrolleres før en runde settes for Triple Captain eller Bench Boost.** Fikstursvanskelighet alene er utilstrekkelig når spilleren tilhører en klubb i Europa. Datoene ligger på UEFA.com; kampdato for Premier League i `fpl-data/fixtures.csv`.
+
 ### Ny feil, 3. september: komprimert minnesammendrag brukt som kilde på troppssammensetning
 
 Claude listet benken som «Dúbravka, Davis, Diop, Slater» i sitt første svar i økten. **Dúbravka ble solgt 21. august** (→ Verbruggen), noe `01` sier eksplisitt i både troppstabellen og endringsloggen. Feilen ble oppdaget først da benkens faktiske poeng ble hentet fra `entry/picks/gw2.csv`, der Verbruggen står på benken.
