@@ -1,6 +1,6 @@
 # Regler 2026/27 og sesongplan
 
-*Sist oppdatert: 3. september 2026, sent — Triple Captain flyttet fra GW7 til GW5 etter at Champions League-kalenderen ble kontrollert mot UEFA. GW7 ligger klemt mellom MD2 og MD3; GW5 er den eneste rene uka blant Citys svake hjemmekamper før GW19. Feilen som lå bak GW7-valget er loggført i `03`.*
+*Sist oppdatert: 3. september 2026, sent — Triple Captain flyttet fra GW7 til GW5 etter at Champions League-kalenderen ble kontrollert mot UEFA. GW7 ligger klemt mellom MD2 og MD3; GW5 er den eneste rene uka blant Citys svake hjemmekamper før GW19. Feilen som lå bak GW7-valget er loggført i `03`. Kontrollpost etter GW4 lagt inn under Beslutningspunkt.*
 *Forrige: 3. september 2026, kveld — Triple Captain flyttet fra utløserbasert uten dato til planlagt GW7 med GW5 som reserve. Bench Boost-utløseren utvidet fra étt til tre ledd.*
 *Forrige: 3. september 2026 — Bench Boost-raden tallfestet mot faktiske benkepoeng fra snapshot-repoet (12 og 10 i GW1–2). Betingelsen «avhenger av benken» var uten målestokk; den har nå en utløser. Datakilden ført inn i `03`.*
 *Forrige: 28. august 2026 — GW2-deadlinen (18:30 BST / 19:30 norsk) uavhengig re-verifisert mot tre kilder (Fantasy Football Scout, premierleague.com, onsidearena.com) etter at en Claude-økt feilaktig hevdet et avvik mot et komprimert minnesammendrag. Ingen endring i tallet — se feilloggen i `03` for hva som gikk galt.*
@@ -288,5 +288,23 @@ Kontrollert mot `fixtures2627.csv` 22. august: **alle 38 runder har nøyaktig 10
 **Sjekk kunngjorte omberamminger ved hver månedsskifte fra november.** Kommer en blankrunde før GW19, aktiveres Free Hit. Kommer den ikke, ofres Free Hit bevisst. **Triple Captain er ikke lenger avhengig av dette — den har fått en dato (GW5) og trenger ingen kunngjøring for å fyre.** Det som ikke skal skje, er at fristen passerer mens en chip står som «venter på dobbeltrunde».
 
 **Rekkefølge ved knapphet:** Wildcard er verdt mest og har lavest usikkerhet. Free Hit er svakest og ofres først.
+
+### Kontrollpost: Triple Captain, etter GW4
+
+**Når:** mandag 14. september, etter at GW4 er ferdigspilt (12.–14. september) og før GW5-deadline fredag 18. september. Fire dager margin.
+
+**Hvorfor den finnes:** GW5-valget hviler på at europakalenderen veier tyngre enn motstanderens kvalitet. Den avveiningen ble gjort på to runders data. Sunderland hadde da sluppet inn **2 mål på to runder** — 1,00 per runde, mot Coventrys 2,00 og Ipswichs 3,00. Sunderland er altså det tetteste av de tre kandidatforsvarene, og det er den erkjente kostnaden ved GW5.
+
+**Hva som sjekkes:** Sunderlands innslupne mål per runde etter fire runder (`fpl-data/live/gw{n}.csv`), Haalands status og minutter, og om Porto borte 8. september ga skade- eller rotasjonssignal.
+
+**Beslutningsregel:**
+
+| Sunderland innsluppet per runde etter GW4 | Handling |
+|---|---|
+| Over 1,50 | GW5 bekreftes. Kalender og motstander peker samme vei |
+| 1,00–1,50 | GW5 står. Kalenderfordelen alene bærer valget — men den bærer det |
+| Under 1,00 | **Stopp og sammenlign GW5 mot GW7 eksplisitt på nytt.** Ikke la GW5 stå som standardvalg fordi det allerede står i fila |
+
+**Det som ikke lenger er tilgjengelig:** GW3 er passert når denne kontrollposten nås. Faller Sunderland-premisset, står du igjen med GW7 og dens klem mellom MD2 og MD3, eller GW13 Leeds (H) i en midtukerunde. Begge er dårligere enn det GW3 var. **Det er den reelle prisen for å vente, og den er betalt allerede når kontrollposten nås — ikke når den vurderes.**
 
 **Merk om avbryting:** Wildcard og Free Hit låses idet byttene bekreftes. Bench Boost og Triple Captain kan trekkes fram til deadline. I GW1 landet fire av femten spilleres lagnytt på deadline-dagen, én pressekonferanse én time før. For de to første finnes ingen angremulighet etter det.
