@@ -1,6 +1,7 @@
 # Verifiseringsprotokoll
 
-*Sist oppdatert: 3. september 2026 — ny feillogg: komprimert minnesammendrag brukt som kilde på troppssammensetning og anti-drift-tall. Tredje forekomst av samme feiltype. Snapshot-repoet `steinim/fpl-data` ført inn i kildehierarkiet som nivå 0 for egen tropp, og verktøybegrensningene oppdatert etter at 403-blokkeringen mot FPL-APIet ble omgått.*
+*Sist oppdatert: 4. september 2026 — to nye feillogger fra ett og samme svar: O'Reillys banerolle påstått som avklart i strid med `02`s eksplisitte «uavklart», og Elanga ført som planlagt Tzolis-erstatter uten at navnet finnes i noen kontekstfil. Ny regel om at minutter og poeng i `players.csv` følger spilleren og ikke klubben etter et overgangsvindu.*
+*Forrige: 3. september 2026 — ny feillogg: komprimert minnesammendrag brukt som kilde på troppssammensetning og anti-drift-tall. Tredje forekomst av samme feiltype. Snapshot-repoet `steinim/fpl-data` ført inn i kildehierarkiet som nivå 0 for egen tropp, og verktøybegrensningene oppdatert etter at 403-blokkeringen mot FPL-APIet ble omgått.*
 *Forrige: 28. august 2026, sent — ny feillogg: en benkerekkefølge-reversering ble selv reversert. Overstyringsklausulen i Regel 7 ble anvendt bokstavelig på det navngitte flagget uten å sjekke om auto-sub-mekanismen fortsatt talte for konklusjonen uavhengig av flagget. Den gjorde det.*
 *Forrige: 28. august 2026, kveld — ny feillogg: en Claude-økt hevdet en GW2-deadline-feil i `02` som ikke fantes, forårsaket av at et minnesammendrag hadde slettet skillet mellom BST og norsk tid. Samme feiltype som 27. august, nå utvidet til å gjelde minnesammendrag mot kildefil.*
 *Forrige: 28. august 2026 — Gibbs-White-skadeflagget verifisert lukket (offisiell presser slo appens prosentflagg), ny feillogg om filredigering på tvers av chatter uten fersk synk-sjekk.*
@@ -175,6 +176,22 @@ Når en sekundærkilde skriver at noe *kan* skje, er det ikke et bevis for usikk
 
 **`bench_points` spores hver runde.** Den er utløseren for Bench Boost i `02` og er den eneste direkte målingen av om benken faktisk er verdt en chip.
 
+#### Ny regel, 4. september: etter et overgangsvindu følger minuttene spilleren, ikke klubben
+
+I `players.csv` er `team` og `team_short` oppdatert til **ny** klubb i samme øyeblikk overgangen registreres, mens `minutes`, `starts`, `total_points`, `bps` og `form` er **sesongsummer opptjent hos den gamle**. Feltene står side om side i samme rad uten at noe markerer skillet.
+
+Verifisert 4. september, dagen etter at vinduet stengte:
+
+| Spiller | Rad i `players.csv` | Hvor tallene faktisk er opptjent |
+|---|---|---|
+| Ndiaye | MCI, MID, £6,0m, **180 min, 2 starter, 13 p** | Everton, GW1–2 |
+| Enzo | MCI, MID, £6,9m, **25 min, 0 starter** | Chelsea, GW1–2 |
+| Iroegbunam | HUL, MID, £5,0m, 4 min | Forrige klubb |
+
+**Regelen:** for en spiller som har byttet klubb i vinduet er minuttall i `players.csv` **historikk**, aldri rolle- eller startbevis i den nye klubben. En rad som viser 180 minutter og to starter under ny klubb er ikke to starter for den klubben. Rollebevis krever oppstilling etter overgangen — samme krav som ellers i denne filen. **Prisen, klubben og posisjonen i samme rad er derimot gyldige straks** (nivå 0 på spillerfelt), og var korrekte for alle 22 navn kontrollert 4. september.
+
+**Praktisk:** `live/gw{n}.csv` er den eneste veien til hva en spiller gjorde i en bestemt runde. `players.csv` kan ikke splitte sesongsummen på klubb.
+
 **Regel ved konflikt mellom projeksjon og oppstilling:** oppstillingen vinner. En projeksjon er en gjetning skrevet før kampen; en oppstilling er trenerens observerte valg.
 
 **Regel ved konflikt mellom to samtidige projeksjoner:** flertall blant uavhengige kilder vinner over en enkeltstående avviker, men flertallet skal navngis, ikke bare telles. To kilder som uavhengig lander på samme svar med dager mellom seg veier tyngre enn én kilde samme dag som avviker.
@@ -208,6 +225,18 @@ Tesen i `02` var delvis feil og ble etterprøvd mot fire uavhengige kilder.
 **Størrelsesorden:** BPS avgjør kun bonus, maks 3 poeng per kamp, i konkurranse. En midtstopper taper anslagsvis 5–10 bonuspoeng over en sesong. **Tesen er nedgradert fra «viktigste enkeltendring» til andreordens rebalansering.**
 
 ## Feillogg
+
+### Ny feil, 4. september: to påstander levert fra minne mot filer som sto åpne — fjerde forekomst
+
+I gjennomgangen av overgangsvinduets siste døgn skrev Claude to ting ingen kontekstfil støtter, i samme svar, uten å ha åpnet `01` eller `02`.
+
+**1. O'Reillys banerolle påstått som avklart.** En artikkel hevdet at Enzo Fernández' ankomst truer O'Reilly. Claude avviste det med at «Enzo er sentral midtbane, O'Reilly er venstreback». `02` sier eksplisitt det motsatte: rollen er **uavklart** — mancity.com lister elleveren uten posisjoner, FotMob fører ham i midtbanen (nivå 5), og Sportradars «defender» er FPL-klassifisering. Står O'Reilly i midtbanen, er Enzo nøyaktig den konkurransen artikkelen påstår, og avvisningen er gal på sitt eget premiss. **Samme feil som Guehi-raden 25. august**: FPL-posisjon brukt som bevis på banerolle, mot en regel som allerede står i denne filen.
+
+**2. Elanga ført som planlagt Tzolis-erstatter.** Claude skrev at Newcastles kjøp av Fernandez-Pardo (£51m) truer «Elanga-planen». **Navnet Elanga finnes ikke i noen av de seks kontekstfilene** — kontrollert med `grep` etterpå. `01` navngir **Gakpo £7,0m** som førstevalg hvis Tzolis mister plassen, to steder. En Newcastle-signering er dermed irrelevant for en plan som ikke eksisterer, og et forslag ble vurdert mot feil alternativ.
+
+**Rotårsak, felles:** brukerens melding var en oversikt uten spørsmål, og Claude leste det som at filoppslag var unødvendig. Priser og klubber ble derimot verifisert grundig mot `players.csv` — verifiseringen gikk til den kilden som var lettest tilgjengelig, ikke til den som eide svaret. **Fjerde forekomst av «komprimert minnesammendrag brukt som kilde» på under to uker** (27. og 28. august, 3. september).
+
+**Regelen som fulgte:** regelen fra 3. september utvides fra tall til **planer og roller**. Et minnesammendrag er heller ikke kilde på hva planen er, hvem som er navngitt kandidat, eller hva som er avklart kontra åpent. **Terskelen for å åpne filene er ikke at brukeren stiller et spørsmål — den er at svaret berører tropp, plan, rolle eller regel.** Skal Claude motsi en påstand utenfra, leses filen som eier temaet først: en motsigelse krever minst like godt grunnlag som påstanden den skal velte.
 
 ### Ny feil, 3. september, sent: sekundærkilde avvist på en antakelse i stedet for et oppslag
 

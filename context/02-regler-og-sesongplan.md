@@ -1,6 +1,7 @@
 # Regler 2026/27 og sesongplan
 
-*Sist oppdatert: 3. september 2026, sent — Triple Captain flyttet fra GW7 til GW5 etter at Champions League-kalenderen ble kontrollert mot UEFA. GW7 ligger klemt mellom MD2 og MD3; GW5 er den eneste rene uka blant Citys svake hjemmekamper før GW19. Feilen som lå bak GW7-valget er loggført i `03`. Kontrollpost etter GW4 lagt inn under Beslutningspunkt.*
+*Sist oppdatert: 4. september 2026 — vindusadvarselen for Slater og Davis lukket på Ipswich-siden og skjerpet på Hull-siden, og GW13-merknaden om O'Reilly utvidet med Citys siste vindusdøgn. Rolleavklaringen avgjør nå fortegnet, ikke bare presisjonen.*
+*Forrige: 3. september 2026, sent — Triple Captain flyttet fra GW7 til GW5 etter at Champions League-kalenderen ble kontrollert mot UEFA. GW7 ligger klemt mellom MD2 og MD3; GW5 er den eneste rene uka blant Citys svake hjemmekamper før GW19. Feilen som lå bak GW7-valget er loggført i `03`. Kontrollpost etter GW4 lagt inn under Beslutningspunkt.*
 *Forrige: 3. september 2026, kveld — Triple Captain flyttet fra utløserbasert uten dato til planlagt GW7 med GW5 som reserve. Bench Boost-utløseren utvidet fra étt til tre ledd.*
 *Forrige: 3. september 2026 — Bench Boost-raden tallfestet mot faktiske benkepoeng fra snapshot-repoet (12 og 10 i GW1–2). Betingelsen «avhenger av benken» var uten målestokk; den har nå en utløser. Datakilden ført inn i `03`.*
 *Forrige: 28. august 2026 — GW2-deadlinen (18:30 BST / 19:30 norsk) uavhengig re-verifisert mot tre kilder (Fantasy Football Scout, premierleague.com, onsidearena.com) etter at en Claude-økt feilaktig hevdet et avvik mot et komprimert minnesammendrag. Ingen endring i tallet — se feilloggen i `03` for hva som gikk galt.*
@@ -33,7 +34,7 @@
 
 **To av de tre neste deadlinene er fredager**, fordi både GW2 og GW3 åpner med fredagskamp (Palace–City 28.8., Ipswich–Liverpool 4.9.). Regel 5 i `01` — «ingen bytter før torsdag» — gir dermed under ett døgn margin i GW2 og GW3.
 
-**Overgangsvinduet stenger etter GW2-deadline, ikke før.** Klubbene kan altså fortsatt hente og selge spillere mens GW1 og GW2 spilles. Startplasser som ser avklarte ut nå, kan endres av en signering i siste uke — spesielt hos opprykkslagene, som fortsatt bygger tropp. Gjelder direkte for Slater (Hull) og Davis (Ipswich).
+**Overgangsvinduet stengte 1. september 23:00 BST — utfallet er ført inn i `01` 4. september.** Advarselen her gjaldt Slater (Hull) og Davis (Ipswich). **Ipswich-halvdelen er lukket:** eneste ankomst er Flemming £5,5m FWD, ingen forsvarskonkurranse for Davis eller Diop. **Hull-halvdelen står åpen og er skjerpet:** seks ankomster, tre av dem midtbanespillere. Signeringer fra siste vindusdøgn er spillbare først i GW3 (`04`).
 
 ## Det som er endret til 2026/27
 
@@ -228,6 +229,8 @@ Hvor O'Reilly selv sto, er **ikke avklart**: mancity.com lister elleveren uten p
 **To reelle risikoer å følge fram til GW13, uavhengig av rolleavklaringen:**
 1. **Minutter.** Byttet ut på 54' i Community Shield og 63' i seriedebuten. To av to under 65 minutter.
 2. **Konkurranse om venstrebacken.** Gvardiol tok den i seriedebuten og scoret.
+
+**Tredje datapunkt, 4. september — vindusstengningen.** City hentet **Enzo £6,9m** (sentral midtbane) og **Ndiaye £6,0m** (kant) på siste dag, og signerte **ingen høyreback** (dekning av Citys vindu, nivå 5). **Hvilken vei dette peker avhenger helt av rolleavklaringen som allerede står åpen over.** Er O'Reilly venstreback, er en sentral midtbanespiller og en kantspiller irrelevant konkurranse, og fraværet av en ny back er svakt positivt. Spiller han i midtbanen, er Enzo direkte konkurranse om akkurat det slottet. **Rolleavklaringen er dermed ikke lenger et presisjonsspørsmål — den avgjør fortegnet.** Bekreftes fra mancity.com eller et fulltekstreferat før GW13-beslutningen. En økt 4. september avviste først rollerisikoen med at O'Reilly «er venstreback», i strid med denne merknaden — loggført i `03`.
 
 Rollen skal bekreftes fra mancity.com eller et fulltekstreferat før GW13-beslutningen tas. Se `03` for hvorfor den ikke føres inn som fakta nå.
 

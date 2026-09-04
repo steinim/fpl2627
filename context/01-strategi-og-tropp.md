@@ -1,6 +1,7 @@
 # Strategi og tropp
 
-*Sist oppdatert: 28. august 2026, sent — GW2-benkrekkefølgen rettet TILBAKE til Slater, Davis, Diop. Kveldens tidligere reversering til Davis/Diop/Slater var selv feil: den la for mye vekt på fraværet av et navngitt skadeflagg og ikke nok på auto-sub-motorens faktiske mekanikk (ugyldige erstatninger hoppes over, så en forsvarer øverst koster ingenting ved forsvarerblank, men koster forventet avkastning ved midtbane-/spissblank hvor forsvareren også er gyldig). Regel 7s overstyringsklausul foreslått omformulert, ikke besluttet. Feilen loggført i `03`.*
+*Sist oppdatert: 4. september 2026 — overgangsvinduets utfall ført inn, anti-drift-tallet oppdatert etter Calafioris andre prisstigning (61,2 %), og prislistegjennomgangen etter 1. september gjennomført: én klubbfeil (Muñoz), 23 prisavvik og to rader som er borte fra APIet. Alle fire prislister er reverifisert mot `players.csv`.*
+*Forrige: 28. august 2026, sent — GW2-benkrekkefølgen rettet TILBAKE til Slater, Davis, Diop. Kveldens tidligere reversering til Davis/Diop/Slater var selv feil: den la for mye vekt på fraværet av et navngitt skadeflagg og ikke nok på auto-sub-motorens faktiske mekanikk (ugyldige erstatninger hoppes over, så en forsvarer øverst koster ingenting ved forsvarerblank, men koster forventet avkastning ved midtbane-/spissblank hvor forsvareren også er gyldig). Regel 7s overstyringsklausul foreslått omformulert, ikke besluttet. Feilen loggført i `03`.*
 *Forrige: 28. august 2026, kveld — GW2-benkrekkefølgen reversert til default (Davis, Diop, Slater), siden Regel 7-overstyringens grunnlag falt bort da også N.Williams' knock-flagg ble lukket, ikke bare Gibbs-Whites. Chelsea-beslutningspunktet fikk et nytt datapunkt for Alonsos formasjon (ligacupkamp mot Luton) og en ny rad om Palestras fortsatt uavklarte wingback-status (Gusto er reell starter). Slaters egen GW2-startplass for Hull er fortsatt ubekreftet — se advarsel i benkseksjonen.*
 *Forrige: 28. august 2026 — Gibbs-White-skadeflagget lukket (Glasner bekreftet tilgjengelig, Yates tilbake, Sangaré ute, foran Liverpool-kampen). GW2-benkbegrunnelsen flagget for revurdering siden premisset for Slater-valget falt bort.*
 *Forrige: 27. august 2026, verifiseringsrunde — to feil funnet og rettet: anti-drift-tallet hadde ikke fulgt Calafioris prisstigning, og et klokkeslettavsnitt blandet britisk og norsk tid. GW2-benken presisert til alle fire navn.*
@@ -117,11 +118,13 @@ Metrikken het tidligere «keeper- og forsvarsbudsjett» og ble regnet på forsva
 
 | | Verdi |
 |---|---|
-| Topplagsandel av GK+DEF | **£19,6m av £32,1m = 61,1 %** |
-| Fordelt på | Kinsky £4,5m (TOT 2,14) · Calafiori £5,6m (ARS — unntak, se under) · Shaw £4,5m (MUN 1,86) · N.Williams £5,0m (NFO 2,14) |
+| Topplagsandel av GK+DEF | **£19,7m av £32,2m = 61,2 %** |
+| Fordelt på | Kinsky £4,5m (TOT 2,14) · Calafiori £5,7m (ARS — unntak, se under) · Shaw £4,5m (MUN 1,86) · N.Williams £5,0m (NFO 2,14) |
 | Terskel for alarm | Faller under 40 % uten at det er besluttet |
 
 ⚠️ **Oppdatert 27. august.** Calafiori steg til £5,6m natt til 27. august (se prisstatus-tabellen lenger ned). Tallet var £19,5m/£32,0m = 60,9 % så sent som 25. august — det har ikke stått uendret slik et senere avsnitt i denne filen hevdet før denne rettelsen. Terskelsjekken (40 %) er upåvirket av en så liten bevegelse, men et tall som ikke oppdateres når input endrer seg, er nøyaktig den feiltypen anti-drift-metrikken finnes for å fange andre steder i troppen.
+
+⚠️ **Oppdatert 4. september.** Calafiori har steget videre til **£5,7m** (`fpl-data/players.csv`). Nevneren er dermed £32,2m og andelen 61,2 %. Terskelsjekken er upåvirket. **Gibbs-White har falt til £7,9m** — første prisfall i troppen, i tråd med salgspresset ført 27. august. Lagverdi £100,2m og bank £0,0m per GW2 (`entry/history.csv`). Dette er tredje gang tallet må etterjusteres for samme spillers prisbevegelse; det er nevneren som må leses fra `players.csv` ved hver gjennomgang, ikke huskes.
 
 Arsenal ligger på 2,46 i GW1–5 og faller teknisk utenfor terskelen, men føres inn fordi eksponeringen er tatt bevisst mot GW6–10-blokken på 1,74. **Unntak skal navngis, ikke skjules i definisjonen.**
 
@@ -277,7 +280,7 @@ Ingen i troppen er sen VM-returnerende. Det er en reell strukturell fordel i GW1
 
 ## Verifiserte priser på aktuelle mål
 
-**Keepere:** Raya (ARS) £6,0m · Donnarumma (MCI) £5,5m · Alisson (LIV) £5,5m · Roefs (SUN) £5,0m · Lammens (MUN) £5,0m · Trafford (LEE) £5,0m · Mamardashvili (LIV) £5,0m · **Meslier (ARS) £5,0m** · **Verbruggen (BHA) £4,5m** · Kinsky (TOT) £4,5m · Tzolakis (HUL) £4,5m · Scherpen (IPS) £4,5m · Dúbravka (TOT) £4,0m
+**Keepere — reverifisert 4. september mot `players.csv`:** Raya (ARS) £6,0m · Donnarumma (MCI) £5,5m · Alisson (LIV) £5,5m *(ikke gjenfunnet i søk 4. sept., pris ureverifisert)* · Roefs (SUN) £5,0m · Lammens (MUN) £5,0m · Trafford (LEE) £5,0m · **Mamardashvili (LIV) £4,9m** · **Meslier (ARS) £5,0m** · **Verbruggen (BHA) £4,5m** · Kinsky (TOT) £4,5m · **Tzolakis (HUL) £4,6m** · Scherpen (IPS) £4,5m · ~~Dúbravka (TOT) £4,0m~~ **— raden finnes ikke lenger i APIet**
 
 *Vicario strøket — utlånt til Juventus. Alisson bekreftet Liverpools ener under Iraola; Mamardashvili kobles til utlån. Donnarumma bekreftet Citys ener (Community Shield).*
 
@@ -291,7 +294,7 @@ Ingen i troppen er sen VM-returnerende. Det er en reell strukturell fordel i GW1
 
 **Trafford som keeperkandidat:** Leeds ligger på 2,14 i GW1–5 — identisk med Spurs. Ingen fikstursgevinst ved å bytte fra Kinsky. Byttet krever £0,5m som må hentes fra en annen nedgradering. Fram til fredag er det et rent pengespørsmål, ikke et byttespørsmål.
 
-**Forsvarere:** Gabriel (ARS) £8,0m · Timber (ARS) £6,5m · O'Reilly (MCI) £6,5m · Van Dijk (LIV) £6,5m · Saliba (ARS) £6,0m · Guehi (MCI) £6,0m · Tarkowski (EVE) £6,0m · Senesi (TOT) £6,0m · Mosquera/Hincapié/White/Calafiori (ARS) £5,5m · Gvardiol/Ait-Nouri/Dias/Khusanov (MCI) £5,5m · Kerkez/Frimpong (LIV) £5,5m · Muñoz (CRY) £5,5m · Mukiele (SUN) £5,5m · Thiaw (NEW) £5,0m · Bradley/Gomez/Jacquet/Tsimikas (LIV) £5,0m · Maguire (MUN) £5,0m · Van Hecke (TOT) £5,0m · **Konsa (ARS) £4,5m — ny 21. august, se under** · Rico Lewis (MCI) £4,5m · alle forsvarere fra Coventry, Hull og Ipswich £4,0m, inkludert **Diop (IPS)**, **Greaves (IPS)**, **O'Shea (IPS, nå høyreback)**, **Mendy (HUL)**, **Herrington (HUL)**, **Ajayi (HUL)** og **Thomas (COV)**
+**Forsvarere — reverifisert 4. september mot `players.csv`:** Gabriel (ARS) £8,0m · Timber (ARS) £6,5m · O'Reilly (MCI) £6,5m · Van Dijk (LIV) £6,5m *(ureverifisert)* · Saliba (ARS) £6,0m · Guehi (MCI) £6,0m · Tarkowski (EVE) £6,0m · **Senesi (TOT) £5,9m** · **Calafiori (ARS) £5,7m** · Mosquera/White (ARS) £5,5m · Hincapié (ARS) £5,5m *(ureverifisert)* · **Gvardiol (MCI) £5,6m** · Khusanov (MCI) £5,5m · Ait-Nouri/Dias (MCI) £5,5m *(ureverifisert)* · Kerkez/Frimpong (LIV) £5,5m · **Muñoz (NFO) £5,4m** · Mukiele (SUN) £5,5m · Thiaw (NEW) £5,0m · Bradley/Gomez/Jacquet/Tsimikas (LIV) £5,0m · Maguire (MUN) £5,0m · **Van Hecke (TOT) £4,9m** · **Konsa (ARS) £4,4m — se under** · Rico Lewis (MCI) £4,5m · **Ajayi (HUL) £4,1m** · øvrige forsvarere fra Coventry, Hull og Ipswich £4,0m, inkludert **Diop (IPS)**, **Greaves (IPS)**, **O'Shea (IPS, nå høyreback)**, **Mendy (HUL)**, **Herrington (HUL)** og **Thomas (COV)** *(COV ureverifisert)*
 
 ⚠️ **Saliba og Timber er begge langtidsskadet** (rygg og lyske). Begge sto over Community Shield. Clarke fører dem likevel i Arsenals XI 17. august — se `03`.
 
@@ -315,13 +318,13 @@ Ingen i troppen er sen VM-returnerende. Det er en reell strukturell fordel i GW1
 
 Det er ikke en degradering, og `03` er tydelig på at fravær av negativt signal ikke er handlingsgrunnlag. Men det er første gang rotasjonsrisikoen står fra primærkilde, og den samsvarer med at han ble byttet ut på 60 minutter i Community Shield. **Ingen handling. Følges gjennom GW1–3.**
 
-**Midtbane:** B.Fernandes (MUN) £12,0m · Saka (ARS) £9,5m · Palmer (CHE) £9,5m · Semenyo (MCI) £8,5m · Wirtz (LIV) £8,5m→£7,5m · Mbeumo/Cunha (MUN) £8,0m · Gibbs-White (NFO) £8,0m · Rice (ARS) £7,5m · Kroupi (BOU) £7,5m *(fotskade)* · M.Rogers (CHE) £7,5m · Guimarães (ARS) £7,0m · Gakpo (LIV) £7,0m · Szoboszlai (LIV) £7,0m · Tzolis (ARS) £6,5m · Ødegaard (ARS) £6,5m · E.Anderson (MCI) £6,5m · Le Fée (SUN) £6,0m · Merino (ARS) £6,0m · Gravenberch (LIV) £6,0m · Xhaka (SUN) £5,5m · Groß (BHA) £5,5m · M.Sangare (BRE) £5,5m · Bentancur (TOT) £5,5m
+**Midtbane — reverifisert 4. september mot `players.csv`:** B.Fernandes (MUN) £12,0m · Saka (ARS) £9,5m · **Palmer (CHE) £9,6m** · Semenyo (MCI) £8,5m · Wirtz (LIV) £7,5m · Mbeumo/Cunha (MUN) £8,0m · **Gibbs-White (NFO) £7,9m** · Rice (ARS) £7,5m · **Kroupi (BOU) £7,4m** *(fotskade)* · M.Rogers (CHE) £7,5m · Guimarães (ARS) £7,0m *(ureverifisert)* · **Gakpo (LIV) £7,1m** · Szoboszlai (LIV) £7,0m · Tzolis (ARS) £6,5m · **Ødegaard (ARS) £6,6m** · **E.Anderson (MCI) £6,4m** · **Le Fée (SUN) £5,9m** · **Merino (ARS) £5,9m** · Gravenberch (LIV) £6,0m · Xhaka (SUN) £5,5m · Groß (BHA) £5,5m · **M.Sangare (BRE) £5,7m** · Bentancur (TOT) £5,5m
 
 ⚠️ **Det finnes ingen midtbanespillere under £4,5m i 2026/27.** Slater £4,5m ligger på gulvet for posisjonen. Enhver plan om å frigjøre penger fra det femte midtbaneslottet er dermed umulig — bekreftet 19. august.
 
-✅ **Cherki (MCI) £7,5m — pris verifisert 25. august.** Kom inn for O'Reilly på 63' mot Bournemouth og la **begge** målgivende (Guehi 84', Gvardiol 90'), 1 bonus. Innbytter, ikke starter — ingen handling, men han er nå priset og skal følges.
+✅ **Cherki (MCI) £7,7m — pris verifisert 25. august til £7,5m, oppdatert 4. september.** Kom inn for O'Reilly på 63' mot Bournemouth og la **begge** målgivende (Guehi 84', Gvardiol 90'), 1 bonus. Innbytter, ikke starter — ingen handling, men han er nå priset og skal følges.
 
-**Spisser:** Haaland (MCI) £15,5m · Isak (LIV) £9,0m · Watkins (AVL) £8,0m · Igor Thiago (BRE) £8,0m · João Pedro (CHE) £7,5m · Ekitike (LIV) £7,5m *(langtidsskadet)* · Sesko (MUN) £7,0m *(tilbake i trening 20. aug; Carrick utelukket ham ikke fra Hull-troppen, men start usannsynlig)* · Calvert-Lewin (LEE) £6,0m · Igor Jesus (NFO) £6,0m · Brobbey (SUN) £6,0m · Welbeck (CHE) £6,0m · Emersonn (IPS) £5,5m · Isidor (SUN) £5,5m · Akpom (IPS) £5,0m · Kusi-Asare (FUL) £4,5m *(enabler, ventes ikke å starte)*
+**Spisser — reverifisert 4. september mot `players.csv`:** Haaland (MCI) £15,5m · Isak (LIV) £9,0m · **Watkins (AVL) £7,8m** · Igor Thiago (BRE) £8,0m · João Pedro (CHE) £7,7m · ~~Ekitike (LIV) £7,5m~~ **— raden finnes ikke lenger i APIet** · Sesko (MUN) £7,0m · Calvert-Lewin (LEE) £6,0m · **Igor Jesus (NFO) £5,9m** · **Brobbey (SUN) £5,9m** · **Welbeck (CHE) £5,9m** · Emersonn (IPS) £5,5m · Isidor (SUN) £5,5m · Akpom (IPS) £5,0m · Kusi-Asare (FUL) £4,5m *(enabler, ventes ikke å starte)*
 
 ## Vurderte og avviste
 
@@ -645,3 +648,56 @@ Ved to samtidige blank — én bak, én midtbane — dekker Slater midtbanehulle
 **Uendret:** Kaptein Haaland, visekaptein B.Fernandes (regel 3 — ingen ny informasjon endrer dette). Man City–Crystal Palace sparkes i gang 20:00 britisk tid fredag — rundens første kamp, og nøyaktig **90 minutter** etter GW2-fristen (18:30 BST), i tråd med standardregelen i `05`. Ingen bekreftet oppstilling vil foreligge før laget må leveres. Ingen skademelding funnet på Haaland.
 
 ⚠️ **Rettet ved gjennomgang 27. august.** Denne linjen sa opprinnelig «30 minutter etter GW2-fristen» — en sammenblanding av britisk og norsk klokkeslett (18:30 BST er fristen, ikke 19:30; 19:30 er norsk tid for samme frist). 20:00 minus 19:30 gir 30, men det er to ulike tidssoner satt opp mot hverandre. Riktig avstand, samme tidssone, er 90 minutter — som også er nøyaktig det `05` sier deadline skal ligge før første avspark. Ingen beslutning i denne seksjonen hvilte på det gale tallet, men det sto som en påstand og skulle vært riktig.
+
+## Overgangsvinduet stengt — konsekvenser for troppen, ført 4. september
+
+Vinduet stengte 1. september 23:00 BST. Alle priser og klubber under er verifisert mot `fpl-data/players.csv` 4. september. **Ingenting utløser et bytte til GW3.** Ingen av de nye spillerne har en oppstilling for ny klubb — se den nye regelen i `03` om at minutter i `players.csv` følger spilleren og ikke klubben.
+
+| Klubb | Ankomster som treffer troppen | Konsekvens |
+|---|---|---|
+| **Hull** | Thomas £5,5m MID · Mouzakitis £5,0m MID · Iroegbunam £5,0m MID · Ansah £5,0m FWD · Vaz £5,0m FWD · Norton-Cuffy £4,0m DEF | **Slater £4,5m** har 180 min og 2 starter, men tre av seks ankomster er midtbanespillere. Rotasjonsrisiko på en benkespiller til gulvpris. Ingen handling; sjekk lagoppstilling før GW3 |
+| **Ipswich** | Flemming £5,5m FWD | Ingen forsvarskonkurranse. **Davis og Diop uberørt.** Halvparten av `02`s vindusadvarsel er dermed lukket |
+| **Man City** | Enzo £6,9m MID · Ndiaye £6,0m MID | Treffer GW13-planen for O'Reilly, ikke Haaland. Se `02` |
+| **Forest** | Muñoz £5,4m DEF | ⚠️ Prislisten førte ham som **CRY £5,5m** — feil klubb og feil pris, rettet i dag. Rollerisiko for **N.Williams** |
+| Newcastle, Leeds, Spurs, Chelsea, Man Utd, Arsenal | Ingen ankomst som berører et eid slott | Ingen handling |
+
+⚠️ **Kilden er ufullstendig.** Oversikten dette bygger på lister ingen Forest-ankomster, mens Muñoz står i APIet. **Fravær fra en ankomstliste er ikke bevis for at et kjøp ikke finnes.**
+
+### Prislisten drifter — gjennomgangen `03` satte til «etter 1. september» er nå gjennomført
+
+Alle fire prislister kontrollert mot `players.csv` 4. september. **Én klubbfeil, 23 prisavvik og to rader som er borte fra APIet.** Alt er rettet i listene over.
+
+| Navn | Sto i `01` | Faktisk | Type |
+|---|---|---|---|
+| **Muñoz** | CRY £5,5m | **NFO £5,4m** | **Klubb + pris** |
+| Dúbravka | TOT £4,0m | — | **Rad borte fra APIet** |
+| Ekitike | LIV £7,5m | — | **Rad borte fra APIet** |
+| Cherki | £7,5m | £7,7m | Pris |
+| M.Sangare | £5,5m | £5,7m | Pris |
+| Calafiori *(eies)* | £5,6m | £5,7m | Pris |
+| João Pedro *(eies)* | £7,6m | £7,7m | Pris |
+| Gakpo | £7,0m | £7,1m | Pris |
+| Ødegaard | £6,5m | £6,6m | Pris |
+| Palmer | £9,5m | £9,6m | Pris |
+| Gvardiol | £5,5m | £5,6m | Pris |
+| Ajayi | £4,0m | £4,1m | Pris |
+| Tzolakis | £4,5m | £4,6m | Pris |
+| **Gibbs-White** *(eies)* | £8,0m | **£7,9m** | Pris — første fall i troppen |
+| Watkins | £8,0m | £7,8m | Pris |
+| Kroupi | £7,5m | £7,4m | Pris |
+| E.Anderson | £6,5m | £6,4m | Pris |
+| Le Fée | £6,0m | £5,9m | Pris |
+| Merino | £6,0m | £5,9m | Pris |
+| Senesi | £6,0m | £5,9m | Pris |
+| Igor Jesus | £6,0m | £5,9m | Pris |
+| Brobbey | £6,0m | £5,9m | Pris |
+| Welbeck | £6,0m | £5,9m | Pris |
+| Van Hecke | £5,0m | £4,9m | Pris |
+| Mamardashvili | £5,0m | £4,9m | Pris |
+| Konsa | £4,5m | £4,4m | Pris — faller som varslet |
+
+**Ikke reverifisert** (navnet ble ikke gjenfunnet i søket og prisen står ubekreftet, ikke bekreftet uendret): Alisson, Van Dijk, Hincapié, Aït-Nouri, Dias, Guimarães, Thomas (COV). Merket i listene.
+
+**Muñoz-raden er Trafford-feilen om igjen:** klubbkolonnen drifter under vinduet mens prisen ser plausibel ut, og ingenting i lista sier fra. Se `03`.
+
+**Fjernet i denne omskrivingen, ikke bare endret:** merknaden «tilbake i trening 20. aug; Carrick utelukket ham ikke fra Hull-troppen, men start usannsynlig» på Sesko (utdatert lagnytt, over fire uker gammelt), merknaden «langtidsskadet» på Ekitike (raden finnes ikke lenger), historikkpilen £8,5m→£7,5m på Wirtz, og «ny 21. august» på Konsa-raden.
