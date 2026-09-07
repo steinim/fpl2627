@@ -189,6 +189,8 @@ Når en sekundærkilde skriver at noe *kan* skje, er det ikke et bevis for usikk
 
 **Regelen:** rundesummen i `entry/history.csv` er ikke fasit for en runde der `events.csv` har `finished: false`. Den verifiseres mot summen av `effective_points` i `entry/picks/gw{n}.csv`, som igjen hviler på `live/gw{n}.csv`. Ved konflikt vinner spillernivået — samme skille som «Ny regel, 25. august» trekker mellom `elements` og `events`, nå utvidet til entry-endepunktene.
 
+✅ **Bekreftet mot appen 7. september.** Faktisk GW3: **54 poeng, OR 850 111**. Filen ga **31 poeng, OR 1 246 660**. Slutningen holdt på poengsummen, og **`overall_rank` var stale med 396 549 plasser** — vesentlig verre enn poengavviket alene skulle tilsi, fordi rangeringen beveger seg mens hele feltet føres inn. **`overall_rank` og `gw_rank` fra en ulåst runde skal aldri siteres**, heller ikke med forbehold.
+
 **Foreslått endring i `fpl-data`, ikke gjennomført:** `fetched_at` per fil i `snapshot.json`, og at skriptet nekter å overskrive raden for en runde der `finished: false` uten å merke den `provisional`.
 
 ⚠️ **Kolonnen `finished` i `fixtures.csv` er per 7. september `False` for alle ti GW3-kamper, også de som har sluttresultat.** Kolonnen er dermed ikke brukbar som ferdigsignal. Bruk `events.csv`-feltene `finished` og `data_checked` for runden, og tilstedeværelsen av `home_score`/`away_score` for enkeltkampen.

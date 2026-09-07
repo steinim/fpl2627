@@ -1,6 +1,6 @@
 # Regler 2026/27 og sesongplan
 
-*Sist oppdatert: 7. september 2026 — GW3-utfall ført inn i chip-tabellen: 1 787 071 lag spilte Triple Captain på Haaland mot Coventry og fikk 9 poeng å gange. Bench Boost-raden oppdatert med GW3s benkepoeng (13). Kontrollposten etter GW4 står uendret — utsettelsen er bekreftet av utfallet, ikke av begrunnelsen.*
+*Sist oppdatert: 7. september 2026 — GW3-utfall ført inn i chip-tabellen: 1 787 071 lag spilte Triple Captain på Haaland mot Coventry, og troppen falt 180 186 plasser i en runde med 54 poeng. Bench Boost-raden oppdatert med GW3s benkepoeng (13). Nytt åpent punkt: feltets chipbruk mangler som variabel i chip-planen — tas stilling til ved GW4-kontrollposten.*
 *Forrige: 4. september 2026 — vindusadvarselen for Slater og Davis lukket på Ipswich-siden og skjerpet på Hull-siden, og GW13-merknaden om O'Reilly utvidet med Citys siste vindusdøgn. Rolleavklaringen avgjør nå fortegnet, ikke bare presisjonen.*
 *Forrige: 3. september 2026, sent — Triple Captain flyttet fra GW7 til GW5 etter at Champions League-kalenderen ble kontrollert mot UEFA. GW7 ligger klemt mellom MD2 og MD3; GW5 er den eneste rene uka blant Citys svake hjemmekamper før GW19. Feilen som lå bak GW7-valget er loggført i `03`. Kontrollpost etter GW4 lagt inn under Beslutningspunkt.*
 *Forrige: 3. september 2026, kveld — Triple Captain flyttet fra utløserbasert uten dato til planlagt GW7 med GW5 som reserve. Bench Boost-utløseren utvidet fra étt til tre ledd.*
@@ -289,11 +289,15 @@ Kontrollert mot `fixtures2627.csv` 22. august: **alle 38 runder har nøyaktig 10
 
 ### GW3-utfallet — ført inn 7. september
 
-**1 787 071 lag spilte Triple Captain i GW3** (`events.csv`, `chip_plays`), mot 250 816 i GW1 og 233 946 i GW2 — en sjudobling. Mest kapteinet var Haaland (element 411). Han leverte **9 poeng**: mål og tre bonus i City 1–0 Coventry. TC ga altså 27 der vårt vanlige kapteinsvalg ga 18. **Utsettelsen kostet 9 poeng, og motparten brukte en chip for å vinne dem.** Samme runde ble det spilt 709 478 wildcard og 421 239 free hit.
+**1 787 071 lag spilte Triple Captain i GW3** (`events.csv`, `chip_plays`), mot 250 816 i GW1 og 233 946 i GW2 — en sjudobling. Mest kapteinet var Haaland (element 411). Han leverte **9 poeng**: mål og tre bonus i City 1–0 Coventry. TC ga altså 27 der vårt vanlige kapteinsvalg ga 18. Samme runde ble det spilt 709 478 wildcard og 421 239 free hit — til sammen nær **2,9 millioner chipbruk i én runde**, mot 1,06 millioner i GW1 og 0,65 millioner i GW2.
 
-⚠️ **Utfallet bekrefter ikke begrunnelsen.** GW5-valget hviler på europakalenderen — at GW3 lå tre dager før Porto borte — ikke på en prediksjon om Haalands utbytte mot Coventry. Hadde han scoret fire, ville kalenderargumentet vært like gyldig og utsettelsen like riktig på beslutningstidspunktet. **Kontrollposten etter GW4 står uendret og kjøres på sitt eget grunnlag** — Sunderlands innslupne per runde, ikke på at GW3 «gikk bra».
+⚠️ **Prisen for å stå utenfor: OR falt fra 669 925 til 850 111.** 180 186 plasser, på en runde med 54 poeng. Se `01`. Chipbruk er konsentrert blant de engasjerte, og de engasjerte er naboene til vår egen plassering — rundesnittet er derfor ikke målestokken for hva runden kostet.
 
-**Reserven i TC-raden er utløpt.** «Reserve GW3» er passert. Faller GW5-premisset i kontrollposten, står kun GW7 og GW13 igjen — begge dårligere enn GW3 var, slik seksjonen «Det som ikke lenger er tilgjengelig» allerede sier. Prisen for å vente er nå betalt, ikke lenger teoretisk.
+⚠️ **Utfallet endrer ikke beslutningen.** GW5-valget hviler på europakalenderen — at GW3 lå tre dager før Porto borte — ikke på en prediksjon om Haalands utbytte mot Coventry. Hadde han scoret fire, ville kalenderargumentet vært like gyldig og utsettelsen like riktig på beslutningstidspunktet. **Kontrollposten etter GW4 står uendret og kjøres på sitt eget grunnlag** — Sunderlands innslupne per runde, ikke på at GW3 «gikk dårlig».
+
+**Åpent punkt til GW5-kontrollposten — feltets chipbruk mangler i chip-planen.** Planen over veier fikstur og europakalender. Den veier ikke **når resten av feltet bruker sine chips.** GW3 viste at en runde der en stor andel av feltet trippelkapteinerer en spiller du selv eier, har en rankkostnad ved å stå utenfor som er uavhengig av egen poengsum. Om det er et argument for å følge feltet eller for å avvike fra det, er ikke avgjort her — men variabelen finnes ikke i planen i det hele tatt, og det er en mangel. **Tas stilling til 14. september.**
+
+**Reserven i TC-raden er utløpt.** «Reserve GW3» er passert. Faller GW5-premisset i kontrollposten, står kun GW7 og GW13 igjen — begge dårligere enn GW3 var, slik seksjonen «Det som ikke lenger er tilgjengelig» allerede sier. Prisen for å vente er nå betalt, ikke lenger teoretisk, og den er tallfestet: 180 186 plasser.
 
 ### Beslutningspunkt
 
