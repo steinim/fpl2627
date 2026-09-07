@@ -1,6 +1,7 @@
 # Strategi og tropp
 
-*Sist oppdatert: 4. september 2026 — overgangsvinduets utfall ført inn, anti-drift-tallet oppdatert etter Calafioris andre prisstigning (61,2 %), og prislistegjennomgangen etter 1. september gjennomført: én klubbfeil (Muñoz), 23 prisavvik og to rader som er borte fra APIet. Alle fire prislister er reverifisert mot `players.csv`.*
+*Sist oppdatert: 7. september 2026 — GW3-fasit ført inn (**54 poeng**, ikke 31 — se datakonflikten i `03`). GW3-laguttaket rekonstruert i etterkant; det ble aldri ført inn før runden, og keeperbyttet tilbake til Verbruggen står derfor uten samtidig begrunnelse. Muñoz-risikoen for N.Williams nedgradert fra åpen til overvåking på minuttall. Ny strukturmerknad: troppen har 6 defensive-contribution-poeng på tre runder.*
+*Forrige: 4. september 2026 — overgangsvinduets utfall ført inn, anti-drift-tallet oppdatert etter Calafioris andre prisstigning (61,2 %), og prislistegjennomgangen etter 1. september gjennomført: én klubbfeil (Muñoz), 23 prisavvik og to rader som er borte fra APIet. Alle fire prislister er reverifisert mot `players.csv`.*
 *Forrige: 28. august 2026, sent — GW2-benkrekkefølgen rettet TILBAKE til Slater, Davis, Diop. Kveldens tidligere reversering til Davis/Diop/Slater var selv feil: den la for mye vekt på fraværet av et navngitt skadeflagg og ikke nok på auto-sub-motorens faktiske mekanikk (ugyldige erstatninger hoppes over, så en forsvarer øverst koster ingenting ved forsvarerblank, men koster forventet avkastning ved midtbane-/spissblank hvor forsvareren også er gyldig). Regel 7s overstyringsklausul foreslått omformulert, ikke besluttet. Feilen loggført i `03`.*
 *Forrige: 28. august 2026, kveld — GW2-benkrekkefølgen reversert til default (Davis, Diop, Slater), siden Regel 7-overstyringens grunnlag falt bort da også N.Williams' knock-flagg ble lukket, ikke bare Gibbs-Whites. Chelsea-beslutningspunktet fikk et nytt datapunkt for Alonsos formasjon (ligacupkamp mot Luton) og en ny rad om Palestras fortsatt uavklarte wingback-status (Gusto er reell starter). Slaters egen GW2-startplass for Hull er fortsatt ubekreftet — se advarsel i benkseksjonen.*
 *Forrige: 28. august 2026 — Gibbs-White-skadeflagget lukket (Glasner bekreftet tilgjengelig, Yates tilbake, Sangaré ute, foran Liverpool-kampen). GW2-benkbegrunnelsen flagget for revurdering siden premisset for Slater-valget falt bort.*
@@ -658,7 +659,7 @@ Vinduet stengte 1. september 23:00 BST. Alle priser og klubber under er verifise
 | **Hull** | Thomas £5,5m MID · Mouzakitis £5,0m MID · Iroegbunam £5,0m MID · Ansah £5,0m FWD · Vaz £5,0m FWD · Norton-Cuffy £4,0m DEF | **Slater £4,5m** har 180 min og 2 starter, men tre av seks ankomster er midtbanespillere. Rotasjonsrisiko på en benkespiller til gulvpris. Ingen handling; sjekk lagoppstilling før GW3 |
 | **Ipswich** | Flemming £5,5m FWD | Ingen forsvarskonkurranse. **Davis og Diop uberørt.** Halvparten av `02`s vindusadvarsel er dermed lukket |
 | **Man City** | Enzo £6,9m MID · Ndiaye £6,0m MID | Treffer GW13-planen for O'Reilly, ikke Haaland. Se `02` |
-| **Forest** | Muñoz £5,4m DEF | ⚠️ Prislisten førte ham som **CRY £5,5m** — feil klubb og feil pris, rettet i dag. Rollerisiko for **N.Williams** |
+| **Forest** | Muñoz £5,4m DEF | ⚠️ Prislisten førte ham som **CRY £5,5m** — feil klubb og feil pris, rettet i dag. Rollerisiko for **N.Williams**. **Nedgradert til overvåking 7. september på minuttall — se GW3-seksjonen nederst i filen** |
 | Newcastle, Leeds, Spurs, Chelsea, Man Utd, Arsenal | Ingen ankomst som berører et eid slott | Ingen handling |
 
 ⚠️ **Kilden er ufullstendig.** Oversikten dette bygger på lister ingen Forest-ankomster, mens Muñoz står i APIet. **Fravær fra en ankomstliste er ikke bevis for at et kjøp ikke finnes.**
@@ -701,3 +702,106 @@ Alle fire prislister kontrollert mot `players.csv` 4. september. **Én klubbfeil
 **Muñoz-raden er Trafford-feilen om igjen:** klubbkolonnen drifter under vinduet mens prisen ser plausibel ut, og ingenting i lista sier fra. Se `03`.
 
 **Fjernet i denne omskrivingen, ikke bare endret:** merknaden «tilbake i trening 20. aug; Carrick utelukket ham ikke fra Hull-troppen, men start usannsynlig» på Sesko (utdatert lagnytt, over fire uker gammelt), merknaden «langtidsskadet» på Ekitike (raden finnes ikke lenger), historikkpilen £8,5m→£7,5m på Wirtz, og «ny 21. august» på Konsa-raden.
+
+## GW3-fasit — 54 poeng, ført inn 7. september 2026
+
+⚠️ **Tallet står i strid med `entry/history.csv`, som gir 31.** Fasiten her er summen av `effective_points` i `entry/picks/gw3.csv`, kontrollert mot `live/gw3.csv` og regnet mot `05` spiller for spiller. Metoden ble validert mot GW2, der samme summering gir 120 og 10 — identisk med `entry/history.csv`. Avviket på 23 poeng er søndagskampene pluss ett bonuspoeng. **Rotårsak og ny regel står i `03`.**
+
+⚠️ **Rundesnittet er ikke ført.** `events.csv` ga 36, men `finished` og `data_checked` er begge `false`. `03` sier at feltet er verdiløst før låsing — og 36 var også GW1s tall før låsing, mot en fasit på 50. Differansen mot snittet, og dermed også gyldig OR etter GW3, føres når runden låses. Feilloggen for at det ble ført som «+18» i første utkast står i `03`.
+
+### Startelleveren
+
+| Spiller | Min | Hendelser | DC | BPS | Bonus | Poeng |
+|---|---|---|---|---|---|---|
+| Verbruggen | 90 | 3 redninger, 1 baklengs | 0 | 17 | 0 | **3** |
+| Calafiori | 66 | 1 baklengs | 1 | 0 | 0 | **2** |
+| N.Williams | 90 | clean sheet | 6 | 28 | 1 | **7** |
+| Shaw | 90 | assist, gult kort | 8 | 22 | 0 | **4** |
+| Gibbs-White | 90 | clean sheet (MID, 1p) | 7 | 3 | 0 | **3** |
+| B.Fernandes (VK) | 90 | — | 2 | 11 | 0 | **2** |
+| Tzolis | 90 | assist, gult kort | 8 | 31 | 1 | **5** |
+| Mbeumo | 90 | mål | 8 | 29 | 1 | **8** |
+| Haaland **(K)** | 90 | mål | 7 | 40 | 3 | **9 → 18** |
+| Calvert-Lewin | 72 | gult kort | 3 | 0 | 0 | **1** |
+| João Pedro | 90 | gult kort | 1 | 8 | 0 | **1** |
+
+**Sum 54.** Ingen automatiske innbyttere — alle elleve spilte.
+
+**Benken: Kinsky 6 · Slater 3 · Diop 3 · Davis 1 = 13.** Tredje runde på rad med tosifret benk (12, 10, 13). Utløseren i `02` krever over 20 i to av tre — ikke i nærheten.
+
+### GW3-laguttak — rekonstruert 7. september, ikke ført inn før runden
+
+⚠️ **Dette er en etterrekonstruksjon fra `picks/gw3.csv`, ikke et referat av en beslutning.** GW1 og GW2 har begge dokumentert laguttak med begrunnelse i denne filen. **GW3 har ingen.** Keeperen ble byttet tilbake fra Kinsky til Verbruggen uten at noe grunnlag er nedtegnet, og valget kostet 3 poeng.
+
+**Faktisk uttak (3-4-3):** Verbruggen; Calafiori, N.Williams, Shaw; B.Fernandes (VK), Mbeumo, Gibbs-White, Tzolis; Haaland (K), Calvert-Lewin, João Pedro. **Benk: Kinsky, Slater, Diop, Davis.**
+
+⚠️ **Benkerekkefølgen avviker fra GW2** (Verbruggen, Slater, Davis, Diop). Diop står nå foran Davis. Ingen begrunnelse er ført. Rekkefølgen fikk ingen praktisk konsekvens — alle elleve startet — men Regel 8 sier at rangeringen mellom to like benkespillere skal stå på forventet uttelling, og den vurderingen finnes ikke for GW3.
+
+**Keeperrotasjonen så langt:**
+
+| Runde | Spilte | Poeng | Benket | Poeng | Netto |
+|---|---|---|---|---|---|
+| GW1 | Verbruggen | 6 | Kinsky | 2 | +4 |
+| GW2 | Kinsky | 1 | Verbruggen | 0 | +1 |
+| GW3 | Verbruggen | 3 | Kinsky | 6 | **−3** |
+
+**Netto +2 på tre runder.** £9,0m på to keeperslott har gitt 10 tellende poeng. Rotasjonen er ikke tapsbringende, men avkastningen står ikke i forhold til oppmerksomheten den krever, og den ene runden uten dokumentert begrunnelse er den ene som gikk i minus. **Regel: keepervalget føres skriftlig hver runde det avviker fra forrige, også når det ikke koster et bytte.**
+
+**Kaptein: riktig.** Haalands 9 var høyeste enkeltscore i elleveren (Mbeumo 8, N.Williams 7). Ingen bedre valg fantes internt. `most_captained` i `events.csv` er 411 — Haaland. Regel 3 fulgt.
+
+### Triple Captain — utsettelsen bekreftet av utfallet, ikke av begrunnelsen
+
+**1 787 071 lag spilte Triple Captain i GW3** (`events.csv`, `chip_plays` — feltet er brukbart før låsing, se `03`), mot 250 816 i GW1 og 233 946 i GW2. Mest kapteinet var Haaland. TC ga dem 27 mot våre 18: **utsettelsen kostet 9 poeng mot 1,79 millioner lag, og de brente en chip på det.**
+
+Samme runde: **709 478 wildcard og 421 239 free hit.**
+
+⚠️ **Dette bekrefter ikke begrunnelsen.** `02` flyttet TC til GW5 på europakalenderen — at GW3 lå tre dager før Porto borte — ikke på en prediksjon om at Haaland ville score ett mål mot Coventry. At utfallet peker samme vei er flaks, ikke bekreftelse. Kontrollposten etter GW4 i `02` står uendret og skal kjøres på sitt eget grunnlag.
+
+### Strukturmerknad: troppen scorer ikke defensive contribution
+
+Terskler fra `05`: forsvarere **10** aksjoner, midtbane og spisser **12**. Antall aksjoner per runde fra `live/gw{n}.csv`:
+
+| Spiller | pos | GW1 | GW2 | GW3 | DC-poeng totalt |
+|---|---|---|---|---|---|
+| Diop *(benk)* | DEF | 5 | 12 | 11 | **4** |
+| N.Williams | DEF | 6 | 12 | 6 | **2** |
+| Shaw | DEF | 4 | 8 | 8 | 0 |
+| Tzolis | MID | 6 | 3 | 8 | 0 |
+| Mbeumo | MID | 4 | 5 | 8 | 0 |
+| Gibbs-White | MID | 3 | 5 | 7 | 0 |
+| B.Fernandes | MID | 6 | 8 | 2 | 0 |
+| Slater *(benk)* | MID | 3 | 10 | 6 | 0 |
+| Calafiori | DEF | 5 | 3 | 1 | 0 |
+| Davis *(benk)* | DEF | 7 | 4 | 6 | 0 |
+| Haaland | FWD | 3 | 5 | 7 | 0 |
+| Calvert-Lewin | FWD | 2 | 4 | 3 | 0 |
+| João Pedro | FWD | 3 | 3 | 1 | 0 |
+
+**6 DC-poeng på femten spillere og tre runder. Fire av dem fra en benkespiller. Startelleveren har 2.**
+
+⚠️ **Motargumentet, som er sterkt nok til at dette ikke er en byttetrigger.** Alle spillere i ligaen med minst 200 minutter ble talt opp mot sin egen terskel over GW1–3: **ingen traff i alle tre rundene, og bare 20 spillere traff i to av tre.** DC er støy på tre runders data, ikke en motor. Diop er selv blant de 20.
+
+**Konsekvens:** dette hører hjemme i wildcard-vurderingen til GW16, med tretten runders data i stedet for tre — ikke i et bytte nå. **Ført som kriterium til wildcardet, ikke som åpen risiko.** Merk sammenhengen med Egan-vurderingen over: byttet Egan (21 DC i GW1) → Diop ble kritisert for å velge bort en DC-samler, og Diop har siden vist seg å være nettopp det.
+
+### Muñoz — nedgradert fra åpen risiko til overvåking
+
+`01` førte 4. september Muñoz (NFO £5,4m) som rollerisiko for N.Williams. Faktiske minutter fra `live/gw{n}.csv`:
+
+| | GW1 | GW2 | GW3 |
+|---|---|---|---|
+| Muñoz | 54 (start, byttet ut) | **0** | 31 (innhopp) |
+| N.Williams | 90 | 90 | 90 |
+
+`players.csv` 7. september: Muñoz **85 minutter, 1 start, 1 poeng**. N.Williams 270 av 270 minutter og 15 poeng.
+
+**Risikoen er ikke lukket** — en innbytter kan vinne plassen tilbake, og Muñoz kom til klubben under vinduet uten oppkjøring med laget. Men premisset om konkurranse «fra GW4» hviler på en ankomst, ikke på en oppstilling, og tre runders oppstillinger peker motsatt vei. **Følges videre til GW6. Ingen handling.**
+
+### Bytter og bank
+
+**Null bytter i GW3**, i tråd med bankeplanen i `02` fram til GW5. `entry/history.csv` gir `transfers: 0` og `hit: 0` for alle tre rundene, og `bank: 0.0`.
+
+**Sparte bytter inn i GW4: 3.** Utledet, ikke slått opp: `05` gir 1 frikjøp per runde med maks 5 banket, ingen er brukt siden GW1. Kontrolleres mot appen før første bytte.
+
+**Prisbevegelse i troppen per 7. september (`players.csv`):** Calafiori £5,7m og João Pedro £7,7m står begge £0,2m over kjøpspris. **Mbeumo har falt £0,1m til £7,9m — i selve runden hvor han scoret 8 poeng.** Gibbs-White står på £7,9m etter sitt fall. Lagverdi £100,3m, bank £0,0m — begge fra samme stale rad i `entry/history.csv` som ga 31 poeng, og skal kontrolleres på nytt når runden låses. Summen av de femten kjøpspostene i `players.csv` er £100,2m.
+
+**Anti-drift:** ingen bytter, altså ingen bevegelse. Topplagsandelen står på **£19,7m av £32,2m = 61,2 %** slik den ble ført 4. september. Ikke omregnet i dag — ingen prisendring har truffet et GK- eller DEF-slott siden.

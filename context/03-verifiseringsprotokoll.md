@@ -1,6 +1,7 @@
 # Verifiseringsprotokoll
 
-*Sist oppdatert: 4. september 2026 — to nye feillogger fra ett og samme svar: O'Reillys banerolle påstått som avklart i strid med `02`s eksplisitte «uavklart», og Elanga ført som planlagt Tzolis-erstatter uten at navnet finnes i noen kontekstfil. Ny regel om at minutter og poeng i `players.csv` følger spilleren og ikke klubben etter et overgangsvindu.*
+*Sist oppdatert: 7. september 2026 — GW3-retrospektiv. Ny regel: `entry/history.csv` er ikke fasit for en runde som ikke er låst, og mirroren merker ikke stale filer. To nye feillogger: rundesnittet 36 brukt som sammenligningsgrunnlag i strid med aggregatregelen som allerede sto i denne filen, og `fixtures.csv`-kolonnen `finished` lest som informativ uten kontroll.*
+*Forrige: 4. september 2026 — to nye feillogger fra ett og samme svar: O'Reillys banerolle påstått som avklart i strid med `02`s eksplisitte «uavklart», og Elanga ført som planlagt Tzolis-erstatter uten at navnet finnes i noen kontekstfil. Ny regel om at minutter og poeng i `players.csv` følger spilleren og ikke klubben etter et overgangsvindu.*
 *Forrige: 3. september 2026 — ny feillogg: komprimert minnesammendrag brukt som kilde på troppssammensetning og anti-drift-tall. Tredje forekomst av samme feiltype. Snapshot-repoet `steinim/fpl-data` ført inn i kildehierarkiet som nivå 0 for egen tropp, og verktøybegrensningene oppdatert etter at 403-blokkeringen mot FPL-APIet ble omgått.*
 *Forrige: 28. august 2026, sent — ny feillogg: en benkerekkefølge-reversering ble selv reversert. Overstyringsklausulen i Regel 7 ble anvendt bokstavelig på det navngitte flagget uten å sjekke om auto-sub-mekanismen fortsatt talte for konklusjonen uavhengig av flagget. Den gjorde det.*
 *Forrige: 28. august 2026, kveld — ny feillogg: en Claude-økt hevdet en GW2-deadline-feil i `02` som ikke fantes, forårsaket av at et minnesammendrag hadde slettet skillet mellom BST og norsk tid. Samme feiltype som 27. august, nå utvidet til å gjelde minnesammendrag mot kildefil.*
@@ -167,14 +168,30 @@ Når en sekundærkilde skriver at noe *kan* skje, er det ikke et bevis for usikk
 
 | Sti under `data/` | Innhold | Rangering |
 |---|---|---|
-| `entry/history.csv` | Per runde: `points`, `gw_rank`, `overall_rank`, `total_points`, `value`, `bank`, `transfers`, `hit`, **`bench_points`** | Nivå 0 for egen tropp |
+| `entry/history.csv` | Per runde: `points`, `gw_rank`, `overall_rank`, `total_points`, `value`, `bank`, `transfers`, `hit`, **`bench_points`** | Nivå 0 for egen tropp **etter låsing**. ⚠️ Ikke fasit for inneværende runde — se regelen 7. september |
 | `entry/picks/gw{n}.csv` | Ditt laguttak per runde med `multiplier`, `captain`, `vice`, `minutes`, `raw_points`, `effective_points`, `bps`, `bonus` | Nivå 0 for egen tropp |
 | `live/gw{n}.csv` | Alle spilleres rundefasit: minutter, mål, assist, clean sheet, redninger, `defensive_contribution`, bonus, BPS, `total_points` | Nivå 0 **etter** låsing 09:00 UK |
 | `players.csv` | 652 spillere: pris, eierandel, form, `ep_next`, `status`, `news`, overganger inn/ut denne runden | Nivå 0 på spillerfelt, **ikke** på aggregat |
-| `events.csv` | Rundesnitt, høyeste score, mest kapteinet, **antall spilte chips per type** | Nivå 0 |
+| `events.csv` | Rundesnitt, høyeste score, mest kapteinet, **antall spilte chips per type** | Delt: `chip_plays`, `most_captained` og `most_selected` er nivå 0 straks runden er spilt. **`average_entry_score` og `highest_score` er verdiløse før `data_checked: true`** — se «Ny regel, 25. august» |
 | `fixtures.csv`, `fixtures.json` | APIets eget kampprogram med kampdato | **Slår `fixtures2627.csv` på kampdato**, som kun er validert på rundenivå |
 
 **`bench_points` spores hver runde.** Den er utløseren for Bench Boost i `02` og er den eneste direkte målingen av om benken faktisk er verdt en chip.
+
+#### Ny regel, 7. september: rundesummen i `entry/history.csv` verifiseres mot summen av `picks/gw{n}.csv`
+
+**Oppdaget i GW3-retrospektivet.** `entry/history.csv` ga **31 poeng** og **OR 1 246 660** for GW3. Summen av `effective_points` i `entry/picks/gw3.csv` ga **54**, og hver enkelt spillerpoengsum ble kontrollert mot `05` og stemte på detaljnivå. Begge kilder var internt konsistente: 31 poeng forklarer rankfallet fra 669 925.
+
+**Metoden ble validert mot en låst runde før dommen falt.** `picks/gw2.csv` summerer til **120** startellever og **10** på benken — identisk med `entry/history.csv` for GW2. Summeringen er altså riktig.
+
+**Avviket var 23 poeng og lot seg forklare eksakt:** søndagskampene Everton–United (Shaw 4, B.Fernandes 2, Mbeumo 8) og Arsenal–Chelsea (Calafiori 2, Tzolis 5, João Pedro 1) = 22, pluss ett bonuspoeng til N.Williams som ennå ikke var tildelt. `bench_points` sto derimot riktig på 13, fordi alle fire benkespillere spilte fredag og lørdag. **En stale fil kan ha riktige felter.**
+
+**Rotårsak i mirroren:** `snapshot.json` har **én** `fetched_at` for hele kjøringen. Slår hentingen av et enkeltendepunkt feil, blir den gamle filen stående, og fellesstempelet får den til å se fersk ut. Ingenting i utdataene markerer forskjellen.
+
+**Regelen:** rundesummen i `entry/history.csv` er ikke fasit for en runde der `events.csv` har `finished: false`. Den verifiseres mot summen av `effective_points` i `entry/picks/gw{n}.csv`, som igjen hviler på `live/gw{n}.csv`. Ved konflikt vinner spillernivået — samme skille som «Ny regel, 25. august» trekker mellom `elements` og `events`, nå utvidet til entry-endepunktene.
+
+**Foreslått endring i `fpl-data`, ikke gjennomført:** `fetched_at` per fil i `snapshot.json`, og at skriptet nekter å overskrive raden for en runde der `finished: false` uten å merke den `provisional`.
+
+⚠️ **Kolonnen `finished` i `fixtures.csv` er per 7. september `False` for alle ti GW3-kamper, også de som har sluttresultat.** Kolonnen er dermed ikke brukbar som ferdigsignal. Bruk `events.csv`-feltene `finished` og `data_checked` for runden, og tilstedeværelsen av `home_score`/`away_score` for enkeltkampen.
 
 #### Ny regel, 4. september: etter et overgangsvindu følger minuttene spilleren, ikke klubben
 
@@ -225,6 +242,28 @@ Tesen i `02` var delvis feil og ble etterprøvd mot fire uavhengige kilder.
 **Størrelsesorden:** BPS avgjør kun bonus, maks 3 poeng per kamp, i konkurranse. En midtstopper taper anslagsvis 5–10 bonuspoeng over en sesong. **Tesen er nedgradert fra «viktigste enkeltendring» til andreordens rebalansering.**
 
 ## Feillogg
+
+### Ny feil, 7. september: rundesnittet 36 brukt som sammenligningsgrunnlag i strid med en regel som står i denne filen
+
+I GW3-retrospektivet ble troppens 54 poeng stilt opp mot **36** fra `events.csv` og differansen ført som **+18**. Tallet ble merket som «foreløpig» med en egen begrunnelse utledet i øyeblikket — at søndagskampene kanskje ikke var med.
+
+**Regelen sto allerede i filen.** «Ny regel, 25. august» sier at `average_entry_score` er **verdiløst** før `data_checked: true`, ikke usikkert. Regelen bruker attpåtil **36** som sitt eget eksempel: det var GW1s tall før låsing, og fasit ble **50**. Samme tall, samme felt, samme feilmodus, ett tiendeår inn i sesongen.
+
+**Rotårsak:** forbeholdet ble konstruert fra første prinsipper i stedet for slått opp. Det ga tilfeldigvis riktig retning — tallet er ubrukelig — men på gal begrunnelse og med feil styrke: «kan bli høyere» i stedet for «skal ikke brukes». Regel 8 i arbeidsordren: riktig svar av gal grunn er en feil. At det samme svaret var *strengere* i filen enn i hodet er nettopp poenget med at filen finnes.
+
+**Skjerpende:** `events.csv`-raden i kildehierarkiet over var ført som «Nivå 0» uten forbehold, mens regelen tjue linjer høyere sa det motsatte. Filen motsa seg selv, og oppslaget som ville avslørt det ble ikke gjort. Raden er rettet i dag.
+
+**Regelen som fulgte:** **et forbehold skal hentes, ikke formuleres.** Er Claude i ferd med å skrive «dette tallet kan være usikkert fordi …» om et felt fra en datakilde, er det signalet om å `grep`-e `03` for feltnavnet først. Et selvformulert forbehold er en gjetning med høflig ordlyd.
+
+**Konsekvens for GW3-fasiten:** differansen mot snittet er ikke tallfestet. Den føres når `data_checked` snur, ikke før.
+
+### Ny feil, 7. september: `finished`-kolonnen i `fixtures.csv` lest uten kontroll
+
+I samme gjennomgang ble `fixtures.csv` hentet for å avgjøre om GW3 var ferdigspilt. Alle ti kamper hadde `finished: False` **og** sluttresultat. Observasjonen ble notert som et kuriøsum og lagt til side, og konklusjonen ble trukket fra resultatkolonnene i stedet — riktig, men uten at kolonnen som faktisk skulle svare på spørsmålet ble underkjent eksplisitt.
+
+**Rotårsak:** et felt som oppfører seg umulig ble behandlet som støy i stedet for som funn. Hadde det stått `True` på en kamp som ikke var spilt, ville samme lesemåte gitt gal konklusjon i stedet for riktig.
+
+**Regelen som fulgte:** **et felt som motsier seg selv skal underkjennes skriftlig, ikke omgås stille.** Er kolonnen ubrukelig, føres den som ubrukelig i kildehierarkiet samme økt — ellers blir den lest på nytt av neste økt som ikke så selvmotsigelsen. Ført inn i snapshot-seksjonen over.
 
 ### Ny feil, 4. september: to påstander levert fra minne mot filer som sto åpne — fjerde forekomst
 
