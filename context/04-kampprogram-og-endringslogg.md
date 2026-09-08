@@ -1,7 +1,8 @@
 # Kampprogram — verifisert kalender og endringslogg
 
 *Opprettet 20. august 2026. Vedlikeholdes av den planlagte kampprogram-sjekken.*
-*Sist oppdatert 3. september 2026, andre versjon — **Man City–Sunderland flyttet til søndag 20.9. 14:00** (nivå 1, mancity.com 28.8.). Ligacupens runde 3-datoer publisert. GW8-betingelsen lukket. GW4-deadline bekreftet i API-et. GW5- og GW6–GW8-tabeller ført inn. Én utledning i forrige versjon vist å være feil (Brentford).*
+*Sist oppdatert 8. september 2026 — **én setning i «Endringen 28. august» rettet:** påstanden om at Haalands minutter mot Norwich er ukjente ved GW5-deadline var gal og selvmotsigende. Cupkampen ligger 21 timer før deadline. Ingen datoer eller klokkeslett endret.*
+*Forrige: 3. september 2026, andre versjon — **Man City–Sunderland flyttet til søndag 20.9. 14:00** (nivå 1, mancity.com 28.8.). Ligacupens runde 3-datoer publisert. GW8-betingelsen lukket. GW4-deadline bekreftet i API-et. GW5- og GW6–GW8-tabeller ført inn. Én utledning i forrige versjon vist å være feil (Brentford).*
 *⚠️ **Første versjon samme dag hadde to egne feil, begge fanget av brukerens diff mot repo:** elleve klokkeslett i GW6–GW8-tabellen sto i UTC under en kolonne merket UK-tid, og endringsloggen påsto usant at ingenting var fjernet. Begge rettet. Se «Endringer i denne versjonen» nederst.*
 *Forrige: 28. august 2026, sent — full pressekonferansetabell for GW2 ført inn (13 klubber, ni av ti relevante klubber verifisert mot nivå 1-kilde), ingen skadeflagg funnet i troppen.*
 *Forrige: 28. august 2026 — Chelsea–Luton-resultatet (2–0) ført inn i ligacuptabellen, Leeds' runde 3-motstander dermed avgjort (Chelsea, borte). GW2-deadlinen re-verifisert, ingen endring.*
@@ -63,7 +64,7 @@ Blank- og dobbeltrunder bekreftes normalt ikke før januar/februar, når FA-cup-
 | Før flyttingen (lør 19.9. 15:00) | tor 17.9. 19:30 → lør 15:00 | **43,5** |
 | Etter flyttingen (søn 20.9. 14:00) | tor 17.9. 19:30 → søn 14:00 | **66,5** |
 
-Flyttingen kjøper City 23 timer. Den fjerner ikke torsdagskampen. **GW5-deadline er fredag 18. september 18:30 BST — dagen etter cupkampen, to døgn før Haaland spiller.** Kapteinsvalget låses uten lagnytt fra søndagen og uten å vite hvor mange minutter Haaland fikk mot Norwich torsdag.
+Flyttingen kjøper City 23 timer. Den fjerner ikke torsdagskampen. **GW5-deadline er fredag 18. september 18:30 BST — dagen etter cupkampen, to døgn før Haaland spiller.** Kapteinsvalget låses uten lagnytt fra søndagen. ⚠️ **Rettet 8. september:** setningen sto tidligere som «uten å vite hvor mange minutter Haaland fikk mot Norwich torsdag». Det er feil og motsier setningen foran den — cupkampen slutter torsdag ca. 21:20 UK, ~21 timer **før** deadline. Haalands minutter mot Norwich er kjent når chipen låses; det er lagnytt fra fredag og lørdag som mangler. Beslutningsregelen som følger av dette står i TC-kontrollposten i `02`, trinn 2.
 
 ⚠️ **Merk hvordan denne ble fanget — og hvordan den ikke ble det.** Forrige kjøring verifiserte GW5 mot API-et 27. august og fant ingenting, men skrev aldri GW5-tabellen inn i filen; bare konklusjonen «kontrollert, ingen endring». Endringen kom dagen etter. Uten tabellen finnes det ingenting å diffe mot, og funnet måtte gjøres via en klubbside i stedet for ved sammenligning. **Regelen som følger: skriv inn tabellen, ikke bare konklusjonen om at den er sjekket.** En påstand om at noe er kontrollert har null verdi i neste kjøring hvis det kontrollerte ikke er skrevet ned. GW5 og GW6–GW8 står nå i filen.
 

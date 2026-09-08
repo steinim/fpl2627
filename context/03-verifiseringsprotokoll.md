@@ -1,6 +1,7 @@
 # Verifiseringsprotokoll
 
-*Sist oppdatert: 8. september 2026 — ✅-blokken om appbekreftelsen 7. september feilrettet: OR 850 111 var også lest fra en ulåst runde, fasit er **638 377**. To nye feillogger med fire avledede regler: låsestatus er festepunktet for rankregelen (ikke filnavnet), premisstall verifiseres før omskriving, mekanismer utledet av ulåste tall merkes som hypotese, og verktøytilgjengelighet påstås ikke uten søk.*
+*Sist oppdatert: 8. september 2026, andre versjon — ny feillogg med to avledede regler: `04` åpnes før websøk i alle dato- og klokkeslettspørsmål, og en motsigelse mellom to kontekstfiler føres som inkonsistens, ikke som manglende oppslag. En nivå 1-bekreftet kampdato ble nedgradert til ubekreftet fordi `04` ikke ble lest.*
+*Forrige: 8. september 2026 — ✅-blokken om appbekreftelsen 7. september feilrettet: OR 850 111 var også lest fra en ulåst runde, fasit er **638 377**. To nye feillogger med fire avledede regler: låsestatus er festepunktet for rankregelen (ikke filnavnet), premisstall verifiseres før omskriving, mekanismer utledet av ulåste tall merkes som hypotese, og verktøytilgjengelighet påstås ikke uten søk.*
 *Forrige: 7. september 2026 — GW3-retrospektiv. Ny regel: `entry/history.csv` er ikke fasit for en runde som ikke er låst, og mirroren merker ikke stale filer. To nye feillogger: rundesnittet 36 brukt som sammenligningsgrunnlag i strid med aggregatregelen som allerede sto i denne filen, og `fixtures.csv`-kolonnen `finished` lest som informativ uten kontroll.*
 *Forrige: 4. september 2026 — to nye feillogger fra ett og samme svar: O'Reillys banerolle påstått som avklart i strid med `02`s eksplisitte «uavklart», og Elanga ført som planlagt Tzolis-erstatter uten at navnet finnes i noen kontekstfil. Ny regel om at minutter og poeng i `players.csv` følger spilleren og ikke klubben etter et overgangsvindu.*
 *Forrige: 3. september 2026 — ny feillogg: komprimert minnesammendrag brukt som kilde på troppssammensetning og anti-drift-tall. Tredje forekomst av samme feiltype. Snapshot-repoet `steinim/fpl-data` ført inn i kildehierarkiet som nivå 0 for egen tropp, og verktøybegrensningene oppdatert etter at 403-blokkeringen mot FPL-APIet ble omgått.*
@@ -215,6 +216,20 @@ Når en sekundærkilde skriver at noe *kan* skje, er det ikke et bevis for usikk
 **Rotårsak.** Fravær i den umiddelbart synlige verktøylista ble lest som fravær i økta. **«Fant ingen» ført som «finnes ingen»** — nøyaktig det verifiseringsregel 1 forbyr, anvendt på verktøy i stedet for på data.
 
 **Avledet regel 4:** før det påstås at et verktøy eller en datakilde mangler, skal det søkes etter. Verifiseringsregel 1 gjelder også egne kapabiliteter.
+
+#### Feillogg 8. september: websøk brukt der svaret allerede sto i `04` — og svaret ble dårligere
+
+**Hva skjedde.** En Maresca-uttalelse om at Haaland må hvile ble lagt fram. Claude verifiserte sitatet, oppdaget via websøk at City spiller ligacup i uka før GW5, og presenterte det som et nytt funn som falsifiserte GW5-premisset i `02`. `04` hadde kampen fra før — **Man City–Norwich torsdag 17. september 19:30, nivå 1, mancity.com 28. august** — sammen med flyttingen av ligakampen og snuoperasjonstabellen på 66,5 timer.
+
+**Følgefeil.** Fordi `04` ikke ble lest, ble kampdatoen levert som «uke fra 14. september, dag ikke bekreftet», med torsdagsdatoen tilskrevet en nivå 5-kilde (CityXtra) og eksplisitt merket usikker. **En nivå 1-bekreftet dato ble nedgradert til ubekreftet fordi kilden som allerede hadde bekreftet den ikke ble åpnet.** Rotdiagnosen ble også feil: det ble ført som at cupkalenderen aldri ble kontrollert 3. september, mens den faktisk var kontrollert og skrevet ned — i feil fil i forhold til konklusjonen som ble trukket.
+
+**Rotårsak.** Spørsmålet ble lest som et nyhetsspørsmål (uttalelse → søk) i stedet for et kalenderspørsmål (dato → `04`). CLAUDE.md sier eksplisitt at `fixtures2627.csv` er rundenivå og at `04` er kilden for dato og klokkeslett.
+
+**Avledet regel 5:** berører et svar en kampdato, et klokkeslett eller en deadline, åpnes `04` **før** det søkes på nettet. Websøk brukes til å finne det `04` ikke har, ikke til å gjenoppdage det `04` har.
+
+**Avledet regel 6:** før en motsigelse i en kontekstfil føres som et manglende oppslag, skal de øvrige filene søkes for samme faktum. Motsier to filer hverandre, er feilen en inkonsistens mellom dem — og feilloggen skal beskrive den som det, ikke som et hull i verifiseringen.
+
+**Hva feilen faktisk var i `02`:** TC-raden ble skrevet 3. september med premisset «full uke uten midtukekamp foran seg» samme døgn som `04` inneholdt torsdagskampen. Konklusjonen (GW5) står, premisset er skrevet om 8. september, og kontrollposten har fått et trinn 2 etter cupkampen.
 
 ⚠️ **Kolonnen `finished` i `fixtures.csv` er per 7. september `False` for alle ti GW3-kamper, også de som har sluttresultat.** Kolonnen er dermed ikke brukbar som ferdigsignal. Bruk `events.csv`-feltene `finished` og `data_checked` for runden, og tilstedeværelsen av `home_score`/`away_score` for enkeltkampen.
 
