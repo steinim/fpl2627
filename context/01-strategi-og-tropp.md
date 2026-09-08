@@ -1,6 +1,7 @@
 # Strategi og tropp
 
-*Sist oppdatert: 7. september 2026 — GW3-fasit ført inn (**54 poeng, OR 850 111**, begge bekreftet fra appen; `entry/history.csv` ga 31 og 1 246 660 — se datakonflikten i `03`). **Rankfallet på 180 186 plasser velter framstillingen av GW3 som en god runde**, og TC-utsettelsens pris er rettet opp fra «9 poeng». GW3-laguttaket rekonstruert i etterkant; det ble aldri ført inn før runden, og keeperbyttet tilbake til Verbruggen står derfor uten samtidig begrunnelse. Muñoz-risikoen for N.Williams nedgradert til overvåking. Ny strukturmerknad: troppen har 6 defensive-contribution-poeng på tre runder.*
+*Sist oppdatert: 8. september 2026 — **GW3-ranken rettet fra 850 111 til 638 377.** Runden er nå låst (`events.csv`: `finished: true`, `data_checked: true`), og `entry/history.csv` gir 54 poeng, OR 638 377, total 220. **GW3 var en forbedring på 31 548 plasser, ikke et fall på 180 186.** Chip-asymmetri-mekanismen er trukket — den hvilte på ranktallet og har ingen støtte i det korrigerte. Rundesnittet ført inn: 51. Anti-drift omregnet etter Shaws prisfall: 61,1 %. Rotårsak og tre avledede regler i `03`.*
+*Forrige: 7. september 2026 — GW3-fasit ført inn (54 poeng, verifisert mot `picks/gw3.csv` × `live/gw3.csv`; `entry/history.csv` ga 31 — se datakonflikten i `03`). Ranken som ble ført samme dag er siden korrigert, se over. GW3-laguttaket rekonstruert i etterkant; det ble aldri ført inn før runden, og keeperbyttet tilbake til Verbruggen står derfor uten samtidig begrunnelse. Muñoz-risikoen for N.Williams nedgradert til overvåking. Ny strukturmerknad: troppen har 6 defensive-contribution-poeng på tre runder.*
 *Forrige: 4. september 2026 — overgangsvinduets utfall ført inn, anti-drift-tallet oppdatert etter Calafioris andre prisstigning (61,2 %), og prislistegjennomgangen etter 1. september gjennomført: én klubbfeil (Muñoz), 23 prisavvik og to rader som er borte fra APIet. Alle fire prislister er reverifisert mot `players.csv`.*
 *Forrige: 28. august 2026, sent — GW2-benkrekkefølgen rettet TILBAKE til Slater, Davis, Diop. Kveldens tidligere reversering til Davis/Diop/Slater var selv feil: den la for mye vekt på fraværet av et navngitt skadeflagg og ikke nok på auto-sub-motorens faktiske mekanikk (ugyldige erstatninger hoppes over, så en forsvarer øverst koster ingenting ved forsvarerblank, men koster forventet avkastning ved midtbane-/spissblank hvor forsvareren også er gyldig). Regel 7s overstyringsklausul foreslått omformulert, ikke besluttet. Feilen loggført i `03`.*
 *Forrige: 28. august 2026, kveld — GW2-benkrekkefølgen reversert til default (Davis, Diop, Slater), siden Regel 7-overstyringens grunnlag falt bort da også N.Williams' knock-flagg ble lukket, ikke bare Gibbs-Whites. Chelsea-beslutningspunktet fikk et nytt datapunkt for Alonsos formasjon (ligacupkamp mot Luton) og en ny rad om Palestras fortsatt uavklarte wingback-status (Gusto er reell starter). Slaters egen GW2-startplass for Hull er fortsatt ubekreftet — se advarsel i benkseksjonen.*
@@ -703,23 +704,21 @@ Alle fire prislister kontrollert mot `players.csv` 4. september. **Én klubbfeil
 
 **Fjernet i denne omskrivingen, ikke bare endret:** merknaden «tilbake i trening 20. aug; Carrick utelukket ham ikke fra Hull-troppen, men start usannsynlig» på Sesko (utdatert lagnytt, over fire uker gammelt), merknaden «langtidsskadet» på Ekitike (raden finnes ikke lenger), historikkpilen £8,5m→£7,5m på Wirtz, og «ny 21. august» på Konsa-raden.
 
-## GW3-fasit — 54 poeng, ført inn 7. september 2026
+## GW3-fasit — 54 poeng, OR 638 377. Ført inn 7. september, ranken rettet 8. september
 
-⚠️ **Tallet står i strid med `entry/history.csv`, som gir 31.** Fasiten her er summen av `effective_points` i `entry/picks/gw3.csv`, kontrollert mot `live/gw3.csv` og regnet mot `05` spiller for spiller. Metoden ble validert mot GW2, der samme summering gir 120 og 10 — identisk med `entry/history.csv`. Avviket på 23 poeng er søndagskampene pluss ett bonuspoeng. **Rotårsak og ny regel står i `03`.**
+**Poengsummen er verifisert.** Fasiten er summen av `effective_points` i `entry/picks/gw3.csv`, kontrollert mot `live/gw3.csv` og regnet mot `05` spiller for spiller. Metoden ble validert mot GW2, der samme summering gir 120 og 10 — identisk med `entry/history.csv`. `entry/history.csv` ga først 31; etter låsing gir den 54, altså samme tall. Avviket på 23 poeng var søndagskampene pluss ett bonuspoeng i en stale fil. **Rotårsak og ny regel står i `03`.**
 
-⚠️ **Rundesnittet er ikke ført.** `events.csv` ga 36, men `finished` og `data_checked` er begge `false`. `03` sier at feltet er verdiløst før låsing — og 36 var også GW1s tall før låsing, mot en fasit på 50. Differansen mot snittet føres når runden låses. Feilloggen for at det ble ført som «+18» i første utkast står i `03`.
+**Rundesnittet er 51** (`events.csv`, låst 8. september: `finished: true`, `data_checked: true`). Troppen fikk 54 — **+3 mot snittet.** Det foreløpige tallet 36 var feil med 15, i tråd med at GW1 ga 36 før låsing mot en fasit på 50. Aggregatregelen i `03` er dermed bekreftet en gang til. Feilloggen for at differansen ble ført som «+18» i første utkast står i `03`.
 
-### Rank: 850 111 — et fall på 180 186 plasser
+### Rank: 638 377 — en forbedring på 31 548 plasser
 
-**Bekreftet fra appen 7. september. OR etter GW2 var 669 925; etter GW3 er den 850 111.**
+**Ført 8. september fra `entry/history.csv` etter at runden er låst.** OR etter GW2 var 669 925; etter GW3 er den 638 377. `gw_rank` er 4 127 256 — omtrent 37. persentil, som er nøyaktig hva +3 mot snittet skal gi.
 
-⚠️ **Dette velter framstillingen av GW3 som en god runde.** 54 poeng er trolig over rundesnittet — men **rundesnittet er ikke målestokken når du ligger på 670 000.** På den plasseringen måles du mot lag som selv ligger der, og de scoret mer.
+⚠️ **Dette reverserer det som ble ført 7. september.** Da sto det 850 111 og et fall på 180 186 plasser, «bekreftet fra appen». Tallet ble lest samme kveld som `entry/history.csv` ga 31 poeng og OR 1 246 660 — altså midt i feltinnføringen, fra en kilde som leser samme API. Poengsummen ble verifisert i tre ledd; **ranken ble lest én gang, fra én kilde, uten motkontroll — og det var ranken hele omskrivingen hvilte på.** Se feilloggen i `03`.
 
-**Mekanismen er chip-asymmetri, ikke spillervalg.** GW3 hadde **1 787 071 Triple Captain, 709 478 wildcard og 421 239 free hit** — til sammen nær 2,9 millioner chipbruk i én runde, mot 1,06 millioner i GW1 og 0,65 millioner i GW2. Chipbruk er ikke jevnt fordelt over feltet; den er konsentrert blant de engasjerte, og de engasjerte er nettopp naboene til en plassering på 670 000. **Å stå uten chip i sesongens største chiprunde koster rank selv med en poengsum over snittet.**
+**Konsekvens: chip-asymmetri-mekanismen har ingen støtte i vårt eget datapunkt.** GW3 hadde **1 787 071 Triple Captain, 709 478 wildcard og 421 239 free hit** (`events.csv`) — nær 2,9 millioner chipbruk i én runde, mot 1,06 millioner i GW1 og 0,65 millioner i GW2. Troppen sto uten chip i sesongens største chiprunde og **forbedret likevel ranken.** Påstanden om at det koster rank i seg selv er ikke bevist av GW3; den er svekket av GW3.
 
-**Kostnaden ved TC-utsettelsen var altså ikke 9 poeng.** Den var 9 poeng **og** en betydelig del av 180 186 plasser. Se korrigeringen i TC-seksjonen under.
-
-**Sesongen så langt:** 220 poeng, OR 850 111 etter tre runder. GW1 5,57 mill → GW2 669 925 → GW3 850 111. Målet er topp 100k.
+**Sesongen så langt:** 220 poeng, OR 638 377 etter tre runder. GW1 5,57 mill → GW2 669 925 → GW3 638 377. Målet er topp 100k.
 
 ### Startelleveren
 
@@ -761,15 +760,17 @@ Alle fire prislister kontrollert mot `players.csv` 4. september. **Én klubbfeil
 
 **Kaptein: riktig.** Haalands 9 var høyeste enkeltscore i elleveren (Mbeumo 8, N.Williams 7). Ingen bedre valg fantes internt. `most_captained` i `events.csv` er 411 — Haaland. Regel 3 fulgt.
 
-### Triple Captain — utsettelsen kostet mer enn først ført
+### Triple Captain — utsettelsen kostet 9 poeng, ikke rank
 
 **1 787 071 lag spilte Triple Captain i GW3** (`events.csv`, `chip_plays` — feltet er brukbart før låsing, se `03`), mot 250 816 i GW1 og 233 946 i GW2. Mest kapteinet var Haaland. TC ga dem 27 mot våre 18.
 
-⚠️ **Rettelse ført inn samme dag.** Dette ble først ført som «9 poeng tapt mot lag som brente en chip på det» — med den underforståtte konklusjonen at de sløste bort chipen og vi slapp billig unna. **Rankfallet på 180 186 plasser sier noe annet.** En TC som gir +9 er svak i absolutte tall, men den var netto positiv for dem, og den flyttet dem forbi oss. Sammen med 709 478 wildcard og 421 239 free hit gjorde det GW3 til en runde der å stå uten chip var dyrt i seg selv, uavhengig av hvilke elleve som spilte.
+⚠️ **Rettelse 8. september, som opphever rettelsen fra 7. september.** Kostnaden ved TC-utsettelsen er **9 poeng** mot de 1 787 071 lagene som spilte chipen på Haaland. Den ble 7. september oppjustert til «9 poeng **og** en betydelig del av 180 186 plasser». **Rankdelen er trukket — ranken falt ikke.**
 
-⚠️ **Utfallet endrer likevel ikke beslutningen.** `02` flyttet TC til GW5 på europakalenderen — at GW3 lå tre dager før Porto borte — ikke på en prediksjon om Haalands utbytte mot Coventry. En beslutning vurderes på sitt grunnlag, ikke på fasiten. **Men prisen skal føres riktig**, og den var høyere enn først oppgitt. Kontrollposten etter GW4 i `02` står uendret og kjøres på sitt eget grunnlag.
+⚠️ **Men den opprinnelige formuleringen «de sløste bort chipen og vi slapp billig unna» gjenopptas ikke.** Den var riktig konklusjon av gal grunn, og Regel 8 forbyr å la den stå på det grunnlaget. Mekanismen er: 1,79 millioner lag tok 9 netto poeng på oss i én runde, og det er en reell kostnad uansett hva ranken gjorde. At OR likevel forbedret seg skyldes et lavt rundesnitt (51) som løftet oss mot resten av feltet — ikke at utsettelsen var gratis.
 
-**Det som bør trekkes ut som mønster, ikke som enkelttilfelle:** feltets chipbruk er en variabel i chip-timing, ved siden av fikstur og europakalender. En runde der en fjerdedel av feltet trippelkapteinerer den samme spilleren du selv eier, er en runde der å ikke bruke chip har en rankkostnad selv ved god poengsum. Det står ingenting om dette i `02`s chip-plan. **Ført som åpent punkt til GW5-kontrollposten.**
+⚠️ **Utfallet endrer ikke beslutningen.** `02` flyttet TC til GW5 på europakalenderen — at GW3 lå tre dager før Porto borte — ikke på en prediksjon om Haalands utbytte mot Coventry. En beslutning vurderes på sitt grunnlag, ikke på fasiten. Kontrollposten etter GW4 i `02` står uendret og kjøres på sitt eget grunnlag.
+
+**Det åpne punktet om feltets chipbruk er svekket, ikke bortfalt.** Det ble ført 7. september på observasjonen at GW3 kostet 180 186 plasser; den observasjonen er feil. Igjen står en strukturell hypotese uten datapunkt: chipbruk er konsentrert blant engasjerte managere, og de ligger nærmere vår plassering enn feltet ellers. **GW3 er nå et motargument** — maksimal chipbruk i feltet, ingen målbar rankskade for oss. **Til GW4-kontrollposten: hypotesen skal begrunnes på nytt eller forkastes, ikke videreføres på gammelt grunnlag.**
 
 ### Strukturmerknad: troppen scorer ikke defensive contribution
 
@@ -816,6 +817,6 @@ Terskler fra `05`: forsvarere **10** aksjoner, midtbane og spisser **12**. Antal
 
 **Sparte bytter inn i GW4: 3.** Utledet, ikke slått opp: `05` gir 1 frikjøp per runde med maks 5 banket, ingen er brukt siden GW1. Kontrolleres mot appen før første bytte.
 
-**Prisbevegelse i troppen per 7. september (`players.csv`):** Calafiori £5,7m og João Pedro £7,7m står begge £0,2m over kjøpspris. **Mbeumo har falt £0,1m til £7,9m — i selve runden hvor han scoret 8 poeng.** Gibbs-White står på £7,9m etter sitt fall. Summen av de femten kjøpspostene i `players.csv` er £100,2m. Lagverdi og bank fra `entry/history.csv` (£100,3m / £0,0m) er hentet fra samme stale rad som ga 31 poeng og OR 1 246 660, og skal kontrolleres på nytt når runden låses.
+**Prisbevegelse i troppen per 8. september (`players.csv`, speil hentet 7. september 22:15 UTC):** Calafiori £5,7m og João Pedro £7,7m står begge £0,2m over kjøpspris. **Mbeumo har falt £0,1m til £7,9m — i selve runden hvor han scoret 8 poeng.** Gibbs-White står på £7,9m etter sitt fall. **Shaw har falt £0,1m til £4,4m** (7. september, netto −144 284 i runden). Summen av de femten postene er nå **£100,1m**. Lagverdi £100,3m og bank £0,0m er bekreftet 8. september fra den låste GW3-raden i `entry/history.csv`.
 
-**Anti-drift:** ingen bytter, altså ingen bevegelse. Topplagsandelen står på **£19,7m av £32,2m = 61,2 %** slik den ble ført 4. september. Ikke omregnet i dag — ingen prisendring har truffet et GK- eller DEF-slott siden.
+**Anti-drift — omregnet 8. september, og andelen har falt uten at noe er besluttet.** Topplagsandelen er **£19,6m av £32,1m = 61,1 %**, ned fra £19,7m av £32,2m = 61,2 %. ⚠️ **Årsaken er ikke et bytte, men Shaws prisfall** — han ligger i telleren, så et fall trekker begge veier og nettoeffekten er negativ. Bevegelsen er 0,1 prosentpoeng og utløser ingen handling, men den viser at nevneren drifter av prisendringer alene. **Avledet: anti-drift-tallet skal omregnes ved hver prisendring som treffer et GK- eller DEF-slott, ikke bare ved bytter.**

@@ -1,6 +1,7 @@
 # Verifiseringsprotokoll
 
-*Sist oppdatert: 7. september 2026 — GW3-retrospektiv. Ny regel: `entry/history.csv` er ikke fasit for en runde som ikke er låst, og mirroren merker ikke stale filer. To nye feillogger: rundesnittet 36 brukt som sammenligningsgrunnlag i strid med aggregatregelen som allerede sto i denne filen, og `fixtures.csv`-kolonnen `finished` lest som informativ uten kontroll.*
+*Sist oppdatert: 8. september 2026 — ✅-blokken om appbekreftelsen 7. september feilrettet: OR 850 111 var også lest fra en ulåst runde, fasit er **638 377**. To nye feillogger med fire avledede regler: låsestatus er festepunktet for rankregelen (ikke filnavnet), premisstall verifiseres før omskriving, mekanismer utledet av ulåste tall merkes som hypotese, og verktøytilgjengelighet påstås ikke uten søk.*
+*Forrige: 7. september 2026 — GW3-retrospektiv. Ny regel: `entry/history.csv` er ikke fasit for en runde som ikke er låst, og mirroren merker ikke stale filer. To nye feillogger: rundesnittet 36 brukt som sammenligningsgrunnlag i strid med aggregatregelen som allerede sto i denne filen, og `fixtures.csv`-kolonnen `finished` lest som informativ uten kontroll.*
 *Forrige: 4. september 2026 — to nye feillogger fra ett og samme svar: O'Reillys banerolle påstått som avklart i strid med `02`s eksplisitte «uavklart», og Elanga ført som planlagt Tzolis-erstatter uten at navnet finnes i noen kontekstfil. Ny regel om at minutter og poeng i `players.csv` følger spilleren og ikke klubben etter et overgangsvindu.*
 *Forrige: 3. september 2026 — ny feillogg: komprimert minnesammendrag brukt som kilde på troppssammensetning og anti-drift-tall. Tredje forekomst av samme feiltype. Snapshot-repoet `steinim/fpl-data` ført inn i kildehierarkiet som nivå 0 for egen tropp, og verktøybegrensningene oppdatert etter at 403-blokkeringen mot FPL-APIet ble omgått.*
 *Forrige: 28. august 2026, sent — ny feillogg: en benkerekkefølge-reversering ble selv reversert. Overstyringsklausulen i Regel 7 ble anvendt bokstavelig på det navngitte flagget uten å sjekke om auto-sub-mekanismen fortsatt talte for konklusjonen uavhengig av flagget. Den gjorde det.*
@@ -189,9 +190,31 @@ Når en sekundærkilde skriver at noe *kan* skje, er det ikke et bevis for usikk
 
 **Regelen:** rundesummen i `entry/history.csv` er ikke fasit for en runde der `events.csv` har `finished: false`. Den verifiseres mot summen av `effective_points` i `entry/picks/gw{n}.csv`, som igjen hviler på `live/gw{n}.csv`. Ved konflikt vinner spillernivået — samme skille som «Ny regel, 25. august» trekker mellom `elements` og `events`, nå utvidet til entry-endepunktene.
 
-✅ **Bekreftet mot appen 7. september.** Faktisk GW3: **54 poeng, OR 850 111**. Filen ga **31 poeng, OR 1 246 660**. Slutningen holdt på poengsummen, og **`overall_rank` var stale med 396 549 plasser** — vesentlig verre enn poengavviket alene skulle tilsi, fordi rangeringen beveger seg mens hele feltet føres inn. **`overall_rank` og `gw_rank` fra en ulåst runde skal aldri siteres**, heller ikke med forbehold.
+❌ **Feilrettet 8. september. Appavlesningen 7. september var også ulåst.** Det ble ført at faktisk GW3 var «54 poeng, OR 850 111, bekreftet fra appen», og at `overall_rank` i fila var stale med 396 549 plasser. **Poengsummen holdt. Ranken gjorde det ikke.** Etter låsing (`events.csv`: `finished: true`, `data_checked: true`) gir `entry/history.csv` **54 poeng og OR 638 377**, med `gw_rank` 4 127 256 og total 220 — internt konsistent og konsistent med `picks/gw3.csv`. GW3 var en forbedring på 31 548 plasser, ikke et fall på 180 186. Regelen **«`overall_rank` og `gw_rank` fra en ulåst runde skal aldri siteres» står ved lag** — den ble brutt i samme økt som den ble skrevet, se feilloggen rett under.
 
 **Foreslått endring i `fpl-data`, ikke gjennomført:** `fetched_at` per fil i `snapshot.json`, og at skriptet nekter å overskrive raden for en runde der `finished: false` uten å merke den `provisional`.
+
+#### Feillogg 8. september: regelen ble skrevet og brutt i samme økt
+
+**Hva skjedde.** 7. september ble regelen «`overall_rank` og `gw_rank` fra en ulåst runde skal aldri siteres» ført inn i denne fila. I samme økt ble OR 850 111 lest fra appen for den samme ulåste runden, ført som bekreftet fasit i `01`, og brukt til å bygge en ny mekanismeforklaring — chip-asymmetri — som deretter ble skrevet inn i `02` tre steder. Fasiten etter låsing er 638 377. Hele forklaringen hvilte på et tall som var feil med 211 734 plasser og med **motsatt fortegn**.
+
+**Rotårsak.** Regelen ble formulert med `entry/history.csv` som utløser i stedet for rundens låsestatus som mekanisme. Da appen ble konsultert, framsto den som en annen kilde og dermed utenfor regelen. Den er ikke det: appen leser samme API mens feltet føres inn. **Dette er et brudd på Regel 8 — riktig regel, feil festepunkt.**
+
+**Forsterkende faktor.** Poengsummen ble verifisert i tre ledd (`picks` × `live` × `05`). Ranken ble lest én gang, fra én kilde, uten motkontroll — og det var ranken hele omskrivingen hvilte på. **Verifiseringsinnsatsen gikk til tallet som allerede var i tvil, ikke til tallet som bar konklusjonen.**
+
+**Avledet regel 1:** ingen rankverdi for en runde føres i noen fil før `events.csv` har `data_checked: true` for runden. **Dette gjelder alle kilder, inkludert appen og skjermbilder derfra.** Er runden ulåst, føres feltet som «ikke tilgjengelig», ikke som «foreløpig».
+
+**Avledet regel 2:** når ett enkelt tall er premisset for en omskriving av flere seksjoner eller filer, skal det tallet verifiseres mot minst to uavhengige ledd **før** omskrivingen starter. Størrelsen på verifiseringen følger hva konklusjonen hviler på, ikke hvor mistenkelig tallet ser ut.
+
+**Avledet regel 3:** en mekanismeforklaring som utledes av étt observert tall i samme økt som tallet leses, merkes som hypotese til tallet er låst. «Chip-asymmetri koster rank» ble skrevet som konstatert mekanisme i to filer på grunnlag av étt ulåst datapunkt, og det datapunktet peker nå motsatt vei.
+
+#### Feillogg 8. september: verktøytilgjengelighet påstått uten kontroll
+
+**Hva skjedde.** Det ble ført i et svar at «Filesystem-verktøyet er ikke tilgjengelig i denne økta», og patchen ble levert som tekst på det grunnlaget. Verktøyet var tilgjengelig; det kreves bare et verktøysøk for å laste det.
+
+**Rotårsak.** Fravær i den umiddelbart synlige verktøylista ble lest som fravær i økta. **«Fant ingen» ført som «finnes ingen»** — nøyaktig det verifiseringsregel 1 forbyr, anvendt på verktøy i stedet for på data.
+
+**Avledet regel 4:** før det påstås at et verktøy eller en datakilde mangler, skal det søkes etter. Verifiseringsregel 1 gjelder også egne kapabiliteter.
 
 ⚠️ **Kolonnen `finished` i `fixtures.csv` er per 7. september `False` for alle ti GW3-kamper, også de som har sluttresultat.** Kolonnen er dermed ikke brukbar som ferdigsignal. Bruk `events.csv`-feltene `finished` og `data_checked` for runden, og tilstedeværelsen av `home_score`/`away_score` for enkeltkampen.
 
