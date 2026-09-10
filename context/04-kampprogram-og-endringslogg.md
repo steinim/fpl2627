@@ -1,7 +1,8 @@
 # Kampprogram — verifisert kalender og endringslogg
 
 *Opprettet 20. august 2026. Vedlikeholdes av den planlagte kampprogram-sjekken.*
-*Sist oppdatert 8. september 2026 — **én setning i «Endringen 28. august» rettet:** påstanden om at Haalands minutter mot Norwich er ukjente ved GW5-deadline var gal og selvmotsigende. Cupkampen ligger 21 timer før deadline. Ingen datoer eller klokkeslett endret.*
+*Sist oppdatert 10. september 2026 — **kampprogramsjekk GW4–GW6: ingen flytting, ingen utsettelse, ingen BGW/DGW.** Alle 30 kamper står. Ett åpent punkt lukket: **Leeds–Crystal Palace ble kunngjort flyttet av Crystal Palace 1. september** (nivå 1). ⚠️ **Én påstand i GW5-seksjonen vist å være gal og fjernet:** at kampen ikke sto i PLs 7.7.-artikkel. Det gjorde den.*
+*Forrige: 8. september 2026 — **én setning i «Endringen 28. august» rettet:** påstanden om at Haalands minutter mot Norwich er ukjente ved GW5-deadline var gal og selvmotsigende. Cupkampen ligger 21 timer før deadline. Ingen datoer eller klokkeslett endret.*
 *Forrige: 3. september 2026, andre versjon — **Man City–Sunderland flyttet til søndag 20.9. 14:00** (nivå 1, mancity.com 28.8.). Ligacupens runde 3-datoer publisert. GW8-betingelsen lukket. GW4-deadline bekreftet i API-et. GW5- og GW6–GW8-tabeller ført inn. Én utledning i forrige versjon vist å være feil (Brentford).*
 *⚠️ **Første versjon samme dag hadde to egne feil, begge fanget av brukerens diff mot repo:** elleve klokkeslett i GW6–GW8-tabellen sto i UTC under en kolonne merket UK-tid, og endringsloggen påsto usant at ingenting var fjernet. Begge rettet. Se «Endringer i denne versjonen» nederst.*
 *Forrige: 28. august 2026, sent — full pressekonferansetabell for GW2 ført inn (13 klubber, ni av ti relevante klubber verifisert mot nivå 1-kilde), ingen skadeflagg funnet i troppen.*
@@ -10,7 +11,45 @@
 
 Denne filen er fasit for **datoer og klokkeslett**. `fixtures2627.csv` er fasit for **hvem som møter hvem i hvilken runde** — den er kontrollert 20. august og stemmer 30/30 på kamppar i GW1–3, men datokolonnen er ubrukelig fordi den setter hele runden til samme dag.
 
-## Status per 3. september 2026
+## Status per 10. september 2026
+
+| Sjekkpunkt | Funn |
+|---|---|
+| Flyttede kamper siden forrige sjekk | **Ingen.** Alle 30 kamper i GW4, GW5 og GW6 står identisk med tabellene under |
+| Utsatte kamper | **Ingen** |
+| Bekreftet blankrunde (BGW) | **Ingen.** GW1–GW10 har alle nøyaktig ti kamper |
+| Bekreftet dobbeltrunde (DGW) | **Ingen** |
+| Nyeste offisielle PL-fikstursak | **Fortsatt 17. august 2026** (`news/4688862`, MW6–9). Ingen nyere. Neste kunngjøring (MW10–12, november) ventet **uken fra 21. september** — ikke publisert per i dag |
+| Leeds–Crystal Palace (GW5) | **Lukket. Datert til 1. september** (cpfc.co.uk, nivå 1). Var åpent punkt i forrige versjon |
+| Ny PL-artikkel siden 3.9. | **«When are the international breaks for 2026/27»**, 5. september. September- og oktoberpausen slått sammen til 21.9.–6.10. **Bekrefter kalenderen, flytter ingen kamp** |
+| GW4-programmet | **Uendret.** Alle ti kamper kryssjekket rad for rad mot PLs 7.7.-artikkel og mot API-speilet samme morgen |
+
+**Hva som faktisk ble lest denne kjøringen** — jf. regelen fra 28. august om at «kontrollert» uten nedskrevet grunnlag er verdiløst i neste kjøring:
+
+| Kilde | Nivå | Dekning |
+|---|---|---|
+| premierleague.com `news/4678381` (7.7.2026) | 1 | GW4 + GW5, rad for rad |
+| premierleague.com `news/4688862` (17.8.2026) | 1 | GW6, rad for rad |
+| premierleague.com `news/4689113` (5.9.2026) | 1 | Kalenderstruktur, landslagspauser |
+| cpfc.co.uk (1.9.2026) | 1 | Leeds–Palace |
+| `fpl-data/fixtures.csv`, snapshot `2026-09-10T06:38:02Z` | 0 | Alle 30 kamptider GW4–GW6 |
+
+Alle kamptider i GW3–GW8 ble verifisert direkte mot FPLs `fixtures`-endepunkt 3. september. Samtlige 60 kamper hadde `provisional_start_time: false` — tidene er endelige, ikke foreløpige. **Re-verifisert 10. september mot `fpl-data`-speilet for GW4–GW6: alle 30 identiske.**
+
+**Deadlines lest direkte fra `bootstrap-static` 3. september, ikke utledet. Re-lest i speilet 10. september — uendret:**
+
+| Runde | `deadline_time` (UTC) | BST | Norsk |
+|---|---|---|---|
+| GW3 | 2026-09-04T17:30:00Z | fre 4.9. 18:30 | 19:30 |
+| **GW4** | **2026-09-12T12:30:00Z** | **lør 12.9. 13:30** | **14:30** |
+| GW5 | 2026-09-18T17:30:00Z | fre 18.9. 18:30 | 19:30 |
+| GW6 | 2026-10-10T10:00:00Z | lør 10.10. 11:00 | 12:00 |
+
+⚠️ **20 døgn mellom GW5 og GW6.** premierleague.com 5.9.2026: september- og oktoberpausen er slått sammen til **én 16-dagersperiode, 21. september–6. oktober**. MW5 avsluttes 20.9., MW6 gjenopptas 10.10. Hullet sto allerede i deadline-tabellen over — det nye er at det nå er bekreftet fra primærkilde med begrunnelse, ikke bare avlest av API-et.
+
+Blank- og dobbeltrunder bekreftes normalt ikke før januar/februar, når FA-cup-omberamminger foreligger. Chip-planen i `02` (Free Hit GW16–19, Triple Captain på dobbeltrunde) hviler derfor fortsatt på antakelser, ikke på kunngjort kalender.
+
+### Forrige status — per 3. september 2026, beholdt for sporbarhet
 
 | Sjekkpunkt | Funn |
 |---|---|
@@ -23,19 +62,6 @@ Denne filen er fasit for **datoer og klokkeslett**. `fixtures2627.csv` er fasit 
 | Ligacupens runde 3 — datoer | **Publisert av EFL 28. august.** Var åpent punkt i forrige versjon. Se egen seksjon |
 | GW3-programmet | **Uendret.** Alle ti kamper og deadline identiske med tabellen under |
 | GW4-deadline | **Bekreftet i API-et:** `2026-09-12T12:30:00Z` = lør 13:30 BST / 14:30 norsk. Sto tidligere som utledet |
-
-Alle kamptider i GW3–GW8 er verifisert direkte mot FPLs `fixtures`-endepunkt 3. september. Samtlige 60 kamper har `provisional_start_time: false` — tidene er endelige, ikke foreløpige.
-
-**Deadlines lest direkte fra `bootstrap-static` 3. september, ikke utledet:**
-
-| Runde | `deadline_time` (UTC) | BST | Norsk |
-|---|---|---|---|
-| GW3 | 2026-09-04T17:30:00Z | fre 4.9. 18:30 | 19:30 |
-| **GW4** | **2026-09-12T12:30:00Z** | **lør 12.9. 13:30** | **14:30** |
-| GW5 | 2026-09-18T17:30:00Z | fre 18.9. 18:30 | 19:30 |
-| GW6 | 2026-10-10T10:00:00Z | lør 10.10. 11:00 | 12:00 |
-
-Blank- og dobbeltrunder bekreftes normalt ikke før januar/februar, når FA-cup-omberamminger foreligger. Chip-planen i `02` (Free Hit GW16–19, Triple Captain på dobbeltrunde) hviler derfor fortsatt på antakelser, ikke på kunngjort kalender.
 
 ### Forrige status — per 27. august 2026, beholdt for sporbarhet
 
@@ -182,11 +208,21 @@ Deadline: fredag 18. september 18:30 BST / 19:30 norsk.
 
 **Troppens kamper i rekkefølge:** João Pedro fredag 20:00 · Kinsky lørdag 12:30 · Calafiori + Tzolis, Verbruggen, Davis + Diop, Calvert-Lewin, Slater lørdag 15:00 · N.Williams + Gibbs-White lørdag 17:30 · **Haaland søndag 14:00** · B.Fernandes + Mbeumo + Shaw søndag 16:30.
 
-**Ikke verifisert:** Leeds–Crystal Palace står søndag 20.9. 14:00 og var **ikke** i PLs amendment-liste fra 7. juli, som betyr at den er flyttet fra standardslottet lørdag 15:00 på et eller annet tidspunkt. Palace spiller Europa League torsdag 17. september, hvilket er den nærliggende forklaringen. **Om flyttingen skjedde før eller etter 27. august er ikke fastslått** — forrige kjøring skrev ikke ned GW5-tabellen, så det finnes ikke noe sammenligningsgrunnlag. Ingen spillere i troppen berøres, og punktet har lav prioritet.
+✅ **Leeds–Crystal Palace: verifisert og datert 10. september. Punktet lukkes.**
+
+**Kunngjort av Crystal Palace tirsdag 1. september 2026** (cpfc.co.uk, nivå 1): kampen er flyttet til **søndag 20. september 14:00 BST**, «due to the Eagles' participation in the UEFA Europa League the preceding midweek». Palace spiller Europa League torsdag 17. september. Opprinnelig slot var lørdag 19.9. 15:00.
+
+⚠️ **Setningen som sto her tidligere er fjernet fordi den var gal.** Den påsto at kampen «var **ikke** i PLs amendment-liste fra 7. juli». Det stemmer ikke: artikkelen fra 7. juli lister kampen eksplisitt, «Leeds v Crystal Palace (15:00 BST)», lørdag 19. september. Artikkelen er en **fullstendig rundeliste**, ikke en diff — 15:00-kampene står der uten kringkaster. Konklusjonen som ble trukket av premisset (at kampen var flyttet fra lørdagsslottet) var tilfeldigvis riktig, men premisset var feil. Se `03`.
+
+**Hvorfor 3.9.-kjøringen ikke fant dette:** hentingen av leedsunited.com traff en artikkel fra 2025 og ble korrekt forkastet, men Palaces egen side ble aldri prøvd. Kunngjøringen lå da allerede ute og hadde gjort det i to døgn. **Regelen som følger:** når klubb A's side gir feil sesong, prøv klubb B før punktet føres som uavklart. En flytting kunngjøres av begge klubber.
+
+Ingen spillere i troppen berøres.
 
 ## GW6–GW8 — kontrollert 3. september, ingen endring
 
 Alle 30 kamper hentet fra FPL-API-et 3. september, `provisional_start_time: false` gjennomgående, ti kamper per runde. Kryssjekket rad for rad mot PLs amendment-artikkel av 17. august for de kampene den dekker. Ingen avvik.
+
+✅ **GW6 re-kontrollert 10. september**, rad for rad mot både `news/4688862` (17.8., nivå 1) og `fpl-data`-speilet (snapshot 06:38Z). Alle ti kamper og klokkeslett identiske med tabellen under. GW7 og GW8 er ikke re-kontrollert denne kjøringen — de ligger utenfor de tre nærmeste rundene.
 
 **Alle tretti kampene står her, ikke bare de med spillere i troppen** — det er hele poenget med regelen fra Man City-flyttingen: en runde uten tabell kan ikke diffes neste gang.
 
@@ -351,18 +387,24 @@ De fem engelske Champions League-lagene i 2026/27 er Arsenal, Man City, Man Utd,
 | 27.8.2026 | Sky Sports (27.5.2026 og 26.8.2026) | Ni engelske europacuplag: Arsenal, Man City, Man Utd, Aston Villa, Liverpool (CL); Bournemouth, Sunderland, Crystal Palace (EL); Brighton (Conference). Chelsea er ikke blant dem |
 | 27.8.2026 | uefa.com | CL-ligafasetrekning 27. august. Runde 3 spilles 20.–21. oktober |
 | 28.8.2026 | ESPN, Sky Sports (begge 27.8.2026) | Chelsea slo Luton 2–0 i ligacupens runde 2 (Welbeck 50', Odofin selvmål 79'). Leeds' runde 3-motstander dermed avgjort: Chelsea (borte), ikke lenger betinget |
-| **3.9.2026** | **FPL `fixtures`-endepunkt, event 3–8** | **Alle 60 kamptider hentet. `provisional_start_time: false` gjennomgående. Ti kamper per runde — ingen BGW/DGW i GW3–GW8** |
-| **3.9.2026** | **FPL `bootstrap-static`, `events` 3–6** | **Deadlines lest direkte. GW4 = `2026-09-12T12:30:00Z`, som bekrefter den tidligere utledede lørdagsdeadlinen** |
-| **3.9.2026** | **mancity.com (28.8.2026, 19:00) — nivå 1** | **«City's Premier League fixture against Sunderland … has been moved to Sunday 20 September», 14:00 UK. Eneste flytting funnet i denne kjøringen** |
-| **3.9.2026** | **mancity.com (28.8.2026, 17:30) — nivå 1** | **Man City–Norwich, ligacup runde 3, torsdag 17. september 19:30, Sky Sports+** |
-| **3.9.2026** | **brightonandhovealbion.com — nivå 1** | **Man Utd–Brighton, «Wednesday 16 September, kick off 8pm», Sky Sports** |
-| **3.9.2026** | **chelseafc.com kamp-URL `…english-league-cup-2026-09-09` — nivå 1** | **Chelsea–Leeds onsdag 9. september** |
-| **3.9.2026** | **premierleague.com «Champions League league phase schedule confirmed» (29.8.2026)** | **Villas runde 3: onsdag 21. oktober, HJEMME mot Viking. Lukker GW8-betingelsen** |
-| **3.9.2026** | **premierleague.com «Fixture amendments … October and November» (17.8.2026), hentet på nytt** | **Aston Villa–Man City lør 24.10. 12:30 BST, TNT, uten asterisk. Asterisken gjelder Bournemouth/Sunderland/Palace (Europa League torsdagen før)** |
-| **3.9.2026** | **premierleague.com «Dates when 2026/27 live TV fixtures will be announced» (19.6.2026)** | **Neste kunngjøring: MW10–12 (november), uken fra 21. september. Deretter MW13–20 uken fra 19. oktober. Full plan ført inn under** |
-| **3.9.2026** | **efl.com (28.8.2026)** | **Publiseringsdato bekreftet. Artikkelteksten lastet ikke — innholdet er hentet fra andre kilder** |
-| **3.9.2026** | **live-footballontv.com + Fan Banter (28.8.2026) — begge nivå 5** | **Full runde 3-liste. Innbyrdes identiske, og samstemte med de tre nivå 1-radene** |
-| **3.9.2026** | **premierleague.com nyhets- og publikasjonsarkiv** | **Fortsatt ingen fikstursak publisert etter 17. august** |
+| 3.9.2026 | FPL `fixtures`-endepunkt, event 3–8 | Alle 60 kamptider hentet. `provisional_start_time: false` gjennomgående. Ti kamper per runde — ingen BGW/DGW i GW3–GW8 |
+| 3.9.2026 | FPL `bootstrap-static`, `events` 3–6 | Deadlines lest direkte. GW4 = `2026-09-12T12:30:00Z`, som bekrefter den tidligere utledede lørdagsdeadlinen |
+| 3.9.2026 | mancity.com (28.8.2026, 19:00) — nivå 1 | «City's Premier League fixture against Sunderland … has been moved to Sunday 20 September», 14:00 UK. Eneste flytting funnet i denne kjøringen |
+| 3.9.2026 | mancity.com (28.8.2026, 17:30) — nivå 1 | Man City–Norwich, ligacup runde 3, torsdag 17. september 19:30, Sky Sports+ |
+| 3.9.2026 | brightonandhovealbion.com — nivå 1 | Man Utd–Brighton, «Wednesday 16 September, kick off 8pm», Sky Sports |
+| 3.9.2026 | chelseafc.com kamp-URL `…english-league-cup-2026-09-09` — nivå 1 | Chelsea–Leeds onsdag 9. september |
+| 3.9.2026 | premierleague.com «Champions League league phase schedule confirmed» (29.8.2026) | Villas runde 3: onsdag 21. oktober, HJEMME mot Viking. Lukker GW8-betingelsen |
+| 3.9.2026 | premierleague.com «Fixture amendments … October and November» (17.8.2026), hentet på nytt | Aston Villa–Man City lør 24.10. 12:30 BST, TNT, uten asterisk. Asterisken gjelder Bournemouth/Sunderland/Palace (Europa League torsdagen før) |
+| 3.9.2026 | premierleague.com «Dates when 2026/27 live TV fixtures will be announced» (19.6.2026) | Neste kunngjøring: MW10–12 (november), uken fra 21. september. Deretter MW13–20 uken fra 19. oktober. Full plan ført inn under |
+| 3.9.2026 | efl.com (28.8.2026) | Publiseringsdato bekreftet. Artikkelteksten lastet ikke — innholdet er hentet fra andre kilder |
+| 3.9.2026 | live-footballontv.com + Fan Banter (28.8.2026) — begge nivå 5 | Full runde 3-liste. Innbyrdes identiske, og samstemte med de tre nivå 1-radene |
+| 3.9.2026 | premierleague.com nyhets- og publikasjonsarkiv | Fortsatt ingen fikstursak publisert etter 17. august |
+| **10.9.2026** | **premierleague.com «Fixture amendments … August and September» `news/4678381` (7.7.2026) — nivå 1** | **GW4 og GW5 lest rad for rad. GW4: alle ti identiske med tabellen. GW5: to avvik, begge kjente flyttinger (Man City–Sunderland, Leeds–Palace). Artikkelen lister hele runden, også 15:00-kampene uten kringkaster** |
+| **10.9.2026** | **premierleague.com «Fixture amendments … October and November» `news/4688862` (17.8.2026) — nivå 1** | **GW6 lest rad for rad. Alle ti identiske med tabellen. Fortsatt nyeste fikstursak** |
+| **10.9.2026** | **premierleague.com «When are the international breaks for 2026/27» `news/4689113` (5.9.2026) — nivå 1** | **September- og oktoberpausen slått sammen til én 16-dagersperiode 21.9.–6.10. MW5 avsluttes 20.9., MW6 gjenopptas 10.10. Bekrefter kalenderen, flytter ingen kamp** |
+| **10.9.2026** | **cpfc.co.uk «Date changed for Palace's trip to Elland Road» (1.9.2026) — nivå 1** | **Leeds–Crystal Palace flyttet til søn 20.9. 14:00 BST, «due to the Eagles' participation in the UEFA Europa League the preceding midweek». Lukker det åpne punktet fra 3. september** |
+| **10.9.2026** | **`fpl-data`-speilet, snapshot `2026-09-10T06:38:02Z` — nivå 0** | **Alle 30 kamptider i GW4–GW6 identiske med tabellene. Ti kamper per runde i GW1–GW10 — ingen BGW/DGW. Deadlines GW4–GW6 uendret** |
+| **10.9.2026** | **premierleague.com nyhets- og publikasjonsarkiv** | **Ingen fikstursak publisert etter 17. august. MW10–12-kunngjøringen (ventet uken fra 21.9.) er ikke ute** |
 
 **Konsistenssjekk av trekningslisten (nivå 5-kilden), fra 27. august.** De ni engelske europacuplagene kommer inn først i runde 3 og spilte ikke runde 2. Nøyaktig ni lag i trekningslisten har ikke spilt runde 2: Crystal Palace, Man Utd, Brighton, Man City, Sunderland, Arsenal, Aston Villa, Bournemouth og Liverpool. Det er identisk med listen fra Sky. Chelsea spilte runde 2 mot Luton og er dermed ikke europacuplag. Listen er internt konsistent, og Leeds-raden er dessuten bekreftet fra klubbens egen side. **Konklusjonen om at ingen av de to betingelsene utløses, hviler ikke på nivå 5-kilden alene.**
 
@@ -372,9 +414,11 @@ De fem engelske Champions League-lagene i 2026/27 er Arsenal, Man City, Man Utd,
 
 **Forkastet kilde, 3. september:** en henting av `premierleague.com/en/news/3774835` (i søketreffet titulert «Possible Premier League fixture changes in 2026/27») returnerte innhold om **2025/26** — Spurs–Wolves, Fulham–Brentford, Liverpool–Man Utd 19. oktober. Wolves spiller ikke i Premier League 2026/27. Feil sesong. **Hele hentingen forkastet, ikke bare raden som avslørte den** — jf. regelen fra 27. august i `03`. Ordlyden i GW8-betingelsen er derfor tatt fra forrige versjon av denne filen, hvor den ble verifisert mot primærkilden 27. august, ikke fra dagens henting.
 
-**Forkastet kilde, 3. september:** leedsunited.com «Fixture Update: Crystal Palace (H)» ble hentet for å datere Leeds–Palace-flyttingen. Artikkelen er datert **11. november 2025** og omhandler 20. desember 2025. Feil sesong. Ikke brukt — og punktet står derfor fortsatt uavklart.
+**Forkastet kilde, 3. september:** leedsunited.com «Fixture Update: Crystal Palace (H)» ble hentet for å datere Leeds–Palace-flyttingen. Artikkelen er datert **11. november 2025** og omhandler 20. desember 2025. Feil sesong. Ikke brukt. ✅ **Punktet ble lukket 10. september** via cpfc.co.uk (1.9.2026) — motpartens klubbside, som aldri ble prøvd 3. september. Forkastingen var riktig; det som manglet var neste kilde.
 
-**Ikke verifisert:** premierleague.com/en/fixtures lastes ikke uten JavaScript, så kampdatabasen er ikke lest direkte per i dag. Verifiseringen bygger på PLs egne artikler, klubbenes egne sider og FPL-API-ets `fixtures`-endepunkt. 15:00-kampene uten TV-dekning er utledet av PLs standardregel («all kick-off times are 15:00 BST unless otherwise mentioned») for GW1–3, men for GW4–GW8 er de bekreftet direkte i API-et.
+**Kildeavvik uten konsekvens, 10. september:** hentingen av `news/4688862` (17.8.) gjenga **Liverpool–Brighton to ganger** i MW8 — lør 24.10. 15:00 *og* søn 25.10. 14:00 GMT med asterisk. `fpl-data`-speilet har kampen **én gang**, `id 78`, søn 25.10. 14:00, som er det GW8-tabellen over allerede har. Duplikatet ligger i sammendraget av artikkelen, ikke i programmet. **Vi stoler på speilet.** Ingen endring, ingen konsekvens — ført her fordi et uforklart avvik som ikke skrives ned må undersøkes på nytt neste gang.
+
+**Ikke verifisert:** premierleague.com/en/fixtures lastes ikke uten JavaScript, så kampdatabasen er ikke lest direkte per i dag. **Prøvd på nytt 10. september, både `/fixtures` og `/en/matches/premier-league/2026-27/september` — begge returnerer tom mal.** Verifiseringen bygger på PLs egne artikler, klubbenes egne sider og FPL-API-ets `fixtures`-endepunkt. 15:00-kampene uten TV-dekning er utledet av PLs standardregel («all kick-off times are 15:00 BST unless otherwise mentioned») for GW1–3, men for GW4–GW8 er de bekreftet direkte i API-et — og for GW4–GW6 dessuten mot PLs egne artikler, som lister dem eksplisitt.
 
 ## Kunngjøringsplan for TV-flyttinger — resten av sesongen
 
@@ -561,3 +605,21 @@ Dessuten mistet ligacuptabellen annoteringen «— avgjort 27. august» på Leed
 **Regelen som følger:** «Fjernet: ingenting» skal aldri skrives fra hukommelse om hva som ble gjort. Enten produseres listen fra en faktisk diff mot forrige versjon, eller så skrives feltet som «ikke kontrollert». I denne økten fantes ikke diffen på Claudes side — bare i brukerens repo — og da er «ikke kontrollert» det eneste sanne svaret.
 
 **Fjernet, endelig liste:** ingenting utover det som er erstattet av nyere innhold og listet under «Erstattet» og «Endret» over. Denne linjen er skrevet etter diff, ikke før.
+
+## Endringer i denne versjonen — 10. september 2026
+
+**Listene under er produsert av `git diff` mot commit `b35efd5`, ikke fra hukommelse.** Diffen er 70 innsatte og 26 slettede linjer.
+
+**Lagt til:** statustabellen «per 10. september» · tabellen «Hva som faktisk ble lest denne kjøringen» · merknaden om 20 døgn mellom GW5 og GW6 med den sammenslåtte landslagspausen · den daterte og verifiserte Leeds–Palace-seksjonen med regelen om motpartens klubbside · re-kontrollen av GW6 i «GW6–GW8»-seksjonen · seks nye rader i sjekkeloggen · notatet «Kildeavvik uten konsekvens, 10. september» om Liverpool–Brighton-duplikatet · denne seksjonen.
+
+**Erstattet:** statustabellen «per 3. september» er avløst av «per 10. september». **Den gamle tabellen står fortsatt i filen**, uendret, under «Forrige status — per 3. september 2026», ved siden av 27. august-tabellen.
+
+**Endret:** sjekkeloggens tolv rader for 3.9. har mistet fet skrift, siden de ikke lenger er nyeste kjøring — samme grep som ble gjort med 27.–28. august-radene 3. september. Innholdet i radene er uendret. «Forkastet kilde, 3. september» om leedsunited.com har fått et ✅-tillegg om at punktet nå er lukket; selve forkastingen står. «Ikke verifisert»-notatet om premierleague.com/en/fixtures har fått med at siden ble prøvd på nytt i dag, med samme resultat. Deadline-tabellens overskrift sier nå også at den er re-lest 10. september.
+
+**Fjernet — én passasje, og den var gal:**
+
+| Slettet | Hvorfor |
+|---|---|
+| «**Ikke verifisert:** Leeds–Crystal Palace står søndag 20.9. 14:00 og var **ikke** i PLs amendment-liste fra 7. juli … Om flyttingen skjedde før eller etter 27. august er ikke fastslått … punktet har lav prioritet.» | Premisset er **usant**. Artikkelen fra 7. juli lister kampen, lørdag 19.9. 15:00. Datoen er dessuten nå fastslått (1. september, cpfc.co.uk). Hele passasjen er erstattet av den verifiserte seksjonen |
+
+Ingenting annet er slettet. Alle øvrige minusradene i diffen er linjer som står igjen i omskrevet eller avfetet form, kontrollert rad for rad mot `git diff -U0`.

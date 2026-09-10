@@ -1,6 +1,7 @@
 # Verifiseringsprotokoll
 
-*Sist oppdatert: 8. september 2026, andre versjon — ny feillogg med to avledede regler: `04` åpnes før websøk i alle dato- og klokkeslettspørsmål, og en motsigelse mellom to kontekstfiler føres som inkonsistens, ikke som manglende oppslag. En nivå 1-bekreftet kampdato ble nedgradert til ubekreftet fordi `04` ikke ble lest.*
+*Sist oppdatert: 10. september 2026 — ny feillogg med to avledede regler: en PL-fikstursak er en fullstendig rundeliste og ikke en diff, og når én klubbs side gir feil sesong prøves motpartens før punktet føres som uavklart. En påstand i `04` om at Leeds–Palace ikke sto i PLs 7.7.-artikkel var usann; kampen sto der. Punktet er lukket og feilen rettet i `04` samme økt.*
+*Forrige: 8. september 2026, andre versjon — ny feillogg med to avledede regler: `04` åpnes før websøk i alle dato- og klokkeslettspørsmål, og en motsigelse mellom to kontekstfiler føres som inkonsistens, ikke som manglende oppslag. En nivå 1-bekreftet kampdato ble nedgradert til ubekreftet fordi `04` ikke ble lest.*
 *Forrige: 8. september 2026 — ✅-blokken om appbekreftelsen 7. september feilrettet: OR 850 111 var også lest fra en ulåst runde, fasit er **638 377**. To nye feillogger med fire avledede regler: låsestatus er festepunktet for rankregelen (ikke filnavnet), premisstall verifiseres før omskriving, mekanismer utledet av ulåste tall merkes som hypotese, og verktøytilgjengelighet påstås ikke uten søk.*
 *Forrige: 7. september 2026 — GW3-retrospektiv. Ny regel: `entry/history.csv` er ikke fasit for en runde som ikke er låst, og mirroren merker ikke stale filer. To nye feillogger: rundesnittet 36 brukt som sammenligningsgrunnlag i strid med aggregatregelen som allerede sto i denne filen, og `fixtures.csv`-kolonnen `finished` lest som informativ uten kontroll.*
 *Forrige: 4. september 2026 — to nye feillogger fra ett og samme svar: O'Reillys banerolle påstått som avklart i strid med `02`s eksplisitte «uavklart», og Elanga ført som planlagt Tzolis-erstatter uten at navnet finnes i noen kontekstfil. Ny regel om at minutter og poeng i `players.csv` følger spilleren og ikke klubben etter et overgangsvindu.*
@@ -282,6 +283,22 @@ Tesen i `02` var delvis feil og ble etterprøvd mot fire uavhengige kilder.
 **Størrelsesorden:** BPS avgjør kun bonus, maks 3 poeng per kamp, i konkurranse. En midtstopper taper anslagsvis 5–10 bonuspoeng over en sesong. **Tesen er nedgradert fra «viktigste enkeltendring» til andreordens rebalansering.**
 
 ## Feillogg
+
+### Ny feil, 10. september: PLs amendment-artikkel lest som en diff, ikke som en rundeliste
+
+`04` har siden 3. september påstått at Leeds–Crystal Palace «var **ikke** i PLs amendment-liste fra 7. juli, som betyr at den er flyttet fra standardslottet lørdag 15:00 på et eller annet tidspunkt».
+
+**Kampen sto i artikkelen.** Hentingen 10. september gir «Leeds v Crystal Palace (15:00 BST)», lørdag 19. september. Artikkelen lister **hele runden** — også 15:00-kampene, som står uten kringkaster fordi de ikke er TV-valgt. Den er ikke en liste over endringer, tross ordet «amendments» i tittelen.
+
+**Rotårsak:** tittelen ble lest som en definisjon av innholdet. «Fixture amendments for …» ble antatt å bety «kun de kampene som er endret», og fraværet av en kamp ble dermed behandlet som et signal. Ingen kontroll av om artikkelen faktisk var avgrenset slik — artikkelen sto åpen i samme økt og ville avslørt det umiddelbart.
+
+**Skjerpende:** konklusjonen som ble trukket var riktig. Kampen *var* flyttet fra lørdag 15:00. Det er nettopp regel 8 i arbeidsordren — riktig svar av gal grunn er en feil — og her gjorde den gale grunnen faktisk skade: den plasserte flyttingen på et ukjent tidspunkt og fikk punktet ført som «lav prioritet» i stedet for å utløse et oppslag mot Palaces side, som lå ute fra 1. september.
+
+**Formildende:** passasjen var eksplisitt merket «Ikke verifisert», og merkingen holdt filen fra å påstå noe den ikke visste. Det er merkingen som gjorde feilen billig, ikke resonnementet.
+
+**Regel 1 som følger:** **en fikstursak fra premierleague.com er en fullstendig rundeliste, ikke en diff.** At en kamp ikke er nevnt beviser ingenting; det som teller er klokkeslettet raden faktisk oppgir. Skal fravær brukes som argument, må artikkelens egen avgrensning leses først.
+
+**Regel 2 som følger:** **en flytting kunngjøres av begge klubber.** Gir klubb A's side feil sesong eller ikke laster, prøv klubb B før punktet føres som uavklart. 3. september ble leedsunited.com korrekt forkastet på firukersregelen, og punktet lagt dødt — cpfc.co.uk ble aldri prøvd. Forkastingen var riktig; det som manglet var neste kilde.
 
 ### Ny feil, 7. september: rundesnittet 36 brukt som sammenligningsgrunnlag i strid med en regel som står i denne filen
 
