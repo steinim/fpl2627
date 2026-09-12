@@ -165,6 +165,89 @@ Når en sekundærkilde skriver at noe *kan* skje, er det ikke et bevis for usikk
 4. Fantasy Football Hub eller tilsvarende for projeksjoner — bra på tilgjengelighet, ikke bruk dem som fasit på sesonglang verdi
 5. Sekundærkilder som FFScout og RotoWire — gode på analyse, men gjenta aldri en fikstursvurdering derfra uten å se kampene selv
 
+### xgstat.com — ført inn 12. september 2026
+
+`xgstat.com` er bygget på Wyscout-event-data (spillerbildene serveres fra `cdn5.wyscout.com`). FPLs egne `expected_goals` og `expected_assists` kommer fra Opta. **Dette er to uavhengige målinger av det samme fenomenet, og de gir to forskjellige tall.** Et avvik er ikke en feil i noen av dem, og er aldri i seg selv et signal.
+
+Høstes av `scripts/fetch_xgstat.py` i `fpl-data` til `data/xgstat_fpl.csv` og `data/xgstat_players.csv`, tilgjengelig via `raw.githubusercontent.com` som resten av mirroren. Nettstedet har ikke noe API — sidene er ISR-prerendret HTML som parses direkte.
+
+**Rangering: nivå 4. xgstat er aldri fasit på noe som gir poeng.**
+
+| Felt | Rangering | Hvorfor |
+|---|---|---|
+| `pts`, `bonus`, `price`, `owned_pct`, `mins`, `cs`, `goals`, `assists` | **Ikke bruk.** `fpl-data` er nivå 0 | FPL definerer disse. En avvikende verdi hos xgstat er en avvikende avlesning, ikke en korreksjon |
+| `defcon` | **Redundant.** Bruk `players.csv` (nivå 0) | Verifisert 12. september: identisk med FPLs `defensive_contribution` i 482 av 482 tilfeller |
+| `xg`, `xa`, `xgi`, `xgi_l5`, `def_actions`, `rating` | Nivå 4 — andre mening, ikke fasit | Uavhengig av Opta. Brukes til å teste om et FPL-xG-tall er et blaff, aldri til å overstyre det |
+| `pens`, `corners`, `fk` | Nivå 4 | Setpiece-roller endrer seg raskere enn tabellen. Verifiser mot klubbkilde (nivå 1) før et bytte hviler på det |
+| `next1_date`–`next3_date` | Nivå 2 | Kampdato lest ut av fikstur-lenkene. `fpl-data/fixtures.csv` slår den |
+
+**Taket er 500 spillere.** Begge tabellene stopper på rang 500 uavhengig av minutter — rang 500 er en spiller med 0 spilte minutter. `players.csv` har 652. **Fravær fra xgstat er ikke et signal.** En spiller kan mangle fordi han er nummer 501, ikke fordi han er uinteressant.
+
+**Sidegrensene overlapper.** Rang 250 og 251 er samme spiller, likeså 450 og 451. Skriptet dedupliserer på `row_id`. Første fulle kjøring 12. september 2026 ga **498 unike i `xgstat_fpl.csv` og 499 i `xgstat_players.csv`** — FPL-tabellen har to overlapp, spillertabellen ett. Får du 500 i noen av dem, er dedupliseringen brutt og spillere telles dobbelt.
+
+**De to tabellene dekker ikke de samme spillerne.** De sorteres ulikt og kappes hver for seg på 500, så utvalgene spriker. Målt 12. september: **416 `row_id` finnes i begge**, 82 bare i FPL-tabellen, 83 bare i spillertabellen — 581 distinkte spillere til sammen, mot 652 i `players.csv`. **En join mellom de to gir 416 rader, ikke 498.** Mangler en spiller xG i det sammenstilte settet, er det utvalgsgrensen og ikke et datahull.
+
+**Ingen FPL element-id noe sted.** Join går på `slug` eller `row_id`, som er xgstats egne nøkler. Førstegangsmapping mot `players.csv` må gjøres på navn + lag, og `name` er kortnavnet fra nettsiden, ikke `web_name`.
+
+**To kolonnegrupper finnes ikke som tall.** «Form»-sparklinen og over/underprestasjon (Goals vs xG, Assists vs xA, G+A vs xGI) er ren SVG uten tekst. Regn dem selv fra `goals - xg`. Ikke oppgi dem som hentet fra xgstat.
+
+#### Avstemmingsregel: rundeporten går på `pts`, ikke på minutter
+
+**Sammenlign aldri et tall fra xgstat med et tall fra `players.csv` uten først å ha bekreftet at filene står på samme runde — og bruk et felt FPL *definerer* som anker, ikke et felt begge kilder måler selv.**
+
+Ankeret er `pts` mot `total_points`. Kontroll 12. september 2026, 483 matchede spillere:
+
+| Felt | Enige | Hvorfor |
+|---|---|---|
+| `bonus` | 483/483 (100 %) | FPL definerer det, xgstat gjengir |
+| `pts` | 482/483 (99,8 %) | FPL definerer det, xgstat gjengir |
+| `goals` | 482/483 (99,8 %) | Samme hendelse, samme telling |
+| `assists` | 459/483 (95,0 %) | **Ulik definisjon.** FPL har egne assist-regler (retur, vunnet straffe) |
+| `mins` | 105/483 (21,7 %) | **Ulik definisjon.** Se under |
+
+`scripts/reconcile_xgstat.py` i `fpl-data` kjører porten og nekter å sammenligne videre når den er stengt.
+
+#### Minutter er to forskjellige størrelser, ikke to avlesninger av samme
+
+xgstat teller **faktisk spilletid inkludert tilleggstid**. FPL kapper på **90 per kamp**. De blir aldri like, uansett hvor ferske begge filene er. Forholdet er stramt: for 185 spillere med minst 180 FPL-minutter ligger `xgstat/FPL` mellom **1,043 og 1,122**, median **1,078**.
+
+Mekanismen er bevist per klubb. Alle spillere med nøyaktig 270 FPL-minutter har samme xgstat-verdi innen samme klubb — summen av klubbens tre kampvarigheter:
+
+LEE 286 · TOT 287 · FUL 289 · HUL 289 · MCI 289 · COV 290 · BHA 292–293 · NFO 292 · BOU 293 · CHE 294 · IPS 294 · NEW 294–295 · AVL 295 · CRY 295 · BRE 296 · EVE 296–298 · SUN 297 · ARS 298 · LIV 298 · MUN 298
+
+De seks klubbene med to verdier spriker med ett til to minutter — avrunding rundt byttetidspunkt.
+
+**Konsekvens:** bruk aldri xgstats `mins` i en FPL-sammenheng. Til per-90-beregninger er de to nevnerne ikke utbyttbare.
+
+#### Verifisert 12. september: xgstats `defcon` **er** FPLs `defensive_contribution`
+
+482 av 482 identiske. Snittdifferanse 0,00, spenn 0 til 0 — ikke et nært treff, et eksakt treff. **Kolonnen er redundant.** Bruk `players.csv`. Det åpne punktet er lukket.
+
+#### To kjente defekter i xgstats minuttkolonne
+
+To spillere har 0 minutter hos xgstat mens FPL har minutter, samtidig som `pts` stemmer:
+
+| Spiller | FPL minutter | FPL mål | xgstat `mins` |
+|---|---|---|---|
+| Clarke (IPS) | 43 | 1 | 0 |
+| Fofana (CHE) | 157 | 0 | 0 |
+
+Clarke mangler også målet hos xgstat. **Alle per-90-rater hos xgstat er verdiløse for disse to.** Skriptet flagger dem ved hver kjøring, så listen holder seg oppdatert av seg selv.
+
+#### Kilden kan bare høstes fra egen maskin — verifisert 12. september 2026
+
+xgstat ligger bak **Vercel Attack Challenge Mode**. Fra en GitHub-runner (pdx1) ble *første* kall besvart med `HTTP 429`, `X-Vercel-Mitigated: challenge`, `X-Vercel-Challenge-Token` og en «Vercel Security Checkpoint»-side. Fra Steins egen maskin går samme kall gjennom med `200` og `x-vercel-cache: HIT`.
+
+**Dette er ikke en kø og ikke en volumgrense.** Utfordringen løses ikke opp av seg selv, så gjentatte forsøk er bare støy mot en side som allerede har sagt nei. Første versjon av skriptet brukte 11 minutter og 31 sekunder på å treffe samme URL ti ganger før den ga opp. Skriptet avbryter nå umiddelbart når `X-Vercel-Mitigated` er satt.
+
+**Konsekvens for arbeidsflyten:** høstingen kan ikke ligge i `fpl-snapshot`-mønsteret. Den kjøres av `scripts/xgstat-local.sh` via launchd på egen maskin, som committer og pusher til mirroren. Faller den ut, er `xgstat_*.csv` i repoet stale mens resten av `data/` er fersk — sjekk `git log -1 -- data/xgstat_fpl.csv` før du bruker dem.
+
+**Senere samme dag: også egen maskin ble utfordret.** Etter dagens høsting svarte xgstat `429` på både curl-UA og browser-UA fra Haugesund-IP-en, mot `200` få timer før. Utløsende trafikk var vår egen — nærmere hundre sideforespørsler på halvannen time, inkludert en retry-storm på ti kall mot samme URL.
+
+**Regelen som følger av det:** xgstat er en liten uavhengig side uten API. Automatisert høsting derfra er ikke en rettighet robots.txt gir oss, uansett hva den tillater. Ingen planlagt jobb mot xgstat før vi har spurt dem. Manuell kjøring, sjelden, når en runde faktisk krever det.
+
+Å omgå utfordringen — hodeløs nettleser, UA-rotasjon, proxy — er ikke et alternativ og skal ikke foreslås. Vil vi ha stabil tilgang, spør vi xgstat.
+
 ### Snapshot-repoet — ført inn 3. september 2026
 
 `github.com/steinim/fpl-data` speiler FPL-APIet på timeplan og er tilgjengelig fra `bash_tool` via `raw.githubusercontent.com`. **Innholdet er APIets egne felt, ikke en omtale av dem** — for din egen tropp, egne poeng og egen plassering rangerer det på **nivå 0**, på linje med `05`. For spillerdata gjelder fortsatt skillet i «Ny regel, 25. august»: spillerfelt er fasit etter låsing, aggregatfelt er det ikke.
@@ -283,6 +366,18 @@ Tesen i `02` var delvis feil og ble etterprøvd mot fire uavhengige kilder.
 **Størrelsesorden:** BPS avgjør kun bonus, maks 3 poeng per kamp, i konkurranse. En midtstopper taper anslagsvis 5–10 bonuspoeng over en sesong. **Tesen er nedgradert fra «viktigste enkeltendring» til andreordens rebalansering.**
 
 ## Feillogg
+
+### Ny feil, 12. september: to kilder erklært å stå på ulike runder, på et felt begge måler selv
+
+**Da xgstat ble ført inn ble det skrevet en avstemmingsregel med minutter som anker — «`mins` er kanarifuglen». Regelen var feil, og den sperret nettopp det spørsmålet den skulle avgjøre.** `players.csv` og xgstat-filene ble erklært å ligge på hver sin runde fordi Haaland sto med 180 minutter i den ene og 289 i den andre. Konklusjonen ble gjentatt etter at `players.csv` var oppdatert til GW3 — da sto det 270 mot 289, og porten ble fortsatt lest som «ulike runder».
+
+**Filene sto på samme runde hele tiden.** `bonus` stemte for 483 av 483 spillere. Det tallet lå i begge filene mens regelen ble skrevet.
+
+**Rotårsak:** ankeret ble valgt på tilgjengelighet, ikke på definisjon. Minutter finnes i begge kilder, men *måles* av begge — xgstat teller tilleggstid, FPL kapper på 90. To uavhengige målinger av samme fenomen kan aldri avgjøre om kildene er samstemte, for de er per konstruksjon uenige.
+
+**Avledet regel:** *et anker må være et felt den ene kilden eier og den andre bare gjengir.* `pts`, `bonus` og `goals` er FPLs egne tall, xgstat viser dem videre. `mins`, `assists`, `xG` og `xA` regner hver kilde ut selv. Bare den første gruppen kan brukes til avstemming. Samme skille som «Ny regel, 25. august» trekker mellom spillerfelt og aggregatfelt, nå anvendt på tvers av kilder i stedet for innad i én.
+
+**Kostnad:** ett svar forsinket, og en gal regel ført inn i denne fila og stående der til den ble oppdaget. Regelen er erstattet, ikke korrigert.
 
 ### Ny feil, 10. september: PLs amendment-artikkel lest som en diff, ikke som en rundeliste
 
