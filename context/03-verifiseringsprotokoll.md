@@ -1,6 +1,10 @@
 # Verifiseringsprotokoll
 
-*Sist oppdatert: 12. september 2026, andre versjon — **datolinjen under var feilført som «10. september» mens filen allerede inneholdt hele xgstat-seksjonen og feilloggen fra 12. september.** Rettet. I tillegg: rundeporten kjørt uavhengig en andre gang før GW4-deadline (474 matchede, `bonus` 100 %, `pts` 99,79 %), og ny feillogg om at en konklusjon ble lagt på et £0,1m prisavvik i stedet for på det robuste argumentet.*
+*Sist oppdatert: 12. september 2026, sjette versjon — **datolinjeblokken var ødelagt av mine egne gjentatte programmatiske omskrivinger: fire «Forrige»-linjer var slått sammen til én og tre beskrivelser tapt. Rekonstruert. Ny feillogg med avledet regel om verifisering etter hver skriveoperasjon.**
+*Forrige: 12. september 2026, femte versjon — **ny feillogg: en fordeling utledet av et gjennomsnitt.** Egans 41 DC ble ført som «treffer terskelen i alle tre runder»; fordelingen er 21/13/7, altså to av tre og fallende. Tallet lå i `live/gw{n}.csv` og ble aldri åpnet. Avledet regel om at en terskeltelling krever rundetallene, aldri summen.*
+*Forrige: 12. september 2026, fjerde versjon — **ny feillogg: en sann egenskap ved en chip brukt som motargument i den ene situasjonen der den ikke virker.** «Chipen kan avbrytes» sto som trøst for at en søndagsoppstilling ikke kan verifiseres ved fredagsdeadline — men angrefristen er den samme deadlinen. Avledet regel om at en angremulighet må dateres mot informasjonen den skal brukes på. Blindvindu ført inn som ny variabel i `02`.*
+*Forrige: 12. september 2026, tredje versjon — **ny feillogg: en regel om byttetaket ble regnet på én horisont og anvendt på en annen, og stengte i tre uker for bytter som var gratis.** Avledet regel om at en ressursberegning navngir horisonten sin. Ny seksjon om at lagverdi og salgsverdi er to ulike tall.*
+*Forrige: 12. september 2026, andre versjon — **datolinjen var feilført som «10. september» mens filen allerede inneholdt hele xgstat-seksjonen og feilloggen fra 12. september.** Rettet. I tillegg: rundeporten kjørt uavhengig en andre gang før GW4-deadline (474 matchede, `bonus` 100 %, `pts` 99,79 %), og ny feillogg om at en konklusjon ble lagt på et £0,1m prisavvik i stedet for på det robuste argumentet.*
 *Forrige: 12. september 2026 — xgstat.com ført inn i kildehierarkiet som nivå 4, rundeport på `pts`, minuttkolonnen avvist som FPL-nevner, `defcon` vist redundant, Vercel-utfordringen dokumentert og høsting begrenset til manuell kjøring fra egen maskin. Feillogg: to kilder erklært å stå på ulike runder på et felt begge måler selv.*
 *Forrige: 10. september 2026 — ny feillogg med to avledede regler: en PL-fikstursak er en fullstendig rundeliste og ikke en diff, og når én klubbs side gir feil sesong prøves motpartens før punktet føres som uavklart. En påstand i `04` om at Leeds–Palace ikke sto i PLs 7.7.-artikkel var usann; kampen sto der. Punktet er lukket og feilen rettet i `04` samme økt.*
 *Forrige: 8. september 2026, andre versjon — ny feillogg med to avledede regler: `04` åpnes før websøk i alle dato- og klokkeslettspørsmål, og en motsigelse mellom to kontekstfiler føres som inkonsistens, ikke som manglende oppslag. En nivå 1-bekreftet kampdato ble nedgradert til ubekreftet fordi `04` ikke ble lest.*
@@ -380,7 +384,94 @@ Uavhengig kjøring på samme filpar, matchet på lag + normalisert navn i stedet
 
 24 rader var tvetydige på navnematch og ble **utelatt, ikke tvangsmatchet**. Samme treffrate fra en uavhengig matchemetode er en reell bekreftelse av porten, ikke en gjentakelse av den. **Porten var åpen ved GW4-deadline.**
 
+## Lagverdi er ikke salgsverdi — ført inn 12. september 2026
+
+Appens **«Squad value»** er summen av spillernes *dagens priser*. **Salgsverdien** — det du faktisk kan bruke i et bytte — er summen av *salgsprisene*, som er lavere for hver spiller som har steget siden kjøp.
+
+Målt 12. september før GW4:
+
+| | Beløp |
+|---|---|
+| Sum dagens priser (det appen viser) | **£100,1m** |
+| **Sum salgspriser (det du kan bruke)** | **£99,8m** |
+| Differanse | **£0,3m** |
+
+Differansen er halvparten av Calafioris (+£0,3m) og João Pedros (+£0,2m) stigninger, avrundet ned per spiller. Netto siden GW1, inkludert fire prisfall i troppen: **−£0,2m kjøpekraft uten et eneste bytte.**
+
+**Regel:** planlegg aldri et bytte mot «Squad value». Den overvurderer hva du har råd til, og feilen vokser med hver spiller som stiger. Til planlegging brukes salgsprisen per spiller, regnet etter tabellen i salgsprisregelen over.
+
+**Dette er salgsprisregelens spådom fra august, realisert.** Filen skrev 19. august at «£0,0m i banken er et valg om å ikke kunne gjennomføre sidebytter etter GW1». 12. september sto troppen **£0,3m** unna den eneste oppgraderingen som pekte seg ut (Tzolis → Ødegaard), og måtte finansiere den med et annet bytte i samme runde for å komme i mål. Spådommen var riktig; det som manglet var at noen handlet på den før den bet.
+
 ## Feillogg
+
+### Ny feil, 12. september: en skriveoperasjon slettet innhold i kontekstfila, og ble ikke oppdaget ved lesing
+
+Datolinjeblokken øverst i denne filen ble skrevet om fire ganger i løpet av samme økt. Hver omskriving erstattet strengen fra «*Sist oppdatert*» fram til første «*Forrige*» — men den nye teksten manglet linjeskift foran den gamle. Resultatet var at **fire «Forrige»-linjer kollapset til én**, og at **tre versjonsbeskrivelser ble borte** — blant dem hele oppføringen om byttetak-horisonten og om angremuligheten.
+
+**Rotårsak:** en tekstutskifting ble antatt vellykket fordi den ikke feilet. Skriptet hadde `assert` på at søkestrengen fantes, men ingen kontroll av at resultatet var velformet. Feilen er usynlig i en `git diff --stat` — linjetallet stemte, fordi tapet var *innad i* en linje.
+
+**Hvorfor den ble funnet:** en paritetstelling av `**`-markører, kjørt som rutinesjekk før commit. Filen hadde et oddetall, og den ene ubalanserte linja var nettopp den ødelagte. **Ingen lesing av filen ville avdekket det** — linja er 1 400 tegn lang og ser riktig ut i de første hundre.
+
+**Avledet regel:** *etter hver programmatiske omskriving av en kontekstfil skal resultatet verifiseres mekanisk, ikke antas.* Minimumssjekk: paritet på `**`, antall linjer som begynner med `*Forrige:`, og at ingen linje overskrider en rimelig lengde. `git diff --stat` er ikke en slik sjekk — den teller linjer, ikke innhold.
+
+**Skjerpende:** CLAUDE.md krever at det listes hva som *fjernes* i en omskriving. Her ble noe fjernet uten at noen — heller ikke jeg — visste det. Regelen forutsetter at forfatteren vet hva han sletter; denne feilen viser at forutsetningen ikke holder for maskinelle redigeringer.
+
+**Rekonstruksjonen er ikke en gjenoppretting.** De tre tapte beskrivelsene er skrevet på nytt fra mine egne redigeringer i samme økt, ikke hentet fra en sikkerhetskopi. De sier det samme, men ordlyden er ikke nødvendigvis identisk med den som sto der. Originalen finnes i git-historikken først etter at denne endringen er committet — før det fantes den ingen steder.
+
+
+### Ny feil, 12. september: en fordeling utledet av et gjennomsnitt, i begrunnelsen for et bytte som ble gjennomført
+
+Egan ble ført inn i `01` med «**41 — treffer i alle tre**» på defensive contributions, og tallet ble brukt som hovedargumentet for at han er et *gulv* og ikke en *lodd*. **Fordelingen er 21 / 13 / 7.** Terskelen for forsvarere er 10. Han treffer i GW1 og GW2 og bommer i GW3 — **to av tre, ikke tre av tre — og fallende hver eneste runde.**
+
+**Rotårsak:** 41 delt på 3 er 13,7, som ligger over terskelen på 10. Gjennomsnittet ble lest som om det beskrev hver enkelt runde. Det gjør et gjennomsnitt aldri — det er forenlig med både 14/14/13 og 41/0/0.
+
+**Kilden lå åpen.** `live/gw1.csv`, `gw2.csv` og `gw3.csv` var allerede lastet ned i samme økt og gir rundetallene direkte. De ble ikke åpnet for Egan, fordi `players.csv` hadde en ferdig sum som så tilstrekkelig ut.
+
+**Avledet regel:** *en påstand om hvor ofte noe passerer en terskel krever rundetallene. En sum eller et gjennomsnitt kan aldri belegge en treffrate.* Gjelder DC, minutter over 60, og enhver annen «treffer i X av Y»-formulering. `players.csv` har summene; `live/gw{n}.csv` har fordelingen, og bare den andre kan svare på spørsmålet.
+
+**Skjerpende:** dette er samme feiltype som aggregatregelen fra 25. august advarer mot — et sammenstilt tall brukt der elementnivået var nødvendig — anvendt på en ny kolonne. Regelen fantes; den ble ikke gjenkjent som relevant fordi den var skrevet om `events`-blokken og ikke om spillerfelt.
+
+**Konsekvens for beslutningen:** byttet Shaw → Egan står, men bæres nå av tre clean sheets og 270 av 270 minutter, ikke av DC-gulvet. **Over de to siste rundene er Diop den bedre DC-kilden (12 og 11, to treff) enn Egan (13 og 7, ett treff).** Det er ført i `01`.
+
+
+### Ny feil, 12. september: en angremulighet brukt som trøst uten å dateres mot informasjonen den skulle brukes på
+
+`02`s Triple Captain-rad har siden 22. august ført: *«Startoppstilling kan ikke verifiseres ved fredagsdeadline for søndagskamper; chipen kan avbrytes.»*
+
+**Begge leddene er sanne. Sammenstillingen er usann.** Triple Captain settes for hele runden og kan bare settes eller trekkes **før rundens deadline** — den samme deadlinen som gjør at oppstillingen ikke er kjent. Angremuligheten utløper altså i samme øyeblikk som problemet den ble tilbudt som svar på oppstår.
+
+Målt mot `fixtures.csv` og `events.csv`:
+
+| Runde | Deadline | Oppstilling ~ | Chipen er låst i |
+|---|---|---|---|
+| GW5 | fre 18.9. 17:30Z | søn 20.9. 12:00Z | **42,5 timer** |
+| GW7 | lør 17.10. 10:00Z | lør 17.10. 13:00Z | 3,0 timer |
+
+**Rotårsak:** en egenskap ble lest av regelarket (`05`: «Kan avbrytes? Ja, før deadline») og satt inn i et resonnement uten at *tidspunktet* egenskapen gjelder til ble holdt opp mot *tidspunktet* informasjonen ankommer. «Ja, før deadline» ble lest som «ja, fleksibelt», og semikolonet gjorde resten.
+
+**Avledet regel:** *en angremulighet er verdiløs med mindre informasjonen som skulle utløse angret ankommer før fristen for å angre.* Skriv alltid ned begge tidspunktene og differansen, ikke bare at muligheten finnes. Gjelder Bench Boost like mye som Triple Captain — begge «kan avbrytes», begge låses av samme deadline.
+
+**Skjerpende:** feilen sto i tre uker i den raden som styrer den viktigste chip-beslutningen i førstehalvsesongen, og den gjorde GW5 mer attraktiv enn grunnlaget bærer ved å tilby en sikkerhetsventil som ikke eksisterer.
+
+**Konsekvens, ikke bare retting:** blindvinduet er nå ført inn som en **tredje variabel** i GW5-mot-GW7-sammenligningen i `02`, ved siden av Sunderlands innslupne og Haalands cupminutter. GW7s 3,0 timer mot GW5s 42,5 er en fordel for GW7 som aldri har vært talt. Den opphever ikke GW7s dokumenterte kostnad (klemt mellom MD2 og MD3), men den hører hjemme i regnestykket.
+
+**Funnet av brukeren, ikke av en kontroll i denne filen.** Sjekkpunkt 9 krever at en poengregel slås opp i `05` før den brukes — regelen *var* slått opp og korrekt gjengitt. Det som manglet var et sjekkpunkt for at en regel også må dateres når den brukes i et tidsresonnement. Det er den avledede regelen over.
+
+
+### Ny feil, 12. september: en ressursberegning gjort på én horisont og anvendt på en annen
+
+`02` har siden 25. august ført at byttetaket «ikke binder», og brukt det til å begrunne at bytter spares gjennom GW1–5. Merknaden var **riktig regnet for horisonten GW6**, som var alt som lå på bordet den dagen. Den ble deretter stående som en generell påstand om planen.
+
+**Regnet på planens faktiske horisont — til wildcardet i GW16 — kastes fire frikjøp** mellom GW8 og GW13, fordi beholdningen står på taket 5 i runder der planen ikke har jobb til den. Taket binder altså fra GW8, og «sparing er gratis» er feil fra og med GW6.
+
+**Rotårsak:** en beregning med en implisitt horisont ble skrevet ned uten at horisonten ble navngitt. Neste leser — inkludert filen selv — leste den som ubetinget. Ingen enkeltpåstand i merknaden var gal; det var rekkevidden som manglet.
+
+**Avledet regel:** *en beregning om en ressurs som akkumuleres og har tak, skal oppgi horisonten den er regnet på, og regnes om når horisonten flyttes.* Gjelder frikjøp, bank, chips og klubbslott — alle fire har tak, og alle fire brukes i argumenter om timing.
+
+**Kostnad:** tre uker der bytter ble avvist med at de var dyre. De var gratis. To av dem ble tatt 12. september (Shaw → Egan, Tzolis → Ødegaard), og det andre lot seg bare finansiere fordi det første frigjorde nøyaktig £0,3m — en margin som ikke hadde eksistert hvis Tzolis hadde falt ett hakk til mens vi ventet.
+
+**Formildende:** merknaden fra 25. august inneholdt også det metodiske argumentet — at den reelle kostnaden ved tidlig handling er å handle på ett kampdatapunkt. **Det argumentet er uberørt og står.** Det var det økonomiske leddet som var feil, ikke det metodiske, og det er verdt å merke seg at det metodiske alene ville gitt samme svar i august og motsatt svar i september, fordi datagrunnlaget har vokst fra én runde til tre.
+
 
 ### Ny feil, 12. september: en konklusjon lagt på et £0,1m prisavvik i stedet for på det argumentet som faktisk bar den
 

@@ -1,6 +1,7 @@
 # Regler 2026/27 og sesongplan
 
-*Sist oppdatert: 12. september 2026 — **kontrollposten fått et tallgrunnlag før den kjøres.** Sunderland står på 1,00 innsluppet per runde inn i GW4 og møter Arsenal hjemme samme kveld; utfallet avgjør hvilken rad i beslutningsregelen som gjelder mandag. Ingen beslutning tatt — kun grunnlaget ført inn, slik at kontrollposten ikke må hente det selv. GW4: ingen bytter, fjerde frikjøp banket.*
+*Sist oppdatert: 12. september 2026, andre versjon — **sesongplanens GW1–5-rad er overkjørt av handling: to bytter tatt i GW4 (Shaw → Egan, Tzolis → Ødegaard).** Byttetak-regnestykket i GW1–5-raden var regnet på feil horisont og er rettet — planen kaster fire frikjøp mellom GW8 og GW13 slik den sto. GW6- og GW9-radene justert. Kontrollposten for Triple Captain har fått tallgrunnlag før den kjøres.*
+*Forrige: 12. september 2026 — kontrollposten fått tallgrunnlag: Sunderland på 1,00 innsluppet per runde inn i GW4.*
 *Forrige: 8. september 2026, andre versjon — **TC-radens GW5-premiss rettet.** «Full uke uten midtukekamp» var feil da den ble skrevet 3. september: `04` hadde allerede ligacupkampen Man City–Norwich torsdag 17.9. 19:30 fra nivå 1. Beslutningen står — GW5 spilles — men begrunnelsen er skrevet om, og kontrollposten har fått et trinn 2 etter cupkampen. Se feilloggen i `03`.*
 *Forrige: 8. september 2026 — **GW3-rankpåstanden rettet: OR gikk fra 669 925 til 638 377, en forbedring på 31 548 plasser.** Setningen om at troppen falt 180 186 plasser er strøket alle tre stedene den forekom. Det åpne punktet om feltets chipbruk er nedgradert fra dokumentert kostnad til uavklart hypotese — GW3 er nå et motargument, ikke et belegg. Bench Boost-raden: GW3-forholdstallet regnet inn (70 %) etter at rundesnittet låste på 51. Se feilloggen i `03`.*
 *Forrige: 7. september 2026 — GW3-utfall ført inn i chip-tabellen: 1 787 071 lag spilte Triple Captain på Haaland mot Coventry. Bench Boost-raden oppdatert med GW3s benkepoeng (13). Nytt åpent punkt: feltets chipbruk mangler som variabel i chip-planen — tas stilling til ved GW4-kontrollposten.*
@@ -183,12 +184,31 @@ Beregnet fra `fixtures2627.csv`. Lavere er lettere for clean sheets. Motstandere
 
 | GW | Handling | Begrunnelse |
 |---|---|---|
-| 1–5 | Spar bytter, null strukturelle endringer | Fem frie ved GW6. Taket er 5, så sparing utover GW6 er bortkastet. |
+| 1–5 | ~~Spar bytter, null strukturelle endringer~~ **Overkjørt i GW4 — se under** | ~~Fem frie ved GW6. Taket er 5, så sparing utover GW6 er bortkastet.~~ Regnestykket var feil, se merknaden under raden |
 | 6 | Calvert-Lewin ut. Arsenal-forsvarer inn. | Leeds går inn i 2,66-blokk. Arsenal inn i sin beste tidlige blokk på 1,74. |
-| 9 | Shaw og Mbeumo ut | Uniteds verste tidlige blokk: Chelsea (B), Villa (H), Liverpool (B). |
+| 9 | ~~Shaw og~~ **Mbeumo ut** — ett bytte, ikke to. ⚠️ **Bør flyttes til GW6, se under** | Uniteds verste tidlige blokk: Chelsea (B), Villa (H), Liverpool (B). **Shaw er ute allerede (GW4).** |
 | 12 | United-eksponering tilbake | Brentford (H), Newcastle (B), Coventry (H), Palace (B). |
 | 13 | O'Reilly £6,5m inn | Citys beste vindu er GW13–18. |
 | 16 | **Wildcard.** Restrukturer inn i Arsenals GW17–22. United ut permanent. Keeperbyttet er ikke lenger gitt — se under. | Spurs' verste blokk (2,66) møter Arsenals beste (1,67). United går inn i 2,74. Bruker også chipen før GW19-fristen. |
+
+⚠️ **Merknad til rad GW1–5, 12. september: raden er overkjørt, og byttetak-argumentet var regnet på feil horisont.**
+
+Merknaden fra 25. august under konkluderte med at «taket binder ikke» og at argumentet mot tidlig handling derfor er metodisk, ikke økonomisk. **Den konklusjonen gjaldt horisonten GW6, som var alt som lå på bordet da.** Regnet på planens faktiske horisont til wildcardet i GW16:
+
+| Runde | Beholdning ved deadline | Planens bruk |
+|---|---|---|
+| GW6 | 5 | 1 (Calvert-Lewin) |
+| GW7 | 5 | 0 |
+| GW8 | 5 — **1 kastet** | 0 |
+| GW9 | 5 — **1 kastet** | 2 |
+| GW12 | 5 — **1 kastet** | 0 |
+| GW13 | 5 — **1 kastet** | 1 |
+
+**Fire frikjøp kastes mellom GW8 og GW13 hvis planen følges bokstavelig.** Taket binder altså, fra GW8, og «sparing er gratis» er feil fra og med GW6. Rotårsak og avledet regel i `03`.
+
+**Handlingen som fulgte, 12. september:** Shaw → Egan og Tzolis → Ødegaard, to frikjøp av tre, ingen hit, bank uendret £0,0m. Full begrunnelse med anti-drift-beslutning og Regel 2-unntak i `01`. Revidert sekvens gir **ett** kastet frikjøp i stedet for fire.
+
+**Det metodiske argumentet fra 25. august står uendret og er ikke opphevet:** å handle på ett kampdatapunkt er fortsatt feil. Byttene 12. september hvilte på tre runders data, to uavhengige kilder (FPL-poeng og xgstat-rating) og tre strukturelle funn — ikke på GW3-resultatet.
 
 ⚠️ **Merknad til rad GW1–5, ny 25. august: begrunnelsen holder ikke som skrevet.**
 
@@ -202,7 +222,7 @@ To bevegelige deler før valget tas: Arsenal jakter **Ezri Konsa** fra Villa som
 
 **Vi eier allerede Calafiori.** Vurder derfor om GW6-byttet i det hele tatt skal gå til forsvar, eller om Arsenal-eksponeringen heller bør tas offensivt (Tzolis £6,5m startet Community Shield med to assists).
 
-**Merknad til GW6, oppdatert 19. august:** Arsenal-eksponeringen er **allerede tatt**, offensivt, via Tzolis £6,5m (Szoboszlai ut). GW6-byttet skal derfor ikke lenger gå til Arsenal-forsvar. Det frigjorte byttet går til Calvert-Lewin-utgangen alene.
+**Merknad til GW6, oppdatert 19. august:** Arsenal-eksponeringen er **allerede tatt**, offensivt, via Tzolis £6,5m (Szoboszlai ut). ⚠️ **Oppdatert 12. september: Tzolis er solgt, og Arsenal-eksponeringen går nå via Ødegaard £6,7m.** Konklusjonen i raden er uendret — GW6-byttet skal ikke gå til Arsenal-forsvar — men **Arsenal står nå på 2 av 3 klubbslott**, så et Konsa-kjøp i GW6 fyller taket og blokkerer videre Arsenal-eksponering resten av sesongen. GW6-byttet skal derfor ikke lenger gå til Arsenal-forsvar. Det frigjorte byttet går til Calvert-Lewin-utgangen alene.
 
 **Merknad til GW6, ny 21. august — Konsa-kjøpet bekreftet, rykte er nå fakta.** Arsenal har kjøpt **Ezri Konsa** fra Aston Villa: £51m + £4m i tillegg (Sky Sports, ESPN, Just Arsenal, alle 21. august). FPL-pris **£4,5m** (FFScout, FPL Mate).
 
@@ -219,6 +239,12 @@ Konsa star i **£4,5m uendret**, eierandel **12,2 %**, og markedet **selger**: 9
 ✅ **Verktøyspørsmålet er også løst.** `price_change_percent` og `price_change_projections` ligger nå per spiller i FPLs eget `bootstrap-static`. **Bruk den i stedet for FFScout og FPLedits** — det er samme kilde som prisene selv.
 
 **Historikk, skrevet 21. august:** «om Konsas eierandel stiger raskt før han faktisk spiller, kan prisen gå opp før GW6-vinduet. Verken FFScouts eller FPLedits' price change-verktøy leverte tall 21. august.»
+
+⚠️ **Merknad til GW9, ny 12. september: premisset har flyttet seg til GW6.**
+
+GW9-utgangen ble satt fordi Uniteds blokk blir dårlig. **Den blir dårlig fra GW6, ikke fra GW9.** Denne filens egen tabell gir MUN **1,86 i GW1–5** og **2,34 i GW6–10**; FPLs FDR gir **3,33 i GW4–9**, nest verst av storklubbene. To ulike skalaer, samme vendepunkt.
+
+Shaw er ute i GW4. **Mbeumo-utgangen bør revurderes til GW6, i samme økt som Calvert-Lewin**, og ikke videreføres på en dato som ble satt da blokken ble antatt å vare til GW9. Ikke besluttet — ført som oppgave til GW6-økten.
 
 **Merknad til GW9, oppdatert 21. august:** den forrige merknaden sa at Mbeumo er «projisert som Uniteds spiss». Det premisset er borte — Šeško er tilbake i trening og nierkonkurransen er fire-fem navn (se `01`). **GW9-utgangen står uendret, fordi den alltid hvilte på program og ikke på rolle.** Men begrunnelsen skal ikke lenger vise til spissrollen.
 
@@ -285,7 +311,7 @@ Kontrollert mot `fixtures2627.csv` 22. august: **alle 38 runder har nøyaktig 10
 |---|---|---|
 | **Wildcard 1** | **Planlagt: GW16–17** | Den eneste av de fire som *kan* planlegges. Fikstursblokker er kjent hele sesongen. Restrukturering inn i Arsenals GW17–22 (1,67). Ikke GW6 — de fem sparte byttene gjør den jobben. **Kan ikke avbrytes** |
 | **Bench Boost 1** | **Betinget: etter Wildcard 1.** Terskel tallfestet 3. september | Benken er £17,0m og leverte **12 poeng i GW1, 10 i GW2 og 13 i GW3** (`entry/history.csv`, kolonne `bench_points` — GW3 uavhengig bekreftet mot `picks/gw3.csv`, som er nødvendig etter regelen 7. september i `03`). Målt mot rundesnittet per startende spiller — 4,5 i GW1, 7,4 i GW2, 4,6 i GW3 — ga benken 3,0, 2,5 og 3,25, altså **67 %, 34 % og 70 %**. GW3-tallet er regnet 8. september etter at rundesnittet låste på **51** (`events.csv`, `data_checked: true`). ⚠️ **Les det som mekanisme, ikke som forbedring:** 70 % mot GW2s 34 % skyldes at snittet falt fra 81 til 51, ikke at benken har blitt bedre. Telleren står praktisk talt stille på tre runder (12, 10, 13). Keeperslottet er dødvekten: 6, 0 og 6 (Kinsky benket i GW3), for £4,5m, uten oppside utover clean sheet. **Utløser, alle tre ledd må være oppfylt:** (1) benkepoeng over 20 i minst to av de tre foregående rundene, (2) alle fire benkespillere bekreftet i startellevern for målrunden, (3) fikstursjekk mot `fixtures2627.csv` for målrunden. Ledd 1 alene er utilstrekkelig — det måler realisert avkastning bakover, mens beslutningen er framoverrettet, og kan utløses av en benk som nettopp har hatt tre gode kamper og møter topplag i målrunden. Det inntreffer ikke før wildcardet har bygget benken. **Kan avbrytes** |
-| **Triple Captain 1** | **Planlagt: GW5.** Flyttet fra GW7 3. september, sent | Kandidatene er Citys svake hjemmekamper: **GW3 Coventry (H), GW5 Sunderland (H), GW7 Ipswich (H), GW16 Hull (H)** — alle FDR 2. **GW16 er blokkert av wildcardet** (én chip per runde). Avgjørende er europakalenderen, ikke fiksturet: ligafasen starter **8. september** (UEFA.com). **GW3** (lør 5. sep 14:00) ligger tre dager før Porto borte tirsdag 8. sep. **GW7** (lør 17. okt 14:00) ligger mellom MD2 13./14. okt og MD3 20./21. okt — dobbelt klem. **GW5** (søn 20. sep 14:00 UK) har landslagspause bak seg, men **ikke** fri uke foran seg — denne raden motsa `04`, og `04` har rett: **ligacup runde 3, Man City–Norwich hjemme torsdag 17. september 19:30** (mancity.com 28.8., nivå 1). Belastningen inn mot chip-runden er Porto (b) 8.9., Man Utd (b) 13.9., Norwich (H) 17.9., Sunderland (H) 20.9. — fire kamper på tolv dager. Snuoperasjonen fra cup til liga er **66,5 timer** etter at ligakampen ble flyttet fra lørdag (tabell i `04`). ⚠️ **Dette svekker premisset, men styrker kontrollmuligheten:** cupkampen slutter torsdag ca. 21:20 UK, ~21 timer før GW5-deadline fredag 18.9. 18:30 BST. Haalands minutter mot Norwich er dermed **observert** før chipen låses, ikke projisert. Med Marmoush utlånt til Spurs har City ingen ren nier — Maresca oppgir Semenyo og Foden som nier-alternativer (mancity.com 6.9.), og hvilen ligger derfor sannsynligvis i cupkampen, ikke i ligakampen. Kostnaden er motstanderen: Sunderland har sluppet inn 2 mål på to runder, mot Coventrys 4 og Ipswichs 6. **Utløser: spilles i GW5. Reserve GW3 hvis Haaland flagges for GW5, eller hvis en dobbeltrunde kunngjøres først.** ⚠️ **Reserven er utløpt — GW3 er passert. Se GW3-utfallet under tabellen.** Startoppstilling kan ikke verifiseres ved fredagsdeadline for søndagskamper; chipen **kan avbrytes**. Hard bakstopp: GW19-deadline 2. januar |
+| **Triple Captain 1** | **Planlagt: GW5.** Flyttet fra GW7 3. september, sent | Kandidatene er Citys svake hjemmekamper: **GW3 Coventry (H), GW5 Sunderland (H), GW7 Ipswich (H), GW16 Hull (H)** — alle FDR 2. **GW16 er blokkert av wildcardet** (én chip per runde). Avgjørende er europakalenderen, ikke fiksturet: ligafasen starter **8. september** (UEFA.com). **GW3** (lør 5. sep 14:00) ligger tre dager før Porto borte tirsdag 8. sep. **GW7** (lør 17. okt 14:00) ligger mellom MD2 13./14. okt og MD3 20./21. okt — dobbelt klem. **GW5** (søn 20. sep 14:00 UK) har landslagspause bak seg, men **ikke** fri uke foran seg — denne raden motsa `04`, og `04` har rett: **ligacup runde 3, Man City–Norwich hjemme torsdag 17. september 19:30** (mancity.com 28.8., nivå 1). Belastningen inn mot chip-runden er Porto (b) 8.9., Man Utd (b) 13.9., Norwich (H) 17.9., Sunderland (H) 20.9. — fire kamper på tolv dager. Snuoperasjonen fra cup til liga er **66,5 timer** etter at ligakampen ble flyttet fra lørdag (tabell i `04`). ⚠️ **Dette svekker premisset, men styrker kontrollmuligheten:** cupkampen slutter torsdag ca. 21:20 UK, ~21 timer før GW5-deadline fredag 18.9. 18:30 BST. Haalands minutter mot Norwich er dermed **observert** før chipen låses, ikke projisert. Med Marmoush utlånt til Spurs har City ingen ren nier — Maresca oppgir Semenyo og Foden som nier-alternativer (mancity.com 6.9.), og hvilen ligger derfor sannsynligvis i cupkampen, ikke i ligakampen. Kostnaden er motstanderen: Sunderland har sluppet inn 2 mål på to runder, mot Coventrys 4 og Ipswichs 6. **Utløser: spilles i GW5. Reserve GW3 hvis Haaland flagges for GW5, eller hvis en dobbeltrunde kunngjøres først.** ⚠️ **Reserven er utløpt — GW3 er passert. Se GW3-utfallet under tabellen.** ⚠️ **Rettet 12. september: setningen som sto her var «Startoppstilling kan ikke verifiseres ved fredagsdeadline for søndagskamper; chipen kan avbrytes». Begge leddene er sanne, men sammenstillingen påstår en kontroll som ikke finnes.** Angrefristen for Triple Captain er den samme deadlinen — fredag 18.9. 18:30 BST. Oppstillingen for City–Sunderland kommer søndag ca. 12:00 UTC, **42,5 timer etter at chipen er låst**. At chipen «kan avbrytes» hjelper altså ikke i nettopp den situasjonen setningen brukte den som trøst for. Chipen brukes for hele runden og kan bare settes eller trekkes før rundens deadline. **Den eneste reelle observasjonen før låsing er Trinn 2 — Haalands minutter mot Norwich torsdag, 21 timer før deadline — og den er en proxy for rotasjon, ikke en oppstilling.** Hard bakstopp: GW19-deadline 2. januar |
 | **Free Hit 1** | **Utløserbasert** | Spilles kun hvis en blankrunde faktisk kunngjøres før GW19. Skjer ikke det, er den svakeste av de fire og er den som ofres. **Kan ikke avbrytes.** Kan ikke spilles i to påfølgende runder — legges den i GW19, er Free Hit 2 blokkert til GW21 |
 
 **Overlappet er dermed borte.** Konflikten oppsto fordi Wildcard og Free Hit begge var tildelt spekulative vinduer rundt GW16. Kun Wildcard har et vindu nå, og «én chip per runde» er ikke lenger brutt.
@@ -340,6 +366,22 @@ Kontrollert mot `fixtures2627.csv` 22. august: **alle 38 runder har nøyaktig 10
 ⚠️ **Utfallet «Sunderland holder nullen mot Arsenal» er det som utløser en reell ny vurdering, og det er ikke et fjerntliggende utfall.** Dette er ført som forberedelse, ikke som prediksjon — hvilken rad som gjelder avgjøres av kampen, ikke av denne merknaden.
 
 **Åpent punkt som forfaller samtidig:** hypotesen om feltets chipbruk skal mandag 14. september **begrunnes på nytt eller forkastes**, ikke videreføres. Se raden under tabellen i chip-seksjonen og GW3-avsnittet i `01`.
+
+**Blindvinduet — ny akse i GW5-mot-GW7-sammenligningen, ført inn 12. september.**
+
+Triple Captain settes for hele runden og låses ved rundens deadline. Avstanden fra deadline til offisiell oppstilling (~1 time før avspark) er derfor hvor lenge chipen står forpliktet uten at du vet om Haaland starter. Regnet fra `fpl-data/fixtures.csv` og `events.csv`:
+
+| Runde | Citys kamp | Deadline | Oppstilling ~ | **Blindvindu** |
+|---|---|---|---|---|
+| GW5 | Man City–Sunderland, søn 20.9. 13:00Z | fre 18.9. 17:30Z | søn 20.9. 12:00Z | **42,5 timer** |
+| **GW7** | **Man City–Ipswich, lør 17.10. 14:00Z** | **lør 17.10. 10:00Z** | **lør 17.10. 13:00Z** | **3,0 timer** |
+| GW8 | Aston Villa–Man City, lør 24.10. 11:30Z | fre 23.10. 17:30Z | lør 24.10. 10:30Z | 17,0 timer |
+
+**Fjorten ganger forskjell mellom GW5 og GW7.** GW7 har lørdagsdeadline fire timer før avspark; du binder chipen praktisk talt på kanten av oppstillingen.
+
+⚠️ **Denne aksen er aldri veid i valget mellom GW5 og GW7.** Sammenligningen over står på europakalenderen og på motstanderens forsvar. GW7s dokumenterte kostnad — klemt mellom MD2 og MD3 — er reell og uendret. **Men GW7 har en fordel som ikke er talt: du vet nesten hva du kjøper.** Med Maresca i sin første sesong, City uten ren nier og fire kamper på tolv dager inn mot GW5, er 42,5 timers blindbinding en kostnad som hører hjemme i regnestykket.
+
+**Tas inn i kontrollposten mandag 14. september**, som en tredje variabel ved siden av Sunderlands innslupne og Haalands cupminutter. Den avgjør ikke alene — den var bare ikke der.
 
 **Trinn 2 — lagt til 8. september: cupkampen mot Norwich, torsdag 17.9. 19:30.** Kontrollposten 14. september ligger **før** ligacupkampen og kan derfor ikke avgjøre rotasjonsspørsmålet alene. Cupkampen slutter ca. 21:20 UK torsdag; GW5-deadline er fredag 18.9. 18:30 BST. Vinduet er ~21 timer, og oppstillingen er observert, ikke projisert — det er strengere bevis enn kontrollposten selv har.
 
