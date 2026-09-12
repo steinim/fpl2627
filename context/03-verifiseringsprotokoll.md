@@ -1,6 +1,8 @@
 # Verifiseringsprotokoll
 
-*Sist oppdatert: 10. september 2026 — ny feillogg med to avledede regler: en PL-fikstursak er en fullstendig rundeliste og ikke en diff, og når én klubbs side gir feil sesong prøves motpartens før punktet føres som uavklart. En påstand i `04` om at Leeds–Palace ikke sto i PLs 7.7.-artikkel var usann; kampen sto der. Punktet er lukket og feilen rettet i `04` samme økt.*
+*Sist oppdatert: 12. september 2026, andre versjon — **datolinjen under var feilført som «10. september» mens filen allerede inneholdt hele xgstat-seksjonen og feilloggen fra 12. september.** Rettet. I tillegg: rundeporten kjørt uavhengig en andre gang før GW4-deadline (474 matchede, `bonus` 100 %, `pts` 99,79 %), og ny feillogg om at en konklusjon ble lagt på et £0,1m prisavvik i stedet for på det robuste argumentet.*
+*Forrige: 12. september 2026 — xgstat.com ført inn i kildehierarkiet som nivå 4, rundeport på `pts`, minuttkolonnen avvist som FPL-nevner, `defcon` vist redundant, Vercel-utfordringen dokumentert og høsting begrenset til manuell kjøring fra egen maskin. Feillogg: to kilder erklært å stå på ulike runder på et felt begge måler selv.*
+*Forrige: 10. september 2026 — ny feillogg med to avledede regler: en PL-fikstursak er en fullstendig rundeliste og ikke en diff, og når én klubbs side gir feil sesong prøves motpartens før punktet føres som uavklart. En påstand i `04` om at Leeds–Palace ikke sto i PLs 7.7.-artikkel var usann; kampen sto der. Punktet er lukket og feilen rettet i `04` samme økt.*
 *Forrige: 8. september 2026, andre versjon — ny feillogg med to avledede regler: `04` åpnes før websøk i alle dato- og klokkeslettspørsmål, og en motsigelse mellom to kontekstfiler føres som inkonsistens, ikke som manglende oppslag. En nivå 1-bekreftet kampdato ble nedgradert til ubekreftet fordi `04` ikke ble lest.*
 *Forrige: 8. september 2026 — ✅-blokken om appbekreftelsen 7. september feilrettet: OR 850 111 var også lest fra en ulåst runde, fasit er **638 377**. To nye feillogger med fire avledede regler: låsestatus er festepunktet for rankregelen (ikke filnavnet), premisstall verifiseres før omskriving, mekanismer utledet av ulåste tall merkes som hypotese, og verktøytilgjengelighet påstås ikke uten søk.*
 *Forrige: 7. september 2026 — GW3-retrospektiv. Ny regel: `entry/history.csv` er ikke fasit for en runde som ikke er låst, og mirroren merker ikke stale filer. To nye feillogger: rundesnittet 36 brukt som sammenligningsgrunnlag i strid med aggregatregelen som allerede sto i denne filen, og `fixtures.csv`-kolonnen `finished` lest som informativ uten kontroll.*
@@ -365,7 +367,39 @@ Tesen i `02` var delvis feil og ble etterprøvd mot fire uavhengige kilder.
 
 **Størrelsesorden:** BPS avgjør kun bonus, maks 3 poeng per kamp, i konkurranse. En midtstopper taper anslagsvis 5–10 bonuspoeng over en sesong. **Tesen er nedgradert fra «viktigste enkeltendring» til andreordens rebalansering.**
 
+## Rundeporten kjørt en andre gang, 12. september før GW4-deadline
+
+Uavhengig kjøring på samme filpar, matchet på lag + normalisert navn i stedet for `row_id`-mappingen i `reconcile_xgstat.py`:
+
+| | Denne kjøringen | Kjøringen ført inn over |
+|---|---|---|
+| Matchede spillere | 474 av 498 | 483 |
+| `bonus` enige | **474/474 (100 %)** | 483/483 (100 %) |
+| `pts` enige | **473/474 (99,79 %)** | 482/483 (99,8 %) |
+| Unike `row_id` | 498 / 499 | 498 / 499 |
+
+24 rader var tvetydige på navnematch og ble **utelatt, ikke tvangsmatchet**. Samme treffrate fra en uavhengig matchemetode er en reell bekreftelse av porten, ikke en gjentakelse av den. **Porten var åpen ved GW4-deadline.**
+
 ## Feillogg
+
+### Ny feil, 12. september: en konklusjon lagt på et £0,1m prisavvik i stedet for på det argumentet som faktisk bar den
+
+I GW4-gjennomgangen ble Shaw → Konsa avvist med formuleringen **«byttet er ikke bare uklokt, det er blokkert»**, begrunnet med at Shaws salgspris er £4,4m mens `players.csv` fører Konsa i £4,5m. Brukeren oppga £4,4m. **Prisspørsmålet står uavklart** (se det åpne punktet under), men feilen er uavhengig av hvem som har rett på tallet.
+
+**Rotårsak:** det robuste argumentet lå allerede på bordet og ble degradert til støtteargument. Byttet trekker topplagsandelen fra **61,2 % til 47,5 %** — 13,7 prosentpoeng ned, uten at noe er besluttet, altså nøyaktig det anti-drift-regelen i `CLAUDE.md` sier skal stoppe et forslag. Det tallet endrer seg ikke av en prisendring på £0,1m. I stedet ble konklusjonen festet til **det mest volatile feltet i hele datasettet**, som per definisjon kan snu over natten.
+
+**Avledet regel:** *når et bytte kan avvises både på struktur og på pris, skal strukturargumentet bære konklusjonen og prisen stå som merknad.* En pris er et øyeblikksbilde med daglig kjøring; en anti-drift-andel er en egenskap ved troppen. Å la den flyktige størrelsen bære gjør at konklusjonen må tas opp igjen hver natt kl. 00:00 britisk tid, og det er ikke det regelen er til for.
+
+**Skjerpende:** konklusjonen — ikke gjennomfør byttet — var riktig. Det er Regel 8 i arbeidsordren: riktig svar av gal grunn er en feil. Her ville den gale grunnen gjort reell skade, fordi en prisendring i Konsas favør ville lest som at avvisningen falt bort, mens det egentlige argumentet sto uendret.
+
+**Åpent punkt — Konsas pris, uavklart per 12. september:**
+
+| Kilde | Verdi | Grunnlag |
+|---|---|---|
+| `players.csv`, snapshot `2026-09-12T06:30:00+00:00` | **£4,5m** | `price 4.5`, `cost_change_event +0.1`, `cost_change_start 0.0` — internt konsistent med sesongstart £4,5m → fall til £4,4m (ført i `01` 4. september) → stigning tilbake i GW4-vinduet |
+| Bruker, 12. september | **£4,4m** | Oppgitt uten kilde |
+
+`cost_change_start 0.0` er det avgjørende: det betyr at dagens pris **er** sesongstartprisen, og den var £4,5m. Det gjør speilets tall internt sammenhengende, ikke bare påstått. **Sjekk mot appen og lukk punktet** — prisendringer kjøres 23:00 UTC, så ingen av tallene kan ha endret seg mellom hentingen og nå.
 
 ### Ny feil, 12. september: to kilder erklært å stå på ulike runder, på et felt begge måler selv
 

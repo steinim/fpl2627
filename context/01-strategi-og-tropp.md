@@ -1,6 +1,7 @@
 # Strategi og tropp
 
-*Sist oppdatert: 8. september 2026 — **GW3-ranken rettet fra 850 111 til 638 377.** Runden er nå låst (`events.csv`: `finished: true`, `data_checked: true`), og `entry/history.csv` gir 54 poeng, OR 638 377, total 220. **GW3 var en forbedring på 31 548 plasser, ikke et fall på 180 186.** Chip-asymmetri-mekanismen er trukket — den hvilte på ranktallet og har ingen støtte i det korrigerte. Rundesnittet ført inn: 51. Anti-drift omregnet etter Shaws prisfall: 61,1 %. Rotårsak og tre avledede regler i `03`.*
+*Sist oppdatert: 12. september 2026 — **GW4-laguttak ført inn før deadline, med keeperbegrunnelse.** Shaw flagget `status: d`, 75 %. Ingen bytter; tre frikjøp bankes, nå **bekreftet mot appen** og ikke lenger utledet. Calafiori steget til £5,8m, anti-drift omregnet til 61,2 %. xgstat tatt i bruk for første gang etter at rundeporten ble kjørt på nytt — to funn ført inn (Calvert-Lewin, Tzolis). Konsas pris står som uavklart punkt i `03`.*
+*Forrige: 8. september 2026 — **GW3-ranken rettet fra 850 111 til 638 377.** Runden er nå låst (`events.csv`: `finished: true`, `data_checked: true`), og `entry/history.csv` gir 54 poeng, OR 638 377, total 220. **GW3 var en forbedring på 31 548 plasser, ikke et fall på 180 186.** Chip-asymmetri-mekanismen er trukket — den hvilte på ranktallet og har ingen støtte i det korrigerte. Rundesnittet ført inn: 51. Anti-drift omregnet etter Shaws prisfall: 61,1 %. Rotårsak og tre avledede regler i `03`.*
 *Forrige: 7. september 2026 — GW3-fasit ført inn (54 poeng, verifisert mot `picks/gw3.csv` × `live/gw3.csv`; `entry/history.csv` ga 31 — se datakonflikten i `03`). Ranken som ble ført samme dag er siden korrigert, se over. GW3-laguttaket rekonstruert i etterkant; det ble aldri ført inn før runden, og keeperbyttet tilbake til Verbruggen står derfor uten samtidig begrunnelse. Muñoz-risikoen for N.Williams nedgradert til overvåking. Ny strukturmerknad: troppen har 6 defensive-contribution-poeng på tre runder.*
 *Forrige: 4. september 2026 — overgangsvinduets utfall ført inn, anti-drift-tallet oppdatert etter Calafioris andre prisstigning (61,2 %), og prislistegjennomgangen etter 1. september gjennomført: én klubbfeil (Muñoz), 23 prisavvik og to rader som er borte fra APIet. Alle fire prislister er reverifisert mot `players.csv`.*
 *Forrige: 28. august 2026, sent — GW2-benkrekkefølgen rettet TILBAKE til Slater, Davis, Diop. Kveldens tidligere reversering til Davis/Diop/Slater var selv feil: den la for mye vekt på fraværet av et navngitt skadeflagg og ikke nok på auto-sub-motorens faktiske mekanikk (ugyldige erstatninger hoppes over, så en forsvarer øverst koster ingenting ved forsvarerblank, men koster forventet avkastning ved midtbane-/spissblank hvor forsvareren også er gyldig). Regel 7s overstyringsklausul foreslått omformulert, ikke besluttet. Feilen loggført i `03`.*
@@ -815,8 +816,124 @@ Terskler fra `05`: forsvarere **10** aksjoner, midtbane og spisser **12**. Antal
 
 **Null bytter i GW3**, i tråd med bankeplanen i `02` fram til GW5. `entry/history.csv` gir `transfers: 0` og `hit: 0` for alle tre rundene, og `bank: 0.0`.
 
-**Sparte bytter inn i GW4: 3.** Utledet, ikke slått opp: `05` gir 1 frikjøp per runde med maks 5 banket, ingen er brukt siden GW1. Kontrolleres mot appen før første bytte.
+**Sparte bytter inn i GW4: 3.** ✅ **Bekreftet mot appen 12. september.** Sto tidligere som utledet av `05` (1 frikjøp per runde, maks 5 banket, ingen brukt siden GW1). Utledningen var riktig; den er nå avlest.
 
 **Prisbevegelse i troppen per 8. september (`players.csv`, speil hentet 7. september 22:15 UTC):** Calafiori £5,7m og João Pedro £7,7m står begge £0,2m over kjøpspris. **Mbeumo har falt £0,1m til £7,9m — i selve runden hvor han scoret 8 poeng.** Gibbs-White står på £7,9m etter sitt fall. **Shaw har falt £0,1m til £4,4m** (7. september, netto −144 284 i runden). Summen av de femten postene er nå **£100,1m**. Lagverdi £100,3m og bank £0,0m er bekreftet 8. september fra den låste GW3-raden i `entry/history.csv`.
 
 **Anti-drift — omregnet 8. september, og andelen har falt uten at noe er besluttet.** Topplagsandelen er **£19,6m av £32,1m = 61,1 %**, ned fra £19,7m av £32,2m = 61,2 %. ⚠️ **Årsaken er ikke et bytte, men Shaws prisfall** — han ligger i telleren, så et fall trekker begge veier og nettoeffekten er negativ. Bevegelsen er 0,1 prosentpoeng og utløser ingen handling, men den viser at nevneren drifter av prisendringer alene. **Avledet: anti-drift-tallet skal omregnes ved hver prisendring som treffer et GK- eller DEF-slott, ikke bare ved bytter.**
+
+## GW4-laguttak, besluttet 12. september før deadline 14:30
+
+**Deadline lørdag 12. september 13:30 BST / 14:30 norsk** (`events.csv`, `deadline_time: 2026-09-12T12:30:00Z`). Sesongens første lørdagsdeadline.
+
+**Ingen bytter. Fjerde frikjøp bankes — beholdning inn i GW5 blir 4, taket er 5.** I tråd med sesongplanens GW1–5-rad i `02`. Merk at det femte akkumuleres ved GW6 og at **første bortkastede frikjøp inntreffer ved GW7** hvis planens ene GW6-bytte er alt som brukes. Det er ikke et argument for å handle nå, men fristen for å finne oppgaver til beholdningen er GW6, ikke GW16.
+
+**Uttak (3-4-3):** Verbruggen; Calafiori, N.Williams, Shaw; B.Fernandes (VK), Mbeumo, Gibbs-White, Tzolis; Haaland (K), Calvert-Lewin, João Pedro.
+**Benk, i rekkefølge: Slater, Diop, Davis.** Kinsky som benket keeper.
+
+### Keepervalg — Verbruggen. Begrunnelsen føres, jf. regelen fra 7. september
+
+Valget avviker ikke fra GW3, men GW3 er den ene runden uten nedtegnet begrunnelse og den ene som gikk i minus. Det gjentas ikke.
+
+| | Verbruggen (BHA) | Kinsky (TOT) |
+|---|---|---|
+| Kamp | Coventry **borte**, søn 13.9. 14:00 | Everton **hjemme**, lør 12.9. 17:30 |
+| Motstanderens mål GW1–3 | **0 på 270 minutter** | 5 |
+| Egen klubb innsluppet GW1–3 | 5 (1,67 per runde) | 5 (1,67 per runde) |
+| FDR (`fpl-data/fixtures.csv`) | **2** | 3 |
+
+**Valget står på motstanderens angrep, ikke på eget forsvar.** De to klubbene har sluppet inn nøyaktig like mye. Coventry har ikke scoret et eneste mål i ligaen, mens Spurs' motstander Everton har scoret 5. Det er den eneste skillelinjen som ikke er støy på tre runders data. Alle lagtall er regnet fra `fpl-data/fixtures.csv`; `teams.csv` finnes ikke i speilet (returnerer 0 bytes).
+
+### Shaw — `status: d`, 75 %. Beholdt i elleveren, ikke byttet
+
+`players.csv` (snapshot `2026-09-12T06:30:00+00:00`, nivå 0): **`status: d`, `chance_next: 75`, «Unspecified injury».** Eneste flagg i troppen; de fjorten andre står `a` med tomt nyhetsfelt.
+
+**Mekanismen bak flagget:** Man Utd spilte Champions League **torsdag 10. september** (4–0 mot Sabah — UEFA.com, nivå 1; Fernandes scoret). Shaw sto over kampen. Derbyet er **søndag 13. september 16:30**, ~74 timer etter. Sports Mole 10.9. (nivå 5) fører ham som «minor doubt», ute av onsdagstreningen, ventet tilbake i troppen. Fantasy Football Scout 11.9. (nivå 4–5) fører ham i projisert XI med forbeholdet «if fit», med Dorgu som vikar.
+
+⚠️ **Carrick-sitatene er lest gjennom en oppsummerende henting, ikke verbatim fra Scouts side.** Ordlyden skal ikke føres som direkte sitat herfra. Kilden er nivå 4–5 uansett; nivå 0-flagget bærer vurderingen alene.
+
+**Hvorfor han står i elleveren:** null minutter utløser automatisk innbytte (`05`, seksjon 1). Ved forsvarerblank med tre bak er Slater ugyldig og hoppes over — **Diop kommer inn uavhengig av benkerekkefølgen**. Ipswich spiller lørdag 15:00, ferdigspilt lenge før derbyet; ingen timingkonflikt.
+
+**Den reelle eksponeringen er ikke blank, men innhopp.** Spiller Shaw 15 minutter fra benken, uteblir innbyttet og slottet gir 1–2 poeng. `05` punkt 4: også gult kort fra benken teller som å ha spilt. Anslått kostnad 1–2 poeng, og den kan ikke kjøpes bort — se under.
+
+### Shaw → Konsa vurdert og avvist. Avvisningen står på anti-drift, ikke på pris
+
+| | Før | Etter byttet |
+|---|---|---|
+| Topplagsandel GK+DEF | **£19,7m av £32,2m = 61,2 %** | **£15,3m av £32,2m = 47,5 %** |
+| Klubbfordeling | MUN 3, ARS 2 | MUN 2, **ARS 3** |
+| Bank | £0,0m | £0,0m |
+
+**13,7 prosentpoeng ned uten at noe er besluttet.** Anti-drift-regelen i `CLAUDE.md` sier at da skal forslaget stoppe. Shaw ligger i telleren fordi Man Utd står på 1,86 i GW1–5; Arsenal står på 2,46 og er **over** 2,20-terskelen — Calafiori er ført inn som et *navngitt unntak*, og å utvide unntaket til en andre Arsenal-forsvarer er en beslutning, ikke en automatikk. Terskelen for alarm (40 %) brytes ikke, men bevegelsen er ti ganger større enn den 0,1 pp som utløste merknaden 8. september.
+
+**Byttet ville dessuten vært en reaksjon på et 75 %-flagg hos en spiller som står i motstanderens projiserte XI.** Det er handling på ett datapunkt, som er det `03` finnes for å hindre.
+
+⚠️ **En tidligere formulering i denne gjennomgangen — «byttet er ikke bare uklokt, det er blokkert», begrunnet med £0,1m — er trukket.** Prisspørsmålet er uavklart og irrelevant for konklusjonen. Feilen er loggført i `03` med rotårsak og avledet regel.
+
+### Kaptein — Haaland. `ep_next` peker for første gang feil vei
+
+| | Haaland | B.Fernandes |
+|---|---|---|
+| `ep_next` (`players.csv`) | 8,0 | **9,0** |
+| xGI (xgstat, nivå 4) | **3,71** | 3,14 |
+| xGI per 90, FPL-minutter som nevner | **1,24** | 1,05 |
+| Rating (xgstat) | **8,1** | 7,3 |
+| Mål − xG | −0,06 | **+0,47** |
+| Motstanderens innslupne per runde | Man Utd **2,00** | Man City **0,67** |
+| Eierandel | 71,2 % | 43,1 % |
+
+**Fernandes' `ep_next` er formdrevet, og xgstat sier formen ligger 0,47 mål over underliggende nivå mens Haaland ligger på null avvik.** Motstanderleddet peker samme vei: Haaland møter ligaens tredje dårligste forsvar, Fernandes det nest beste. Regel 3 gir samme svar. Konklusjonen er entydig, men premisset er smalere enn i tidligere runder og skal etterprøves hvis `ep_next` peker feil vei en andre gang.
+
+⚠️ **Fire av elleve startere ligger i samme kamp** (B.Fernandes, Mbeumo, Shaw mot Haaland, søn 16:30). Sesongens største variansklump på ett avspark, og kapteinsvalget avgjøres innenfor de samme 90 minuttene. Kjent fra `04`; prisen ble betalt da troppen ble bygget. Ingen handling.
+
+### Benkerekkefølge — Slater, Diop, Davis
+
+Uendret mekanisme fra 28. august. Ved forsvarerblank er Slater ugyldig og hoppes over, så Diop kommer inn uansett hvor han står — rekkefølgen koster ingenting der. Ved midtbane- eller spissblank er **Diop også en gyldig erstatning** (3-4-3 → 4-3-3 er lovlig etter `05`), og da avgjør rekkefølgen hvem som faktisk spilles inn. Slater møter Chelsea borte, Diop og Davis møter Crystal Palace borte; alle tre er svake oppgjør, men Slater har den eneste offensive rollen av de tre.
+
+**Ved to samtidige blank — én bak, én på midten — dekker Slater midtbanehullet og Diop forsvarshullet.** Det er den best mulige utnyttelsen av begge benkeplassene.
+
+**Diop foran Davis, begrunnet:** de deler kamp igjen, så Regel 8 må avgjøres på rolle. Diop har 12 og 11 DefCon-aksjoner i GW2 og GW3 mot forsvarerterskelen på 10 — to treff av tre — og er blant de 20 spillerne i hele ligaen som traff i to av tre runder. Davis ligger på 7, 4, 6 og har ikke truffet. **Dette er første gang rekkefølgen mellom dem står på et tall og ikke på «nærkamp».**
+
+### Priser og anti-drift per 12. september
+
+| Spiller | `cost_change_event` | Pris nå | Kjøpt | Salgspris |
+|---|---|---|---|---|
+| **Calafiori** | **+0,1** | £5,8m | £5,5m | £5,6m |
+| Mbeumo | −0,1 | £7,9m | £8,0m | £7,9m |
+| Tzolis | −0,1 | £6,4m | £6,5m | £6,4m |
+| Shaw | −0,1 | £4,4m | £4,5m | £4,4m |
+| Øvrige elleve | 0,0 | — | — | kjøpspris |
+
+Summen av de femten postene er **£100,1m** (uendret fra 8. september — Calafioris stigning og Tzolis' fall opphever hverandre). Lagverdi £100,3m og bank £0,0m står fra den låste GW3-raden.
+
+**Anti-drift: £19,7m av £32,2m = 61,2 %**, opp fra 61,1 %. Telleren er Kinsky £4,5m (TOT 2,14) · Shaw £4,4m (MUN 1,86) · N.Williams £5,0m (NFO 2,14) · Calafiori £5,8m (ARS — navngitt unntak). Årsaken til bevegelsen er Calafioris prisstigning, ikke et bytte. Terskelen på 40 % er uberørt. Regelen fra 8. september — omregn ved hver prisendring som treffer et GK- eller DEF-slott — er fulgt.
+
+### xgstat tatt i bruk for første gang — to funn i troppen
+
+Rundeporten i `03` ble kjørt på nytt før tallene ble brukt: **474 matchede spillere, `bonus` 474/474, `pts` 473/474.** Porten var åpen. Kun `xg`, `xa`, `xgi` og `rating` er brukt; alt annet er redundant mot `players.csv`. Per 90 er regnet med **FPL-minutter** som nevner, aldri xgstats.
+
+| Spiller | xGI | xGI/90 | Rating | Mål − xG |
+|---|---|---|---|---|
+| Haaland | 3,71 | 1,24 | 8,1 | −0,06 |
+| B.Fernandes | 3,14 | 1,05 | 7,3 | +0,47 |
+| Mbeumo | 2,50 | 0,83 | 7,2 | +0,30 |
+| João Pedro | 2,03 | 0,68 | 6,4 | +0,21 |
+| **Calvert-Lewin** | 1,55 | 0,55 | **5,7** | **−0,55** |
+| Gibbs-White | 1,52 | 0,51 | 6,5 | −0,35 |
+| Calafiori | 1,50 | 0,57 | 7,0 | −0,71 |
+| **Tzolis** | **0,86** | **0,37** | 6,6 | −0,49 |
+| N.Williams | 0,54 | 0,18 | 6,8 | 0,00 |
+| Slater | 0,41 | 0,14 | 5,5 | −0,05 |
+| Diop | 0,09 | 0,03 | 6,1 | 0,00 |
+
+**Funn 1 — Calvert-Lewin har laveste rating av alle utespillere i troppen (5,7) og underpresterer eget xG med 0,55.** Det er uavhengig støtte for GW6-utgangen i `02`, fra en kilde som ikke deler metode med FPL. **Ikke en byttetrigger nå:** Leeds ligger på 2,14 til GW5 og møter Newcastle hjemme mandag på FDR 2. Planen står.
+
+**Funn 2 — Tzolis er svakere enn eierandelen hans antyder.** 0,86 xGI på 210 minutter, rating 6,6, pris falt til £6,4m, eierandel ned fra 25,4 % etter GW1 til 16,1 %. Motargumentet fra 19. august — «Arsenal 2,46 er troppens svakeste blokk, og Tzolis er den nyeste i XI-en, altså den som ryker først» — har nå en tallmessig side og ikke bare en strukturell. Han står i Arsenals projiserte XI mot Sunderland, så startplassen er ikke truet i dag. **Ført som åpent punkt til GW6-vurderingen, ikke som handling.** Gakpo står fortsatt som førstevalg hvis han mister plassen.
+
+⚠️ **Tre runder er for lite til at noen av disse to funnene kan bære et bytte alene.** De er ført fordi de skal telles inn i GW6- og GW16-vurderingene med mer data, ikke fordi de skal handles på nå.
+
+### Konsas pris — uavklart, se `03`
+
+`players.csv` fører **£4,5m** med `cost_change_event +0,1` og `cost_change_start 0,0`; brukeren oppgir **£4,4m**. `01` har ført £4,4m siden 4. september. Punktet er uavklart og **påvirker ikke GW4-beslutningen**, som står på anti-drift. Det må lukkes mot appen før GW6, siden GW6-planen i `02` navngir Konsa.
+
+**Positivt for GW6-planen uansett pris:** Konsa har nå **101 minutter og 1 start** (`players.csv`) og står i Scouts projiserte Arsenal-firer mot Sunderland sammen med Gabriel, White og Calafiori — altså uten Mosquera. Integreringsvilkåret som GW6-planen hviler på er på vei til å være oppfylt. Bevisnivået på oppstillingen er 4–5; minuttene er nivå 0.

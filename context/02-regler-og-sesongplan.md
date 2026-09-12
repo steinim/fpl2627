@@ -1,6 +1,7 @@
 # Regler 2026/27 og sesongplan
 
-*Sist oppdatert: 8. september 2026, andre versjon — **TC-radens GW5-premiss rettet.** «Full uke uten midtukekamp» var feil da den ble skrevet 3. september: `04` hadde allerede ligacupkampen Man City–Norwich torsdag 17.9. 19:30 fra nivå 1. Beslutningen står — GW5 spilles — men begrunnelsen er skrevet om, og kontrollposten har fått et trinn 2 etter cupkampen. Se feilloggen i `03`.*
+*Sist oppdatert: 12. september 2026 — **kontrollposten fått et tallgrunnlag før den kjøres.** Sunderland står på 1,00 innsluppet per runde inn i GW4 og møter Arsenal hjemme samme kveld; utfallet avgjør hvilken rad i beslutningsregelen som gjelder mandag. Ingen beslutning tatt — kun grunnlaget ført inn, slik at kontrollposten ikke må hente det selv. GW4: ingen bytter, fjerde frikjøp banket.*
+*Forrige: 8. september 2026, andre versjon — **TC-radens GW5-premiss rettet.** «Full uke uten midtukekamp» var feil da den ble skrevet 3. september: `04` hadde allerede ligacupkampen Man City–Norwich torsdag 17.9. 19:30 fra nivå 1. Beslutningen står — GW5 spilles — men begrunnelsen er skrevet om, og kontrollposten har fått et trinn 2 etter cupkampen. Se feilloggen i `03`.*
 *Forrige: 8. september 2026 — **GW3-rankpåstanden rettet: OR gikk fra 669 925 til 638 377, en forbedring på 31 548 plasser.** Setningen om at troppen falt 180 186 plasser er strøket alle tre stedene den forekom. Det åpne punktet om feltets chipbruk er nedgradert fra dokumentert kostnad til uavklart hypotese — GW3 er nå et motargument, ikke et belegg. Bench Boost-raden: GW3-forholdstallet regnet inn (70 %) etter at rundesnittet låste på 51. Se feilloggen i `03`.*
 *Forrige: 7. september 2026 — GW3-utfall ført inn i chip-tabellen: 1 787 071 lag spilte Triple Captain på Haaland mot Coventry. Bench Boost-raden oppdatert med GW3s benkepoeng (13). Nytt åpent punkt: feltets chipbruk mangler som variabel i chip-planen — tas stilling til ved GW4-kontrollposten.*
 *Forrige: 4. september 2026 — vindusadvarselen for Slater og Davis lukket på Ipswich-siden og skjerpet på Hull-siden, og GW13-merknaden om O'Reilly utvidet med Citys siste vindusdøgn. Rolleavklaringen avgjør nå fortegnet, ikke bare presisjonen.*
@@ -322,6 +323,23 @@ Kontrollert mot `fixtures2627.csv` 22. august: **alle 38 runder har nøyaktig 10
 | Over 1,50 | GW5 bekreftes. Kalender og motstander peker samme vei |
 | 1,00–1,50 | GW5 står. Kalenderfordelen alene bærer valget — men den bærer det |
 | Under 1,00 | **Stopp og sammenlign GW5 mot GW7 eksplisitt på nytt.** Ikke la GW5 stå som standardvalg fordi det allerede står i fila |
+
+**Tallgrunnlag ført inn 12. september, før GW4 spilles.** Kontrollposten skal ikke hente dette selv mandag.
+
+**Sunderland har sluppet inn 3 mål på 3 runder = 1,00 per runde** (regnet fra `fpl-data/fixtures.csv`; `teams.csv` finnes ikke i speilet). Det plasserer dem på **nedre kant av midtraden** i tabellen over. Til sammenligning: Coventry 1,67, Ipswich 2,67, Hull 0,00, Arsenal 0,33.
+
+**Sunderland–Arsenal spilles lørdag 12.9. 20:00 UK**, altså innenfor GW4 og før kontrollposten. Arsenal har scoret 6 og sluppet inn 1 på tre runder. Resultatet flytter Sunderland-tallet med ett datapunkt av fire, og det er nok til å bytte rad:
+
+| Sunderland slipper inn i kveld | Per runde etter GW4 | Rad som gjelder mandag |
+|---|---|---|
+| 0 | **0,75** | **Under 1,00 — stopp og sammenlign GW5 mot GW7 eksplisitt på nytt** |
+| 1 | 1,00 | Nedre kant av 1,00–1,50. GW5 står |
+| 2 | 1,25 | 1,00–1,50. GW5 står |
+| 3 eller flere | 1,50+ | GW5 bekreftes |
+
+⚠️ **Utfallet «Sunderland holder nullen mot Arsenal» er det som utløser en reell ny vurdering, og det er ikke et fjerntliggende utfall.** Dette er ført som forberedelse, ikke som prediksjon — hvilken rad som gjelder avgjøres av kampen, ikke av denne merknaden.
+
+**Åpent punkt som forfaller samtidig:** hypotesen om feltets chipbruk skal mandag 14. september **begrunnes på nytt eller forkastes**, ikke videreføres. Se raden under tabellen i chip-seksjonen og GW3-avsnittet i `01`.
 
 **Trinn 2 — lagt til 8. september: cupkampen mot Norwich, torsdag 17.9. 19:30.** Kontrollposten 14. september ligger **før** ligacupkampen og kan derfor ikke avgjøre rotasjonsspørsmålet alene. Cupkampen slutter ca. 21:20 UK torsdag; GW5-deadline er fredag 18.9. 18:30 BST. Vinduet er ~21 timer, og oppstillingen er observert, ikke projisert — det er strengere bevis enn kontrollposten selv har.
 
