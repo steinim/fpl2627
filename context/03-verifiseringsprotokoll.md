@@ -1,6 +1,7 @@
 # Verifiseringsprotokoll
 
-*Sist oppdatert: 12. september 2026, sjette versjon — **datolinjeblokken var ødelagt av mine egne gjentatte programmatiske omskrivinger: fire «Forrige»-linjer var slått sammen til én og tre beskrivelser tapt. Rekonstruert. Ny feillogg med avledet regel om verifisering etter hver skriveoperasjon.**
+*Sist oppdatert: 12. september 2026, sjuende versjon — **tre nye feillogger fra samme økt, alle utløst av én opplastet ukespublikasjon: et strukturelt salg anbefalt på én rundes fikstur mot ligaens høyeste xGI, to bytter presentert som uavhengige der det ene finansierte det andre, og en rangering hentet fra mål der kilden også oppga xGA. Avledet regel om at en fersk sekundærkilde ikke får overstyre et tall som allerede står verifisert i kontekstfilene.**
+*Forrige: 12. september 2026, sjette versjon — **datolinjeblokken var ødelagt av mine egne gjentatte programmatiske omskrivinger: fire «Forrige»-linjer var slått sammen til én og tre beskrivelser tapt. Rekonstruert. Ny feillogg med avledet regel om verifisering etter hver skriveoperasjon.**
 *Forrige: 12. september 2026, femte versjon — **ny feillogg: en fordeling utledet av et gjennomsnitt.** Egans 41 DC ble ført som «treffer terskelen i alle tre runder»; fordelingen er 21/13/7, altså to av tre og fallende. Tallet lå i `live/gw{n}.csv` og ble aldri åpnet. Avledet regel om at en terskeltelling krever rundetallene, aldri summen.*
 *Forrige: 12. september 2026, fjerde versjon — **ny feillogg: en sann egenskap ved en chip brukt som motargument i den ene situasjonen der den ikke virker.** «Chipen kan avbrytes» sto som trøst for at en søndagsoppstilling ikke kan verifiseres ved fredagsdeadline — men angrefristen er den samme deadlinen. Avledet regel om at en angremulighet må dateres mot informasjonen den skal brukes på. Blindvindu ført inn som ny variabel i `02`.*
 *Forrige: 12. september 2026, tredje versjon — **ny feillogg: en regel om byttetaket ble regnet på én horisont og anvendt på en annen, og stengte i tre uker for bytter som var gratis.** Avledet regel om at en ressursberegning navngir horisonten sin. Ny seksjon om at lagverdi og salgsverdi er to ulike tall.*
@@ -26,6 +27,52 @@
 *Forrige: 21. august 2026, kveld — Bench Boost-feilen rettet (bench-mekanikk forvekslet med kampdeltakelse), ny regel om kildealder, Konsa-punktet lukket, seks nye feillogger fra deadline-døgnet, verktøybegrensninger dokumentert.*
 
 Denne filen finnes fordi hver eneste feil under er faktisk begått i denne sesongforberedelsen. Sjekklistene er destillert av dem.
+
+## Feillogg 12. september, sjuende versjon — en ukespublikasjon fikk overstyre verifiserte tall
+
+**Situasjonen:** brukeren lastet opp LazyFPLs GW4-utgave 17 minutter før deadline og spurte hva jeg mente etter å ha lest den. Jeg leverte en pakke på tre bytter og et kapteinsskifte. Brukeren utfordret den; hele pakken ble trukket i neste svar. **De to byttene som faktisk ble gjennomført var de som allerede sto i `01`.**
+
+### Feil 1 — strukturelt salg anbefalt på én rundes fikstur
+
+**Hva som ble hevdet:** B.Fernandes £12,0m → Palmer £9,7m, begrunnet med at Chelsea hjemme mot Hull er rundens beste kamp (2,75 projisert xG) og at United-blokken snur i GW6.
+
+**Hva som var galt:** Fernandes har **3,05 xGI, høyest i hele ligaen**. Palmer har 1,41. Tallet sto i samme PDF, i en tabell jeg selv leste og gjenga. Jeg brukte publikasjonens fikstursdel og hoppet over dens egen produksjonsdel.
+
+**Rotårsak:** en fersk sekundærkilde med ett tydelig budskap ble lest som ny informasjon i stedet for som én input blant flere. `01` hadde allerede avvist samme bytte 27. august, på samme type argument.
+
+**Avledet regel:** *når en ekstern publikasjon peker på et bytte kontekstfilene allerede har vurdert og avvist, er utgangspunktet at avvisningen står. Den kan bare velte av et nytt tall, ikke av et nytt fikstur — fiksturet var kjent da avvisningen ble skrevet.*
+
+### Feil 2 — to bytter presentert som uavhengige der det ene finansierte det andre
+
+**Hva som ble hevdet:** Shaw → De Cuyper £4,8m som selvstendig alternativ til Shaw → Egan £4,1m.
+
+**Hva som var galt:** Shaws salgspris er £4,4m og banken £0,0m. De Cuyper var kun finansierbar av de £2,3m Fernandes-salget frigjorde. Da Fernandes-byttet falt, falt De Cuyper med det — uten at jeg hadde sagt at de hang sammen.
+
+**Rotårsak:** anti-drift-blokken i `CLAUDE.md` krever bank og klubbfordeling per bytteforslag, men ikke per **pakke**. Jeg regnet pakken samlet og presenterte den stykkevis.
+
+**Avledet regel:** *når flere bytter foreslås i samme runde, oppgi finansieringsrekkefølgen eksplisitt — hvilket bytte som frigjør pengene et annet bruker. Et bytte som ikke lar seg gjennomføre alene skal merkes som betinget.*
+
+### Feil 3 — rangering hentet fra mål der kilden også oppga xGA
+
+**Hva som ble hevdet:** at `01`s kapteinsbegrunnelse var feil fordi Man Utd er «sjette best på xGA» og ikke «tredje dårligste forsvar».
+
+**Statusen:** **den delen var riktig og er rettet i `01`.** Man Utd har 6 innslupne mål og xGA 4,08. `01` rangerte på mål der xGA lå i samme tabell.
+
+**Men konklusjonen jeg trakk av den var feil:** jeg brukte rettelsen til å flytte kapteinsbindet fra Haaland til João Pedro, på et grovt regnestykke der hver spillers andel av eget lags xG ble ganget med lagets projiserte xG. Haaland har **1,24 xGI per 90 mot Pedros 0,68**. En andelsberegning på tre runders lag-xG er for grov til å velte nesten dobbel produksjon per minutt.
+
+**Avledet regel:** *en rettelse av ett ledd i en begrunnelse gir ikke automatisk en ny konklusjon. Regn konklusjonen på nytt med det rettede leddet inne — den holder ofte, og da skal den stå.*
+
+### Fellesnevner
+
+Alle tre feilene gikk samme vei: **bort fra tall som allerede sto verifisert i kontekstfilene, mot en fersk kilde med høy overbevisningskraft og kort tidshorisont.** En ukespublikasjon er per konstruksjon fikstursorientert — den må ha noe nytt å si hver uke. Kontekstfilene er per konstruksjon strukturelle. **Når de to er uenige, er det som regel fordi de svarer på ulike spørsmål, ikke fordi den ene er oppdatert og den andre utdatert.**
+
+⚠️ **Tidspress er ikke formildende, det er forsterkende.** Pakken ble levert 28 minutter før deadline. Ved under en time til deadline skal forslag som endrer troppens **struktur** (premiumslott, klubbfordeling, anti-drift over 5 prosentpoeng) ikke fremmes på en kilde som ble lest samme time.
+
+### Filintegritet — `01` og `02` beskrev en tilstand som ikke fantes
+
+Begge filene sto skrevet i fortid om Shaw → Egan og Tzolis → Ødegaard mens byttene faktisk ikke var utført. Troppstabellen, klubbfordelingen, anti-drift-tallet 48,0 % og frikjøpstallet 3 → 1 beskrev alle et lag som ikke eksisterte. Brukeren måtte selv opplyse om det.
+
+**Avledet regel:** *et bytte føres i fortid først når brukeren har bekreftet at det er lagt inn i appen. Før det skrives det som **innstilling**, med et eksplisitt «ikke bekreftet gjennomført»-merke. Ingen nedstrømsberegning — anti-drift, klubbfordeling, frikjøpstall — oppdateres på en innstilling.*
 
 ## Ny regel, 25. august: skill spillerdata fra aggregatdata i FPL-API-et
 

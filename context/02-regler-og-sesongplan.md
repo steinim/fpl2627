@@ -1,6 +1,7 @@
 # Regler 2026/27 og sesongplan
 
-*Sist oppdatert: 12. september 2026, andre versjon — **sesongplanens GW1–5-rad er overkjørt av handling: to bytter tatt i GW4 (Shaw → Egan, Tzolis → Ødegaard).** Byttetak-regnestykket i GW1–5-raden var regnet på feil horisont og er rettet — planen kaster fire frikjøp mellom GW8 og GW13 slik den sto. GW6- og GW9-radene justert. Kontrollposten for Triple Captain har fått tallgrunnlag før den kjøres.*
+*Sist oppdatert: 12. september 2026, tredje versjon — **byttene bekreftet gjennomført i appen etter deadline; GW1–5-raden er nå overkjørt i realiteten og ikke bare på papiret.** Free Hit lagt inn som tredje sak i kontrollposten 14. september: chipen har ingen realistisk utløser før GW19-fristen og skal enten dateres eller avskrives eksplisitt.*
+*Forrige: 12. september 2026, andre versjon — **sesongplanens GW1–5-rad er overkjørt av handling: to bytter tatt i GW4 (Shaw → Egan, Tzolis → Ødegaard).** Byttetak-regnestykket i GW1–5-raden var regnet på feil horisont og er rettet — planen kaster fire frikjøp mellom GW8 og GW13 slik den sto. GW6- og GW9-radene justert. Kontrollposten for Triple Captain har fått tallgrunnlag før den kjøres.*
 *Forrige: 12. september 2026 — kontrollposten fått tallgrunnlag: Sunderland på 1,00 innsluppet per runde inn i GW4.*
 *Forrige: 8. september 2026, andre versjon — **TC-radens GW5-premiss rettet.** «Full uke uten midtukekamp» var feil da den ble skrevet 3. september: `04` hadde allerede ligacupkampen Man City–Norwich torsdag 17.9. 19:30 fra nivå 1. Beslutningen står — GW5 spilles — men begrunnelsen er skrevet om, og kontrollposten har fått et trinn 2 etter cupkampen. Se feilloggen i `03`.*
 *Forrige: 8. september 2026 — **GW3-rankpåstanden rettet: OR gikk fra 669 925 til 638 377, en forbedring på 31 548 plasser.** Setningen om at troppen falt 180 186 plasser er strøket alle tre stedene den forekom. Det åpne punktet om feltets chipbruk er nedgradert fra dokumentert kostnad til uavklart hypotese — GW3 er nå et motargument, ikke et belegg. Bench Boost-raden: GW3-forholdstallet regnet inn (70 %) etter at rundesnittet låste på 51. Se feilloggen i `03`.*
@@ -366,6 +367,14 @@ Kontrollert mot `fixtures2627.csv` 22. august: **alle 38 runder har nøyaktig 10
 ⚠️ **Utfallet «Sunderland holder nullen mot Arsenal» er det som utløser en reell ny vurdering, og det er ikke et fjerntliggende utfall.** Dette er ført som forberedelse, ikke som prediksjon — hvilken rad som gjelder avgjøres av kampen, ikke av denne merknaden.
 
 **Åpent punkt som forfaller samtidig:** hypotesen om feltets chipbruk skal mandag 14. september **begrunnes på nytt eller forkastes**, ikke videreføres. Se raden under tabellen i chip-seksjonen og GW3-avsnittet i `01`.
+
+**Tredje sak til samme kontrollpost, ny 12. september: Free Hit har ingen realistisk utløser.**
+
+Chipen står som utløserbasert — den spilles kun hvis en blankrunde kunngjøres før GW19. Denne filen fastslår samtidig at blank- og dobbeltrunder normalt ikke bekreftes før **januar/februar**, mens første chip-sett forfaller **2. januar**. **Utløseren kommer i praksis etter fristen for å bruke den.** Formuleringen «den svakeste av de fire og den som ofres» er ikke en beslutning — den er en beskrivelse av at chipen mest sannsynlig går tapt ubrukt.
+
+⚠️ **Det ble avvist som GW4-handling på riktig grunnlag:** alle 15 spilte, ingen blank, ingen flagg utenom Shaw — gevinsten ved et Free Hit i en normal runde er ren fikstursarbitrasje, og chipen kan ikke avbrytes. **Men avvisningen løser ikke datoproblemet.**
+
+**Beslutningsregel til 14. september:** Free Hit skal enten (a) få en planlagt dato på fikstur alene, på samme måte som Triple Captain fikk GW5, eller (b) avskrives eksplisitt som tapt, slik at ingen senere økt bruker tid på den. **Den skal ikke videreføres som «venter på kunngjøring».**
 
 **Blindvinduet — ny akse i GW5-mot-GW7-sammenligningen, ført inn 12. september.**
 

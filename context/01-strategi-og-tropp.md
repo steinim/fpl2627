@@ -1,6 +1,7 @@
 # Strategi og tropp
 
-*Sist oppdatert: 12. september 2026, andre versjon — **to bytter gjennomført før GW4-deadline: Shaw → Egan og Tzolis → Ødegaard.** Første bytter i sesongen. «Ingen bytter»-avsnittet fra tidligere samme dag er strøket, ikke endret. Anti-drift ned fra 61,2 % til 48,0 %, besluttet bevisst. Regel 2-unntak navngitt for Egan. Frikjøp: 3 → 1. Ny troppstabell ført inn — den fra 21. august er historikk.*
+*Sist oppdatert: 12. september 2026, tredje versjon — **byttene og laguttaket er bekreftet gjennomført i appen av brukeren, etter deadline 12:30Z.** Filen sto fram til nå som om byttene var utført mens de faktisk ikke var det; tilstanden og teksten er nå sammenfallende. I tillegg: B.Fernandes → Palmer vurdert og avvist på nytt samme dag, og motstanderleddet i kapteinsbegrunnelsen rettet fra innslupne mål til xGA.*
+*Forrige: 12. september 2026, andre versjon — **to bytter gjennomført før GW4-deadline: Shaw → Egan og Tzolis → Ødegaard.** Første bytter i sesongen. «Ingen bytter»-avsnittet fra tidligere samme dag er strøket, ikke endret. Anti-drift ned fra 61,2 % til 48,0 %, besluttet bevisst. Regel 2-unntak navngitt for Egan. Frikjøp: 3 → 1. Ny troppstabell ført inn — den fra 21. august er historikk.*
 *Forrige: 12. september 2026 — GW4-laguttak ført inn med keeperbegrunnelse, Shaw flagget 75 %, frikjøp bekreftet mot appen, Calafiori £5,8m, xgstat tatt i bruk for første gang.*
 *Forrige: 8. september 2026 — **GW3-ranken rettet fra 850 111 til 638 377.** Runden er nå låst (`events.csv`: `finished: true`, `data_checked: true`), og `entry/history.csv` gir 54 poeng, OR 638 377, total 220. **GW3 var en forbedring på 31 548 plasser, ikke et fall på 180 186.** Chip-asymmetri-mekanismen er trukket — den hvilte på ranktallet og har ingen støtte i det korrigerte. Rundesnittet ført inn: 51. Anti-drift omregnet etter Shaws prisfall: 61,1 %. Rotårsak og tre avledede regler i `03`.*
 *Forrige: 7. september 2026 — GW3-fasit ført inn (54 poeng, verifisert mot `picks/gw3.csv` × `live/gw3.csv`; `entry/history.csv` ga 31 — se datakonflikten i `03`). Ranken som ble ført samme dag er siden korrigert, se over. GW3-laguttaket rekonstruert i etterkant; det ble aldri ført inn før runden, og keeperbyttet tilbake til Verbruggen står derfor uten samtidig begrunnelse. Muñoz-risikoen for N.Williams nedgradert til overvåking. Ny strukturmerknad: troppen har 6 defensive-contribution-poeng på tre runder.*
@@ -1008,9 +1009,9 @@ Valget avviker ikke fra GW3, men GW3 er den ene runden uten nedtegnet begrunnels
 | Motstanderens innslupne per runde | Man Utd **2,00** | Man City **0,67** |
 | Eierandel | 71,2 % | 43,1 % |
 
-**Fernandes' `ep_next` er formdrevet, og xgstat sier formen ligger 0,47 mål over underliggende nivå mens Haaland ligger på null avvik.** Motstanderleddet peker samme vei: Haaland møter ligaens tredje dårligste forsvar, Fernandes det nest beste. Regel 3 gir samme svar. Konklusjonen er entydig, men premisset er smalere enn i tidligere runder og skal etterprøves hvis `ep_next` peker feil vei en andre gang.
+**Fernandes' `ep_next` er formdrevet, og xgstat sier formen ligger 0,47 mål over underliggende nivå mens Haaland ligger på null avvik.** Motstanderleddet peker samme vei, men ⚠️ **tallet som sto her var galt.** Setningen sa «Haaland møter ligaens tredje dårligste forsvar». Det er regnet på **innslupne mål** (Man Utd 6 på tre runder). På **xGA ligger Man Utd på 4,08 — sjette best i ligaen** (FPL-data gjengitt i LazyFPLs GW4-utgave). Riktig formulering: Haaland møter et forsvar som har sluppet inn mye mer enn det har skapt grunnlag for, Fernandes møter ligaens nest beste på begge mål (MCI xGA 2,68). Regel 3 gir samme svar. Konklusjonen er entydig, men premisset er smalere enn i tidligere runder og skal etterprøves hvis `ep_next` peker feil vei en andre gang.
 
-⚠️ **Fire av elleve startere ligger i samme kamp** (B.Fernandes, Mbeumo, Shaw mot Haaland, søn 16:30). Sesongens største variansklump på ett avspark, og kapteinsvalget avgjøres innenfor de samme 90 minuttene. Kjent fra `04`; prisen ble betalt da troppen ble bygget. Ingen handling.
+⚠️ **Tre av elleve startere ligger i samme kamp** (B.Fernandes og Mbeumo mot Haaland, søn 13.9. 15:30Z). ⚠️ **Rettet: raden sa «fire» og talte Shaw med. Han er solgt i samme runde.** Sesongens største variansklump på ett avspark, og kapteinsvalget avgjøres innenfor de samme 90 minuttene. Kjent fra `04`; prisen ble betalt da troppen ble bygget. Ingen handling.
 
 ### Benkerekkefølge — Slater, Diop, Davis
 
@@ -1067,3 +1068,26 @@ Rundeporten i `03` ble kjørt på nytt før tallene ble brukt: **474 matchede sp
 `players.csv` fører **£4,5m** med `cost_change_event +0,1` og `cost_change_start 0,0`; brukeren oppgir **£4,4m**. `01` har ført £4,4m siden 4. september. Punktet er uavklart og **påvirker ikke GW4-beslutningen**, som står på anti-drift. Det må lukkes mot appen før GW6, siden GW6-planen i `02` navngir Konsa.
 
 **Positivt for GW6-planen uansett pris:** Konsa har nå **101 minutter og 1 start** (`players.csv`) og står i Scouts projiserte Arsenal-firer mot Sunderland sammen med Gabriel, White og Calafiori — altså uten Mosquera. Integreringsvilkåret som GW6-planen hviler på er på vei til å være oppfylt. Bevisnivået på oppstillingen er 4–5; minuttene er nivå 0.
+
+## GW4 bekreftet gjennomført — ført inn 12. september, etter deadline
+
+**Brukeren har bekreftet at begge byttene og laguttaket er lagt inn i appen.** Shaw → Egan og Tzolis → Ødegaard, to frikjøp av tre, ingen hit, bank £0,0m. Ett frikjøp står igjen inn i GW5, to ved deadline fredag 18.9. 17:30Z.
+
+⚠️ **Filintegritet — dette skal ikke gjentas.** `01` og `02` sto i flere timer skrevet i fortid om bytter som ikke var utført. Troppstabellen, klubbfordelingen, anti-drift-tallet 48,0 % og frikjøpstallet beskrev alle en tilstand som ikke fantes. Tilstanden og teksten sammenfaller nå, men bare fordi utfallet tilfeldigvis ble det filen hadde skrevet. Se `03` for avledet regel.
+
+### B.Fernandes → Palmer — vurdert på nytt 12. september og avvist
+
+Forslaget ble lagt fram i økten som en følge av LazyFPLs GW4-utgave, som setter Chelsea hjemme mot Hull til 2,75 projisert xG og utpeker Palmer som rundens kaptein. **Det var feil, og avvisningen står på underliggende produksjon.**
+
+| | B.Fernandes | Palmer |
+|---|---|---|
+| xG + xA, liga GW1–3 (FPL) | 2,25 + 0,80 = **3,05** | 1,05 + 0,36 = **1,41** |
+| Poeng | 27 | 21 |
+| `ep_next` | **9,0** | 7,0 |
+| Pris | £12,0m | **£9,7m** — ikke £9,6m som `01` førte fra 4. september |
+
+**Fernandes har høyest xGI i hele ligaen.** Palmers to mål i uka kom i ligacupen mot Leeds og teller ikke i tabellen over. Byttet ville solgt ligaens beste underliggende produsent for under halvparten av produksjonen, på ett fikstur — samme feiltype som `01` avviste 27. august med «ett kampresultat velter ikke en femrundersblokk», med fortegnet snudd.
+
+**Pakken det inngikk i falt med det.** Shaw → De Cuyper £4,8m ble lagt fram som et selvstendig bytte, men var finansiert av Fernandes-pengene: Shaws salgspris er £4,4m og banken £0,0m. To bytter ble presentert som uavhengige der det ene var betinget av det andre.
+
+**GW9-raden i `02` står uendret.** Fernandes-utgangen er ikke planlagt; det er Mbeumo-utgangen som skal revurderes til GW6.
