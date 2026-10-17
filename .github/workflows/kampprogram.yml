@@ -51,6 +51,7 @@ jobs:
           else
             git commit -m "kampprogram: oppdatert fra fpl-data"
           fi
+          git pull --rebase --autostash
           git push
 
       - name: Strukturkontroll
