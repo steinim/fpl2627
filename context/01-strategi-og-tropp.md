@@ -1,6 +1,7 @@
 # Strategi og tropp
 
-*Sist oppdatert: 17. oktober 2026, tredje versjon — **B.Fernandes vurdert på nytt på rundedata: forsvarer ikke £11,8m, planlagt solgt i GW8 med frikjøpet. Erstatter ikke valgt.** GW7-begrunnelsen for å beholde ham («xGI nest høyest blant MID») er strøket: han er tredje, og 2,50 av 4,04 xGI kom i GW2. Saka-kjøpet etterprøvd på samme måte og holder. Ny seksjon nederst. Feilen loggført i `03`. Modellens minuttskalering flagget: den talte João Pedros skadefravær i GW5 som framtidig, og salget hans i GW9 er strøket i `02`.*
+*Sist oppdatert: 17. oktober 2026, fjerde versjon — **`scripts/forventning.py` tatt i bruk. Fernandes-salget er trukket tilbake og er ikke lenger planlagt:** modellen gir ham 30,64 poeng over GW8–12, nest best av midtbanespillerne, og et salg gir bare gevinst hvis pengene kjøper mer enn tapet. Avgjøres i GW8-økten som pakke. GW7-pakken etterprøvd med modellen: +1,73 per runde, ikke +0,84 som korreksjonen tidligere i dag sa. Begge feil er loggført i `03`.*
+*Forrige: 17. oktober 2026, tredje versjon — **B.Fernandes vurdert på nytt på rundedata: forsvarer ikke £11,8m, planlagt solgt i GW8 med frikjøpet. Erstatter ikke valgt.** GW7-begrunnelsen for å beholde ham («xGI nest høyest blant MID») er strøket: han er tredje, og 2,50 av 4,04 xGI kom i GW2. Saka-kjøpet etterprøvd på samme måte og holder. Ny seksjon nederst. Feilen loggført i `03`. Modellens minuttskalering flagget: den talte João Pedros skadefravær i GW5 som framtidig, og salget hans i GW9 er strøket i `02`.*
 *Forrige: 17. oktober 2026, andre versjon — **GW7 utført og bekreftet i appen av brukeren før deadline: Gibbs-White → Groß, N.Williams → Thomas (COV), Ødegaard → Saka.** Tre frikjøp, 0 poeng kostnad, bank £0,3m. Raya-byttet og De Cuyper-byttet vurdert og ikke tatt. Gjeldende tropp står i GW7-seksjonen nederst.*
 *Forrige: 17. oktober 2026 — **GW5 og GW6 ført inn etterskuddsvis fra `fpl-data`** (filen sto stille fra 12.9. til 17.10.). GW6-byttet Calvert-Lewin → Barry ført som faktum. GW7-forslaget ført som **forslag, ikke utført** — se nederst. Anti-drift-metrikken erklært utløpt som styringstall, ikke redefinert.*
 *Forrige: 12. september 2026, tredje versjon — **byttene og laguttaket er bekreftet gjennomført i appen av brukeren, etter deadline 12:30Z.** Filen sto fram til nå som om byttene var utført mens de faktisk ikke var det; tilstanden og teksten er nå sammenfallende. I tillegg: B.Fernandes → Palmer vurdert og avvist på nytt samme dag, og motstanderleddet i kapteinsbegrunnelsen rettet fra innslupne mål til xGA.*
@@ -1152,7 +1153,7 @@ Forslaget ble lagt fram i økten som en følge av LazyFPLs GW4-utgave, som sette
 | 2 | N.Williams NFO £5,0m | Thomas COV £4,0m | 3,92 → 4,44 | Finansierer Saka. Thomas: 6/6 starter, 527 min, 74 DC-handlinger (12,6 per 90, over terskel 10) |
 | 3 | Ødegaard ARS | Saka ARS £9,6m | 4,62 → 6,23 | Største gevinst i gjennomgangen. Saka xG 3,62 (nr. 3 i ligaen), 37 berøringer i feltet (nr. 2) |
 
-«Forventet per runde» er en enkel modell: oppmøte + xG × målpoeng + xA × 3 + e^(−xGC/90) × CS-poeng − xGC/2 (DEF/GK) + grovt DC-ledd, skalert med minutter/540. Poengverdier fra `05`. Grov, men lik for alle, og brukes kun til rangering. ⚠️ **17.10.: skaleringen med minutter/540 teller historisk fravær som framtidig** (João Pedro: 0 min i GW5 var en skade som er over). Modellen brukes ikke igjen før den er regnet om til rate × forventede minutter. Se `03`, minimumskrav 11.
+«Forventet per runde» er en enkel modell: oppmøte + xG × målpoeng + xA × 3 + e^(−xGC/90) × CS-poeng − xGC/2 (DEF/GK) + grovt DC-ledd, skalert med minutter/540. Poengverdier fra `05`. Grov, men lik for alle, og brukes kun til rangering. ⚠️ **17.10.: modellen har seks kjente feil og brukes ikke igjen før den er bygget på nytt.** Full liste i feilloggen i `03`. De to største: skaleringen med minutter/540 teller historisk fravær som framtidig (João Pedro), og DC-leddet regnes fra snitt i stedet for fra hvor ofte terskelen nås (Thomas: 2,00 i modellen, 1,33 fra rundetallene). ~~Korrigert for disse to: Gibbs-White → Groß −0,19, N.Williams → Thomas −0,09 (ikke +0,52), Ødegaard → Saka +1,12 (ikke +1,61). Pakken er +0,84 per runde, ikke +2,06.~~ ⚠️ **Erstattet av `scripts/forventning.py` (fjerde versjon), og korreksjonen var feil.** Med skriptet, GW8–12: Gibbs-White → Groß −0,36 per runde, N.Williams → Thomas **+0,59**, Ødegaard → Saka +1,50. Pakken **+1,73 per runde** (robust +1,63). Mekanismen bak Thomas-skiftet står i feilloggen i `03`.
 
 **Anti-drift, besluttet:** £1,0m flyttet fra forsvar til midtbane. Dette er en endring av lagets form, lagt fram som det og godkjent av brukeren. Klubber: ARS 2 · BHA 2 · MUN 2 · HUL 2 · IPS 2 · COV 1 · MCI 1 · CHE 1 · EVE 1 · TOT 1. Bank £0,3m — blokkerer Raya i GW8 (Kinsky £4,5m + £0,3m).
 
@@ -1223,11 +1224,26 @@ Ingen funn endrer forslaget. Forests svake angrep styrker Raya-saken.
 
 ~~**Laguttak (3-4-3):** Raya (ev. Verbruggen); Calafiori, N.Williams, Egan; B.Fernandes, Mbeumo, Groß, Ødegaard; Haaland (K), João Pedro, Barry. **VK: Groß** (ellers João Pedro). Benk: Verbruggen/Kinsky, Slater, Davis, Diop.~~ **Overkjørt — faktisk laguttak står øverst i GW7-seksjonen.**
 
-## B.Fernandes — vurdert på nytt 17. oktober: forsvarer ikke £11,8m
+## B.Fernandes — vurdert på nytt 17. oktober
 
-**Konklusjon:** han forsvarer ikke prisen. **Planlagt solgt i GW8 med frikjøpet. Erstatter ikke valgt** — velges i GW8-økten etter minimumskravene i `03`. Ikke solgt i GW7: tre frikjøp var brukt kl. 10:54, og et salg før deadline ville kostet −4 for én runde.
+⚠️ **Revidert samme dag (fjerde versjon) med `scripts/forventning.py`. Konklusjonen fra tredje versjon er trukket tilbake.** Modellen er tilbaketestet på to sesonger og slår både poeng per kamp og den gamle håndmodellen (se `03`).
 
-Avgjørende, og uavhengig av hvordan sesongen deles opp: selv på sesongsummen, som er det målet som er mest gunstig for ham, ligger han likt med Mbeumo og Cherki per 90 til £3,9–4,0m lavere pris. Utenom én kamp ligger han under begge.
+| Spiller | Pris | Sum GW8–12 | Robust | Endring ved bytte fra Fernandes (sum / robust) | Frigjort |
+|---|---|---|---|---|---|
+| Saka (eid) | £9,6m | 32,50 | 29,37 | — | — |
+| **B.Fernandes** | **£11,8m** | **30,64** | **24,07** | — | — |
+| Mbeumo (eid) | £7,8m | 28,69 | 23,68 | — | — |
+| E.Le Fée | £5,7m | 25,67 | 22,00 | −4,97 / −2,07 | £6,1m |
+| Rogers | £7,9m | 25,25 | 23,59 | −5,39 / −0,48 | £3,9m |
+| Palmer | £9,7m | 22,84 | 21,51 | −7,80 / −2,56 | £2,1m |
+
+- **Han er nest best av midtbanespillerne på forventning**, foran Mbeumo. Startprisen £12,0m og seks kamper med 0,67 xGI per 90 veier tyngre enn at fem av dem var svake. Forrige sesong hadde han 0,68 xGI per 90 over 3065 minutter og 235 poeng.
+- **Han er dårlig verdi per million.** Et salg gir bare gevinst hvis pengene kjøper mer enn tapet. Rogers koster 5,4 poeng (robust 0,5) over fem runder og frigjør £3,9m. Raya over Kinsky er +3,0 over de samme rundene, men krever et frikjøp til.
+- **Ny konklusjon:** ikke planlagt solgt. Salget avgjøres i GW8-økten som en pakke regnet med skriptet: tapet på Fernandes-plassen mot gevinsten fra pengene, med anti-drift.
+
+~~**Konklusjon:** han forsvarer ikke prisen. **Planlagt solgt i GW8 med frikjøpet. Erstatter ikke valgt** — velges i GW8-økten etter minimumskravene i `03`. Ikke solgt i GW7: tre frikjøp var brukt kl. 10:54, og et salg før deadline ville kostet −4 for én runde.~~
+
+~~Avgjørende, og uavhengig av hvordan sesongen deles opp: selv på sesongsummen, som er det målet som er mest gunstig for ham, ligger han likt med Mbeumo og Cherki per 90 til £3,9–4,0m lavere pris. Utenom én kamp ligger han under begge.~~
 
 ### Rundedata
 
@@ -1273,7 +1289,7 @@ Rundedata fra `element-summary/{id}` for alle fem, hentet 17.10. Summene kontrol
 
 ### GW8 — åpne punkter til økten
 
-1. **Erstatter:** minimumskravene i `03`. Ingen anbefalt. Kandidatdata står i tabellen over; prisene må hentes på nytt. Cherki har 783 788 overganger inn denne runden.
-2. **Kjedevirkning:** GW8 bruker det ene frikjøpet. GW9 har da 1, ikke 2. Raya og João Pedro-byttet kan ikke begge tas uten −4. Se GW9-raden i `02`.
+1. ~~**Erstatter:** minimumskravene i `03`. Ingen anbefalt. Kandidatdata står i tabellen over; prisene må hentes på nytt. Cherki har 783 788 overganger inn denne runden.~~ **Salg eller ikke:** regnes som pakke med `scripts/forventning.py` — Fernandes-plassen mot det pengene kjøper. Ingen erstatter anbefalt.
+2. **Kjedevirkning:** ~~GW8 bruker det ene frikjøpet. GW9 har da 1, ikke 2. Raya og João Pedro-byttet kan ikke begge tas uten −4. Se GW9-raden i `02`.~~ João Pedro-salget er strøket. Selges Fernandes i GW8, holder GW9-frikjøpet til Raya. Selges han ikke, er Raya ikke finansiert: bank £0,3m + Kinsky £4,5m = £4,8m mot £6,1m.
 3. **Raya-finansiering:** bank etter salget er £0,3m + salgspris − innkjøp. Raya krever £1,6m i banken (£6,1m − Kinsky £4,5m). Med dagens priser er Raya finansiert hvis erstatteren koster £10,5m eller mindre.
 4. **Anti-drift ved salget:** MUN 2 → 1. Keeper- og forsvarsbudsjett uendret på £31,1m. Andelsleddet oppgis ikke, fordi metrikken er erklært utløpt (se over). Klubbtallet for den nye spilleren oppgis når han er valgt.

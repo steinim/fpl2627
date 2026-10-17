@@ -1,0 +1,59 @@
+name: forventning
+
+# Genererer analyse/forventning.md og analyse/forventning.csv fra fpl-data.
+# Kjører testene først — feiler de, genereres ingenting. Jobben feiler også, og
+# GitHub sender e-post, hvis kontrollene i skriptet finner feil: poengregler i API-et
+# som avviker fra skriptet, rundedata som ikke summerer til sesongtotalene, eller
+# en ugyldig rad i context/fravaer.csv eller context/lagstyrke-prior.csv.
+# Prior-fila lages for hånd med `python3 scripts/historikk.py prior`, én gang per sesong.
+# Kjører en halvtime etter fpl-data (01:45, 07:45, 13:45, 19:45 UTC).
+
+on:
+  schedule:
+    - cron: "17 2 * * *"
+    - cron: "17 8 * * *"
+    - cron: "17 14 * * *"
+    - cron: "17 20 * * *"
+  workflow_dispatch:
+  push:
+    paths:
+      - "scripts/forventning.py"
+      - "context/fravaer.csv"
+      - "context/lagstyrke-prior.csv"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: forventning
+  cancel-in-progress: false
+
+jobs:
+  generer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Tester
+        run: python3 -m unittest discover -s scripts -p "test_*.py" -v
+
+      - name: Generer forventning
+        run: python3 scripts/forventning.py
+
+      - name: Commit hvis endret
+        run: |
+          if [ -z "$(git status --porcelain -- analyse)" ]; then
+            echo "Ingen endring i forventningene."
+            exit 0
+          fi
+          git config user.name  "forventning-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add analyse
+          git commit -m "forventning: oppdatert fra fpl-data"
+          git pull --rebase --autostash
+          git push

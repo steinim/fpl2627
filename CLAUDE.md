@@ -18,6 +18,7 @@ Ingen påstand om priser, kamper, minutter, skadestatus eller poengregler uten �
 - **Treningskampmål:** aldri bevis.
 - **Spillervurdering (kjøp, salg, behold):** gjennomfør «Minimumskrav før en spillervurdering» i `03` før konklusjonen — for spilleren og hver kandidat han sammenlignes med. Rundedata, ikke sesongsum. Mekanisme, ikke trend. Ledd som ikke er gjort, står i svaret som ikke gjort.
 - **Forbehold er ikke oppslag:** kan en påstand verifiseres med et verktøy i økten, verifiseres den før svaret. Ett mislykket verktøy er ikke «blokkert» — prøv `curl`, WebFetch og nettleser før det skrives.
+- **Forventede poeng:** kommer fra `scripts/forventning.py`, aldri fra hånd. Les `analyse/forventning.md` (CI, fire ganger i døgnet) eller kjør skriptet fra reporoten. Kontrollblokka øverst skal være uten ❌ før tallene brukes. «Sum» er estimatet, «Robust» en følsomhetssjekk; forskjeller under 2–3 poeng over fem runder er støy. Modellen endres bare med tilbaketest på to sesonger. Se regelen i `03`.
 
 ## Anti-drift — før hvert bytteforslag
 
@@ -38,6 +39,9 @@ Enkeltbytter som hver for seg gir mening kan sammen endre lagets form uten at no
 | `04-kampprogram-og-endringslogg.md` | Kampprogram for de neste fem rundene, generert av `scripts/gen_kampprogram.py` (ikke rediger blokka for hånd). Under: endringslogg, verifiseringsnotater, GW1–GW5-arkiv |
 | `05-spillets-regler.md` | Statisk poengregelverk. Endres ikke gjennom sesongen med mindre en verdi var feilført |
 | `fixtures2627.csv` | Kamppar per runde. Ikke kampdato |
+| `fravaer.csv` | Årsaken til hvert fravær i grunnlaget (skade, karantene, rotasjon …), med kilde. Føres for hånd. Leses av `scripts/forventning.py` |
+| `lagstyrke-prior.csv` | Forrige sesongs lagstyrke. Lages én gang per sesong med `scripts/historikk.py prior` |
+| `../analyse/forventning.md` og `.csv` | Forventede poeng de neste fem rundene for alle spillere, generert av `scripts/forventning.py`. Rør ikke for hånd |
 | `01-vurderte-spillere.md` | Historiske øyeblikksbilder uten styrende status — les kun hvis eksplisitt bedt om |
 
 ### Hvor filene ligger — ført inn 3. september 2026

@@ -1,6 +1,7 @@
 # Verifiseringsprotokoll
 
-*Sist oppdatert: 17. oktober 2026, tredje versjon — **ny feillogg: B.Fernandes beholdt på en sesongsum, og etterprøvingen leverte en gal mekanisme med forbehold der et oppslag var mulig. Ny seksjon: «Minimumskrav før en spillervurdering». Verktøyraden for `element-summary` rettet — WebFetch når den. Deretter: ny feillogg om at modellen talte João Pedros skadefravær som framtidig, og minimumskrav 11 (minutter) lagt til.***
+*Sist oppdatert: 17. oktober 2026, fjerde versjon — **`scripts/forventning.py` erstatter håndmodellen.** Ny regel: forventede poeng kommer fra skriptet, aldri fra hånd. To nye feillogger: «korreksjonen» av GW7-pakken (+0,84) var regnet med en modell der fire av seks feil sto (riktig: +1,73), og Fernandes ble anbefalt solgt på fem kamper uten at startprisen og forrige sesong ble veid. Minimumskrav 1, 2, 11 og 12 presisert, nr. 13 lagt til.*
+*Forrige: 17. oktober 2026, tredje versjon — **ny feillogg: B.Fernandes beholdt på en sesongsum, og etterprøvingen leverte en gal mekanisme med forbehold der et oppslag var mulig. Ny seksjon: «Minimumskrav før en spillervurdering». Verktøyraden for `element-summary` rettet — WebFetch når den. Deretter: ny feillogg om at modellen talte João Pedros skadefravær som framtidig, og minimumskrav 11 (minutter) lagt til. Deretter: modellen revidert i sin helhet — fem feil til, én av dem en gjentakelse av Egan-feilen fra 12. september. Minimumskrav 12 lagt til.***
 *Forrige: 17. oktober 2026, andre versjon — **fire feillogger fra GW7-økten: kontekstfilene sto stille i fem uker, et utdatert tall bærte en salgsbegrunnelse, sesongpoeng ble brukt som bevis for et bytte en tidligere økt hadde avvist på samme grunnlag, og anbefalingen vinglet fordi modellen ble byttet underveis. Ny regel: premierleague.com/injuries som første sjekkpunkt for lagnytt.***
 *Forrige: 17. oktober 2026 — **fire feillogger fra kampprogramsjekkene 1.–15. oktober ført inn: to kunngjøringer om samme runde lest som én (GW9), en ukunngjort runde antatt uten å sjekke kunngjøringslista (GW17–20), en påstand om innholdet i `04` skrevet uten at fila var lest, og en PL-URL som serverer feil sesong. Ny regel: PLs rundskriv (Circular N) er primærkilde og diffgrunnlag for kampprogrammet.**
 *Forrige: 12. september 2026, sjuende versjon — **tre nye feillogger fra samme økt, alle utløst av én opplastet ukespublikasjon: et strukturelt salg anbefalt på én rundes fikstur mot ligaens høyeste xGI, to bytter presentert som uavhengige der det ene finansierte det andre, og en rangering hentet fra mål der kilden også oppga xGA. Avledet regel om at en fersk sekundærkilde ikke får overstyre et tall som allerede står verifisert i kontekstfilene.**
@@ -192,8 +193,8 @@ VM ble spilt sommeren 2026 og sesongstarten er skjøvet en uke. Dette forsvinner
 
 Gjelder enhver konklusjon om å kjøpe, selge eller beholde en spiller, og hver kandidat han sammenlignes med. Kommer i tillegg til «Faste sjekker før hvert bytte». Bakgrunn: brukeren 17.10., «Du gjør ikke en grundig nok jobb», etter Fernandes-feilen i feilloggen. Listen er det konkrete svaret. Et ledd som ikke er gjort, skal stå i svaret som ikke gjort.
 
-1. **Rundedata, ikke sum.** Hent `element-summary/{id}/` via WebFetch (virker, verifisert 17.10.). Kontroller at summene stemmer med `players.csv` før tallene brukes.
-2. **Robust per 90.** Oppgi xGI per 90 for sesongen *og* uten beste kamp, og poeng uten beste runde. Skiller tallene seg mye, er det én kamp som bærer konklusjonen. Det skal sies.
+1. **Rundedata, ikke sum.** `scripts/forventning.py` gjør dette for alle spillere fra speilets `live/gw{n}.json`, og kontrollerer at rundene summerer til sesongtotalene. Oppslag i `element-summary/{id}/` via WebFetch trengs bare for det skriptet ikke dekker.
+2. **Robust per 90.** Oppgi xGI per 90 for sesongen *og* uten beste kamp, og poeng uten beste runde. Skiller tallene seg mye, er det én kamp som bærer konklusjonen. Det skal sies. ⚠️ **Presisert 17.10., fjerde versjon:** tallet uten beste kamp er en følsomhetssjekk, ikke et estimat. I tilbaketesten treffer det like godt som hovedtallet (r 0,434 mot 0,433). Estimatet er skriptets «Sum», som veier årets kamper mot posisjon og startpris.
 3. **Rangering regnes, skrives ikke.** «Nr. X» regnes ut fra `players.csv` i samme økt, med minuttgrensen oppgitt.
 4. **Mekanisme før trend.** Tallene forklares med motstand (motstanderens xGC), rolle (siste oppstilling eller predikerte ellever, yngre enn fire uker), straffer (antall tatt, ikke «tar straffer») og lagets angrep. En trend påstås bare når alle enkeltrundene er sett. Å dele sesongen i to halvdeler er ikke en trendanalyse.
 5. **Billigste likeverdige.** Sammenlign mot den billigste spilleren med samme underliggende nivå. Lagkamerater og egen tropp skal være med. Samme mål og samme snapshot for alle.
@@ -202,7 +203,33 @@ Gjelder enhver konklusjon om å kjøpe, selge eller beholde en spiller, og hver 
 8. **Lagnytt.** premierleague.com/injuries først, deretter klubbens side. Yngre enn fire uker.
 9. **Alt som kan slås opp i økten, slås opp.** Et forbehold er bare lovlig når alle veier er prøvd og navngitt i svaret: `curl`, WebFetch, nettleser. Ett mislykket verktøy er ikke «blokkert».
 10. **Konklusjonen merkes.** Oppgi hvilke ledd som er verifisert, hvilke som er utledet og hvilke som ikke er funnet.
-11. **Minutter: rate og tilgjengelighet skilles.** Forventning = rate per 90 × forventede minutter framover. Hvert fravær i dataene får en årsak slått opp før forventede minutter settes. Skade som er over gir fulle minutter. Rotasjon eller innbytterrolle gir observert andel. Skadet nå gir 0. Skalering med minutter/540 brukes ikke — den teller et lukket fravær som framtidig.
+11. **Minutter: rate og tilgjengelighet skilles.** Forventning = rate per 90 × forventede minutter framover. Hvert fravær i dataene får en årsak slått opp før forventede minutter settes. Skade som er over gir fulle minutter. Rotasjon eller innbytterrolle gir observert andel. Skadet nå gir 0. Skalering med minutter/540 brukes ikke — den teller et lukket fravær som framtidig. I skriptet: årsaken føres i `context/fravaer.csv`; uten rad flagges fraværet UAVKLART og telles som ikke-start.
+12. **Terskelledd regnes fra rundetallene.** DC-poeng = 2 × andelen kamper over terskelen, talt i `live/gw{n}.csv`. Aldri fra snitt per 90. Regelen sto allerede (Egan, 12. september) og ble brutt i GW7-modellen. I skriptet krympes andelen mot posisjonssnittet (4 kamper); rapporten viser rå treff, f.eks. «4/6».
+13. **Forventede poeng kommer fra `scripts/forventning.py`.** Aldri regnet for hånd i en økt. Se regelen under.
+
+## Ny regel, 17. oktober: forventede poeng kommer fra `scripts/forventning.py`
+
+Håndmodellen fra GW7-økten hadde seks feil, og to korreksjoner samme dag var også feil (feilloggen). Fra nå:
+
+1. **Ingen forventede poeng regnes for hånd i en økt.** Les `analyse/forventning.md` (generert av CI fire ganger i døgnet, en halvtime etter speilet) eller kjør `python3 scripts/forventning.py` fra reporoten. `--spillere id,id` tar med kandidater, `--runder 6` endrer horisonten.
+2. **Kontrollblokka øverst i rapporten skal være uten ❌**, og speilet yngre enn 26 timer, før tallene brukes. Feiler en kontroll — poengregler i API-et, rundedata mot sesongtotaler, en ugyldig rad i `fravaer.csv` — stopper skriptet og skriver ingenting.
+3. **«Sum» og «Robust» oppgis begge.** Sum er estimatet. Robust er en følsomhetssjekk. Forskjeller under 2–3 poeng over fem runder er støy.
+4. **Uavklart fravær** i troppen eller blant kandidatene slås opp og føres i `context/fravaer.csv` (id, navn, runder, årsak, kilde) før tallene brukes. Feil navn eller id stopper kjøringen.
+5. **Modellen endres bare med tilbaketest på begge sesongene:** `python3 scripts/historikk.py tilbaketest` (2025/26) og `python3 scripts/historikk.py tilbaketest --sesong 2024-25 --faktorer-fra 2025-26` (utenfor utvalget). Endringen beholdes bare hvis r ikke blir dårligere i noen av dem. Tallene føres i docstringen, og testene skal passere: `python3 -m unittest discover -s scripts -p "test_*.py"`.
+6. **Modellen er ikke en beslutning.** Den rangerer spillere på forventning. Klubbfordeling, bank, salgspris og frikjøp vurderes fortsatt etter anti-drift-reglene.
+
+**Validering, 17.10.:** korrelasjon mellom forventet og faktisk poeng, målrunde GW4–38.
+
+| Sesong | Horisont | Modellen | Poeng per kamp | Gammel håndmodell |
+|---|---|---|---|---|
+| 2025/26 (delvis i utvalget) | 1 runde | **0,433** | 0,345 | 0,353 |
+| 2025/26 | 5 runder | **0,550** | 0,486 | 0,502 |
+| 2024/25 (utenfor utvalget) | 1 runde | **0,468** | 0,392 | 0,401 |
+| 2024/25 | 5 runder | **0,621** | 0,562 | 0,579 |
+
+Modellen har også lavest MAE i alle fire. Den forklarer om lag 20 % av variansen i én runde og 30–40 % over fem — FPL-poeng er støyete, og modellen er et rangeringsverktøy, ikke en fasit.
+
+**Testet og forkastet:** forrige sesongs xG/xA per spiller som utgangspunkt i stedet for startprisen. Ingen gevinst i noen vekting (r endret seg under 0,005 i begge sesonger). Startprisen fanger historikken.
 
 ## Generalprøven er det sterkeste signalet — men les årsaken
 
@@ -478,6 +505,67 @@ Premier League publiserer hver kampprogramendring som et nummerert rundskriv, «
 - **`premierleague.com/en/news/3774835` brukes ikke.** Adressen har to ganger (3.9. og 15.10.) servert 2025/26-innhold. Betingede endringer hentes fra fotnotene i rundskrivet og fra begge klubbers sider.
 
 ## Feillogg
+
+### Ny feil, 17. oktober: «korreksjonen» av GW7-pakken var selv feil — regnet med en modell der fire av seks feil fortsatt sto
+
+**Hva som ble hevdet (kl. 12:03):** N.Williams → Thomas −0,09 per runde, «poengnøytralt», og GW7-pakken +0,84 per runde i stedet for +2,06.
+
+**Hva som er riktig:** `scripts/forventning.py`, sum GW8–12:
+
+| Bytte | Ut | Inn | Per runde |
+|---|---|---|---|
+| N.Williams → Thomas | 16,99 | 19,92 | **+0,59** |
+| Gibbs-White → Groß | 24,76 | 22,98 | −0,36 |
+| Ødegaard → Saka | 25,02 | 32,50 | +1,50 |
+| **Pakken** | | | **+1,73** (robust +1,63) |
+
+**Mekanismen bak Thomas-skiftet, kontrollert:** (1) det gamle CS-leddet brukte Forests xGC på banen fra seks kamper uten motstandsjustering. Justert for motstand er forsvarene like (D 0,979 mot 0,975), og etter krymping mot forrige sesong 1,017 mot 1,058. (2) Coventry har lettere program i GW8–12: forventet 1,00 clean sheets mot Forests 0,87. (3) Thomas når DC-terskelen i 50 % av startene etter krymping (rå 4/6), N.Williams i 20 % (rå 1/6).
+
+**Rotårsak:** to av seks feil ble rettet, og resultatet ble presentert som den rettede konklusjonen. Regelen fra 12. september — «en rettelse av ett ledd gir ikke automatisk en ny konklusjon; regn konklusjonen på nytt med det rettede leddet inne» — ble brutt, denne gangen ved å rette for lite.
+
+**Avledet regel:** «Ny regel, 17. oktober: forventede poeng kommer fra `scripts/forventning.py`». En modell rettes i koden med tilbaketest, ikke i en tabell i en økt.
+
+### Ny feil, 17. oktober: Fernandes anbefalt solgt på fem kamper — startprisen og forrige sesong ikke veid
+
+**Hva som ble hevdet (kl. 11:30–11:49):** «Fernandes forsvarer ikke £11,8m … Selg ham i GW8», ført som «planlagt solgt i GW8» i `01` og `02`. Grunnlaget var 0,31 xGI per 90 utenom GW2, mot Mbeumos 0,45.
+
+**Hva som er riktig:** modellen gir Fernandes 30,64 poeng over GW8–12, nest best av midtbanespillerne etter Saka (32,50) og foran Mbeumo (28,69). Robust 24,07, også foran Mbeumo (23,68) og Rogers (23,59). Forrige sesong: 0,68 xGI per 90 over 3065 minutter og 235 poeng. Fem svake kamper er svakt bevis mot en hel sesong og en startpris på £12,0m. Han er dårlig verdi per million, men et salg lønner seg bare hvis pengene kjøper mer enn tapet: Fernandes → Rogers koster 5,4 poeng (robust 0,5) over fem runder og frigjør £3,9m.
+
+**Rotårsak:** tallet uten beste kamp ble brukt som estimat i stedet for som følsomhetssjekk, og forrige sesong ble ikke slått opp. Samme feiltype som feil 1 12. september — strukturelt salg på kort grunnlag — med fortegnet snudd. Minimumskrav 2, skrevet samme formiddag, gjorde «uten beste kamp» til et krav uten å si hvordan det skal veies, og forsterket feilen.
+
+**Avledet regel:** minimumskrav 2 presisert. Salg av en premiumspiller vurderes på skriptets Sum mot hva de frigjorte pengene kjøper, ikke på ett delmål.
+
+### Ny feil, 17. oktober: modellen «forventet per runde» har fem feil til — DC-leddet gjentar Egan-feilen fra 12. september
+
+**Hvordan funnet:** modellen finnes ikke som kode. Den ble regnet for hånd i GW7-økten. Formelen er rekonstruert fra utfallene for ni spillere, med maks avvik 0,005:
+
+(2 + xG/90 × målpoeng + xA/90 × 3 + e^(−xGC/90) × CS-poeng − xGC/90 ÷ 2 [DEF/GK] + 2 × min(1, (DC/90 ÷ terskel)³)) × minutter/540
+
+| # | Feil | Retning | Konsekvens |
+|---|---|---|---|
+| 1 | Minutter/540 (egen feillogg under) | Straffer lukket fravær og innbytterminutter | João Pedro −20 %, Ødegaard −14 %. Salg strøket |
+| 2 | **DC-leddet regnes fra snitt, ikke fra hvor ofte terskelen nås** | Gir fulle 2 poeng til alle med snitt over terskel | **Thomas: 12,6 per 90 ga 2,00 per runde. Rundetallene 10, 9, 12, 8, 13, 22 gir 4 av 6 = 1,33.** Samme feil som Egan 12.9. |
+| 3 | Sesongsummer med én utliggerkamp (egen feillogg under) | Blåser opp spillere med én stor kamp | Fernandes, Mbeumo |
+| 4 | **Bonus mangler helt** | Undervurderer BPS-tunge spillere | Bonus per 90: João Pedro 1,88, Groß 1,50, Ødegaard 1,16, Gibbs-White 1,00, Saka 0,71, Fernandes 0,50, N.Williams 0,17 |
+| 5 | **Redninger mangler, og baklengsstraffen er lineær** | Overvurderer keepere i topplag | Lineær −xGC/2 mot faktisk forventning av −1 per 2 innsluppet: Raya 0,39 mot 0,19, Kinsky 0,72 mot 0,48. Redninger per 90: Raya 0,72 poeng, Kinsky og Verbruggen 0,83. Raya-fortrinnet er overdrevet med ca. 0,15 per runde |
+| 6 | Fast 2 oppmøtepoeng, kort utelatt, ingen fiksturjustering | Små skjevheter. Modellen er fiksturblind | Må oppgis hver gang modellen brukes til å rangere neste runder |
+
+**Konsekvens for GW7-pakken, korrigert for feil 1 og 2 (samme modell ellers):**
+
+| Bytte | Modellen sa | Korrigert |
+|---|---|---|
+| Gibbs-White → Groß | −0,07 | −0,19 |
+| N.Williams → Thomas | **+0,52** | **−0,09** |
+| Ødegaard → Saka | +1,61 | +1,12 |
+| **Sum** | **+2,06** | **+0,84** |
+
+~~Pakken er fortsatt positiv, men gevinsten var overdrevet med mer enn det dobbelte. N.Williams → Thomas var poengnøytralt og hadde én funksjon: å frigjøre £1,0m til Saka. Med realisert bonus tatt med (støyete) blir summen ca. +1,2.~~ ⚠️ **Tabellen og avsnittet over er feil** — se feilloggen «korreksjonen av GW7-pakken var selv feil». Riktig: pakken +1,73 per runde, N.Williams → Thomas +0,59.
+
+**Rotårsak:** modellen ble skrevet i økten, aldri som kode, og aldri kontrollert ledd for ledd mot `05` og mot regler som allerede sto i denne fila. Feil 2 er en regel fra 12. september som ikke ble sjekket.
+
+**Avledet regel:** minimumskrav 11 og 12. Hver modell oppgir sin formel og hvilke poengkategorier fra `05` den utelater.
+
+~~**Foreslått, ikke vedtatt:**~~ **Utført 17.10.:** modellen er laget som kode i repoet (`scripts/forventning.py`), med hvert ledd fra `05` og tester som gjenskaper kjente tilfeller (João Pedro GW5, Thomas DC, Egan DC, Fernandes GW2). Hver økt regner nå med samme kode i stedet for å utlede formelen på nytt.
 
 ### Ny feil, 17. oktober: modellen talte et lukket fravær som framtidig — João Pedro planlagt solgt på en skade han var frisk fra
 
