@@ -1,14 +1,14 @@
 # Forventede poeng — generert
 
-*Generert 17.10.2026 kl. 12:35 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–6 (data_checked). Horisont: GW8–12. Fraværsfil: context/fravaer.csv.*
+*Generert 17.10.2026 kl. 17:10 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–6 (data_checked). Horisont: GW8–12. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
-- ✅ Rundedata GW1–6 summerer til sesongtotalene for 608 spillere, 19 felt; 59 spillere på lag som har spilt i GW7 er kontrollert mot grunnlaget pluss live-fila
-- ✅ Speilet hentet 17.10.2026 11:44 UTC, 0.8 t gammelt ved kjøring
+- ✅ Rundedata GW1–6 summerer til sesongtotalene for 333 spillere, 19 felt; 334 spillere på lag som har spilt i GW7 er kontrollert mot grunnlaget pluss live-fila
+- ✅ Speilet hentet 17.10.2026 16:38 UTC, 0.5 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
-- ⚠️ 22 spillere på lag som har spilt i GW7 avviker fra grunnlaget pluss live-fila — runden er ikke ferdig, og bootstrap og live-fila hentes hver for seg. Brukes ikke i modellen: Martinez minutes: sesong 457, runder 461; Rogers minutes: sesong 527, runder 531; Rogers bps: sesong 178, runder 177
+- ⚠️ 22 spillere på lag som har spilt i GW7 avviker fra grunnlaget pluss live-fila — runden er ikke ferdig, og bootstrap og live-fila hentes hver for seg. Brukes ikke i modellen: Cash minutes: sesong 390, runder 393; Mings minutes: sesong 355, runder 358; Lindelöf minutes: sesong 544, runder 547
 
 ## Modell og estimerte parametre
 
@@ -91,12 +91,12 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Raya | ARS | GKP | 6.1 | 3.40 | 3.05 | 3.43 | 3.01 | 2.88 | **15.77** | 15.75 | 0.00 | 0.00 | 1.00 |  |  | — |
 | Trafford | LEE | GKP | 5.0 | 3.19 | 3.08 | 3.31 | 2.96 | 3.23 | **15.76** | 15.75 | 0.00 | 0.00 | 1.00 |  |  | — |
-| Martinez | CHE | GKP | 5.0 | 3.40 | 3.09 | 3.06 | 3.10 | 2.96 | **15.61** | 15.59 | 0.00 | 0.00 | 1.00 |  |  | — |
 | Kelleher | BRE | GKP | 5.0 | 3.16 | 3.04 | 2.83 | 3.01 | 2.79 | **14.83** | 14.81 | 0.00 | 0.00 | 1.00 |  |  | — |
 | Donnarumma | MCI | GKP | 5.5 | 3.11 | 2.92 | 2.92 | 3.03 | 2.78 | **14.76** | 14.76 | 0.00 | 0.00 | 1.00 |  |  | — |
 | Lammens | MUN | GKP | 4.9 | 3.02 | 2.81 | 3.02 | 2.77 | 2.75 | **14.37** | 14.37 | 0.00 | 0.00 | 1.00 |  |  | — |
 | Leno | FUL | GKP | 4.5 | 3.03 | 2.87 | 2.86 | 2.58 | 2.77 | **14.11** | 14.12 | 0.00 | 0.00 | 1.00 |  |  | — |
 | Horníček | NEW | GKP | 5.0 | 2.88 | 2.97 | 2.81 | 2.74 | 2.65 | **14.05** | 14.05 | 0.00 | 0.00 | 1.00 |  |  | — |
+| Tzolakis | HUL | GKP | 4.7 | 2.85 | 2.99 | 2.69 | 2.69 | 2.69 | **13.92** | 13.92 | 0.00 | 0.00 | 1.00 |  |  | — |
 
 ### DEF
 
