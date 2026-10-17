@@ -1,6 +1,7 @@
 # Verifiseringsprotokoll
 
-*Sist oppdatert: 17. oktober 2026 — **fire feillogger fra kampprogramsjekkene 1.–15. oktober ført inn: to kunngjøringer om samme runde lest som én (GW9), en ukunngjort runde antatt uten å sjekke kunngjøringslista (GW17–20), en påstand om innholdet i `04` skrevet uten at fila var lest, og en PL-URL som serverer feil sesong. Ny regel: PLs rundskriv (Circular N) er primærkilde og diffgrunnlag for kampprogrammet.**
+*Sist oppdatert: 17. oktober 2026, andre versjon — **fire feillogger fra GW7-økten: kontekstfilene sto stille i fem uker, et utdatert tall bærte en salgsbegrunnelse, sesongpoeng ble brukt som bevis for et bytte en tidligere økt hadde avvist på samme grunnlag, og anbefalingen vinglet fordi modellen ble byttet underveis. Ny regel: premierleague.com/injuries som første sjekkpunkt for lagnytt.***
+*Forrige: 17. oktober 2026 — **fire feillogger fra kampprogramsjekkene 1.–15. oktober ført inn: to kunngjøringer om samme runde lest som én (GW9), en ukunngjort runde antatt uten å sjekke kunngjøringslista (GW17–20), en påstand om innholdet i `04` skrevet uten at fila var lest, og en PL-URL som serverer feil sesong. Ny regel: PLs rundskriv (Circular N) er primærkilde og diffgrunnlag for kampprogrammet.**
 *Forrige: 12. september 2026, sjuende versjon — **tre nye feillogger fra samme økt, alle utløst av én opplastet ukespublikasjon: et strukturelt salg anbefalt på én rundes fikstur mot ligaens høyeste xGI, to bytter presentert som uavhengige der det ene finansierte det andre, og en rangering hentet fra mål der kilden også oppga xGA. Avledet regel om at en fersk sekundærkilde ikke får overstyre et tall som allerede står verifisert i kontekstfilene.**
 *Forrige: 12. september 2026, sjette versjon — **datolinjeblokken var ødelagt av mine egne gjentatte programmatiske omskrivinger: fire «Forrige»-linjer var slått sammen til én og tre beskrivelser tapt. Rekonstruert. Ny feillogg med avledet regel om verifisering etter hver skriveoperasjon.**
 *Forrige: 12. september 2026, femte versjon — **ny feillogg: en fordeling utledet av et gjennomsnitt.** Egans 41 DC ble ført som «treffer terskelen i alle tre runder»; fordelingen er 21/13/7, altså to av tre og fallende. Tallet lå i `live/gw{n}.csv` og ble aldri åpnet. Avledet regel om at en terskeltelling krever rundetallene, aldri summen.*
@@ -460,6 +461,48 @@ Premier League publiserer hver kampprogramendring som et nummerert rundskriv, «
 - **`premierleague.com/en/news/3774835` brukes ikke.** Adressen har to ganger (3.9. og 15.10.) servert 2025/26-innhold. Betingede endringer hentes fra fotnotene i rundskrivet og fra begge klubbers sider.
 
 ## Feillogg
+
+### Ny feil, 17. oktober: `01` og `02` sto stille fra 12. september til 17. oktober
+
+GW5- og GW6-beslutningene ble aldri ført. Filene beskrev en tropp med Gibbs-White, Ødegaard og Calvert-Lewin på feil plass, en byttesekvens som ikke fantes og en Triple Captain som «planlagt» etter at den var brukt. GW6-økten anbefalte å *beholde* Calvert-Lewin og avviste `02`s GW6-rad — brukeren solgte ham likevel. Ingen av delene sto noe sted før brukeren lastet opp samtaleloggen 17.10.
+
+**Rotårsak:** regelen «oppdater fila samme økt» forutsetter at økten har diskadgang. GW5- og GW6-øktene hadde det trolig ikke, og leverte ingen tekst for innføring. Ingen planlagt kjøring sjekker om `01` stemmer med `entry/picks/gw{n}.csv`.
+
+**Avledet regel:** ved start av hver runde sammenlignes troppstabellen i `01` mot siste `picks/gw{n}.csv`. Avvik betyr at en runde mangler i fila, og den føres før noe annet gjøres. Uten diskadgang leveres innføringen som tekst i svaret, merket «ikke ført inn».
+
+### Ny feil, 17. oktober: et utdatert tall bærte begrunnelsen for å selge Gibbs-White
+
+Forslaget sammenlignet Gibbs-Whites xGI 1,52 med Groß' 3,07. 1,52 var xgstat for GW1–3, hentet fra `01`. Ferskt tall fra `players.csv`: **3,52** — høyere enn Groß. Gibbs-White var også nr. 1 i ligaen på xA (1,87). I tillegg ble DC ført som 25; riktig var 29. Feilen ble oppdaget en time senere, da premierleague.com/stats viste xA-lista.
+
+**Rotårsak:** to tall fra ulike kilder og ulike tidsrom ble satt side om side i samme tabell. Det ene var seks uker gammelt.
+
+**Avledet regel:** i en sammenligning mellom to spillere hentes alle tall fra samme kilde og samme snapshot, i samme kjøring. Et tall fra kontekstfilene brukes aldri i en sammenligning uten at det er hentet på nytt.
+
+Byttet ble gjennomført likevel, men på et annet grunnlag: skade, kampprogram i GW7 og £1,9m. Produksjon er ikke en del av begrunnelsen.
+
+### Ny feil, 17. oktober: sesongpoeng brukt som bevis for et bytte — samme feil GW6-økten hadde rettet
+
+N.Williams → De Cuyper ble foreslått på 20 mot 53 poeng. GW6-økten hadde allerede konkludert at De Cuypers og Gvardiols forsprang var angrepspoeng og varians, ikke forsvarskvalitet. Regnet ut: De Cuyper har 4 clean sheets mot 1,0 forventet ut fra xGC, og 3 assists mot 0,67 xA — om lag 19 av 53 poeng.
+
+**Rotårsak:** GW6-øktens funn sto ikke i noen fil (se feilen over), og ble derfor ikke sjekket.
+
+**Avledet regel:** en spiller med høyere sesongpoeng enn underliggende tilsier, anbefales ikke på poengene. Clean sheets og assists sammenlignes med forventet (e^(−xGC/90) × kamper, og xA) før de brukes som argument.
+
+### Ny feil, 17. oktober: anbefalingen vinglet fordi modellen ble byttet underveis
+
+I løpet av én time gikk anbefalingen fra to bytter (Groß + De Cuyper) via Groß + Raya, bare Groß, Groß + De Cuyper igjen og bare Groß igjen, til tre bytter (Groß + Thomas + Saka). Brukeren sa det rett ut: «Du vingler veldig.»
+
+**Rotårsak, to ledd:**
+1. **Ulike målestokker for samme spørsmål.** De Cuypers fortrinn ble først anslag 0,5, så 1,0 (bare angrep og clean sheets), så 0,4 (med baklengsmål og DC). Tallene var de samme hele tiden. Skiftet kom fra hvilken modell som ble brukt.
+2. **Mulighetsrommet ble ikke søkt før anbefalingen ble gitt.** Saka-pakken — den største gevinsten (+1,6 per runde) — ble funnet først etter at brukeren spurte om Saka. Saka var avvist tidligere som «£0,7m utenfor» uten at noen sjekket hvilket salg som dekket mellomlegget.
+
+**Avledet regel:** før første anbefaling i en runde kjøres én modell over hele troppen og alle kandidater i hver posisjon, inkludert pakker der et salg finansierer et annet. Modellen oppgis én gang og byttes ikke underveis. Gevinster under 0,5 per runde føres som støy og bygger ikke bytter alene.
+
+### Ny regel (ikke en feil), 17. oktober: premierleague.com/injuries først for lagnytt
+
+Siden og nyhetsstripa på premierleague.com samler klubbenes egne pressekonferanser per runde («Hurzeler updates on FOUR players», «Carrick provides team news on…»). Det er et raskere første sjekkpunkt enn ti separate søk. Fulltekst hentes fra klubbsiden når en spiller i troppen er nevnt. Yahoo og arsenal.com gir ikke fulltekst til WebFetch, men gjør det via Chrome.
+
+**premierleague.com/stats** gir de samme xG- og xA-tallene som FPL-API-et, så den er ikke en uavhengig kilde for disse. Den gir i tillegg berøringer i feltet, skudd og cornere. Bare topp 10 vises, og URL-ene kan ikke hentes direkte, så den kan ikke automatiseres enkelt.
 
 ### Ny feil, 15. oktober: en påstand om hva en kilde inneholdt kunne ikke reproduseres
 

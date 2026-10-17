@@ -1,6 +1,8 @@
 # Strategi og tropp
 
-*Sist oppdatert: 12. september 2026, tredje versjon — **byttene og laguttaket er bekreftet gjennomført i appen av brukeren, etter deadline 12:30Z.** Filen sto fram til nå som om byttene var utført mens de faktisk ikke var det; tilstanden og teksten er nå sammenfallende. I tillegg: B.Fernandes → Palmer vurdert og avvist på nytt samme dag, og motstanderleddet i kapteinsbegrunnelsen rettet fra innslupne mål til xGA.*
+*Sist oppdatert: 17. oktober 2026, andre versjon — **GW7 utført og bekreftet i appen av brukeren før deadline: Gibbs-White → Groß, N.Williams → Thomas (COV), Ødegaard → Saka.** Tre frikjøp, 0 poeng kostnad, bank £0,3m. Raya-byttet og De Cuyper-byttet vurdert og ikke tatt. Gjeldende tropp står i GW7-seksjonen nederst.*
+*Forrige: 17. oktober 2026 — **GW5 og GW6 ført inn etterskuddsvis fra `fpl-data`** (filen sto stille fra 12.9. til 17.10.). GW6-byttet Calvert-Lewin → Barry ført som faktum. GW7-forslaget ført som **forslag, ikke utført** — se nederst. Anti-drift-metrikken erklært utløpt som styringstall, ikke redefinert.*
+*Forrige: 12. september 2026, tredje versjon — **byttene og laguttaket er bekreftet gjennomført i appen av brukeren, etter deadline 12:30Z.** Filen sto fram til nå som om byttene var utført mens de faktisk ikke var det; tilstanden og teksten er nå sammenfallende. I tillegg: B.Fernandes → Palmer vurdert og avvist på nytt samme dag, og motstanderleddet i kapteinsbegrunnelsen rettet fra innslupne mål til xGA.*
 *Forrige: 12. september 2026, andre versjon — **to bytter gjennomført før GW4-deadline: Shaw → Egan og Tzolis → Ødegaard.** Første bytter i sesongen. «Ingen bytter»-avsnittet fra tidligere samme dag er strøket, ikke endret. Anti-drift ned fra 61,2 % til 48,0 %, besluttet bevisst. Regel 2-unntak navngitt for Egan. Frikjøp: 3 → 1. Ny troppstabell ført inn — den fra 21. august er historikk.*
 *Forrige: 12. september 2026 — GW4-laguttak ført inn med keeperbegrunnelse, Shaw flagget 75 %, frikjøp bekreftet mot appen, Calafiori £5,8m, xgstat tatt i bruk for første gang.*
 *Forrige: 8. september 2026 — **GW3-ranken rettet fra 850 111 til 638 377.** Runden er nå låst (`events.csv`: `finished: true`, `data_checked: true`), og `entry/history.csv` gir 54 poeng, OR 638 377, total 220. **GW3 var en forbedring på 31 548 plasser, ikke et fall på 180 186.** Chip-asymmetri-mekanismen er trukket — den hvilte på ranktallet og har ingen støtte i det korrigerte. Rundesnittet ført inn: 51. Anti-drift omregnet etter Shaws prisfall: 61,1 %. Rotårsak og tre avledede regler i `03`.*
@@ -79,7 +81,7 @@ Scouts lag: Kinsky, Dúbravka · Gabriel, Mosquera, Maguire, Greaves, Thomas · 
 
 ## Tropp per 21. august 2026 — £100,0m + £0,0m i banken
 
-⚠️ **Historikk. Dette er GW1-troppen med kjøpspriser.** Gjeldende tropp står i GW4-seksjonen nederst i filen, etter byttene 12. september.
+⚠️ **Historikk. Dette er GW1-troppen med kjøpspriser.** Gjeldende tropp står i **GW7-seksjonen** nederst i filen, etter byttene 17. oktober.
 
 | Pos | Spiller | Klubb | Pris |
 |---|---|---|---|
@@ -1091,3 +1093,131 @@ Forslaget ble lagt fram i økten som en følge av LazyFPLs GW4-utgave, som sette
 **Pakken det inngikk i falt med det.** Shaw → De Cuyper £4,8m ble lagt fram som et selvstendig bytte, men var finansiert av Fernandes-pengene: Shaws salgspris er £4,4m og banken £0,0m. To bytter ble presentert som uavhengige der det ene var betinget av det andre.
 
 **GW9-raden i `02` står uendret.** Fernandes-utgangen er ikke planlagt; det er Mbeumo-utgangen som skal revurderes til GW6.
+
+## GW5 og GW6 — ført inn 17. oktober, etterskuddsvis
+
+⚠️ **Filintegritet:** denne filen ble ikke oppdatert gjennom GW5 og GW6. Tall er rekonstruert fra `fpl-data` (`entry/history.csv`, `entry/picks/gw6.csv`), nivå 0. Begrunnelsen er hentet fra GW6-øktens samtalelogg, levert av brukeren 17.10.
+
+| Runde | Poeng | Snitt | OR | Bytter | Bank |
+|---|---|---|---|---|---|
+| GW5 | 36 | 48 | 1 937 860 | 0 | £0,0m |
+| GW6 | 62 | 58 | 2 118 964 | 1, ingen hit | £0,3m |
+
+**GW6-bytte: Calvert-Lewin (LEE) → Barry (EVE) £5,7m.**
+
+**Begrunnelsen i GW6-økten gjaldt et annet bytte.** Økten anbefalte enten pakke A (João Pedro → Barry, Kinsky → Raya, hvis João Pedro var ute) eller null bytter. Den avviste eksplisitt `02`s GW6-rad om Calvert-Lewin ut: «feil mekanisme» — Leeds' 2,66 måler clean sheet-sannsynlighet, ikke sjanser for en spiss, og Calvert-Lewin var nr. 9 i ligaen på xG + xA (3,08). Barry ble begrunnet med xG + xA 0,59 per 90 (nr. 5 i ligaen) og frisk status, og ført som **navngitt unntak fra regel 2** (pris £5,7m over £5,5m-grensen, differensial nr. 5 over taket på 3). Unntaket ble lagt fram som brukerens beslutning.
+
+**Det faktiske byttet — Calvert-Lewin ut, ikke João Pedro — er ikke dekket av noen nedskrevet begrunnelse.** Det stemmer med `02`s opprinnelige plan, som økten avviste. Regel 2-unntaket for Barry gjelder uansett hvem som gikk ut.
+
+**Gjenåpnede funn fra GW6-økten som ikke var ført noe sted:** (1) forsvaret står ikke i feil lag — Arsenal har ligaens beste xGC; De Cuypers og Gvardiols forsprang er angrepspoeng og varians; (2) keeperne er det strukturelle hullet — begge ligger rundt 1,4–1,6 xGC per 90, og valget mellom dem hver runde kostet 4 poeng i GW5; (3) forslag om ukentlig beslutningslogg (kaptein, keeper, benk, begrunnelse) med fasit etterpå.
+
+**Frikjøp:** GW6 hadde 3, brukte 1 → **3 inn i GW7.**
+
+**Overall rank har falt tre runder på rad:** 638 377 (GW3) → 1 072 431 → 1 937 860 → 2 118 964. Laget er 2,0 mill. plasser fra målet. Det er ikke støy lenger.
+
+### Tropp per GW6 — historikk, se GW7-seksjonen for gjeldende tropp
+
+| Pos | Spiller | Klubb | Pris nå (`players.csv` 17.10.) |
+|---|---|---|---|
+| GKP | Verbruggen | BHA | £4,6m |
+| GKP | Kinsky | TOT | £4,5m |
+| DEF | Calafiori | ARS | £5,9m |
+| DEF | N.Williams | NFO | £5,0m |
+| DEF | Egan | HUL | £4,1m |
+| DEF | Davis | IPS | £4,0m |
+| DEF | Diop | IPS | £4,0m |
+| MID | B.Fernandes | MUN | £11,8m |
+| MID | Mbeumo | MUN | £7,8m |
+| MID | Gibbs-White | NFO | £8,0m |
+| MID | Ødegaard | ARS | £6,8m |
+| MID | Slater | HUL | £4,5m |
+| FWD | Haaland | MCI | £15,7m |
+| FWD | João Pedro | CHE | £7,8m |
+| FWD | Barry | EVE | £5,7m |
+
+### Anti-drift-metrikken er utløpt — erklært 17. oktober
+
+«Topplag» er definert som GW1–5-vanskelighet under 2,20. Vinduet har vært passert i to runder. Med gammel definisjon står andelen på £15,4m av £32,1m = 48,0 %. **Tallet beskriver et vindu som er spilt og styrer ingenting framover.** Det er ikke redefinert her; en ny definisjon krever eget vedtak og føres i `02`. Inntil da oppgis klubbfordeling og bank ved hvert bytte som før, og andelsleddet oppgis med denne merknaden.
+
+## GW7 — utført 17. oktober, bekreftet i appen
+
+✅ **Brukeren har bekreftet byttene og laguttaket i appen kl. 10:54 norsk tid, før deadline 12:00.** Skjermbilde av byttesiden viste 15/15, budsjett £0,3m, 0 frikjøp igjen, 0 poeng kostnad.
+
+### Utførte bytter
+
+| | Ut | Inn | Forventet per runde (ut → inn) | Grunnlag |
+|---|---|---|---|---|
+| 1 | Gibbs-White NFO £8,0m | Groß BHA £6,1m | 4,74 → 4,67 | Skade («couldn't train the entire week»), Arsenal-kamp, £1,9m frigjort. Ikke produksjon — Gibbs-White har høyere underliggende |
+| 2 | N.Williams NFO £5,0m | Thomas COV £4,0m | 3,92 → 4,44 | Finansierer Saka. Thomas: 6/6 starter, 527 min, 74 DC-handlinger (12,6 per 90, over terskel 10) |
+| 3 | Ødegaard ARS | Saka ARS £9,6m | 4,62 → 6,23 | Største gevinst i gjennomgangen. Saka xG 3,62 (nr. 3 i ligaen), 37 berøringer i feltet (nr. 2) |
+
+«Forventet per runde» er en enkel modell: oppmøte + xG × målpoeng + xA × 3 + e^(−xGC/90) × CS-poeng − xGC/2 (DEF/GK) + grovt DC-ledd, skalert med minutter/540. Poengverdier fra `05`. Grov, men lik for alle, og brukes kun til rangering.
+
+**Anti-drift, besluttet:** £1,0m flyttet fra forsvar til midtbane. Dette er en endring av lagets form, lagt fram som det og godkjent av brukeren. Klubber: ARS 2 · BHA 2 · MUN 2 · HUL 2 · IPS 2 · COV 1 · MCI 1 · CHE 1 · EVE 1 · TOT 1. Bank £0,3m — blokkerer Raya i GW8 (Kinsky £4,5m + £0,3m).
+
+**Laguttak (3-4-3):** Verbruggen; Calafiori, Egan, Thomas; B.Fernandes, Mbeumo, Groß, Saka; Haaland (K), João Pedro, Barry. **VK: Saka.** Benk: Kinsky, Davis, Slater, Diop.
+
+**Interne oppgjør:** Everton–Chelsea (Barry mot João Pedro), Spurs–Coventry (Kinsky mot Thomas, Kinsky på benk).
+
+### Tropp per GW7
+
+| Pos | Spiller | Klubb | Pris (`players.csv` 17.10.) |
+|---|---|---|---|
+| GKP | Verbruggen | BHA | £4,6m |
+| GKP | Kinsky | TOT | £4,5m |
+| DEF | Calafiori | ARS | £5,9m |
+| DEF | Egan | HUL | £4,1m |
+| DEF | Thomas | COV | £4,0m |
+| DEF | Davis | IPS | £4,0m |
+| DEF | Diop | IPS | £4,0m |
+| MID | B.Fernandes | MUN | £11,8m |
+| MID | Mbeumo | MUN | £7,8m |
+| MID | Groß | BHA | £6,1m |
+| MID | Saka | ARS | £9,6m |
+| MID | Slater | HUL | £4,5m |
+| FWD | Haaland | MCI | £15,7m |
+| FWD | João Pedro | CHE | £7,8m |
+| FWD | Barry | EVE | £5,7m |
+
+### Vurdert og ikke tatt
+
+- **Kinsky → Raya** — +0,6–0,8 per runde reelt (ikke +1,1 — keeperrotasjon henter inn noe). Utsatt til GW9, se `02`.
+- **N.Williams → De Cuyper** — +0,4 per runde i modellen; 19 av 53 poeng er overprestasjon (4 CS mot 1,0 forventet, 3 assists mot 0,67 xA). Tre Brighton.
+- **Rogers, Dewsbury-Hall, Cherki, Rice, Janelt, Vuskovic, Tarkowski m.fl.** — ingen slår spilleren de ville erstattet med mer enn modellens støy. Janelt nærmest Groß (+0,26), avvist på regel 2 (allerede over tre differensialer).
+
+### Beslutningsgrunnlaget under er historikk
+
+Tabellen og teksten under viser hvordan beslutningen ble til, inkludert forslag som ble trukket. Den beskriver **ikke** troppen.
+
+| | Ut | Inn | Pris | Poeng sesong | Grunnlag |
+|---|---|---|---|---|---|
+| 1 | Gibbs-White NFO | Groß BHA | £8,0 → £6,1 | 30 → 53 | GW-W `d` 75 %, «Muscular injury» (16.10.); 4 poeng på GW5–6; Groß 42,9 % eid. ⚠️ **Rettet 17.10. kl. 10:** Gibbs-White har **høyere** underliggende enn Groß — xGI/90 0,59 mot 0,51, xA 1,87 (**nr. 1 i ligaen**, premierleague.com/stats), DC 29 mot 36. Tidligere tekst i økten brukte xgstat GW1–3 (1,52) og DC 25 — begge feil. Byttet hviler kun på skade, GW7-motstander og £1,9m |
+| ~~2~~ | ~~N.Williams NFO~~ | ~~De Cuyper BHA~~ | | | **Trukket samme dag.** Bygget på sesongpoeng (20 mot 53), som GW6-økten allerede hadde avvist som varians. xGC per 90: N.Williams 1,20, De Cuyper 1,68. De Cuypers reelle fortrinn er xGI 0,45 mot 0,25 per 90 — rundt et halvt poeng per runde, ikke 33 |
+| 2 (alternativ) | Kinsky TOT | Raya ARS | £4,5 → £6,1 | 21 → 33 | Retter hullet GW6-økten fant: Raya xGC 0,78 per 90 mot Verbruggen 1,56 og Kinsky 1,43. Fjerner keepervalget hver runde |
+
+**Klubb med bytte 1 + Raya:** ARS 3 · BHA 2 · MUN 2 · HUL 2 · IPS 2 · NFO 1 · MCI 1 · CHE 1 · EVE 1 = 15. **Bank:** £0,6m (£2,2m med bare bytte 1). Arsenal fylt — Saka blokkert. O'Reilly (GW13) må finansieres av et salg.
+
+**Haaland-risiko:** Maresca 16.10. (mancity.com, nivå 1): «at some point we probably need to give him rest» — sammen med Anderson, Enzo, Guéhi, Dias. Ikke sagt at det blir mot Ipswich. Oppstillingen kommer etter deadline. Kaptein står (regel 3); visekaptein settes til den med høyest forventning blant de andre.
+
+**Pressekonferanser gjennomgått 17.10. før beslutning** (alle publisert 15.–16.10.):
+
+| Klubb | Funn | Kilde |
+|---|---|---|
+| NFO | Glasner: Gibbs-White «a doubt. He couldn't train the entire week». Forest 5 ligamål på 6 runder | FFS live 16.10., Sports Mole 16.10. |
+| MCI | Maresca: Haaland trenger hvile «at some point». Ingen skader | mancity.com 16.10. |
+| ARS | Arteta (fulltekst lest, arsenal.com 16.10.): skadeliste Hincapie (1–2 uker), Zubimendi (vurderes lørdag), Tzolis (uker), Saliba (MRI neste uke). Raya, Calafiori, Ødegaard ikke nevnt. «Lighter at left-back» — Calafioris plass ikke truet. Arteta mener Forests resultater har vært dårligere enn prestasjonene | arsenal.com 16.10., Sports Mole 16.10. |
+| BHA | Ingen nyheter om Groß eller Verbruggen. Struijk, Minteh, Wieffer, Mitoma ute/usikre | readcrystalpalace 16.10. |
+| MUN | Carrick (fulltekst lest): Shaw og Mainoo «we'll see», Sesko «a little bit further away». Ingenting om Fernandes eller Mbeumo — ingen skade, ingen rotasjonshint. Tap borte mot Atlético tirsdag. Mbeumo predikert som spiss | Yahoo/The Peoples Person 16.10., Sports Mole 16./17.10. |
+| CHE | Emegha ute («felt something»), James ute. João Pedro uten flagg | Sports Mole 16.10. |
+| EVE | Moyes: «so pleased about the goals Thierno is scoring» | FFS live 16.10. |
+| HUL | Ingen sitater. Egan og Slater i predikert XI | Sports Mole 15.10. |
+| IPS | O'Neil: håper på fullt friske, «a couple of checks» | FFS live 16.10. |
+| TOT | Pressekonferansen flyttet til søndag (kamp mandag). Ikke tilgjengelig før deadline | spurs-web |
+
+Ingen funn endrer forslaget. Forests svake angrep styrker Raya-saken.
+
+**Motargument ført:** Brighton har Liverpool (b) og Man City (b) i GW8–9. Snitt FDR GW7–11 er 3,2 for både BHA og NFO — byttet hviler på produksjon og status, ikke program.
+
+**B.Fernandes beholdes:** 5 poeng på GW4–6, men xGI 4,04 er nest høyest blant MID i ligaen. Samme begrunnelse som 12.9.
+
+~~**Laguttak (3-4-3):** Raya (ev. Verbruggen); Calafiori, N.Williams, Egan; B.Fernandes, Mbeumo, Groß, Ødegaard; Haaland (K), João Pedro, Barry. **VK: Groß** (ellers João Pedro). Benk: Verbruggen/Kinsky, Slater, Davis, Diop.~~ **Overkjørt — faktisk laguttak står øverst i GW7-seksjonen.**
