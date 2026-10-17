@@ -228,7 +228,7 @@ Ingen spillere i troppen berøres.
 
 ## Kampprogram — generert fra speilet
 
-*Generert 17.10.2026 kl. 06:32 UTC av `scripts/gen_kampprogram.py` fra `fpl-data`. **Rør ikke denne blokka for hånd** — endringer blir overskrevet ved neste kjøring. Endringsloggen og verifiseringsnotatene ligger under markøren.*
+*Generert 17.10.2026 kl. 07:02 UTC av `scripts/gen_kampprogram.py` fra `fpl-data`. **Rør ikke denne blokka for hånd** — endringer blir overskrevet ved neste kjøring. Endringsloggen og verifiseringsnotatene ligger under markøren.*
 
 **Strukturkontroll: ingen avvik.** 380 kamper, 38 runder, 20 lag, alle runder med nøyaktig 10 kamper og 20 unike lag. Ingen blankrunde, ingen dobbelrunde, 0 kamper med foreløpig klokkeslett. csv og json i speilet er identiske.
 
@@ -334,7 +334,7 @@ Ingen spillere i troppen berøres.
 
 ### Rundestruktur, alle 38
 
-Antall ulike avsparkstidspunkt per runde. Står alle ti kampene på samme slott, er kringkastervalget for den runden ikke kunngjort ennå.
+Antall ulike avsparkstidspunkt per runde. Står alle ti kampene på samme slott, er kringkastervalget for den runden trolig ikke kunngjort. Merkingen er en tommelfingerregel: en ukunngjort runde med spredte tider i grunnoppsettet blir ikke flagget. Fasit er PLs rundskrivsliste (Fixture Amendments, Circular N), se `03`.
 
 | Runde | Kamper | Ulike slott | Datoer |
 |---|---|---|---|
@@ -350,32 +350,32 @@ Antall ulike avsparkstidspunkt per runde. Står alle ti kampene på samme slott,
 | GW10 | 10 | 6 | 06.11.–08.11. |
 | GW11 | 10 | 6 | 21.11.–23.11. |
 | GW12 | 10 | 6 | 27.11.–29.11. |
-| GW13 | 10 | 1 — **ikke kunngjort** | 02.12. |
-| GW14 | 10 | 1 — **ikke kunngjort** | 05.12. |
-| GW15 | 10 | 1 — **ikke kunngjort** | 12.12. |
-| GW16 | 10 | 1 — **ikke kunngjort** | 19.12. |
+| GW13 | 10 | 1 — **trolig ikke kunngjort** | 02.12. |
+| GW14 | 10 | 1 — **trolig ikke kunngjort** | 05.12. |
+| GW15 | 10 | 1 — **trolig ikke kunngjort** | 12.12. |
+| GW16 | 10 | 1 — **trolig ikke kunngjort** | 19.12. |
 | GW17 | 10 | 7 | 26.12.–27.12. |
 | GW18 | 10 | 4 | 29.12.–30.12. |
 | GW19 | 10 | 6 | 01.01.–03.01. |
 | GW20 | 10 | 5 | 05.01.–07.01. |
-| GW21 | 10 | 1 — **ikke kunngjort** | 16.01. |
-| GW22 | 10 | 1 — **ikke kunngjort** | 23.01. |
-| GW23 | 10 | 1 — **ikke kunngjort** | 30.01. |
-| GW24 | 10 | 1 — **ikke kunngjort** | 06.02. |
-| GW25 | 10 | 1 — **ikke kunngjort** | 10.02. |
-| GW26 | 10 | 1 — **ikke kunngjort** | 20.02. |
-| GW27 | 10 | 1 — **ikke kunngjort** | 27.02. |
-| GW28 | 10 | 1 — **ikke kunngjort** | 03.03. |
-| GW29 | 10 | 1 — **ikke kunngjort** | 13.03. |
-| GW30 | 10 | 1 — **ikke kunngjort** | 20.03. |
-| GW31 | 10 | 1 — **ikke kunngjort** | 10.04. |
-| GW32 | 10 | 1 — **ikke kunngjort** | 17.04. |
-| GW33 | 10 | 1 — **ikke kunngjort** | 24.04. |
-| GW34 | 10 | 1 — **ikke kunngjort** | 01.05. |
-| GW35 | 10 | 1 — **ikke kunngjort** | 08.05. |
-| GW36 | 10 | 1 — **ikke kunngjort** | 15.05. |
-| GW37 | 10 | 1 — **ikke kunngjort** | 23.05. |
-| GW38 | 10 | 1 — **ikke kunngjort** | 30.05. |
+| GW21 | 10 | 1 — **trolig ikke kunngjort** | 16.01. |
+| GW22 | 10 | 1 — **trolig ikke kunngjort** | 23.01. |
+| GW23 | 10 | 1 — **trolig ikke kunngjort** | 30.01. |
+| GW24 | 10 | 1 — **trolig ikke kunngjort** | 06.02. |
+| GW25 | 10 | 1 — **trolig ikke kunngjort** | 10.02. |
+| GW26 | 10 | 1 — **trolig ikke kunngjort** | 20.02. |
+| GW27 | 10 | 1 — **trolig ikke kunngjort** | 27.02. |
+| GW28 | 10 | 1 — **trolig ikke kunngjort** | 03.03. |
+| GW29 | 10 | 1 — **trolig ikke kunngjort** | 13.03. |
+| GW30 | 10 | 1 — **trolig ikke kunngjort** | 20.03. |
+| GW31 | 10 | 1 — **trolig ikke kunngjort** | 10.04. |
+| GW32 | 10 | 1 — **trolig ikke kunngjort** | 17.04. |
+| GW33 | 10 | 1 — **trolig ikke kunngjort** | 24.04. |
+| GW34 | 10 | 1 — **trolig ikke kunngjort** | 01.05. |
+| GW35 | 10 | 1 — **trolig ikke kunngjort** | 08.05. |
+| GW36 | 10 | 1 — **trolig ikke kunngjort** | 15.05. |
+| GW37 | 10 | 1 — **trolig ikke kunngjort** | 23.05. |
+| GW38 | 10 | 1 — **trolig ikke kunngjort** | 30.05. |
 
 <!-- GENERERT:KAMPPROGRAM:SLUTT -->
 
