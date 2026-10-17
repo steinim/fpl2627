@@ -251,6 +251,30 @@ def st(minutter: int, start: int = 1, **k) -> dict:
     return d
 
 
+def kjede_speil(mappe: pathlib.Path) -> None:
+    """Fire lag, tre spilte runder (GW1–3), to runder framover (GW4–5). Spiller 1 (MID, lag 1) har
+    0 minutter i GW2. GW5: lag 1 har to kamper."""
+    runder = {1: [(1, 2), (3, 4)], 2: [(1, 3), (2, 4)], 3: [(4, 1), (3, 2)]}
+    fremtid = {4: [(2, 1), (4, 3)], 5: [(1, 4), (2, 3), (1, 3)]}
+    spillere = {
+        1: {"navn": "Skadet", "team": 1, "type": 3},
+        2: {"navn": "Stopper", "team": 2, "type": 2},
+        3: {"navn": "Innbytter", "team": 3, "type": 4},
+        4: {"navn": "Keeper", "team": 4, "type": 1},
+        5: {"navn": "Kortspiller", "team": 1, "type": 3},
+    }
+    statistikk = {}
+    for n in runder:
+        statistikk[(n, 2)] = st(90, defensive_contribution=[10, 9, 12][n - 1], expected_goals=0.1,
+                                expected_goals_conceded=1.0)
+        statistikk[(n, 3)] = st(20, start=0, expected_goals=0.2)
+        statistikk[(n, 4)] = st(90, saves=[3, 5, 1][n - 1], expected_goals_conceded=1.2)
+        statistikk[(n, 5)] = st(45, expected_goals=0.05)
+    statistikk[(1, 1)] = st(90, expected_goals=0.5, expected_assists=0.2, goals_scored=1)
+    statistikk[(3, 1)] = st(80, expected_goals=0.3, expected_assists=0.1)
+    lag_speil(mappe, runder, spillere, statistikk, fremtid)
+
+
 class TestKjede(unittest.TestCase):
     """Fire lag, tre spilte runder, to runder framover. Spiller 1 (MID, lag 1) er skadet i GW2."""
 
@@ -258,27 +282,8 @@ class TestKjede(unittest.TestCase):
     def setUpClass(cls):
         cls.tmp = tempfile.TemporaryDirectory()
         mappe = pathlib.Path(cls.tmp.name)
-        runder = {1: [(1, 2), (3, 4)], 2: [(1, 3), (2, 4)], 3: [(4, 1), (3, 2)]}
-        fremtid = {4: [(2, 1), (4, 3)], 5: [(1, 4), (2, 3), (1, 3)]}  # GW5: lag 1 har to kamper
-        spillere = {
-            1: {"navn": "Skadet", "team": 1, "type": 3},
-            2: {"navn": "Stopper", "team": 2, "type": 2},
-            3: {"navn": "Innbytter", "team": 3, "type": 4},
-            4: {"navn": "Keeper", "team": 4, "type": 1},
-            5: {"navn": "Kortspiller", "team": 1, "type": 3},
-        }
-        statistikk = {}
-        for n in runder:
-            statistikk[(n, 2)] = st(90, defensive_contribution=[10, 9, 12][n - 1], expected_goals=0.1,
-                                    expected_goals_conceded=1.0)
-            statistikk[(n, 3)] = st(20, start=0, expected_goals=0.2)
-            statistikk[(n, 4)] = st(90, saves=[3, 5, 1][n - 1], expected_goals_conceded=1.2)
-            statistikk[(n, 5)] = st(45, expected_goals=0.05)
-        statistikk[(1, 1)] = st(90, expected_goals=0.5, expected_assists=0.2, goals_scored=1)
-        statistikk[(3, 1)] = st(80, expected_goals=0.3, expected_assists=0.1)
-        # GW2: 0 minutter for spiller 1
         cls.mappe = mappe
-        lag_speil(mappe, runder, spillere, statistikk, fremtid)
+        kjede_speil(mappe)
         cls.data = fv.last_data(fv.Kilde(mappe))
 
     @classmethod
@@ -470,6 +475,96 @@ class TestMinuttkalibrering(unittest.TestCase):
         self.assertEqual(sorted(fv.SPILL_KAL), sorted(fv.START_KAL))
         for c in list(fv.START_KAL.values()) + list(fv.SPILL_KAL.values()):
             self.assertEqual(len(c), n)
+
+
+class TestPagaendeRunde(unittest.TestCase):
+    """GW4 er i gang i kjedespeilet: kampen lag 2–lag 1 har startet. Sesongtotalene i bootstrap
+    inneholder kampen, grunnlaget (GW1–3) gjør det ikke. Feilen 17.10.: summekontrollen stoppet
+    kjøringen så snart første kamp i GW7 startet."""
+
+    NAA = dt.datetime(2026, 8, 14, 15, 0, tzinfo=dt.timezone.utc)
+
+    def bygg(self, live4: dict[int, dict] | None, endring: dict[int, dict[str, int]],
+             startet: set[tuple[int, int]] = frozenset({(2, 1)}), hentet: str | None = None) -> fv.Data:
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        mappe = pathlib.Path(tmp.name)
+        kjede_speil(mappe)
+        kamper = json.loads((mappe / "fixtures.json").read_text(encoding="utf-8"))
+        for f in kamper:
+            if f["event"] == 4 and (f["team_h"], f["team_a"]) in startet:
+                f["started"] = True
+        (mappe / "fixtures.json").write_text(json.dumps(kamper), encoding="utf-8")
+        b = json.loads((mappe / "bootstrap-static.json").read_text(encoding="utf-8"))
+        for e in b["elements"]:
+            for felt, d in endring.get(e["id"], {}).items():
+                e[felt] += d
+        (mappe / "bootstrap-static.json").write_text(json.dumps(b), encoding="utf-8")
+        if live4 is not None:
+            el = []
+            for eid, stats in live4.items():
+                s = {f: 0 for f in fv.SUMMEFELT_HEL}
+                s.update({f: "0.00" for f in fv.SUMMEFELT_DESIMAL})
+                s.update(stats)
+                el.append({"id": eid, "stats": s, "explain": []})
+            (mappe / "live" / "gw4.json").write_text(json.dumps({"elements": el}), encoding="utf-8")
+        if hentet:
+            (mappe / "snapshot.json").write_text(json.dumps({"fetched_at": hentet}), encoding="utf-8")
+        return fv.last_data(fv.Kilde(mappe))
+
+    # Spiller 1 og 5 (lag 1) og 2 (lag 2) har spilt 30 minutter av GW4 da speilet ble hentet.
+    I_GANG = {1: {"minutes": 30, "starts": 1}, 2: {"minutes": 30, "starts": 1}, 5: {"minutes": 30, "starts": 1}}
+
+    def test_pagaende_runde_er_ikke_feil(self):
+        d = self.bygg(self.I_GANG, self.I_GANG)
+        self.assertEqual(sorted(d.uferdige), [4])
+        self.assertEqual(d.berorte_lag, {1, 2})
+        feil, adv, ok = fv.kontroller(d, [], self.NAA)
+        self.assertEqual(feil, [])
+        self.assertTrue(any("2 spillere" in x and "3 spillere på lag som har spilt i GW4" in x for x in ok), ok)
+        self.assertFalse(any("avviker" in x for x in adv), adv)
+
+    def test_avvik_i_pagaende_kamp_er_advarsel(self):
+        # Live-fila er hentet fire minutter etter bootstrap.
+        senere = {e: {**s, "minutes": s["minutes"] + 4} for e, s in self.I_GANG.items()}
+        feil, adv, _ = fv.kontroller(self.bygg(senere, self.I_GANG), [], self.NAA)
+        self.assertEqual(feil, [])
+        self.assertTrue(any("3 spillere på lag som har spilt i GW4 avviker" in x for x in adv), adv)
+
+    def test_mangler_live_fila(self):
+        feil, adv, ok = fv.kontroller(self.bygg(None, self.I_GANG), [], self.NAA)
+        self.assertEqual(feil, [])
+        self.assertTrue(any("mangler i speilet: 3 spillere" in x for x in adv), adv)
+        self.assertTrue(any("summerer til sesongtotalene for 2 spillere" in x for x in ok), ok)
+
+    def test_feil_i_grunnlaget_fanges_fortsatt(self):
+        # Spiller 3 (lag 3) har ikke spilt i GW4. Fem minutter for mye i totalen er en feil i grunnlaget.
+        feil, _, _ = fv.kontroller(self.bygg(self.I_GANG, {**self.I_GANG, 3: {"minutes": 5}}), [], self.NAA)
+        self.assertTrue(any("Innbytter minutes" in x for x in feil), feil)
+
+    def test_avspark_under_henting(self):
+        # Kampen lag 4–lag 3 står som ikke startet i fixtures.json, men avsparket (14:00) er innenfor
+        # marginen etter at speilet begynte å hente (13:50). Spiller 3 har ett minutt i bootstrap.
+        d = self.bygg({**self.I_GANG, 3: {"minutes": 1}}, {**self.I_GANG, 3: {"minutes": 1}},
+                      hentet="2026-08-14T13:50:00+00:00")
+        self.assertEqual(d.berorte_lag, {1, 2, 3, 4})
+        feil, _, _ = fv.kontroller(d, [], self.NAA)
+        self.assertEqual(feil, [])
+
+    def test_kamp_startet(self):
+        grense = dt.datetime(2026, 8, 14, 14, 0, tzinfo=dt.timezone.utc)
+        self.assertTrue(fv.kamp_startet({"started": True}, None))
+        self.assertTrue(fv.kamp_startet({"finished_provisional": True}, None))
+        self.assertTrue(fv.kamp_startet({"kickoff_time": "2026-08-14T14:00:00Z"}, grense))
+        self.assertFalse(fv.kamp_startet({"kickoff_time": "2026-08-14T14:01:00Z"}, grense))
+        self.assertFalse(fv.kamp_startet({"kickoff_time": "2026-08-14T14:00:00Z"}, None))
+
+    def test_tilbaketest_laster_ikke_uferdige_runder(self):
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        kjede_speil(pathlib.Path(tmp.name))
+        d = fv.last_data(fv.Kilde(pathlib.Path(tmp.name)), til_runde=3)
+        self.assertEqual((d.grunnlag, d.uferdige, d.berorte_lag), ([1, 2], {}, set()))
 
 
 # --------------------------------------------------------------------------- 3. ekte data

@@ -307,6 +307,26 @@ class Data:
     tropp_runde: int | None
     tropp: list[int]
     regler: dict = dataclasses.field(default_factory=dict)   # game_config.rules (bytteregler, klubbgrense)
+    # Runder utenfor grunnlaget der minst én kamp har startet (pågår, eller ferdig uten
+    # data_checked), med live-fila hvis speilet har den (None ellers), og lagene som har spilt i
+    # dem. Sesongtotalene i bootstrap inneholder disse kampene; grunnlaget gjør det ikke.
+    uferdige: dict[int, dict[int, dict] | None] = dataclasses.field(default_factory=dict)
+    berorte_lag: set[int] = dataclasses.field(default_factory=set)
+
+
+# Speilet henter bootstrap, kamper og live-filer etter hverandre fra tidspunktet i snapshot.json. En
+# kamp som starter mens det pågår, kan stå som ikke startet i fixtures.json og likevel ha minutter i
+# bootstrap. Kamper med avspark inntil så lenge etter henting regnes derfor som mulig startet.
+KAMPSTART_MARGIN = dt.timedelta(minutes=15)
+
+
+def kamp_startet(f: dict, grense: dt.datetime | None) -> bool:
+    """Kampen er i gang eller ferdig, eller kan ha startet før speilet var ferdig hentet."""
+    if f.get("started") or f.get("finished") or f.get("finished_provisional"):
+        return True
+    if grense is None or not f.get("kickoff_time"):
+        return False
+    return dt.datetime.fromisoformat(f["kickoff_time"].replace("Z", "+00:00")) <= grense
 
 
 def last_data(kilde: Kilde, til_runde: int | None = None) -> Data:
@@ -331,6 +351,20 @@ def last_data(kilde: Kilde, til_runde: int | None = None) -> Data:
     for n in grunnlag:
         live[n] = {x["id"]: x for x in kilde.json(f"live/gw{n}.json")["elements"]}
 
+    uferdige: dict[int, dict[int, dict] | None] = {}
+    berorte_lag: set[int] = set()
+    if til_runde is None:
+        hentet = snapshot.get("fetched_at") if snapshot else None
+        grense = dt.datetime.fromisoformat(hentet.replace("Z", "+00:00")) + KAMPSTART_MARGIN if hentet else None
+        for n in sorted({f["event"] for f in kamper.values() if f.get("event")} - set(grunnlag)):
+            startet = [f for f in kamper.values() if f.get("event") == n and kamp_startet(f, grense)]
+            if not startet:
+                continue
+            lf = kilde.json(f"live/gw{n}.json", paakrevd=False)
+            uferdige[n] = {x["id"]: x for x in lf["elements"]} if lf and lf.get("elements") else None
+            for f in startet:
+                berorte_lag.update((f["team_h"], f["team_a"]))
+
     tropp_runde, tropp = None, []
     paabegynt = [e["id"] for e in events if e.get("finished") or e.get("is_current")]
     for n in range(max(paabegynt) if paabegynt else 0, 0, -1):
@@ -352,6 +386,8 @@ def last_data(kilde: Kilde, til_runde: int | None = None) -> Data:
         tropp_runde=tropp_runde,
         tropp=tropp,
         regler=b.get("game_config", {}).get("rules", {}),
+        uferdige=uferdige,
+        berorte_lag=berorte_lag,
     )
 
 
@@ -1413,29 +1449,67 @@ def kontroller(data: Data, fravaer_feil: list[str], naa: dt.datetime) -> tuple[l
     else:
         ok.append(f"Poengregler: alle {len(POENG)} kategorier i API-ets game_config stemmer med skriptet")
 
-    # 2. live-filene summert mot sesongtotalene i bootstrap
-    ferdige = [e["id"] for e in data.events if e.get("finished")]
+    # 2. live-filene summert mot sesongtotalene i bootstrap.
+    # Totalene i bootstrap inneholder alt som var spilt da speilet ble hentet, også kamper i runder
+    # som ikke er i grunnlaget ennå (data.uferdige). Spillere på lag som ikke har spilt i en slik
+    # runde, kontrolleres strengt: grunnlaget alene skal gi totalen. Det er dem kontrollen sikrer.
+    # Spillere på lag som har spilt, kontrolleres mot grunnlaget pluss rundens live-fil, og avvik
+    # for dem er advarsler: tallene endres mens kampene pågår, bootstrap og live-fila hentes hver
+    # for seg, og ingenting fra de rundene brukes i modellen.
     if data.utelatte_runder:
         adv.append("ferdige runder uten data_checked er holdt utenfor grunnlaget: GW"
                    + ", GW".join(map(str, data.utelatte_runder)))
-    if sorted(ferdige) == data.grunnlag:
-        avvik_n = collections.Counter()
-        eksempler: list[str] = []
-        for eid, el in data.elementer.items():
-            for felt in SUMMEFELT_HEL + SUMMEFELT_DESIMAL:
-                s = sum(float(data.live[n][eid]["stats"][felt]) for n in data.grunnlag if eid in data.live[n])
-                tol = 0.06 if felt in SUMMEFELT_DESIMAL else 1e-9
-                if abs(float(el[felt]) - s) > tol:
-                    avvik_n[felt] += 1
-                    if len(eksempler) < 5:
-                        eksempler.append(f"{el['web_name']} {felt}: sesong {el[felt]}, runder {s:g}")
-        if avvik_n:
-            feil.append(f"rundedata summerer ikke til sesongtotalene ({dict(avvik_n)}): " + "; ".join(eksempler))
+    felter = SUMMEFELT_HEL + SUMMEFELT_DESIMAL
+    mangler_live = sorted(n for n, v in data.uferdige.items() if v is None)
+    avvik_n: collections.Counter = collections.Counter()
+    eksempler: list[str] = []
+    myke: set[int] = set()
+    myke_eks: list[str] = []
+    n_streng = n_myk = n_ukontrollert = 0
+    for eid, el in data.elementer.items():
+        berort = el["team"] in data.berorte_lag
+        if berort and mangler_live:
+            n_ukontrollert += 1
+            continue
+        runder = [data.live[n] for n in data.grunnlag]
+        if berort:
+            runder += [v for v in data.uferdige.values() if v is not None]
+            n_myk += 1
         else:
-            ok.append(f"Rundedata GW{data.grunnlag[0]}–{data.grunnlag[-1]} summerer til sesongtotalene for "
-                      f"alle {len(data.elementer)} spillere, {len(SUMMEFELT_HEL) + len(SUMMEFELT_DESIMAL)} felt")
+            n_streng += 1
+        for felt in felter:
+            s = sum(float(r[eid]["stats"].get(felt, 0)) for r in runder if eid in r)
+            tol = 0.06 if felt in SUMMEFELT_DESIMAL else 1e-9
+            if abs(float(el[felt]) - s) <= tol:
+                continue
+            tekst = f"{el['web_name']} {felt}: sesong {el[felt]}, runder {s:g}"
+            if berort:
+                myke.add(eid)
+                if len(myke_eks) < 3:
+                    myke_eks.append(tekst)
+            else:
+                avvik_n[felt] += 1
+                if len(eksempler) < 5:
+                    eksempler.append(tekst)
+    spenn = f"GW{data.grunnlag[0]}–{data.grunnlag[-1]}" if data.grunnlag else "(ingen runder)"
+    uferdig_tekst = "GW" + ", GW".join(map(str, sorted(data.uferdige)))
+    if avvik_n:
+        feil.append(f"rundedata {spenn} summerer ikke til sesongtotalene for spillere som ikke har spilt "
+                    f"utenfor grunnlaget ({dict(avvik_n)}): " + "; ".join(eksempler))
     else:
-        adv.append("summekontrollen er hoppet over fordi grunnlaget ikke er alle ferdige runder")
+        linje = (f"Rundedata {spenn} summerer til sesongtotalene for {'alle ' if not data.uferdige else ''}"
+                 f"{n_streng} spillere, {len(felter)} felt")
+        if n_myk:
+            linje += (f"; {n_myk} spillere på lag som har spilt i {uferdig_tekst} er kontrollert mot grunnlaget "
+                      f"pluss live-fila")
+        ok.append(linje)
+    if myke:
+        adv.append(f"{len(myke)} spillere på lag som har spilt i {uferdig_tekst} avviker fra grunnlaget pluss "
+                   f"live-fila — runden er ikke ferdig, og bootstrap og live-fila hentes hver for seg. Brukes ikke "
+                   f"i modellen: " + "; ".join(myke_eks))
+    if n_ukontrollert:
+        adv.append(f"live-fila for GW{', GW'.join(map(str, mangler_live))} mangler i speilet: {n_ukontrollert} "
+                   f"spillere på lag som har spilt i runden, er ikke summekontrollert")
 
     # 3. speilets alder
     if data.snapshot and data.snapshot.get("fetched_at"):
