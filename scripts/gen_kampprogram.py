@@ -14,6 +14,14 @@ Bruk:
     python3 scripts/gen_kampprogram.py --stdout        # skriv blokka til stdout
     python3 scripts/gen_kampprogram.py --init          # legg inn markørene hvis de mangler
     python3 scripts/gen_kampprogram.py --runder 6      # antall runder framover (standard 5)
+    python3 scripts/gen_kampprogram.py --endringer-fil endringer.txt
+                                                       # skriv flyttede kamper dit (for CI)
+
+Flyttinger: hver kjøring sammenligner speilet med `state/kampprogram-snapshot.csv`
+(id, runde, avspark, kamppar for alle 380 kamper). Endrede rader skrives til
+`state/kampprogram-endringer.log` (varig logg) og til --endringer-fil. CI bruker
+den fila til commit-meldingen og feiler jobben, slik at GitHub sender e-post.
+Dette fanger også endringer utenfor femrundersvinduet i 04.
 """
 
 from __future__ import annotations
@@ -35,6 +43,9 @@ UK = ZoneInfo("Europe/London")
 START = "<!-- GENERERT:KAMPPROGRAM:START -->"
 SLUTT = "<!-- GENERERT:KAMPPROGRAM:SLUTT -->"
 MAALFIL = pathlib.Path("context/04-kampprogram-og-endringslogg.md")
+SNAPSHOT = pathlib.Path("state/kampprogram-snapshot.csv")
+ENDRINGSLOGG = pathlib.Path("state/kampprogram-endringer.log")
+SNAPSHOT_FELT = ["id", "event", "kickoff_time", "home", "away"]
 
 DAG = {0: "man", 1: "tir", 2: "ons", 3: "tor", 4: "fre", 5: "lør", 6: "søn"}
 
@@ -133,6 +144,8 @@ def strukturkontroll(fixtures: list[dict], fixtures_json) -> tuple[list[str], di
             continue
         if (j.get("kickoff_time") or "") != r["kickoff_time"]:
             avvik.append(f"kamp {r['id']}: kickoff avviker mellom csv og json")
+        if str(j.get("event") or "") != (r.get("event") or "").strip():
+            avvik.append(f"kamp {r['id']}: runde avviker mellom csv og json")
 
     fakta = {
         "kamper": len(fixtures),
@@ -205,7 +218,7 @@ def rundetabell(runde: int, rader: list[dict], tropp: dict[str, str]) -> list[st
     return ut
 
 
-def bygg_blokk(antall_runder: int) -> tuple[str, list[str]]:
+def bygg_blokk(antall_runder: int) -> tuple[str, list[str], list[dict]]:
     fixtures = hent_csv("fixtures.csv")
     fixtures_json = hent_json("fixtures.json")
     events = hent_csv("events.csv")
@@ -285,7 +298,9 @@ def bygg_blokk(antall_runder: int) -> tuple[str, list[str]]:
     L.append("### Rundestruktur, alle 38")
     L.append("")
     L.append("Antall ulike avsparkstidspunkt per runde. Står alle ti kampene på samme slott, "
-             "er kringkastervalget for den runden ikke kunngjort ennå.")
+             "er kringkastervalget for den runden trolig ikke kunngjort. Merkingen er en tommelfingerregel: "
+             "en ukunngjort runde med spredte tider i grunnoppsettet blir ikke flagget. Fasit er PLs "
+             "rundskrivsliste (Fixture Amendments, Circular N), se `03`.")
     L.append("")
     L.append("| Runde | Kamper | Ulike slott | Datoer |")
     L.append("|---|---|---|---|")
@@ -294,12 +309,12 @@ def bygg_blokk(antall_runder: int) -> tuple[str, list[str]]:
         tider = {f"{uk(r['kickoff_time']):%Y-%m-%d %H:%M}" for r in rader}
         datoer = sorted({uk(r["kickoff_time"]).date() for r in rader})
         d = f"{datoer[0]:%d.%m.}" if len(datoer) == 1 else f"{datoer[0]:%d.%m.}–{datoer[-1]:%d.%m.}"
-        flagg = " — **ikke kunngjort**" if len(tider) == 1 else ""
+        flagg = " — **trolig ikke kunngjort**" if len(tider) == 1 else ""
         L.append(f"| GW{runde} | {len(rader)} | {len(tider)}{flagg} | {d} |")
 
     L.append("")
     L.append(SLUTT)
-    return "\n".join(L), avvik
+    return "\n".join(L), avvik, fixtures
 
 
 # --------------------------------------------------------------------------- skriving
@@ -338,15 +353,76 @@ def skriv(blokk: str, init: bool) -> bool:
     return True
 
 
+# --------------------------------------------------------------------------- flyttinger
+
+
+def _kamp_tekst(r: dict) -> str:
+    gw = f"GW{r['event']}" if (r.get("event") or "").strip() else "uten runde"
+    if (r.get("kickoff_time") or "").strip():
+        t = uk(r["kickoff_time"])
+        tid = f"{datostreng(t)} {t:%H:%M}"
+    else:
+        tid = "uten avspark"
+    return f"{gw} {tid}"
+
+
+def finn_flyttinger(fixtures: list[dict]) -> tuple[list[str], bool]:
+    """Sammenligner speilet med forrige snapshot. Returnerer (endringslinjer, snapshot_endret).
+
+    Første kjøring uten snapshot lager bare utgangspunktet og melder ingen endringer.
+    """
+    ny = {r["id"]: {k: (r.get(k) or "").strip() for k in SNAPSHOT_FELT} for r in fixtures}
+    if not SNAPSHOT.exists():
+        return [], True
+
+    with SNAPSHOT.open(encoding="utf-8", newline="") as f:
+        gammel = {r["id"]: r for r in csv.DictReader(f)}
+
+    linjer: list[str] = []
+    for kid in sorted(set(gammel) | set(ny), key=lambda x: int(x)):
+        g, n = gammel.get(kid), ny.get(kid)
+        if g is None:
+            linjer.append(f"NY KAMP {n['home']} – {n['away']}: {_kamp_tekst(n)}")
+            continue
+        if n is None:
+            linjer.append(f"FJERNET {g['home']} – {g['away']}: var {_kamp_tekst(g)}")
+            continue
+        if (g["event"], g["kickoff_time"]) != (n["event"], n["kickoff_time"]):
+            hva = "RUNDE ENDRET" if g["event"] != n["event"] else "FLYTTET"
+            linjer.append(
+                f"{hva} {n['home']} – {n['away']}: {_kamp_tekst(g)} → {_kamp_tekst(n)} (UK-tid)"
+            )
+    return linjer, bool(linjer)
+
+
+def skriv_snapshot(fixtures: list[dict]) -> None:
+    SNAPSHOT.parent.mkdir(parents=True, exist_ok=True)
+    rader = sorted(fixtures, key=lambda r: int(r["id"]))
+    with SNAPSHOT.open("w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=SNAPSHOT_FELT, lineterminator="\n")
+        w.writeheader()
+        for r in rader:
+            w.writerow({k: (r.get(k) or "").strip() for k in SNAPSHOT_FELT})
+
+
+def logg_flyttinger(linjer: list[str]) -> None:
+    stempel = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%MZ")
+    ENDRINGSLOGG.parent.mkdir(parents=True, exist_ok=True)
+    with ENDRINGSLOGG.open("a", encoding="utf-8") as f:
+        for l in linjer:
+            f.write(f"{stempel}  {l}\n")
+
+
 def main() -> int:
     p = argparse.ArgumentParser()
     p.add_argument("--check", action="store_true", help="exit 1 ved strukturavvik, skriv ingenting")
     p.add_argument("--stdout", action="store_true", help="skriv blokka til stdout")
     p.add_argument("--init", action="store_true", help="legg til markørene hvis de mangler")
     p.add_argument("--runder", type=int, default=5, help="antall runder framover (standard 5)")
+    p.add_argument("--endringer-fil", type=pathlib.Path, help="skriv flyttede kamper hit (tom fil = ingen)")
     a = p.parse_args()
 
-    blokk, avvik = bygg_blokk(a.runder)
+    blokk, avvik, fixtures = bygg_blokk(a.runder)
 
     if a.check:
         for x in avvik:
@@ -360,6 +436,19 @@ def main() -> int:
 
     endret = skriv(blokk, a.init)
     print("04 oppdatert" if endret else "04 uendret")
+
+    forste = not SNAPSHOT.exists()
+    flyttinger, snap_endret = finn_flyttinger(fixtures)
+    if snap_endret:
+        skriv_snapshot(fixtures)
+    if forste:
+        print(f"{SNAPSHOT} opprettet — utgangspunkt, ingen flyttinger meldt")
+    if flyttinger:
+        logg_flyttinger(flyttinger)
+        for l in flyttinger:
+            print(f"ENDRING: {l}")
+    if a.endringer_fil:
+        a.endringer_fil.write_text("".join(f"{l}\n" for l in flyttinger), encoding="utf-8")
     for x in avvik:
         print(f"AVVIK: {x}", file=sys.stderr)
     return 0

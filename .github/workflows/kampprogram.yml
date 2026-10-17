@@ -2,8 +2,12 @@ name: kampprogram
 
 # Genererer kampprogramblokka i context/04 fra fpl-data.
 # Committer bare når en kamp, et klokkeslett, en deadline eller troppen faktisk
-# har endret seg. Ved strukturavvik (BGW, DGW, utsatt kamp, foreløpig klokkeslett)
-# committes advarselen i 04, og jobben feiler — GitHub sender da e-post.
+# har endret seg. Jobben feiler — og GitHub sender e-post — i to tilfeller:
+#   1. en kamp er flyttet (dato, klokkeslett eller runde), i hvilken som helst av
+#      de 38 rundene. Endringene står i commit-meldingen, i jobbsammendraget og i
+#      state/kampprogram-endringer.log.
+#   2. strukturavvik (BGW, DGW, utsatt kamp, foreløpig klokkeslett). Advarselen
+#      committes i 04.
 
 on:
   schedule:
@@ -30,19 +34,45 @@ jobs:
           python-version: "3.12"
 
       - name: Generer kampprogram
-        run: python3 scripts/gen_kampprogram.py
+        run: python3 scripts/gen_kampprogram.py --endringer-fil "$RUNNER_TEMP/endringer.txt"
 
       - name: Commit hvis endret
         run: |
-          if git diff --quiet -- context/04-kampprogram-og-endringslogg.md; then
+          if [ -z "$(git status --porcelain -- context/04-kampprogram-og-endringslogg.md state)" ]; then
             echo "Ingen endring i kampprogrammet."
             exit 0
           fi
           git config user.name  "kampprogram-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add context/04-kampprogram-og-endringslogg.md
-          git commit -m "kampprogram: oppdatert fra fpl-data"
+          git add context/04-kampprogram-og-endringslogg.md state
+          if [ -s "$RUNNER_TEMP/endringer.txt" ]; then
+            git commit -m "kampprogram: $(wc -l < "$RUNNER_TEMP/endringer.txt") kamp(er) flyttet" \
+                       -m "$(cat "$RUNNER_TEMP/endringer.txt")"
+          else
+            git commit -m "kampprogram: oppdatert fra fpl-data"
+          fi
           git push
 
       - name: Strukturkontroll
+        id: struktur
+        continue-on-error: true
         run: python3 scripts/gen_kampprogram.py --check
+
+      - name: Varsle om flyttede kamper
+        run: |
+          if [ -s "$RUNNER_TEMP/endringer.txt" ]; then
+            {
+              echo "## Kamper flyttet"
+              echo
+              sed 's/^/- /' "$RUNNER_TEMP/endringer.txt"
+            } >> "$GITHUB_STEP_SUMMARY"
+            echo "::error title=Kamper flyttet::$(paste -sd ';' "$RUNNER_TEMP/endringer.txt")"
+            exit 1
+          fi
+          echo "Ingen flyttede kamper."
+
+      - name: Feil ved strukturavvik
+        if: always() && steps.struktur.outcome == 'failure'
+        run: |
+          echo "::error title=Strukturavvik::se strukturkontrollen over og blokka i context/04"
+          exit 1

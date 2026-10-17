@@ -1,8 +1,9 @@
 # Kampprogram — verifisert kalender og endringslogg
 
 *Opprettet 20. august 2026. **Kampprogramblokka genereres av `scripts/gen_kampprogram.py` (GitHub Actions, to ganger daglig) — rediger den aldri for hånd.** Endringslogg og verifiseringsnotater under vedlikeholdes av den planlagte kampprogramsjekken.*
-*Sist oppdatert 9. oktober 2026 — **håndskrevne GW6–GW8-tabeller erstattet av generert blokk.** Spillerkolonnen hentes nå fra `picks/gw{n}.csv`; feilen med Calvert-Lewin på Everton kan ikke oppstå igjen.*
-*Sist oppdatert 10. september 2026 — **kampprogramsjekk GW4–GW6: ingen flytting, ingen utsettelse, ingen BGW/DGW.** Alle 30 kamper står. Ett åpent punkt lukket: **Leeds–Crystal Palace ble kunngjort flyttet av Crystal Palace 1. september** (nivå 1). ⚠️ **Én påstand i GW5-seksjonen vist å være gal og fjernet:** at kampen ikke sto i PLs 7.7.-artikkel. Det gjorde den.*
+*Sist oppdatert 17. oktober 2026 — **datolinje og statusoverskrift rettet; kunngjøringsplanen merket med at MW17–20 kom 10.9.** Ingen datoer eller klokkeslett endret. Se «Endringer i denne versjonen — 17. oktober».*
+*Forrige: 9. oktober 2026 — **håndskrevne GW6–GW8-tabeller erstattet av generert blokk.** Spillerkolonnen hentes nå fra `picks/gw{n}.csv`; feilen med Calvert-Lewin på Everton kan ikke oppstå igjen.*
+*Forrige: 10. september 2026 — **kampprogramsjekk GW4–GW6: ingen flytting, ingen utsettelse, ingen BGW/DGW.** Alle 30 kamper står. Ett åpent punkt lukket: **Leeds–Crystal Palace ble kunngjort flyttet av Crystal Palace 1. september** (nivå 1). ⚠️ **Én påstand i GW5-seksjonen vist å være gal og fjernet:** at kampen ikke sto i PLs 7.7.-artikkel. Det gjorde den.*
 *Forrige: 8. september 2026 — **én setning i «Endringen 28. august» rettet:** påstanden om at Haalands minutter mot Norwich er ukjente ved GW5-deadline var gal og selvmotsigende. Cupkampen ligger 21 timer før deadline. Ingen datoer eller klokkeslett endret.*
 *Forrige: 3. september 2026, andre versjon — **Man City–Sunderland flyttet til søndag 20.9. 14:00** (nivå 1, mancity.com 28.8.). Ligacupens runde 3-datoer publisert. GW8-betingelsen lukket. GW4-deadline bekreftet i API-et. GW5- og GW6–GW8-tabeller ført inn. Én utledning i forrige versjon vist å være feil (Brentford).*
 *⚠️ **Første versjon samme dag hadde to egne feil, begge fanget av brukerens diff mot repo:** elleve klokkeslett i GW6–GW8-tabellen sto i UTC under en kolonne merket UK-tid, og endringsloggen påsto usant at ingenting var fjernet. Begge rettet. Se «Endringer i denne versjonen» nederst.*
@@ -12,7 +13,11 @@
 
 Denne filen er fasit for **datoer og klokkeslett**. `fixtures2627.csv` er fasit for **hvem som møter hvem i hvilken runde** — den er kontrollert 20. august og stemmer 30/30 på kamppar i GW1–3, men datokolonnen er ubrukelig fordi den setter hele runden til samme dag.
 
-## Status per 10. september 2026
+## Status
+
+**Gjeldende status står i den genererte blokka** («Strukturkontroll» og «Rundestruktur, alle 38») og i siste kampprogramsjekk i prosjektet. Tabellene under er historiske og oppdateres ikke.
+
+### Forrige status — per 10. september 2026, beholdt for sporbarhet
 
 | Sjekkpunkt | Funn |
 |---|---|
@@ -532,6 +537,8 @@ Fra premierleague.com «Dates when 2026/27 Premier League live TV fixtures will 
 
 PL presiserer at «fixtures are always advertised as being subject to change». **Merk at desember/januar-kunngjøringen (MW13–20, uken fra 19. oktober) er den som treffer Free Hit-vinduet GW16–19 i `02`.** Chip-planen kan ikke låses før den foreligger.
 
+✅ **Presisert 17. oktober:** MW17–20 ble kunngjort allerede **10. september** (`news/4713230`, Circular 5), ikke i uken fra 19. oktober. Det som gjenstår av desember/januar er **MW13–16**. I Free Hit-vinduet GW16–19 er altså GW17–19 låst på nivå 1; bare GW16 mangler. Fasit for om en kunngjøring er kommet er PLs rundskrivsliste (`premierleague.com/en/media/publications`, «Fixture Amendments … Circular N»), ikke denne tabellen.
+
 ## GW1 — faktisk resultat, ført inn 25. august 2026
 
 Alle ti kamper spilt 21.–24. august som oppsatt. **Ingen utsettelser, ingen flyttinger.**
@@ -727,3 +734,12 @@ Ingenting annet er slettet. Alle øvrige minusradene i diffen er linjer som stå
 
 **Uendret:** GW1–GW5-arkivet, ligacupseksjonene, betingede endringer, kilder og alle tidligere endringslogger.
 
+## Endringer i denne versjonen — 17. oktober 2026
+
+**Endret:** datolinjene «*Sist oppdatert 9. oktober 2026*» og «*Sist oppdatert 10. september 2026*» → «*Forrige: …*» (to linjer sto som gjeldende samtidig; teksten etter dato er uendret). Overskriften «## Status per 10. september 2026» → «## Status» med en pekerlinje til den genererte blokka, og den gamle tabellen under ny underoverskrift «### Forrige status — per 10. september 2026, beholdt for sporbarhet». Tabellinnholdet er uendret.
+
+**Lagt til:** ny datolinje øverst · ✅-merknad under kunngjøringsplanen om at MW17–20 kom 10.9. og at rundskrivslista er fasit · denne seksjonen.
+
+**Fjernet:** ingenting. Kontrollert mot `git diff`: tre minuslinjer, alle tre omskrevet over (to datolinjer og statusoverskriften).
+
+**Ikke rørt:** den genererte blokka.

@@ -1,6 +1,7 @@
 # Verifiseringsprotokoll
 
-*Sist oppdatert: 12. september 2026, sjuende versjon — **tre nye feillogger fra samme økt, alle utløst av én opplastet ukespublikasjon: et strukturelt salg anbefalt på én rundes fikstur mot ligaens høyeste xGI, to bytter presentert som uavhengige der det ene finansierte det andre, og en rangering hentet fra mål der kilden også oppga xGA. Avledet regel om at en fersk sekundærkilde ikke får overstyre et tall som allerede står verifisert i kontekstfilene.**
+*Sist oppdatert: 17. oktober 2026 — **fire feillogger fra kampprogramsjekkene 1.–15. oktober ført inn: to kunngjøringer om samme runde lest som én (GW9), en ukunngjort runde antatt uten å sjekke kunngjøringslista (GW17–20), en påstand om innholdet i `04` skrevet uten at fila var lest, og en PL-URL som serverer feil sesong. Ny regel: PLs rundskriv (Circular N) er primærkilde og diffgrunnlag for kampprogrammet.**
+*Forrige: 12. september 2026, sjuende versjon — **tre nye feillogger fra samme økt, alle utløst av én opplastet ukespublikasjon: et strukturelt salg anbefalt på én rundes fikstur mot ligaens høyeste xGI, to bytter presentert som uavhengige der det ene finansierte det andre, og en rangering hentet fra mål der kilden også oppga xGA. Avledet regel om at en fersk sekundærkilde ikke får overstyre et tall som allerede står verifisert i kontekstfilene.**
 *Forrige: 12. september 2026, sjette versjon — **datolinjeblokken var ødelagt av mine egne gjentatte programmatiske omskrivinger: fire «Forrige»-linjer var slått sammen til én og tre beskrivelser tapt. Rekonstruert. Ny feillogg med avledet regel om verifisering etter hver skriveoperasjon.**
 *Forrige: 12. september 2026, femte versjon — **ny feillogg: en fordeling utledet av et gjennomsnitt.** Egans 41 DC ble ført som «treffer terskelen i alle tre runder»; fordelingen er 21/13/7, altså to av tre og fallende. Tallet lå i `live/gw{n}.csv` og ble aldri åpnet. Avledet regel om at en terskeltelling krever rundetallene, aldri summen.*
 *Forrige: 12. september 2026, fjerde versjon — **ny feillogg: en sann egenskap ved en chip brukt som motargument i den ene situasjonen der den ikke virker.** «Chipen kan avbrytes» sto som trøst for at en søndagsoppstilling ikke kan verifiseres ved fredagsdeadline — men angrefristen er den samme deadlinen. Avledet regel om at en angremulighet må dateres mot informasjonen den skal brukes på. Blindvindu ført inn som ny variabel i `02`.*
@@ -449,7 +450,48 @@ Differansen er halvparten av Calafioris (+£0,3m) og João Pedros (+£0,2m) stig
 
 **Dette er salgsprisregelens spådom fra august, realisert.** Filen skrev 19. august at «£0,0m i banken er et valg om å ikke kunne gjennomføre sidebytter etter GW1». 12. september sto troppen **£0,3m** unna den eneste oppgraderingen som pekte seg ut (Tzolis → Ødegaard), og måtte finansiere den med et annet bytte i samme runde for å komme i mål. Spådommen var riktig; det som manglet var at noen handlet på den før den bet.
 
+## Ny regel, 17. oktober: PLs rundskriv er primærkilde for kampprogramendringer
+
+Premier League publiserer hver kampprogramendring som et nummerert rundskriv, «Premier League Fixture Amendments 2026/27 – Circular N» (PDF), på `premierleague.com/en/media/publications`. Per 17. oktober: Circular 4 (1.9.), 5 (10.9.) og 6 (21.9.). De svarer til nyhetssakene `4705445`, `4713230` og `4725574`.
+
+- **Nytt Circular-nummer = ny kunngjøring.** Sjekk lista før det søkes etter nyhetssaker. Står det ikke noe nytt nummer der, er det ikke kunngjort noe nytt — på nivå 1, ikke som «jeg fant ingen».
+- **Rundskrivet er diffgrunnlaget, ikke nyhetssaken.** Det er tabellarisk, med opprinnelig slot, ny slot og grunn («displaced match», europacup). Nyhetssaker lest gjennom `/es/` eller sammendrag har gitt både duplikater (Liverpool–Brighton, 10.9.) og feiloversatte vilkår (Villa–City, 8.10.).
+- **Rundskrivet kan ha skrivefeil.** Circular 6 fører Sunderland–Chelsea som «Saturday 8 November»; 8.11.2026 er søndag. Ukedag og dato kontrolleres mot hverandre og mot speilet før et avvik meldes.
+- **`premierleague.com/en/news/3774835` brukes ikke.** Adressen har to ganger (3.9. og 15.10.) servert 2025/26-innhold. Betingede endringer hentes fra fotnotene i rundskrivet og fra begge klubbers sider.
+
 ## Feillogg
+
+### Ny feil, 15. oktober: en påstand om hva en kilde inneholdt kunne ikke reproduseres
+
+Kampprogramsjekken 8. oktober skrev om `news/3774835`: «lest i dag, 29.8.2026, fortsatt tom liste». Hentingen 15. oktober ga **2025/26-innhold** (Spurs–Wolves, Burnley–Leeds), samme feilsesong som ble forkastet 3. september. Enten serverer adressen ulikt innhold fra gang til gang, eller så ble påstanden skrevet uten at innholdet var lest. Hvilken av delene er ikke avgjort.
+
+**Rotårsak:** en adresse som allerede var forkastet for feil sesong 3. september, ble brukt på nytt 8. oktober uten at forkastingen i `04` ble lest først.
+
+**Avledet regel:** en kilde som er forkastet for feil sesong, er forkastet til det motsatte er vist med en detalj som bare kan høre til riktig sesong (et lag som er nyopprykket, en dato som bare finnes i årets kalender). En «tom liste» er ikke en slik detalj — den kan like gjerne være en tom side.
+
+### Ny feil, 8. oktober: en påstand om innholdet i `04` skrevet uten at fila var lest
+
+Kampprogramsjekken 8. oktober skrev at `04` «har ingenting om» den betingede endringen på Aston Villa–Man City. Feil — den ble lukket i `04` 3. september, med samme konklusjon. Rettet i `04` 9. oktober.
+
+**Rotårsak:** fila ble hentet, men ikke lest før påstanden ble skrevet. Samme feiltype som 4. september og 8. september («påstand levert fra minne mot filer som sto åpne»).
+
+**Avledet regel:** «X står ikke i fila» er en påstand om hele fila. Den skrives bare etter et søk i fila etter navnet, kampen eller artikkel-ID-en — ikke etter å ha lest et utdrag.
+
+### Ny feil, 8. oktober: to kunngjøringer om samme runde lest som én (GW9)
+
+Kampprogramsjekken 1. oktober skrev «verifisert rad for rad mot `news/4688862`: 10 av 10 identiske med speilet» for GW9. Den artikkelen har Aston Villa–Fulham **søn 1.11. 14:00**; speilet har **lør 31.10. 20:00**. Mot den artikkelen var GW9 9 av 10. Begrunnelsen som ble sitert («due to Villa's UCL match on 3 Nov») står i `news/4705445` (1.9.), en artikkel samme rapport sa den ikke hadde lest. Samme rapport bortforklarte Liverpool–Brighton på to datoer som en sammendragsfeil; det var to artikler med to datoer.
+
+**Rotårsak:** innholdet i den nyere artikkelen ble tilskrevet den eldre, og et avvik mot nivå 1 ble forklart som lesefeil uten å sjekke om en nyere kunngjøring forklarte det.
+
+**Avledet regel:** en runde kan være dekket av flere kunngjøringer, og den nyeste gjelder. Før «0 avvik» skrives mot en navngitt kilde, oppgi hvor mange rader kilden faktisk inneholder og hvor mange som er diffet. Et avvik mot nivå 1 behandles aldri som lesefeil før det er sjekket om et nyere rundskriv forklarer det.
+
+### Ny feil, 8. oktober: en kunngjort runde antatt ukunngjort (GW17–20)
+
+Kampprogramsjekken 1. oktober førte spredningen av avsparkstider i GW17 og GW19 som «grunnoppsettet, ikke kringkastervalg … ført som antakelse, ikke funn». MW17–20 var kunngjort **10. september** (`news/4713230`, Circular 5). Ingen kjøring hadde registrert artikkelen før 8. oktober.
+
+**Rotårsak:** kunngjøringsplanen (`news/4675211`) ble lest som fasit for *når* kunngjøringer kommer, og det som lå utenfor planen ble ikke sett etter. Merkingen «antakelse» holdt fila fra å påstå noe den ikke visste, men lukket ikke punktet.
+
+**Avledet regel:** om en runde er kunngjort, avgjøres av rundskrivslista, ikke av planen. PL kan kunngjøre tidligere enn planen sier — her fem uker tidligere.
 
 ### Ny feil, 12. september: en skriveoperasjon slettet innhold i kontekstfila, og ble ikke oppdaget ved lesing
 
