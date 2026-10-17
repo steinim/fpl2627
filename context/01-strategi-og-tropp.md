@@ -1,6 +1,6 @@
 # Strategi og tropp
 
-*Sist oppdatert: 17. oktober 2026, tredje versjon — **B.Fernandes vurdert på nytt på rundedata: forsvarer ikke £11,8m, planlagt solgt i GW8 med frikjøpet. Erstatter ikke valgt.** GW7-begrunnelsen for å beholde ham («xGI nest høyest blant MID») er strøket: han er tredje, og 2,50 av 4,04 xGI kom i GW2. Saka-kjøpet etterprøvd på samme måte og holder. Ny seksjon nederst. Feilen loggført i `03`.*
+*Sist oppdatert: 17. oktober 2026, tredje versjon — **B.Fernandes vurdert på nytt på rundedata: forsvarer ikke £11,8m, planlagt solgt i GW8 med frikjøpet. Erstatter ikke valgt.** GW7-begrunnelsen for å beholde ham («xGI nest høyest blant MID») er strøket: han er tredje, og 2,50 av 4,04 xGI kom i GW2. Saka-kjøpet etterprøvd på samme måte og holder. Ny seksjon nederst. Feilen loggført i `03`. Modellens minuttskalering flagget: den talte João Pedros skadefravær i GW5 som framtidig, og salget hans i GW9 er strøket i `02`.*
 *Forrige: 17. oktober 2026, andre versjon — **GW7 utført og bekreftet i appen av brukeren før deadline: Gibbs-White → Groß, N.Williams → Thomas (COV), Ødegaard → Saka.** Tre frikjøp, 0 poeng kostnad, bank £0,3m. Raya-byttet og De Cuyper-byttet vurdert og ikke tatt. Gjeldende tropp står i GW7-seksjonen nederst.*
 *Forrige: 17. oktober 2026 — **GW5 og GW6 ført inn etterskuddsvis fra `fpl-data`** (filen sto stille fra 12.9. til 17.10.). GW6-byttet Calvert-Lewin → Barry ført som faktum. GW7-forslaget ført som **forslag, ikke utført** — se nederst. Anti-drift-metrikken erklært utløpt som styringstall, ikke redefinert.*
 *Forrige: 12. september 2026, tredje versjon — **byttene og laguttaket er bekreftet gjennomført i appen av brukeren, etter deadline 12:30Z.** Filen sto fram til nå som om byttene var utført mens de faktisk ikke var det; tilstanden og teksten er nå sammenfallende. I tillegg: B.Fernandes → Palmer vurdert og avvist på nytt samme dag, og motstanderleddet i kapteinsbegrunnelsen rettet fra innslupne mål til xGA.*
@@ -1152,7 +1152,7 @@ Forslaget ble lagt fram i økten som en følge av LazyFPLs GW4-utgave, som sette
 | 2 | N.Williams NFO £5,0m | Thomas COV £4,0m | 3,92 → 4,44 | Finansierer Saka. Thomas: 6/6 starter, 527 min, 74 DC-handlinger (12,6 per 90, over terskel 10) |
 | 3 | Ødegaard ARS | Saka ARS £9,6m | 4,62 → 6,23 | Største gevinst i gjennomgangen. Saka xG 3,62 (nr. 3 i ligaen), 37 berøringer i feltet (nr. 2) |
 
-«Forventet per runde» er en enkel modell: oppmøte + xG × målpoeng + xA × 3 + e^(−xGC/90) × CS-poeng − xGC/2 (DEF/GK) + grovt DC-ledd, skalert med minutter/540. Poengverdier fra `05`. Grov, men lik for alle, og brukes kun til rangering.
+«Forventet per runde» er en enkel modell: oppmøte + xG × målpoeng + xA × 3 + e^(−xGC/90) × CS-poeng − xGC/2 (DEF/GK) + grovt DC-ledd, skalert med minutter/540. Poengverdier fra `05`. Grov, men lik for alle, og brukes kun til rangering. ⚠️ **17.10.: skaleringen med minutter/540 teller historisk fravær som framtidig** (João Pedro: 0 min i GW5 var en skade som er over). Modellen brukes ikke igjen før den er regnet om til rate × forventede minutter. Se `03`, minimumskrav 11.
 
 **Anti-drift, besluttet:** £1,0m flyttet fra forsvar til midtbane. Dette er en endring av lagets form, lagt fram som det og godkjent av brukeren. Klubber: ARS 2 · BHA 2 · MUN 2 · HUL 2 · IPS 2 · COV 1 · MCI 1 · CHE 1 · EVE 1 · TOT 1. Bank £0,3m — blokkerer Raya i GW8 (Kinsky £4,5m + £0,3m).
 
@@ -1261,6 +1261,7 @@ Rundedata fra `element-summary/{id}` for alle fem, hentet 17.10. Summene kontrol
 | Cherki | £7,9m | 392 | 0,69 | 0,61 | 30 | Under 66 min i tre av seks kamper (27, 65, 45). MCI blir 2 med Haaland |
 | Mbeumo | £7,8m | 540 | 0,70 | 0,45 | 22 | 1,97 av 4,21 xGI i GW2 — samme svakhet, mindre utslag |
 | Rogers | £7,9m | 520 | 0,55 | 0,43 | 29 | 0,26 per 90 i GW3–6. CHE blir 2 med João Pedro |
+| Palmer | £9,7m | 529 | 0,37 | 0,28 | 23 | 6 mål + assist på 2,17 xGI. 0,23 per 90 i GW3–6. Vurdert som hit-kjøp før GW7-deadline og avvist |
 | **B.Fernandes** | **£11,8m** | 540 | 0,67 | **0,31** | **9** | Nest dyreste i spillet. Palmer, nr. 3, koster £9,7m |
 
 **12.9.-avvisningen av Fernandes → Palmer hvilte på samme kamp.** «Høyest xGI i hele ligaen» var 3,05 i GW1–3. 2,50 av dem var GW2. Palmer-avvisningen kan ha vært riktig av andre grunner (Palmer 0,37 per 90 i dag), men begrunnelsen «ligaens beste underliggende produsent» var én kamp.

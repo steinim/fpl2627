@@ -1,6 +1,6 @@
 # Verifiseringsprotokoll
 
-*Sist oppdatert: 17. oktober 2026, tredje versjon — **ny feillogg: B.Fernandes beholdt på en sesongsum, og etterprøvingen leverte en gal mekanisme med forbehold der et oppslag var mulig. Ny seksjon: «Minimumskrav før en spillervurdering». Verktøyraden for `element-summary` rettet — WebFetch når den.***
+*Sist oppdatert: 17. oktober 2026, tredje versjon — **ny feillogg: B.Fernandes beholdt på en sesongsum, og etterprøvingen leverte en gal mekanisme med forbehold der et oppslag var mulig. Ny seksjon: «Minimumskrav før en spillervurdering». Verktøyraden for `element-summary` rettet — WebFetch når den. Deretter: ny feillogg om at modellen talte João Pedros skadefravær som framtidig, og minimumskrav 11 (minutter) lagt til.***
 *Forrige: 17. oktober 2026, andre versjon — **fire feillogger fra GW7-økten: kontekstfilene sto stille i fem uker, et utdatert tall bærte en salgsbegrunnelse, sesongpoeng ble brukt som bevis for et bytte en tidligere økt hadde avvist på samme grunnlag, og anbefalingen vinglet fordi modellen ble byttet underveis. Ny regel: premierleague.com/injuries som første sjekkpunkt for lagnytt.***
 *Forrige: 17. oktober 2026 — **fire feillogger fra kampprogramsjekkene 1.–15. oktober ført inn: to kunngjøringer om samme runde lest som én (GW9), en ukunngjort runde antatt uten å sjekke kunngjøringslista (GW17–20), en påstand om innholdet i `04` skrevet uten at fila var lest, og en PL-URL som serverer feil sesong. Ny regel: PLs rundskriv (Circular N) er primærkilde og diffgrunnlag for kampprogrammet.**
 *Forrige: 12. september 2026, sjuende versjon — **tre nye feillogger fra samme økt, alle utløst av én opplastet ukespublikasjon: et strukturelt salg anbefalt på én rundes fikstur mot ligaens høyeste xGI, to bytter presentert som uavhengige der det ene finansierte det andre, og en rangering hentet fra mål der kilden også oppga xGA. Avledet regel om at en fersk sekundærkilde ikke får overstyre et tall som allerede står verifisert i kontekstfilene.**
@@ -202,6 +202,7 @@ Gjelder enhver konklusjon om å kjøpe, selge eller beholde en spiller, og hver 
 8. **Lagnytt.** premierleague.com/injuries først, deretter klubbens side. Yngre enn fire uker.
 9. **Alt som kan slås opp i økten, slås opp.** Et forbehold er bare lovlig når alle veier er prøvd og navngitt i svaret: `curl`, WebFetch, nettleser. Ett mislykket verktøy er ikke «blokkert».
 10. **Konklusjonen merkes.** Oppgi hvilke ledd som er verifisert, hvilke som er utledet og hvilke som ikke er funnet.
+11. **Minutter: rate og tilgjengelighet skilles.** Forventning = rate per 90 × forventede minutter framover. Hvert fravær i dataene får en årsak slått opp før forventede minutter settes. Skade som er over gir fulle minutter. Rotasjon eller innbytterrolle gir observert andel. Skadet nå gir 0. Skalering med minutter/540 brukes ikke — den teller et lukket fravær som framtidig.
 
 ## Generalprøven er det sterkeste signalet — men les årsaken
 
@@ -477,6 +478,20 @@ Premier League publiserer hver kampprogramendring som et nummerert rundskriv, «
 - **`premierleague.com/en/news/3774835` brukes ikke.** Adressen har to ganger (3.9. og 15.10.) servert 2025/26-innhold. Betingede endringer hentes fra fotnotene i rundskrivet og fra begge klubbers sider.
 
 ## Feillogg
+
+### Ny feil, 17. oktober: modellen talte et lukket fravær som framtidig — João Pedro planlagt solgt på en skade han var frisk fra
+
+**Hva skjedde:** GW9-raden i `02` planla João Pedro ut fordi han hadde «lavest forventning blant XI-angriperne (3,61, trukket ned av 0 min i GW5)». Modellen skalerer med minutter/540. De 0 minuttene i GW5 var en skade: han trakk seg fra Brasil-troppen 16.9., var ute i ca. 3,5 uker gjennom landslagspausen og kom tilbake i GW6 med 71 minutter og 2 mål. Per 90 spilt har han 0,64 xGI.
+
+**Forverrende:**
+1. Raden skrev selv «trukket ned av 0 min i GW5». Artefakten var synlig, og ble likevel brukt.
+2. I svaret kl. 11:53 skrev jeg «årsaken er ikke slått opp» i stedet for å slå den opp. Det var 20 minutter etter at minimumskrav 9 («Alt som kan slås opp i økten, slås opp») ble skrevet. Brukeren måtte selv oppgi årsaken. Ett søk bekreftet den.
+
+**Rotårsak:** modellen blander rate og tilgjengelighet i ett tall. Historisk fravær blir framtidig fravær uansett årsak.
+
+**Avledet regel:** minimumskrav 11 (ny). Modellen «forventet per runde» i `01` regnes om til rate × forventede minutter før den brukes igjen.
+
+**Omfang, kontrollert 17.10. mot `players.csv`:** i dagens tropp er João Pedro den eneste med en hel kamp borte. Øvrige minuttavvik er innbytterminutter (Ødegaard 466, Calafiori 497, Barry 502, Saka 506), der skaleringen gir et lite, reelt fradrag. Cherki (392 min, 5 starter) er rotasjon, og fradraget hans er reelt. Ingen av GW7-byttene snur av feilen. Ødegaard → Saka hadde størst eksponering, men Saka leder også per 90 (0,83 mot 0,65).
 
 ### Ny feil, 17. oktober: B.Fernandes beholdt på en sesongsum — og etterprøvingen leverte en gal mekanisme med forbehold der et oppslag var mulig
 
