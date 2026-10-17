@@ -1,6 +1,6 @@
 # Byttepakker — generert
 
-*Generert 17.10.2026 kl. 12:31 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW8–12. Bytter vurderes i GW8 og GW9. Maks minuspoeng per runde: 0.*
+*Generert 17.10.2026 kl. 12:35 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW8–12. Bytter vurderes i GW8 og GW9. Maks minuspoeng per runde: 0.*
 
 ## Kontroller
 
@@ -86,27 +86,6 @@ Svarer på «bør X selges?»: den beste lovlige planen der spilleren går ut, m
 | **Barry ut:** GW8: Groß → E.Le Fée · GW9: Barry → Gonzalo | 0 | **+0.90** | +0.56 | +0.83 | £0.7m | £0.3m | — |
 | **João Pedro ut:** GW9: Slater → E.Le Fée, João Pedro → Gonzalo | 0 | **+4.32** | +2.93 | +0.00 | £0.3m | £0.6m | — |
 
-## B.Fernandes ut
-
-**GW9: Slater → E.Le Fée, B.Fernandes → Gibbs-White** — +1.51 mot å spare (robust +3.34).
-
-- Klubber etter: ARS 2 · BHA 2 · IPS 2 · CHE 1 · COV 1 · EVE 1 · HUL 1 · MCI 1 · MUN 1 · NFO 1 · SUN 1 · TOT 1
-- Keeper- og forsvarsbudsjett (nåpris): £31.1m → £31.1m. Topplagsandelen regnes ikke — `01` har erklært den utløpt som styringstall.
-- Bank: £0.3m → £0.3m etter GW8 → £2.9m etter GW9
-- Endring per runde: GW8 +0.00, GW9 +0.48, GW10 +0.25, GW11 +0.57, GW12 +0.21
-
-De fem beste planene som selger ham:
-
-| Plan | Minus | Endring GW8–12 | Robust endring | Endring GW8 | Bank etter GW8 | Bank etter GW9 | Klubber med 3 |
-|---|---|---|---|---|---|---|---|
-| GW9: Slater → E.Le Fée, B.Fernandes → Gibbs-White | 0 | **+1.51** | +3.34 | +0.00 | £0.3m | £2.9m | — |
-| GW9: Slater → Gibbs-White, B.Fernandes → Rogers | 0 | **+1.16** | +4.35 | +0.00 | £0.3m | £0.7m | — |
-| GW9: Slater → Ødegaard, B.Fernandes → Gibbs-White | 0 | **+0.96** | +2.90 | +0.00 | £0.3m | £1.8m | ARS |
-| GW9: Slater → E.Le Fée, B.Fernandes → Rogers | 0 | **+0.93** | +2.66 | +0.00 | £0.3m | £3.0m | — |
-| GW9: Slater → Ødegaard, B.Fernandes → E.Le Fée | 0 | **+0.72** | +1.21 | +0.00 | £0.3m | £4.1m | ARS |
-
-Beste plan som beholder ham: **GW8: Groß → E.Le Fée · GW9: Egan → Bogle**, +4.92 mot å spare.
-
 ## Anti-drift for de tre beste planene
 
 **GW8: Groß → E.Le Fée · GW9: Egan → Bogle**
@@ -143,7 +122,6 @@ Flaggene kommer fra `forventning.py`. Én kamp som bærer xGI-en, slår ut i rob
 | Mitchell | CRY | DEF | £4.5m | 5.8 % | 16.06 | 14.39 | 0.91 | én kamp (GW3) står for 64% av xGI |
 | Justin | LEE | DEF | £4.5m | 2.0 % | 15.88 | 15.68 | 0.91 | — |
 | E.Le Fée | SUN | MID | £5.7m | 3.0 % | 22.18 | 19.03 | 0.91 | — |
-| Rogers | CHE | MID | £7.9m | 47.2 % | 21.82 | 20.40 | 0.91 | — |
 | Ødegaard | ARS | MID | £6.8m | 19.1 % | 21.62 | 18.49 | 0.91 | — |
 | Gibbs-White | NFO | MID | £8.0m | 12.2 % | 21.35 | 20.09 | 0.68 | første straffeskytter (penalties_order 1) · GW8: FPL-sjanse 75 % |
 | Rudoni | COV | MID | £4.9m | 0.2 % | 18.98 | 17.32 | 0.91 | første straffeskytter (penalties_order 1) |
