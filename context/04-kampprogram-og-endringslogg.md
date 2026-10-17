@@ -1,6 +1,7 @@
 # Kampprogram — verifisert kalender og endringslogg
 
-*Opprettet 20. august 2026. Vedlikeholdes av den planlagte kampprogram-sjekken.*
+*Opprettet 20. august 2026. **Kampprogramblokka genereres av `scripts/gen_kampprogram.py` (GitHub Actions, to ganger daglig) — rediger den aldri for hånd.** Endringslogg og verifiseringsnotater under vedlikeholdes av den planlagte kampprogramsjekken.*
+*Sist oppdatert 9. oktober 2026 — **håndskrevne GW6–GW8-tabeller erstattet av generert blokk.** Spillerkolonnen hentes nå fra `picks/gw{n}.csv`; feilen med Calvert-Lewin på Everton kan ikke oppstå igjen.*
 *Sist oppdatert 10. september 2026 — **kampprogramsjekk GW4–GW6: ingen flytting, ingen utsettelse, ingen BGW/DGW.** Alle 30 kamper står. Ett åpent punkt lukket: **Leeds–Crystal Palace ble kunngjort flyttet av Crystal Palace 1. september** (nivå 1). ⚠️ **Én påstand i GW5-seksjonen vist å være gal og fjernet:** at kampen ikke sto i PLs 7.7.-artikkel. Det gjorde den.*
 *Forrige: 8. september 2026 — **én setning i «Endringen 28. august» rettet:** påstanden om at Haalands minutter mot Norwich er ukjente ved GW5-deadline var gal og selvmotsigende. Cupkampen ligger 21 timer før deadline. Ingen datoer eller klokkeslett endret.*
 *Forrige: 3. september 2026, andre versjon — **Man City–Sunderland flyttet til søndag 20.9. 14:00** (nivå 1, mancity.com 28.8.). Ligacupens runde 3-datoer publisert. GW8-betingelsen lukket. GW4-deadline bekreftet i API-et. GW5- og GW6–GW8-tabeller ført inn. Én utledning i forrige versjon vist å være feil (Brentford).*
@@ -218,70 +219,160 @@ Deadline: fredag 18. september 18:30 BST / 19:30 norsk.
 
 Ingen spillere i troppen berøres.
 
-## GW6–GW8 — kontrollert 3. september, ingen endring
+<!-- GENERERT:KAMPPROGRAM:START -->
 
-Alle 30 kamper hentet fra FPL-API-et 3. september, `provisional_start_time: false` gjennomgående, ti kamper per runde. Kryssjekket rad for rad mot PLs amendment-artikkel av 17. august for de kampene den dekker. Ingen avvik.
+## Kampprogram — generert fra speilet
 
-✅ **GW6 re-kontrollert 10. september**, rad for rad mot både `news/4688862` (17.8., nivå 1) og `fpl-data`-speilet (snapshot 06:38Z). Alle ti kamper og klokkeslett identiske med tabellen under. GW7 og GW8 er ikke re-kontrollert denne kjøringen — de ligger utenfor de tre nærmeste rundene.
+*Generert 09.10.2026 kl. 06:52 UTC av `scripts/gen_kampprogram.py` fra `fpl-data`. **Rør ikke denne blokka for hånd** — endringer blir overskrevet ved neste kjøring. Endringsloggen og verifiseringsnotatene ligger under markøren.*
 
-**Alle tretti kampene står her, ikke bare de med spillere i troppen** — det er hele poenget med regelen fra Man City-flyttingen: en runde uten tabell kan ikke diffes neste gang.
+**Strukturkontroll: ingen avvik.** 380 kamper, 38 runder, 20 lag, alle runder med nøyaktig 10 kamper og 20 unike lag. Ingen blankrunde, ingen dobbelrunde, 0 kamper med foreløpig klokkeslett. csv og json i speilet er identiske.
 
-⚠️ **Klokka stilles natt til søndag 25. oktober.** Fram til og med lørdag 24. oktober er UK-tid = UTC + 1 (BST). Fra søndag 25. oktober er UK-tid = UTC (GMT). GW8 har derfor to omregningsregler internt i samme runde. Kolonnen under er UK-tid, ferdig omregnet.
+**Spillerkolonnen bygger på `entry/picks/gw5.csv`** (15 spillere) — nyeste tilgjengelige øyeblikksbilde. Bytter gjort etter GW5-deadline vises ikke.
 
-### GW6 — lørdag 10. til mandag 12. oktober
+
+### GW6
 
 | Dato | UK-tid | Kamp | Troppen |
 |---|---|---|---|
-| lør 10.10. | 12:30 | Arsenal – Leeds | Calafiori, Tzolis |
+| lør 10.10. | 12:30 | Arsenal – Leeds | Calafiori, Calvert-Lewin, Ødegaard |
 | lør 10.10. | 15:00 | Aston Villa – Brentford | — |
 | lør 10.10. | 15:00 | Chelsea – Bournemouth | João Pedro |
-| lør 10.10. | 15:00 | Ipswich – Fulham | Davis, Diop |
+| lør 10.10. | 15:00 | Ipswich Town – Fulham | Davis, Diop |
 | lør 10.10. | 15:00 | Sunderland – Brighton | Verbruggen |
-| lør 10.10. | 17:30 | Man Utd – Tottenham | B.Fernandes, Mbeumo, Shaw, Kinsky |
-| søn 11.10. | 14:00 | Crystal Palace – Nottingham Forest | N.Williams, Gibbs-White |
-| søn 11.10. | 14:00 | Hull – Everton | Slater, Calvert-Lewin |
+| lør 10.10. | 17:30 | Man Utd – Spurs | B.Fernandes, Kinsky, Mbeumo |
+| søn 11.10. | 14:00 | Crystal Palace – Nott'm Forest | Gibbs-White, N.Williams |
+| søn 11.10. | 14:00 | Hull City – Everton | Egan, Slater |
 | søn 11.10. | 16:30 | Liverpool – Man City | Haaland |
-| man 12.10. | 20:00 | Coventry – Newcastle | — |
+| man 12.10. | 20:00 | Coventry City – Newcastle | — |
 
-Man Utd–Tottenham samler fire spillere i én kamp, som Man Utd–Man City i GW4. Hull–Everton setter Slater direkte mot Calvert-Lewin.
+15 spillere i spill. Interne oppgjør: Arsenal–Leeds (3), Man Utd–Spurs (3).
 
-### GW7 — lørdag 17. til mandag 19. oktober
+### GW7
 
 | Dato | UK-tid | Kamp | Troppen |
 |---|---|---|---|
-| lør 17.10. | 12:30 | Everton – Chelsea | Calvert-Lewin, João Pedro |
+| lør 17.10. | 12:30 | Everton – Chelsea | João Pedro |
 | lør 17.10. | 15:00 | Brentford – Liverpool | — |
-| lør 17.10. | 15:00 | Fulham – Hull | Slater |
-| lør 17.10. | 15:00 | Man City – Ipswich | Haaland, Davis, Diop |
+| lør 17.10. | 15:00 | Fulham – Hull City | Egan, Slater |
+| lør 17.10. | 15:00 | Man City – Ipswich Town | Davis, Diop, Haaland |
 | lør 17.10. | 17:30 | Newcastle – Aston Villa | — |
 | søn 18.10. | 14:00 | Bournemouth – Sunderland | — |
 | søn 18.10. | 14:00 | Brighton – Crystal Palace | Verbruggen |
-| søn 18.10. | 14:00 | Leeds – Man Utd | B.Fernandes, Mbeumo, Shaw |
-| søn 18.10. | 16:30 | Nottingham Forest – Arsenal | N.Williams, Gibbs-White, Calafiori, Tzolis |
-| man 19.10. | 20:00 | Tottenham – Coventry | Kinsky |
+| søn 18.10. | 14:00 | Leeds – Man Utd | B.Fernandes, Calvert-Lewin, Mbeumo |
+| søn 18.10. | 16:30 | Nott'm Forest – Arsenal | Calafiori, Gibbs-White, N.Williams, Ødegaard |
+| man 19.10. | 20:00 | Spurs – Coventry City | Kinsky |
 
-To interne oppgjør: Everton–Chelsea og Forest–Arsenal, sistnevnte med fire spillere fordelt på begge sider. Man City–Ipswich setter Haaland mot Davis og Diop.
+15 spillere i spill. Interne oppgjør: Man City–Ipswich Town (3), Leeds–Man Utd (3), Nott'm Forest–Arsenal (4).
 
-### GW8 — fredag 23. til søndag 25. oktober
+### GW8
 
 | Dato | UK-tid | Kamp | Troppen |
 |---|---|---|---|
-| fre 23.10. | 20:00 | Ipswich – Nottingham Forest | Davis, Diop, N.Williams, Gibbs-White |
+| fre 23.10. | 20:00 | Ipswich Town – Nott'm Forest | Davis, Diop, Gibbs-White, N.Williams |
 | lør 24.10. | 12:30 | Aston Villa – Man City | Haaland |
-| lør 24.10. | 15:00 | Arsenal – Everton | Calafiori, Tzolis, Calvert-Lewin |
-| lør 24.10. | 15:00 | Coventry – Fulham | — |
-| lør 24.10. | 17:30 | Chelsea – Tottenham | João Pedro, Kinsky |
+| lør 24.10. | 15:00 | Arsenal – Everton | Calafiori, Ødegaard |
+| lør 24.10. | 15:00 | Coventry City – Fulham | — |
+| lør 24.10. | 17:30 | Chelsea – Spurs | João Pedro, Kinsky |
 | søn 25.10. | 14:00 | Crystal Palace – Newcastle | — |
-| søn 25.10. | 14:00 | Hull – Brentford | Slater |
+| søn 25.10. | 14:00 | Hull City – Brentford | Egan, Slater |
 | søn 25.10. | 14:00 | Liverpool – Brighton | Verbruggen |
-| søn 25.10. | 14:00 | Man Utd – Bournemouth | B.Fernandes, Mbeumo, Shaw |
-| søn 25.10. | 16:30 | Sunderland – Leeds | — |
+| søn 25.10. | 14:00 | Man Utd – Bournemouth | B.Fernandes, Mbeumo |
+| søn 25.10. | 16:30 | Sunderland – Leeds | Calvert-Lewin |
 
-**Fire interne oppgjør i én runde:** Ipswich–Forest (fire spillere), Arsenal–Everton (tre), Chelsea–Tottenham (to). Det er den tetteste runden så langt på spillere som møter hverandre.
+15 spillere i spill. Interne oppgjør: Ipswich Town–Nott'm Forest (4), Chelsea–Spurs (2).
 
-⚠️ **Rettet 3. september, samme dag.** Første versjon av disse tre tabellene hadde UTC-verdier i en kolonne merket UK-tid — elleve av tjue rader én time gale, og én rad med feil ukedag (Ipswich–Fulham). Feilen sto i en tabell hvor teksten over påsto at den var kryssjekket mot PLs artikkel; kryssjekken ville tatt den umiddelbart, og var altså ikke gjort. **Dette er tredje gang samme tidssonefeil er loggført** (27.8., 28.8., 3.9. — se `03`). De to første gangene var det to klokkeslett som ble trukket fra hverandre uten å konvertere; denne gangen var det et felt kopiert fra API-et uten å konverteres i det hele tatt.
+⚠️ **Klokka stilles inne i denne runden** — kampene ligger i både BST og GMT. Kolonnen er ferdig omregnet til UK-tid.
 
-**Regelen som følger:** API-et oppgir UTC. Skriver du et klokkeslett i en kolonne merket UK-tid, skal konverteringen gjøres i samme operasjon som avlesningen, ikke som et etterarbeid. Og en påstand om at en tabell er kryssjekket mot en annen kilde skal ikke skrives før kryssjekken faktisk er utført rad for rad.
+### GW9
+
+| Dato | UK-tid | Kamp | Troppen |
+|---|---|---|---|
+| lør 31.10. | 12:30 | Chelsea – Man Utd | B.Fernandes, João Pedro, Mbeumo |
+| lør 31.10. | 15:00 | Bournemouth – Leeds | Calvert-Lewin |
+| lør 31.10. | 15:00 | Brentford – Nott'm Forest | Gibbs-White, N.Williams |
+| lør 31.10. | 15:00 | Coventry City – Sunderland | — |
+| lør 31.10. | 15:00 | Hull City – Ipswich Town | Davis, Diop, Egan, Slater |
+| lør 31.10. | 15:00 | Man City – Brighton | Haaland, Verbruggen |
+| lør 31.10. | 17:30 | Spurs – Crystal Palace | Kinsky |
+| lør 31.10. | 20:00 | Aston Villa – Fulham | — |
+| søn 1.11. | 16:30 | Liverpool – Arsenal | Calafiori, Ødegaard |
+| man 2.11. | 20:00 | Newcastle – Everton | — |
+
+15 spillere i spill. Interne oppgjør: Chelsea–Man Utd (3), Hull City–Ipswich Town (4), Man City–Brighton (2).
+
+### GW10
+
+| Dato | UK-tid | Kamp | Troppen |
+|---|---|---|---|
+| fre 6.11. | 20:00 | Everton – Coventry City | — |
+| lør 7.11. | 12:30 | Leeds – Spurs | Calvert-Lewin, Kinsky |
+| lør 7.11. | 15:00 | Arsenal – Hull City | Calafiori, Egan, Slater, Ødegaard |
+| lør 7.11. | 15:00 | Fulham – Newcastle | — |
+| lør 7.11. | 17:30 | Nott'm Forest – Man City | Gibbs-White, Haaland, N.Williams |
+| søn 8.11. | 14:00 | Brighton – Brentford | Verbruggen |
+| søn 8.11. | 14:00 | Crystal Palace – Liverpool | — |
+| søn 8.11. | 14:00 | Ipswich Town – Bournemouth | Davis, Diop |
+| søn 8.11. | 14:00 | Sunderland – Chelsea | João Pedro |
+| søn 8.11. | 16:30 | Man Utd – Aston Villa | B.Fernandes, Mbeumo |
+
+15 spillere i spill. Interne oppgjør: Leeds–Spurs (2), Arsenal–Hull City (4), Nott'm Forest–Man City (3).
+
+### Deadlines
+
+| Runde | Deadline (UTC) | Deadline (UK) |
+|---|---|---|
+| GW6 | `2026-10-10T10:00:00Z` | lør 10.10. 11:00 |
+| GW7 | `2026-10-17T10:00:00Z` | lør 17.10. 11:00 |
+| GW8 | `2026-10-23T17:30:00Z` | fre 23.10. 18:30 |
+| GW9 | `2026-10-31T11:00:00Z` | lør 31.10. 11:00 |
+| GW10 | `2026-11-06T18:30:00Z` | fre 6.11. 18:30 |
+
+### Rundestruktur, alle 38
+
+Antall ulike avsparkstidspunkt per runde. Står alle ti kampene på samme slott, er kringkastervalget for den runden ikke kunngjort ennå.
+
+| Runde | Kamper | Ulike slott | Datoer |
+|---|---|---|---|
+| GW1 | 10 | 7 | 21.08.–24.08. |
+| GW2 | 10 | 7 | 28.08.–31.08. |
+| GW3 | 10 | 6 | 04.09.–06.09. |
+| GW4 | 10 | 6 | 12.09.–14.09. |
+| GW5 | 10 | 6 | 18.09.–20.09. |
+| GW6 | 10 | 6 | 10.10.–12.10. |
+| GW7 | 10 | 6 | 17.10.–19.10. |
+| GW8 | 10 | 6 | 23.10.–25.10. |
+| GW9 | 10 | 6 | 31.10.–02.11. |
+| GW10 | 10 | 6 | 06.11.–08.11. |
+| GW11 | 10 | 6 | 21.11.–23.11. |
+| GW12 | 10 | 6 | 27.11.–29.11. |
+| GW13 | 10 | 1 — **ikke kunngjort** | 02.12. |
+| GW14 | 10 | 1 — **ikke kunngjort** | 05.12. |
+| GW15 | 10 | 1 — **ikke kunngjort** | 12.12. |
+| GW16 | 10 | 1 — **ikke kunngjort** | 19.12. |
+| GW17 | 10 | 7 | 26.12.–27.12. |
+| GW18 | 10 | 4 | 29.12.–30.12. |
+| GW19 | 10 | 6 | 01.01.–03.01. |
+| GW20 | 10 | 5 | 05.01.–07.01. |
+| GW21 | 10 | 1 — **ikke kunngjort** | 16.01. |
+| GW22 | 10 | 1 — **ikke kunngjort** | 23.01. |
+| GW23 | 10 | 1 — **ikke kunngjort** | 30.01. |
+| GW24 | 10 | 1 — **ikke kunngjort** | 06.02. |
+| GW25 | 10 | 1 — **ikke kunngjort** | 10.02. |
+| GW26 | 10 | 1 — **ikke kunngjort** | 20.02. |
+| GW27 | 10 | 1 — **ikke kunngjort** | 27.02. |
+| GW28 | 10 | 1 — **ikke kunngjort** | 03.03. |
+| GW29 | 10 | 1 — **ikke kunngjort** | 13.03. |
+| GW30 | 10 | 1 — **ikke kunngjort** | 20.03. |
+| GW31 | 10 | 1 — **ikke kunngjort** | 10.04. |
+| GW32 | 10 | 1 — **ikke kunngjort** | 17.04. |
+| GW33 | 10 | 1 — **ikke kunngjort** | 24.04. |
+| GW34 | 10 | 1 — **ikke kunngjort** | 01.05. |
+| GW35 | 10 | 1 — **ikke kunngjort** | 08.05. |
+| GW36 | 10 | 1 — **ikke kunngjort** | 15.05. |
+| GW37 | 10 | 1 — **ikke kunngjort** | 23.05. |
+| GW38 | 10 | 1 — **ikke kunngjort** | 30.05. |
+
+<!-- GENERERT:KAMPPROGRAM:SLUTT -->
 
 ## Ligacupen — runde 3, datoer bekreftet
 
@@ -623,3 +714,16 @@ Dessuten mistet ligacuptabellen annoteringen «— avgjort 27. august» på Leed
 | «**Ikke verifisert:** Leeds–Crystal Palace står søndag 20.9. 14:00 og var **ikke** i PLs amendment-liste fra 7. juli … Om flyttingen skjedde før eller etter 27. august er ikke fastslått … punktet har lav prioritet.» | Premisset er **usant**. Artikkelen fra 7. juli lister kampen, lørdag 19.9. 15:00. Datoen er dessuten nå fastslått (1. september, cpfc.co.uk). Hele passasjen er erstattet av den verifiserte seksjonen |
 
 Ingenting annet er slettet. Alle øvrige minusradene i diffen er linjer som står igjen i omskrevet eller avfetet form, kontrollert rad for rad mot `git diff -U0`.
+
+## Endringer i denne versjonen — 9. oktober 2026
+
+**Lagt til:** markørene `GENERERT:KAMPPROGRAM` og den genererte blokka (neste fem runder, deadlines, rundestruktur for alle 38, strukturkontroll for BGW/DGW/utsatte/foreløpige klokkeslett).
+
+**Fjernet (65 linjer, tidligere linje 221–285):** hele seksjonen «GW6–GW8 — kontrollert 3. september, ingen endring» med de tre håndskrevne tabellene GW6, GW7, GW8, notatet «GW6 re-kontrollert 10. september», advarselen om klokkeomstilling 25.10. (genereres nå automatisk når en runde krysser BST/GMT), og setningen «Hull–Everton setter Slater direkte mot Calvert-Lewin». Tabellene hadde gal spillerkolonne på ti rader (Calvert-Lewin på Everton, Shaw og Tzolis i troppen), se kampprogramsjekk 1.10.
+
+**Ikke ført inn her, ligger i prosjektdokumentene:** kampprogramsjekkene 15.9., 17.9., 24.9., 1.10. og 8.10. Dato- og klokkeslettinnholdet i dem dekkes nå av den genererte blokka; feilloggpunktene hører hjemme i `03`.
+
+**Rettelse til kampprogramsjekk 8.10.:** rapporten sa at `04` «har ingenting om» Villa–City-betingelsen. Feil — den ble lukket her 3. september, med samme konklusjon. Rotårsak: fila ble hentet, men ikke lest før påstanden ble skrevet. Åpen kildekonflikt: denne fila sier `news/4688862` fører Villa–City uten asterisk; `/es/`-utgaven lest 8.10. har en fotnote. Uten betydning for konklusjonen.
+
+**Uendret:** GW1–GW5-arkivet, ligacupseksjonene, betingede endringer, kilder og alle tidligere endringslogger.
+

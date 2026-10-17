@@ -33,7 +33,7 @@ Enkeltbytter som hver for seg gir mening kan sammen endre lagets form uten at no
 | `01-strategi-og-tropp.md` | Tropp, spillervurderinger, avviste kandidater, åpne risikoer |
 | `02-regler-og-sesongplan.md` | Sesongregler, fikstursvanskelighet, transferplan, chip-plan |
 | `03-verifiseringsprotokoll.md` | Kildehierarki, sjekklister, feillogg — les denne før du gjentar en tidligere feiltype |
-| `04-kampprogram-og-endringslogg.md` | Verifiserte datoer og klokkeslett, GW1–3 |
+| `04-kampprogram-og-endringslogg.md` | Kampprogram for de neste fem rundene, generert av `scripts/gen_kampprogram.py` (ikke rediger blokka for hånd). Under: endringslogg, verifiseringsnotater, GW1–GW5-arkiv |
 | `05-spillets-regler.md` | Statisk poengregelverk. Endres ikke gjennom sesongen med mindre en verdi var feilført |
 | `fixtures2627.csv` | Kamppar per runde. Ikke kampdato |
 | `01-vurderte-spillere.md` | Historiske øyeblikksbilder uten styrende status — les kun hvis eksplisitt bedt om |
