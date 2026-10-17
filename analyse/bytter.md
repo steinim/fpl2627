@@ -1,16 +1,15 @@
 # Byttepakker — generert
 
-*Generert 17.10.2026 kl. 17:10 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW8–12. Bytter vurderes i GW8 og GW9. Maks minuspoeng per runde: 0.*
+*Generert 17.10.2026 kl. 22:20 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW8–12. Bytter vurderes i GW8 og GW9. Maks minuspoeng per runde: 0.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–6 summerer til sesongtotalene for 333 spillere, 19 felt; 334 spillere på lag som har spilt i GW7 er kontrollert mot grunnlaget pluss live-fila
-- ✅ Speilet hentet 17.10.2026 16:38 UTC, 0.5 t gammelt ved kjøring
+- ✅ Speilet hentet 17.10.2026 21:43 UTC, 0.6 t gammelt ved kjøring
 - ✅ Bytteregler i API-et stemmer med 05 og skriptet: maks 3 per klubb, maks 5 frikjøp, halve prisstigningen ved salg, tropp på 15
 - ✅ Bank regnet fra 6 overganger stemmer med historikken i alle 7 runder
 - ✅ Frikjøp til GW8: 1. Kostnaden i hver runde stemmer med historikken
-- ⚠️ 22 spillere på lag som har spilt i GW7 avviker fra grunnlaget pluss live-fila — runden er ikke ferdig, og bootstrap og live-fila hentes hver for seg. Brukes ikke i modellen: Cash minutes: sesong 390, runder 393; Mings minutes: sesong 355, runder 358; Lindelöf minutes: sesong 544, runder 547
 
 **Frikjøp, runde for runde:** GW1: første runde → 1 · GW2: 1 frikjøp, 0 brukt → 2 · GW3: 2 frikjøp, 0 brukt → 3 · GW4: 3 frikjøp, 2 brukt → 2 · GW5: 2 frikjøp, 0 brukt → 3 · GW6: 3 frikjøp, 1 brukt → 3 · GW7: 3 frikjøp, 3 brukt → 1
 
@@ -30,7 +29,7 @@ Bank **£0.3m**, frikjøp **1**. Salgspris etter regelen i `05`.
 | Saka | ARS | MID | £9.6m | £9.6m | £9.6m | 28.04 | 25.35 | 0.91 | 17.0 % |
 | B.Fernandes | MUN | MID | £11.8m | £12.0m | £11.8m | 26.44 | 20.81 | 0.91 | 30.8 % |
 | Mbeumo | MUN | MID | £7.8m | £8.0m | £7.8m | 24.77 | 20.47 | 0.91 | 19.5 % |
-| Groß | BHA | MID | £6.1m | £6.1m | £6.1m | 19.85 | 17.88 | 0.91 | 44.1 % |
+| Groß | BHA | MID | £6.1m | £6.1m | £6.1m | 19.85 | 17.88 | 0.91 | 44.2 % |
 | Slater | HUL | MID | £4.5m | £4.5m | £4.5m | 12.31 | 11.65 | 0.91 | 5.0 % |
 | Haaland | MCI | FWD | £15.7m | £15.5m | £15.6m | 28.00 | 26.24 | 0.91 | 76.4 % |
 | Barry | EVE | FWD | £5.7m | £5.7m | £5.7m | 21.91 | 19.41 | 0.91 | 8.7 % |
@@ -116,14 +115,14 @@ Flaggene kommer fra `forventning.py`. Én kamp som bærer xGI-en, slår ut i rob
 | Spiller | Lag | Pos | Pris | Eid | Sum GW8–12 | Robust | P(spiller) GW8 | Flagg |
 |---|---|---|---|---|---|---|---|---|
 | Trafford | LEE | GKP | £5.0m | 5.7 % | 15.76 | 15.75 | 0.91 | — |
-| Martinez (CHE) | CHE | GKP | £5.0m | 4.6 % | 13.06 | 13.05 | 0.23 | GW8: FPL-sjanse 25 % |
+| Martinez (CHE) | CHE | GKP | £5.0m | 4.5 % | 13.06 | 13.05 | 0.23 | GW8: FPL-sjanse 25 % |
 | Silva | BOU | DEF | £5.0m | 0.6 % | 18.60 | 16.99 | 0.91 | én kamp (GW4) står for 50% av xGI |
 | Bogle | LEE | DEF | £4.7m | 9.6 % | 17.53 | 15.40 | 0.91 | én kamp (GW3) står for 57% av xGI |
 | Mitchell | CRY | DEF | £4.5m | 5.8 % | 16.06 | 14.39 | 0.91 | én kamp (GW3) står for 64% av xGI |
 | Justin | LEE | DEF | £4.5m | 2.0 % | 15.88 | 15.68 | 0.91 | — |
 | E.Le Fée | SUN | MID | £5.7m | 3.0 % | 22.18 | 19.03 | 0.91 | — |
 | Ødegaard | ARS | MID | £6.8m | 19.0 % | 21.62 | 18.49 | 0.91 | — |
-| Gibbs-White | NFO | MID | £8.0m | 12.2 % | 21.35 | 20.09 | 0.68 | første straffeskytter (penalties_order 1) · GW8: FPL-sjanse 75 % |
+| Gibbs-White | NFO | MID | £8.0m | 12.1 % | 21.35 | 20.09 | 0.68 | første straffeskytter (penalties_order 1) · GW8: FPL-sjanse 75 % |
 | Rudoni | COV | MID | £4.9m | 0.2 % | 18.98 | 17.32 | 0.91 | første straffeskytter (penalties_order 1) |
 | Gomez (BHA) | BHA | MID | £5.0m | 3.6 % | 17.73 | 16.75 | 0.91 | — |
 | Gonzalo | FUL | FWD | £6.1m | 7.2 % | 21.10 | 19.48 | 0.91 | første straffeskytter (penalties_order 1) |
