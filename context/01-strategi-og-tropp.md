@@ -1,6 +1,7 @@
 # Strategi og tropp
 
-*Sist oppdatert: 17. oktober 2026, andre versjon — **GW7 utført og bekreftet i appen av brukeren før deadline: Gibbs-White → Groß, N.Williams → Thomas (COV), Ødegaard → Saka.** Tre frikjøp, 0 poeng kostnad, bank £0,3m. Raya-byttet og De Cuyper-byttet vurdert og ikke tatt. Gjeldende tropp står i GW7-seksjonen nederst.*
+*Sist oppdatert: 17. oktober 2026, tredje versjon — **B.Fernandes vurdert på nytt på rundedata: forsvarer ikke £11,8m, planlagt solgt i GW8 med frikjøpet. Erstatter ikke valgt.** GW7-begrunnelsen for å beholde ham («xGI nest høyest blant MID») er strøket: han er tredje, og 2,50 av 4,04 xGI kom i GW2. Saka-kjøpet etterprøvd på samme måte og holder. Ny seksjon nederst. Feilen loggført i `03`.*
+*Forrige: 17. oktober 2026, andre versjon — **GW7 utført og bekreftet i appen av brukeren før deadline: Gibbs-White → Groß, N.Williams → Thomas (COV), Ødegaard → Saka.** Tre frikjøp, 0 poeng kostnad, bank £0,3m. Raya-byttet og De Cuyper-byttet vurdert og ikke tatt. Gjeldende tropp står i GW7-seksjonen nederst.*
 *Forrige: 17. oktober 2026 — **GW5 og GW6 ført inn etterskuddsvis fra `fpl-data`** (filen sto stille fra 12.9. til 17.10.). GW6-byttet Calvert-Lewin → Barry ført som faktum. GW7-forslaget ført som **forslag, ikke utført** — se nederst. Anti-drift-metrikken erklært utløpt som styringstall, ikke redefinert.*
 *Forrige: 12. september 2026, tredje versjon — **byttene og laguttaket er bekreftet gjennomført i appen av brukeren, etter deadline 12:30Z.** Filen sto fram til nå som om byttene var utført mens de faktisk ikke var det; tilstanden og teksten er nå sammenfallende. I tillegg: B.Fernandes → Palmer vurdert og avvist på nytt samme dag, og motstanderleddet i kapteinsbegrunnelsen rettet fra innslupne mål til xGA.*
 *Forrige: 12. september 2026, andre versjon — **to bytter gjennomført før GW4-deadline: Shaw → Egan og Tzolis → Ødegaard.** Første bytter i sesongen. «Ingen bytter»-avsnittet fra tidligere samme dag er strøket, ikke endret. Anti-drift ned fra 61,2 % til 48,0 %, besluttet bevisst. Regel 2-unntak navngitt for Egan. Frikjøp: 3 → 1. Ny troppstabell ført inn — den fra 21. august er historikk.*
@@ -1218,6 +1219,60 @@ Ingen funn endrer forslaget. Forests svake angrep styrker Raya-saken.
 
 **Motargument ført:** Brighton har Liverpool (b) og Man City (b) i GW8–9. Snitt FDR GW7–11 er 3,2 for både BHA og NFO — byttet hviler på produksjon og status, ikke program.
 
-**B.Fernandes beholdes:** 5 poeng på GW4–6, men xGI 4,04 er nest høyest blant MID i ligaen. Samme begrunnelse som 12.9.
+~~**B.Fernandes beholdes:** 5 poeng på GW4–6, men xGI 4,04 er nest høyest blant MID i ligaen. Samme begrunnelse som 12.9.~~ ⚠️ **Rettet 17.10., tredje versjon:** xGI 4,04 er **tredje** blant MID (Saka 4,67, Mbeumo 4,21), og 2,50 av dem kom i GW2. Fernandes ble i praksis beholdt i GW7 fordi alle tre frikjøp gikk til andre bytter, ikke på produksjon. Se «B.Fernandes — vurdert på nytt 17. oktober» nederst.
 
 ~~**Laguttak (3-4-3):** Raya (ev. Verbruggen); Calafiori, N.Williams, Egan; B.Fernandes, Mbeumo, Groß, Ødegaard; Haaland (K), João Pedro, Barry. **VK: Groß** (ellers João Pedro). Benk: Verbruggen/Kinsky, Slater, Davis, Diop.~~ **Overkjørt — faktisk laguttak står øverst i GW7-seksjonen.**
+
+## B.Fernandes — vurdert på nytt 17. oktober: forsvarer ikke £11,8m
+
+**Konklusjon:** han forsvarer ikke prisen. **Planlagt solgt i GW8 med frikjøpet. Erstatter ikke valgt** — velges i GW8-økten etter minimumskravene i `03`. Ikke solgt i GW7: tre frikjøp var brukt kl. 10:54, og et salg før deadline ville kostet −4 for én runde.
+
+Avgjørende, og uavhengig av hvordan sesongen deles opp: selv på sesongsummen, som er det målet som er mest gunstig for ham, ligger han likt med Mbeumo og Cherki per 90 til £3,9–4,0m lavere pris. Utenom én kamp ligger han under begge.
+
+### Rundedata
+
+Kilde: FPL `element-summary/426`, hentet 17.10. via WebFetch. Summene stemmer med `players.csv` (xG 2,58, xA 1,46, 32 poeng, DC 35). Resultat sett fra United.
+
+| GW | Motstander | Res. | Min | xG | xA | xGI | Poeng | DC |
+|---|---|---|---|---|---|---|---|---|
+| 1 | Hull (b) | 0–2 | 90 | 0,08 | 0,26 | 0,34 | 2 | 6 |
+| 2 | Ipswich (h) | 5–2 | 90 | 2,02 | 0,48 | **2,50** | **23** | 8 |
+| 3 | Everton (b) | 2–2 | 90 | 0,15 | 0,06 | 0,21 | 2 | 2 |
+| 4 | Man City (h) | 0–1 | 90 | 0,03 | 0,33 | 0,36 | 2 | 7 |
+| 5 | Fulham (b) | 1–1 | 90 | 0,28 | 0,19 | 0,47 | 2 | 6 |
+| 6 | Spurs (h) | 1–1 | 90 | 0,02 | 0,14 | 0,16 | 1 | 6 |
+
+### Mekanisme: én kamp, ikke et fall
+
+- **GW2 står for 2,50 av 4,04 xGI og 23 av 32 poeng.** Kampen inneholdt sesongens eneste United-straffe, tatt og scoret av Fernandes (thescore.com, kampen 30.8.). De fem andre kampene: 0,16–0,47 xGI, til sammen 1,54 på 450 minutter = **0,31 per 90**.
+- **«Trend nedover», som et svar tidligere 17.10. førte, var gal mekanisme.** GW1 (0,34) og GW3 (0,21) var like lave som GW4–6. Delingen GW1–3 mot GW4–6 plasserte utliggeren i første halvdel og lagde en trend som ikke finnes. Se `03`.
+- **Motstand forklarer det ikke.** De fem lave kampene inkluderer Hull og Fulham, med xGC per 90 på 1,51 og 1,71 — ikke bare toppforsvar. (Lag-xGC = sum keeper-xGC / keeperminutter × 90, `players.csv` 17.10.)
+- **Rollen forklarer det ikke, så langt det er belagt.** Predikert som nummer 10 bak Mbeumo i 4-2-3-1 mot Leeds (Squawka, 17.10., nivå 3–4). Ingen kilde om dypere rolle denne sesongen funnet — det er «jeg fant ingen», ikke «det finnes ingen». Samme kilde: 20 skudd, 5 på mål, 15 sjanser skapt.
+- **Uniteds angrep utenfor GW2:** 4 mål på 5 kamper. Šeško fortsatt ute (Carrick 16.10., se GW7-seksjonen).
+- **Ingen DC-gulv:** beste kamp 8 handlinger, terskel 12 for MID (`05`). Null DC-poeng på seks kamper.
+
+### Sammenligning på samme mål
+
+Rundedata fra `element-summary/{id}` for alle fem, hentet 17.10. Summene kontrollert mot `players.csv`.
+
+| | Pris | Min | xGI/90 sesong | xGI/90 uten beste kamp | Poeng uten beste runde | Merknad |
+|---|---|---|---|---|---|---|
+| Saka | £9,6m | 506 | 0,83 | **0,69** | 23 | Laveste kamp 0,46. **GW7-kjøpet holder på rundedata** |
+| Cherki | £7,9m | 392 | 0,69 | 0,61 | 30 | Under 66 min i tre av seks kamper (27, 65, 45). MCI blir 2 med Haaland |
+| Mbeumo | £7,8m | 540 | 0,70 | 0,45 | 22 | 1,97 av 4,21 xGI i GW2 — samme svakhet, mindre utslag |
+| Rogers | £7,9m | 520 | 0,55 | 0,43 | 29 | 0,26 per 90 i GW3–6. CHE blir 2 med João Pedro |
+| **B.Fernandes** | **£11,8m** | 540 | 0,67 | **0,31** | **9** | Nest dyreste i spillet. Palmer, nr. 3, koster £9,7m |
+
+**12.9.-avvisningen av Fernandes → Palmer hvilte på samme kamp.** «Høyest xGI i hele ligaen» var 3,05 i GW1–3. 2,50 av dem var GW2. Palmer-avvisningen kan ha vært riktig av andre grunner (Palmer 0,37 per 90 i dag), men begrunnelsen «ligaens beste underliggende produsent» var én kamp.
+
+### Pris, marked og program
+
+- **Pris:** £11,8m, kjøpt £12,0m. Salgspris er hele det lavere beløpet (salgsprisregelen i `03`), så hver ny nedgang trekkes rett fra banken. Denne runden: 13 122 inn, 587 352 ut (`players.csv` 17.10.).
+- **Program GW7–12:** Leeds (b), Bournemouth (h), Chelsea (b), Villa (h), Liverpool (b), Brentford (h). Motstandernes xGC per 90 er i snitt 1,48, mot ligasnittet 1,52. Nøytralt. Programmet er ikke et argument for å beholde ham.
+
+### GW8 — åpne punkter til økten
+
+1. **Erstatter:** minimumskravene i `03`. Ingen anbefalt. Kandidatdata står i tabellen over; prisene må hentes på nytt. Cherki har 783 788 overganger inn denne runden.
+2. **Kjedevirkning:** GW8 bruker det ene frikjøpet. GW9 har da 1, ikke 2. Raya og João Pedro-byttet kan ikke begge tas uten −4. Se GW9-raden i `02`.
+3. **Raya-finansiering:** bank etter salget er £0,3m + salgspris − innkjøp. Raya krever £1,6m i banken (£6,1m − Kinsky £4,5m). Med dagens priser er Raya finansiert hvis erstatteren koster £10,5m eller mindre.
+4. **Anti-drift ved salget:** MUN 2 → 1. Keeper- og forsvarsbudsjett uendret på £31,1m. Andelsleddet oppgis ikke, fordi metrikken er erklært utløpt (se over). Klubbtallet for den nye spilleren oppgis når han er valgt.

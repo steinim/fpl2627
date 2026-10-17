@@ -16,6 +16,8 @@ Ingen påstand om priser, kamper, minutter, skadestatus eller poengregler uten �
 - **Kildehierarki:** se `03-verifiseringsprotokoll.md`. Klubbens egen nettside og fulltekstreferat slår aggregatorer. Oppstilling slår projeksjon. Skill parafrase fra sitat — futurum («will provide», «is set to») er varsel om et spørsmål, ikke svaret.
 - **Oppkjøring:** kan vise minutter, rolle og tilgjengelighet — aldri form.
 - **Treningskampmål:** aldri bevis.
+- **Spillervurdering (kjøp, salg, behold):** gjennomfør «Minimumskrav før en spillervurdering» i `03` før konklusjonen — for spilleren og hver kandidat han sammenlignes med. Rundedata, ikke sesongsum. Mekanisme, ikke trend. Ledd som ikke er gjort, står i svaret som ikke gjort.
+- **Forbehold er ikke oppslag:** kan en påstand verifiseres med et verktøy i økten, verifiseres den før svaret. Ett mislykket verktøy er ikke «blokkert» — prøv `curl`, WebFetch og nettleser før det skrives.
 
 ## Anti-drift — før hvert bytteforslag
 

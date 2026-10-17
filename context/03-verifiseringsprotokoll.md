@@ -1,6 +1,7 @@
 # Verifiseringsprotokoll
 
-*Sist oppdatert: 17. oktober 2026, andre versjon — **fire feillogger fra GW7-økten: kontekstfilene sto stille i fem uker, et utdatert tall bærte en salgsbegrunnelse, sesongpoeng ble brukt som bevis for et bytte en tidligere økt hadde avvist på samme grunnlag, og anbefalingen vinglet fordi modellen ble byttet underveis. Ny regel: premierleague.com/injuries som første sjekkpunkt for lagnytt.***
+*Sist oppdatert: 17. oktober 2026, tredje versjon — **ny feillogg: B.Fernandes beholdt på en sesongsum, og etterprøvingen leverte en gal mekanisme med forbehold der et oppslag var mulig. Ny seksjon: «Minimumskrav før en spillervurdering». Verktøyraden for `element-summary` rettet — WebFetch når den.***
+*Forrige: 17. oktober 2026, andre versjon — **fire feillogger fra GW7-økten: kontekstfilene sto stille i fem uker, et utdatert tall bærte en salgsbegrunnelse, sesongpoeng ble brukt som bevis for et bytte en tidligere økt hadde avvist på samme grunnlag, og anbefalingen vinglet fordi modellen ble byttet underveis. Ny regel: premierleague.com/injuries som første sjekkpunkt for lagnytt.***
 *Forrige: 17. oktober 2026 — **fire feillogger fra kampprogramsjekkene 1.–15. oktober ført inn: to kunngjøringer om samme runde lest som én (GW9), en ukunngjort runde antatt uten å sjekke kunngjøringslista (GW17–20), en påstand om innholdet i `04` skrevet uten at fila var lest, og en PL-URL som serverer feil sesong. Ny regel: PLs rundskriv (Circular N) er primærkilde og diffgrunnlag for kampprogrammet.**
 *Forrige: 12. september 2026, sjuende versjon — **tre nye feillogger fra samme økt, alle utløst av én opplastet ukespublikasjon: et strukturelt salg anbefalt på én rundes fikstur mot ligaens høyeste xGI, to bytter presentert som uavhengige der det ene finansierte det andre, og en rangering hentet fra mål der kilden også oppga xGA. Avledet regel om at en fersk sekundærkilde ikke får overstyre et tall som allerede står verifisert i kontekstfilene.**
 *Forrige: 12. september 2026, sjette versjon — **datolinjeblokken var ødelagt av mine egne gjentatte programmatiske omskrivinger: fire «Forrige»-linjer var slått sammen til én og tre beskrivelser tapt. Rekonstruert. Ny feillogg med avledet regel om verifisering etter hver skriveoperasjon.**
@@ -186,6 +187,21 @@ VM ble spilt sommeren 2026 og sesongstarten er skjøvet en uke. Dette forsvinner
 7. **Hva står igjen i banken etterpå, og hvilke planlagte sidebytter blokkeres av det?** Se salgsprisregelen.
 8. **Er hver kilde brukt yngre enn fire uker?** Se regelen øverst i filen.
 9. **Er poengregelen slått opp i `05`, eller husket?** Ingen påstand om hvordan en poengsum er satt sammen, og ingen påstand om hva en regel sier, uten at den er lest i `05-spillets-regler.md`. Står den ikke der, skal det sies at den ikke står der.
+
+## Minimumskrav før en spillervurdering — ført inn 17. oktober
+
+Gjelder enhver konklusjon om å kjøpe, selge eller beholde en spiller, og hver kandidat han sammenlignes med. Kommer i tillegg til «Faste sjekker før hvert bytte». Bakgrunn: brukeren 17.10., «Du gjør ikke en grundig nok jobb», etter Fernandes-feilen i feilloggen. Listen er det konkrete svaret. Et ledd som ikke er gjort, skal stå i svaret som ikke gjort.
+
+1. **Rundedata, ikke sum.** Hent `element-summary/{id}/` via WebFetch (virker, verifisert 17.10.). Kontroller at summene stemmer med `players.csv` før tallene brukes.
+2. **Robust per 90.** Oppgi xGI per 90 for sesongen *og* uten beste kamp, og poeng uten beste runde. Skiller tallene seg mye, er det én kamp som bærer konklusjonen. Det skal sies.
+3. **Rangering regnes, skrives ikke.** «Nr. X» regnes ut fra `players.csv` i samme økt, med minuttgrensen oppgitt.
+4. **Mekanisme før trend.** Tallene forklares med motstand (motstanderens xGC), rolle (siste oppstilling eller predikerte ellever, yngre enn fire uker), straffer (antall tatt, ikke «tar straffer») og lagets angrep. En trend påstås bare når alle enkeltrundene er sett. Å dele sesongen i to halvdeler er ikke en trendanalyse.
+5. **Billigste likeverdige.** Sammenlign mot den billigste spilleren med samme underliggende nivå. Lagkamerater og egen tropp skal være med. Samme mål og samme snapshot for alle.
+6. **Pris og marked.** Kjøpspris, salgspris (salgsprisregelen) og nettooverganger i runden.
+7. **Kjedevirkning.** Hvilke rader i `02` påvirkes de to neste rundene, i frikjøp og bank.
+8. **Lagnytt.** premierleague.com/injuries først, deretter klubbens side. Yngre enn fire uker.
+9. **Alt som kan slås opp i økten, slås opp.** Et forbehold er bare lovlig når alle veier er prøvd og navngitt i svaret: `curl`, WebFetch, nettleser. Ett mislykket verktøy er ikke «blokkert».
+10. **Konklusjonen merkes.** Oppgi hvilke ledd som er verifisert, hvilke som er utledet og hvilke som ikke er funnet.
 
 ## Generalprøven er det sterkeste signalet — men les årsaken
 
@@ -461,6 +477,30 @@ Premier League publiserer hver kampprogramendring som et nummerert rundskriv, «
 - **`premierleague.com/en/news/3774835` brukes ikke.** Adressen har to ganger (3.9. og 15.10.) servert 2025/26-innhold. Betingede endringer hentes fra fotnotene i rundskrivet og fra begge klubbers sider.
 
 ## Feillogg
+
+### Ny feil, 17. oktober: B.Fernandes beholdt på en sesongsum — og etterprøvingen leverte en gal mekanisme med forbehold der et oppslag var mulig
+
+**Hva som ble hevdet, i to omganger samme dag:**
+1. **GW7-økten, før 10:54:** «B.Fernandes beholdes: … xGI 4,04 er nest høyest blant MID i ligaen. Samme begrunnelse som 12.9.»
+2. **Etterprøvingen ca. 11:30:** «Trenden peker nedover», fra 1,02 til 0,33 xGI per 90. Tallet var utledet som sesongsum minus `01`s GW1–3-tall fra 12.9. Forbeholdet var at FPL-API-et «gir 000 fra denne økten».
+
+**Hva som var galt:**
+1. **Fernandes er tredje, ikke nest høyest** (Saka 4,67, Mbeumo 4,21). Rangeringen ble ikke regnet ut fra `players.csv`.
+2. **Sesongsummen skjulte at 2,50 av 4,04 xGI kom i én kamp** (GW2 mot Ipswich, med sesongens eneste United-straffe). Utenom den kampen har han 0,31 per 90. Det er under lagkameraten Mbeumo (0,45), som koster £4,0m mindre.
+3. **«Trend nedover» var gal mekanisme.** GW1 (0,34) og GW3 (0,21) var like lave som GW4–6. Inndelingen 3+3 plasserte utliggeren i første halvdel og lagde en trend som ikke finnes. Konklusjonen (selg) var riktig, men delvis av gal grunn. Det er regel 8 i prosjektinstruksen, brutt.
+4. **«Blokkert» ble skrevet etter ett `curl`-forsøk.** WebFetch mot `element-summary/426` virket på første forsøk i neste svar. Samme feiltype som «verktøytilgjengelighet påstått uten kontroll» (8. september).
+5. **12.9.-avvisningen av Fernandes → Palmer hvilte på samme kamp.** «Høyest xGI i hele ligaen» (3,05) var 2,50 fra GW2. Avvisningen kan ha vært riktig av andre grunner, men begrunnelsen var én kamp.
+
+**Rotårsak:** premiumspilleren ble vurdert på et aggregat, og enkeltrundene ble aldri åpnet. En mulig verifisering ble erstattet med et forbehold. Regelen fra 12. september om Egans DC («en terskeltelling krever rundetallene, aldri summen») ble skrevet for DC og aldri generalisert til xGI. Modellen «forventet per runde» i `01` og `02` bygger på de samme sesongsummene og arver skjevheten.
+
+**Avledet regel:**
+1. Ingen vurdering av en spiller hviler på en sesongsum alene. Rundetallene åpnes, og xGI per 90 oppgis både med og uten beste kamp. Regelen fra 12.9. gjelder for alle summerte størrelser, ikke bare DC.
+2. En trend påstås bare når alle enkeltrunder er sett.
+3. Et forbehold er ikke et alternativ til et oppslag som kan gjøres i økten.
+4. Modelltall fra sesongsummer får ved siden av seg tallet uten beste kamp før de brukes i en beslutning.
+5. Se «Minimumskrav før en spillervurdering».
+
+**Etterprøvd samme dag:** Saka-kjøpet i GW7 holder på rundedata. Laveste kamp er 0,46, og uten beste kamp har han 0,69 per 90.
 
 ### Ny feil, 17. oktober: `01` og `02` sto stille fra 12. september til 17. oktober
 
@@ -903,7 +943,7 @@ Tre feil på under 48 timer hadde identisk rotårsak. Alle tre kom av at en seku
 | `web_fetch` generelt | Avviser URL-er som ikke har stått i et tidligere søke- eller hentingsresultat, selv om de sto som lenke i en hentet side |
 | `web_fetch` mot bildebaserte oppstillingsgrafikker (FFScout predicted XI) | Leverer ofte kun rundtekst, ikke spillernavnene i selve grafikken. Posisjonsdetaljer må da bekreftes fra en tekstbasert kilde i tillegg |
 | **`web_fetch` mot `event/{n}/live/` og `bootstrap-static`** | **Kutter etter ca. 120 000 tegn.** `live` gir kun element-ID 1–167; `bootstrap-static` gir `events`, `teams`, `element_types` og deretter kun de ~30 første spillerne. Spillere med høyere ID må hentes en annen vei. `text_content_token_limit` har ingen virkning — kuttet er fast |
-| **`element-summary/{id}/`** | **Avvises av `web_fetch`** med PERMISSIONS_ERROR, fordi den konkrete URL-en ikke har stått i et tidligere søkeresultat. Malen i dokumentasjonen teller ikke |
+| **`element-summary/{id}/`** | ~~**Avvises av `web_fetch`** med PERMISSIONS_ERROR, fordi den konkrete URL-en ikke har stått i et tidligere søkeresultat. Malen i dokumentasjonen teller ikke~~ ✅ **Endret 17.10.:** WebFetch hentet `element-summary/{id}/` for 426, 427, 12, 399 og 40 på første forsøk, uten forutgående søk. Summene stemte med `players.csv`. Raden fra august er ikke lenger grunnlag for å la være å prøve |
 | **`fantasy.premierleague.com` fra `bash`** | **Blokkert på vertsnivå** (HTTP 403, `x-deny-reason: host_not_allowed`). ⚠️ **Løst 3. september:** gå ikke via `web_fetch` lenger — bruk snapshot-repoet, som gir samme data uten kutt og uten 403. `curl -s https://raw.githubusercontent.com/steinim/fpl-data/main/data/{fil}` |
 | **`api.github.com` fra `bash`** | Uautentiserte kall treffer ratebegrensning raskt. For å liste filer i repoet: hent `https://github.com/steinim/fpl-data/tree/main/data/{katalog}` og `grep` ut `"path":"..."` fra HTML-en i stedet |
 | **LiveFPL Price Predictor, lagret som .mht** | Parses med `email.message_from_bytes`; sidas HTML ligger i den største `text/html`-delen. **Kun «Risers»-fanen lagres** — fallerlista er klientrendret og følger ikke med. Sida har **ingen tidsstempel**, så alderen på tallene må oppgis av den som lagret den |
