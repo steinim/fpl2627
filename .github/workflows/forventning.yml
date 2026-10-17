@@ -18,6 +18,7 @@ on:
   push:
     paths:
       - "scripts/forventning.py"
+      - "scripts/bytter.py"
       - "context/fravaer.csv"
       - "context/lagstyrke-prior.csv"
 
@@ -45,7 +46,11 @@ jobs:
       - name: Generer forventning
         run: python3 scripts/forventning.py
 
+      - name: Generer byttepakker
+        run: python3 scripts/bytter.py
+
       - name: Commit hvis endret
+        if: ${{ !cancelled() }}
         run: |
           if [ -z "$(git status --porcelain -- analyse)" ]; then
             echo "Ingen endring i forventningene."

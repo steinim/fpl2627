@@ -9,8 +9,10 @@ Bruk (fra reporoten):
     python3 scripts/historikk.py prior                 # skriv context/lagstyrke-prior.csv
     python3 scripts/historikk.py kryssvalider          # velg k og ρ for lagstyrken på nytt
     python3 scripts/historikk.py kalibrer              # mål/xG, assist/xA og CS-faktor på nytt
+    python3 scripts/historikk.py minutter              # START_KAL og SPILL_KAL på nytt, med test
+                                                       # utenfor utvalget sesong mot sesong
     python3 scripts/historikk.py tilbaketest           # hele forventningsmodellen på 2025/26
-    python3 scripts/historikk.py tilbaketest --sesong 2024-25 --faktorer-fra 2025-26
+    python3 scripts/historikk.py tilbaketest --sesong 2024-25 --faktorer-fra 2025-26 --minutter-fra 2025-26
                                                        # utenfor utvalget: ingen parameter valgt på 2024/25
 
 prior:        context/lagstyrke-prior.csv: rå lagstyrke for forrige hele sesong (A, D uten
@@ -18,6 +20,11 @@ prior:        context/lagstyrke-prior.csv: rå lagstyrke for forrige hele sesong
               sesongen. forventning.py demper verdiene med LAG_RHO og krymper mot dem.
 kryssvalider: for hver sesong i VALIDERING tilpasses lagstyrken på GW1..g og spår lag-xG i
               GW g+1..g+5, g = 1..33. Rutenett over ρ, kA og kD. Skriver MSE-tabellen.
+minutter:     for hver målrunde t ≥ 4 bygges modellen på rundene før t, og rå startandel og
+              spilleandel sammenlignes med om spilleren startet og spilte i t..t+6. En lineær
+              modell i vektet og uvektet andel (forventning.minuttledd) tilpasses per avstand h
+              med minste kvadrater. Hver sesong testes med kalibreringen fra de andre (Brier og
+              tabell per andel), og konstantene skrives for alle samlet.
 tilbaketest:  bygger en speilkopi (samme filformat som fpl-data) av en hel sesong og kjører
               forventning.tilbaketest() med prior fra sesongen før. Tilgjengelighet = 100 %.
 """
@@ -27,6 +34,7 @@ from __future__ import annotations
 import argparse
 import collections
 import csv
+import dataclasses
 import io
 import itertools
 import json
@@ -251,6 +259,104 @@ def kommando_kalibrer(sesonger: list[str]) -> int:
     return 0
 
 
+# --------------------------------------------------------------------------- minutter
+
+MINUTT_HORISONT = 7
+
+
+@dataclasses.dataclass(frozen=True)
+class Minuttrad:
+    h: int            # runder etter siste runde i grunnlaget
+    s: float          # vektet startandel
+    q: float          # vektet spilleandel
+    us: float         # uvektet startandel
+    uq: float         # uvektet spilleandel
+    starter: int      # starter i grunnlaget
+    startet: int      # fasit: startet i runden
+    spilte: int       # fasit: kom på banen i runden
+
+
+def minuttrader(s: Sesong, fra: int = 4) -> list[Minuttrad]:
+    """Én rad per spiller med minst én telt kamp, målrunde t ≥ fra og h = 0..MINUTT_HORISONT−1.
+    Modellen bygges på rundene før t, så h = 0 er runden rett etter grunnlaget. Bare runder der
+    laget har nøyaktig én kamp telles."""
+    with tempfile.TemporaryDirectory() as tmp:
+        mappe = pathlib.Path(tmp)
+        skriv_speil(s, mappe)
+        kilde = fv.Kilde(mappe)
+        full = fv.last_data(kilde)
+        ut = []
+        for t in range(fra, max(full.grunnlag) - MINUTT_HORISONT + 2):
+            m = fv.bygg_modell(fv.last_data(kilde, til_runde=t), {})
+            for eid, p in m.profiler.items():
+                if p.telte == 0:
+                    continue
+                q = p.startandel + (1 - p.startandel) * p.innbytterandel
+                for h in range(MINUTT_HORISONT):
+                    n = t + h
+                    if len([f for f in fv.kamper_i_runde(full, n) if p.lag in (f["team_h"], f["team_a"])]) != 1:
+                        continue
+                    x = full.live.get(n, {}).get(eid)
+                    st = x["stats"] if x else {}
+                    ut.append(Minuttrad(h, p.startandel, q, p.starter / p.telte, (p.starter + p.innbytter) / p.telte,
+                                        p.starter, int(st.get("starts", 0) >= 1), int(st.get("minutes", 0) > 0)))
+    return ut
+
+
+def tilpass_minutter(rader: list[Minuttrad]) -> tuple[dict[int, tuple[float, ...]], dict[int, tuple[float, ...]]]:
+    """Minste kvadrater per h: startet ~ minuttledd(s, us), spilte ~ minuttledd(q, uq)."""
+    start, spill = {}, {}
+    for h in range(MINUTT_HORISONT):
+        rr = [r for r in rader if r.h == h]
+        start[h] = tuple(fv.ols([list(fv.minuttledd(r.s, r.us)) for r in rr], [float(r.startet) for r in rr]))
+        spill[h] = tuple(fv.ols([list(fv.minuttledd(r.q, r.uq)) for r in rr], [float(r.spilte) for r in rr]))
+    return start, spill
+
+
+def kommando_minutter(sesonger: list[str]) -> int:
+    rader = {navn: minuttrader(Sesong(navn)) for navn in sesonger}
+    print(f"# Start- og spillesannsynlighet ({', '.join(sesonger)})\n")
+    print("Forklaringsvariabler: " + " ".join(fv.minuttledd.__doc__.split(":", 1)[1].split()) + "\n")
+    kant = [0, .05, .2, .4, .6, .8, .9, .95, .999, 1.01]
+    for navn in sesonger:
+        andre = [r for s, rr in rader.items() if s != navn for r in rr]
+        if not andre:
+            continue
+        st, sp = tilpass_minutter(andre)
+        test = rader[navn]
+        print(f"## Utenfor utvalget: tilpasset på {', '.join(s for s in sesonger if s != navn)}, testet på {navn}\n")
+        for hva, c in (("start", st), ("spilte", sp)):
+            def x(r: Minuttrad) -> float:
+                return r.s if hva == "start" else r.q
+
+            def u(r: Minuttrad) -> float:
+                return r.us if hva == "start" else r.uq
+
+            def y(r: Minuttrad) -> int:
+                return r.startet if hva == "start" else r.spilte
+
+            raa = sum((x(r) - y(r)) ** 2 for r in test) / len(test)
+            kal = sum((fv.kalibrer_andel(c, r.h, x(r), u(r)) - y(r)) ** 2 for r in test) / len(test)
+            print(f"Brier {hva}: rå {raa:.4f}, kalibrert {kal:.4f} ({len(test)} spiller-runder)")
+            print(f"\n| Rå andel ({hva}), spillere med minst én start | "
+                  + " | ".join(f"h = {h}: rå / kal. / fasit" for h in (0, 2, 4, 6)) + " |")
+            print("|---|---|---|---|---|")
+            for b in range(len(kant) - 1):
+                celler = []
+                for h in (0, 2, 4, 6):
+                    v = [r for r in test if r.h == h and r.starter > 0 and kant[b] <= x(r) < kant[b + 1]]
+                    celler.append(f"{sum(x(r) for r in v) / len(v):.2f} / "
+                                  f"{sum(fv.kalibrer_andel(c, h, x(r), u(r)) for r in v) / len(v):.2f} / "
+                                  f"{sum(y(r) for r in v) / len(v):.2f} (n {len(v)})" if v else "—")
+                print(f"| [{kant[b]:g}, {kant[b + 1]:g}) | " + " | ".join(celler) + " |")
+            print()
+    st, sp = tilpass_minutter([r for rr in rader.values() for r in rr])
+    print("## Konstanter for forventning.py (alle sesonger samlet)\n")
+    for navn, c in (("START_KAL", st), ("SPILL_KAL", sp)):
+        print(f"{navn} = {{\n" + "".join(f"    {h}: ({', '.join(f'{v:.4f}' for v in k)}),\n" for h, k in c.items()) + "}")
+    return 0
+
+
 # --------------------------------------------------------------------------- tilbaketest
 
 
@@ -312,23 +418,33 @@ def skriv_speil(s: Sesong, mappe: pathlib.Path) -> None:
         (mappe / "live" / f"gw{n}.json").write_text(json.dumps({"elements": el}), encoding="utf-8")
 
 
-def kommando_tilbaketest(sesong: str, fra: int, faktorer_fra: list[str] | None) -> int:
+def kommando_tilbaketest(sesong: str, fra: int, faktorer_fra: list[str] | None,
+                         minutter_fra: list[str] | None = None) -> int:
     """Tilbaketest på én hel sesong. Med faktorer_fra kalibreres mål-, assist- og CS-faktorene
-    på andre sesonger enn den som testes, slik at testen er utenfor utvalget."""
+    på andre sesonger enn den som testes, og med minutter_fra start- og spillesannsynligheten,
+    slik at testen er utenfor utvalget."""
     s = Sesong(sesong)
     prior = prior_for_sesong(s, fv.LAG_RHO)
-    original = (dict(fv.MAL_FAKTOR), dict(fv.ASSIST_FAKTOR), fv.CS_FAKTOR)
+    original = (dict(fv.MAL_FAKTOR), dict(fv.ASSIST_FAKTOR), fv.CS_FAKTOR, dict(fv.START_KAL), dict(fv.SPILL_KAL))
     if faktorer_fra:
         malf, assf, csf, linjer = faktorer(faktorer_fra)
         fv.MAL_FAKTOR.update(malf)
         fv.ASSIST_FAKTOR.update(assf)
         fv.CS_FAKTOR = csf
+    if minutter_fra:
+        st, sp = tilpass_minutter([r for navn in minutter_fra for r in minuttrader(Sesong(navn))])
+        fv.START_KAL.clear()
+        fv.START_KAL.update(st)
+        fv.SPILL_KAL.clear()
+        fv.SPILL_KAL.update(sp)
     try:
         with tempfile.TemporaryDirectory() as tmp:
             mappe = pathlib.Path(tmp)
             skriv_speil(s, mappe)
             kilde = fv.Kilde(mappe)
             kal = f"kalibrert på {', '.join(faktorer_fra)}" if faktorer_fra else "faktorer fra forventning.py"
+            kal += (f", minutter kalibrert på {', '.join(minutter_fra)}" if minutter_fra
+                    else ", minuttkalibrering fra forventning.py")
             print(f"# Tilbaketest {sesong} (prior fra {forrige_navn(sesong)}, {kal}), målrunder fra GW{fra}\n")
             for h in (1, 5):
                 for linje in fv.tilbaketest(kilde, {}, prior=prior, fra_runde=fra, horisont=h):
@@ -343,6 +459,10 @@ def kommando_tilbaketest(sesong: str, fra: int, faktorer_fra: list[str] | None) 
         fv.ASSIST_FAKTOR.clear()
         fv.ASSIST_FAKTOR.update(original[1])
         fv.CS_FAKTOR = original[2]
+        fv.START_KAL.clear()
+        fv.START_KAL.update(original[3])
+        fv.SPILL_KAL.clear()
+        fv.SPILL_KAL.update(original[4])
     return 0
 
 
@@ -354,10 +474,13 @@ def main() -> int:
     sub.add_parser("kryssvalider")
     k = sub.add_parser("kalibrer")
     k.add_argument("--sesonger", default=",".join(v[0] for v in VALIDERING))
+    mi = sub.add_parser("minutter")
+    mi.add_argument("--sesonger", default=",".join(v[0] for v in VALIDERING))
     t = sub.add_parser("tilbaketest")
     t.add_argument("--sesong", default=SISTE)
     t.add_argument("--fra-runde", type=int, default=4)
     t.add_argument("--faktorer-fra", default="", help="kalibrer på disse sesongene (kommaseparert)")
+    t.add_argument("--minutter-fra", default="", help="kalibrer minuttsannsynlighetene på disse sesongene")
     a = ap.parse_args()
     if a.kommando == "prior":
         return kommando_prior(a.ut)
@@ -365,7 +488,10 @@ def main() -> int:
         return kommando_kryssvalider()
     if a.kommando == "kalibrer":
         return kommando_kalibrer([x for x in a.sesonger.split(",") if x])
-    return kommando_tilbaketest(a.sesong, a.fra_runde, [x for x in a.faktorer_fra.split(",") if x] or None)
+    if a.kommando == "minutter":
+        return kommando_minutter([x for x in a.sesonger.split(",") if x])
+    return kommando_tilbaketest(a.sesong, a.fra_runde, [x for x in a.faktorer_fra.split(",") if x] or None,
+                                [x for x in a.minutter_fra.split(",") if x] or None)
 
 
 if __name__ == "__main__":

@@ -31,7 +31,15 @@ Minutter (rate og tilgjengelighet skilles — minimumskrav 11):
   Kamp i er vektet AVTAK^(runder siden kampen), så en endret rolle slår raskt igjennom.
     startandel s   = vektede starter / vektede telte kamper
     innbytterandel = vektede innbytterkamper / vektede ikke-starter
-    P(start) = a·s     P(innbytter) = a·(1−s)·innbytterandel
+    spilleandel q  = s + (1−s)·innbytterandel
+  Rå andeler er ikke sannsynligheter. En spiller med s = 1 startet 89–90 % av kampene rett etter
+  grunnlaget og 79–80 % sju runder fram (2024/25 og 2025/26); reserver kommer oftere inn enn
+  andelen tilsier. Andelene kalibreres derfor per avstand h = runder etter siste runde i
+  grunnlaget (h = 0 er runden rett etter), lineært i den vektede andelen og den uvektede
+  (u = starter / telte kamper, og tilsvarende for å spille), med START_KAL og SPILL_KAL:
+    P(start)     = a·f_h(s, u_start)
+    P(spiller)   = a·max(f_h(s, u_start), g_h(q, u_spilt))
+    P(innbytter) = P(spiller) − P(start)
     E[min]   = P(start)·min per start + P(innbytter)·min per innbytterkamp
     P(≥60)   = P(start)·andel starter med ≥60 min + P(innbytter)·tilsvarende
 
@@ -66,19 +74,24 @@ Poeng per ledd — verdiene leses fra API-ets game_config og kontrolleres mot co
 
 VALIDERING (python3 scripts/historikk.py tilbaketest), forventet mot faktisk poeng for alle
 spillere med minst én start, målrunde GW4–38. r = korrelasjon, MAE = snittlig absolutt feil.
-I parentes: poeng per kamp hittil, og den gamle håndmodellen fra GW7-økten.
-  2025/26, én runde fram    r 0,433 (0,345 / 0,353)   MAE 1,77 (1,93 / 1,88)
-  2025/26, fem runder fram  r 0,550 (0,486 / 0,502)   MAE 5,90 (6,46 / 6,18)
-  2024/25, én runde fram    r 0,468 (0,392 / 0,401)   MAE 1,61 (1,74 / 1,64)
-  2024/25, fem runder fram  r 0,621 (0,562 / 0,579)   MAE 5,21 (5,71 / 5,38)
-2025/26 er delvis i utvalget: lagstyrke, SPILLER_K og kalibreringen er valgt der. 2024/25 er
-utenfor utvalget (kjør med --sesong 2024-25 --faktorer-fra 2025-26), med ett unntak: AVTAK ble
-valgt ved å se på begge sesongene. Fiksturjusteringen løfter r med 0,010–0,012 på én runde.
-Den robuste varianten (uten beste kamp) treffer like godt som hovedtallet (r 0,434 mot 0,433 og
-0,468 mot 0,468). Den er en følsomhetssjekk, ikke et bedre estimat.
+Minuttkalibreringen er tilpasset på den andre sesongen. I parentes: poeng per kamp hittil, og
+den gamle håndmodellen fra GW7-økten.
+  2025/26, én runde fram    r 0,433 (0,345 / 0,353)   MAE 1,74 (1,93 / 1,88)
+  2025/26, fem runder fram  r 0,560 (0,486 / 0,502)   MAE 5,77 (6,46 / 6,18)
+  2024/25, én runde fram    r 0,469 (0,392 / 0,401)   MAE 1,58 (1,74 / 1,64)
+  2024/25, fem runder fram  r 0,629 (0,562 / 0,579)   MAE 5,13 (5,71 / 5,38)
+2025/26 er delvis i utvalget: lagstyrke, SPILLER_K og poengkalibreringen er valgt der. 2024/25 er
+utenfor utvalget (kjør med --sesong 2024-25 --faktorer-fra 2025-26 --minutter-fra 2025-26), med
+ett unntak: AVTAK ble valgt ved å se på begge sesongene. Fiksturjusteringen løfter r med
+0,010–0,013 på én runde. Den robuste varianten (uten beste kamp) treffer like godt som
+hovedtallet (r 0,434 mot 0,433 og 0,469 mot 0,469). Den er en følsomhetssjekk, ikke et bedre
+estimat.
+Snittet ligger 4–6 % under fasit. Spillere med lav startandel spiller og scorer mer enn modellen
+venter (startandel under 0,2: 16 % under), mens faste startere treffer (startandel 1: 0,9 % under;
+2025/26, én runde fram, minutter tilpasset på 2024/25).
 Modellen er best på alle mål i begge sesonger, men FPL-poeng er støyete: den forklarer om lag
-20 % av variansen i én runde og 30–40 % over fem. Forskjeller under 2–3 poeng over fem runder
-er innenfor usikkerheten.
+20 % av variansen i én runde og 30–40 % over fem. Over fem runder bommer den i snitt med 5,1–5,8
+poeng per spiller.
 
 Kjente begrensninger: se BEGRENSNINGER under. Lista skrives ut i hver rapport.
 """
@@ -145,6 +158,41 @@ SPILLER_K = 3.0
 # én og fem runder, så verdien er ikke tilpasset én sesong. Reproduser med historikk.py.
 AVTAK = 0.7
 
+# Kalibrering av start- og spillesannsynligheten (se MODELLEN). Koeffisienter for minuttledd():
+# (konstant, vektet andel, uvektet andel), per h = runder etter siste runde i grunnlaget. h over
+# største nøkkel bruker største nøkkel. Tilpasset med minste kvadrater på alle spillere med minst
+# én telt kamp, målrunde GW4 og utover, 2024/25 og 2025/26 samlet:
+# `python3 scripts/historikk.py minutter`. Rett etter grunnlaget teller den vektede andelen nesten
+# alene; sju runder fram veier den uvektede (hele sesongen) tyngst — roller går tilbake.
+# Uten kalibrering får en fast starter P(start) = 1,00 i alle runder; fasit er 0,89–0,90 i første
+# runde og 0,79–0,80 i den sjuende, kalibrert 0,91–0,92 og 0,82 (1–3 prosentpoeng for høyt, også
+# utenfor utvalget). Testet sesong mot sesong (tilpasset på den ene, testet på den
+# andre): Brier for start 0,126 → 0,114 og 0,130 → 0,120. Fem runder fram løftet det r for
+# forventede poeng fra 0,550 til 0,560 (2025/26) og fra 0,621 til 0,629 (2024/25), og MAE ned fra
+# 5,90 til 5,77 og fra 5,21 til 5,13. Én runde fram: r uendret, MAE 1,77 → 1,74 og 1,61 → 1,58.
+# Også testet og forkastet: kvadratledd i den vektede andelen (r ±0,001, men P(spiller) for faste
+# startere 2–3 prosentpoeng for lav) og startpris (prisgruppene oppfører seg ulikt i de to
+# sesongene: s = 1 og startpris ≥ £9m ga startrate 0,875 tre til seks runder fram i 2024/25 og 0,728
+# i 2025/26).
+START_KAL: dict[int, tuple[float, ...]] = {
+    0: (0.0307, 0.8564, 0.0280),
+    1: (0.0401, 0.6549, 0.1931),
+    2: (0.0466, 0.5124, 0.3106),
+    3: (0.0518, 0.4060, 0.3965),
+    4: (0.0553, 0.3349, 0.4533),
+    5: (0.0583, 0.2823, 0.4937),
+    6: (0.0617, 0.2490, 0.5138),
+}
+SPILL_KAL: dict[int, tuple[float, ...]] = {
+    0: (0.0328, 0.8679, 0.0305),
+    1: (0.0415, 0.6710, 0.1998),
+    2: (0.0483, 0.5307, 0.3181),
+    3: (0.0544, 0.4200, 0.4095),
+    4: (0.0575, 0.3542, 0.4636),
+    5: (0.0605, 0.3101, 0.4973),
+    6: (0.0641, 0.2713, 0.5252),
+}
+
 # DC-treffraten (andel kamper over terskelen) krympes mot posisjonssnittet med vekt DC_K kamper.
 # Tilbaketest 2025/26, forsvarere, DC-poeng fem runder fram: r 0,496 (rå) → 0,512 (k = 4), og
 # forventede poeng totalt 0,539 → 0,542. Optimum k = 4; 2 og 8 er nesten like gode. Bare 2025/26
@@ -182,8 +230,10 @@ AARSAK_TELLES = {"rotasjon", "benket"}
 AARSAKER = AARSAK_UTELATES | AARSAK_TELLES
 
 BEGRENSNINGER = [
-    "Snittet ligger 1–4 % over fasit i tilbaketesten, fordi historisk skadestatus ikke finnes og alle "
-    "settes som tilgjengelige. I bruk dekker FPL-status kjente skader, ikke uvarslet rotasjon.",
+    "Snittet ligger 4–6 % under fasit i tilbaketesten. Avviket sitter hos spillere med lav startandel "
+    "(under 0,2: 16 % under); faste startere treffer innenfor 1 %. Start- og spillesannsynligheten er "
+    "kalibrert uten historisk skadestatus, så FPL-status kommer i tillegg — for en flagget spiller "
+    "telles en del av skaderisikoen to ganger.",
     "Straffer ligger i xG slik de har falt. Straffeskytterrolle vises i kolonnen «Str», men modelleres "
     "ikke separat. Bommet straffe (−2) er ikke med.",
     "Tilgjengelighet utover neste runde bygger på FPL-status og -nyhet. Returdatoen i nyheten tolkes som "
@@ -192,8 +242,8 @@ BEGRENSNINGER = [
     "De må vurderes for hånd.",
     "I dobbelrunder er minuttfordelingen tilnærmet. En spiller som har byttet klubb i grunnlaget, får "
     "rater som blander to roller. Begge deler flagges.",
-    "Modellen forklarer om lag 20 % av variansen i poeng for én runde og 30–40 % over fem. Forskjeller "
-    "under 2–3 poeng over fem runder er innenfor usikkerheten.",
+    "Modellen forklarer om lag 20 % av variansen i poeng for én runde og 30–40 % over fem. Over fem runder "
+    "bommer den i snitt med 5,1–5,8 poeng per spiller.",
 ]
 
 SUMMEFELT_HEL = [
@@ -256,6 +306,7 @@ class Data:
     snapshot: dict | None
     tropp_runde: int | None
     tropp: list[int]
+    regler: dict = dataclasses.field(default_factory=dict)   # game_config.rules (bytteregler, klubbgrense)
 
 
 def last_data(kilde: Kilde, til_runde: int | None = None) -> Data:
@@ -300,6 +351,7 @@ def last_data(kilde: Kilde, til_runde: int | None = None) -> Data:
         snapshot=snapshot,
         tropp_runde=tropp_runde,
         tropp=tropp,
+        regler=b.get("game_config", {}).get("rules", {}),
     )
 
 
@@ -949,6 +1001,7 @@ def bygg_profil(data: Data, eid: int, rader: list[Spillerrunde], styrke: Lagstyr
             st = min(r.starter, r.kamper)
             p.telte += r.kamper
             p.starter += st
+            p.innbytter += r.kamper - st  # som i de vektede andelene under: tolket som innbytterkamper
             telte_seq.extend([1] * st + [0] * (r.kamper - st))
             telte_runde.extend([(r.runde, 1, 0)] * st + [(r.runde, 0, 1)] * (r.kamper - st))
             if st == r.kamper:
@@ -1118,11 +1171,35 @@ def tilgjengelighet(p: Profil, runde: int, kampdato: dt.date, sjanse_runde: int 
 # --------------------------------------------------------------------------- forventning per kamp
 
 
+def minuttledd(x: float, u: float) -> tuple[float, ...]:
+    """Forklaringsvariablene i minuttkalibreringen: konstant, vektet andel x (startandel eller
+    spilleandel) og uvektet andel u (samme, uten avtak) for hele grunnlaget."""
+    return (1.0, x, u)
+
+
+def kalibrer_andel(koeff: dict[int, tuple[float, ...]], h: int, x: float, u: float, gulv: float = 0.0) -> float:
+    c = koeff[min(max(h, 0), max(koeff))]
+    return min(1.0, max(gulv, sum(k * v for k, v in zip(c, minuttledd(x, u), strict=True))))
+
+
+def minutt_sannsynlighet(p: Profil, h: int | None) -> tuple[float, float]:
+    """(P(start), P(innbytter)) gitt at spilleren er tilgjengelig, h runder etter siste runde i
+    grunnlaget. h = None gir de rå andelene (brukes bare i tester og diagnostikk)."""
+    s = p.startandel
+    q = s + (1 - s) * p.innbytterandel
+    if h is None or p.telte == 0:
+        return s, q - s
+    ps = kalibrer_andel(START_KAL, h, s, p.starter / p.telte)
+    pq = kalibrer_andel(SPILL_KAL, h, q, (p.starter + p.innbytter) / p.telte, gulv=ps)
+    return ps, pq - ps
+
+
 def forvent_kamp(p: Profil, styrke: Lagstyrke, liga: Ligarater, motstander: int, bane: str,
-                 a: float, robust: bool = False) -> dict[str, float]:
+                 a: float, robust: bool = False, h: int | None = None) -> dict[str, float]:
     pos = p.pos
-    p_start = a * p.startandel
-    p_innb = a * (1 - p.startandel) * p.innbytterandel
+    ps, pi = minutt_sannsynlighet(p, h)
+    p_start = a * ps
+    p_innb = a * pi
     e_min = p_start * p.min_start + p_innb * p.min_innbytter
     p60 = p_start * p.p60_start + p_innb * p.p60_innbytter
     p_kort = p_start + p_innb - p60
@@ -1271,20 +1348,24 @@ def horisont(data: Data, fra: int | None, antall: int, naa: dt.datetime) -> list
 
 
 def projiser(m: Modell, eid: int, runder: list[int], fravaer: dict[int, Fravaer]) -> dict:
-    """Forventede poeng per runde (sum over lagets kamper i runden) og per komponent."""
+    """Forventede poeng per runde (sum over lagets kamper i runden) og per komponent, og
+    sannsynligheten for at spilleren kommer på banen i runden («spiller»)."""
     p = m.profiler[eid]
     sjanse_runde = next((e["id"] for e in m.data.events if e.get("is_next")), None)
     aar = sesong_aar(m.data)
-    ut = {"runder": {}, "robust": {}, "komp": collections.Counter(), "merknader": []}
+    ut = {"runder": {}, "robust": {}, "spiller": {}, "komp": collections.Counter(), "merknader": []}
     if sjanse_runde is not None and runder and sjanse_runde < runder[0]:
         # Speilet ble hentet før forrige deadline: FPL-sjansen gjelder en runde som er låst.
         # Den er likevel det ferskeste vi har, og brukes for første runde i horisonten.
         if p.sjanse_neste is not None and p.sjanse_neste < 100:
             ut["merknader"].append(f"FPL-sjansen gjelder GW{sjanse_runde}; brukt for GW{runder[0]}")
         sjanse_runde = runder[0]
+    siste = max(m.data.grunnlag) if m.data.grunnlag else 0
     for n in runder:
         kamper = [f for f in kamper_i_runde(m.data, n) if p.lag in (f["team_h"], f["team_a"])]
-        tot, tot_r = 0.0, 0.0
+        tot, tot_r, p_ikke = 0.0, 0.0, 1.0
+        h = n - siste - 1
+        ps, pi = minutt_sannsynlighet(p, h)
         for f in kamper:
             mot, bane = (f["team_a"], "H") if f["team_h"] == p.lag else (f["team_h"], "B")
             dato = (dt.datetime.fromisoformat(f["kickoff_time"].replace("Z", "+00:00")).date()
@@ -1294,10 +1375,11 @@ def projiser(m: Modell, eid: int, runder: list[int], fravaer: dict[int, Fravaer]
                 ut["merknader"].append(f"GW{n}: {grunn}")
             elif grunn and "tolket" in grunn:
                 ut["merknader"].append(f"GW{n}: {grunn}")
-            k = forvent_kamp(p, m.styrke, m.liga, mot, bane, a)
-            kr = forvent_kamp(p, m.styrke, m.liga, mot, bane, a, robust=True)
+            k = forvent_kamp(p, m.styrke, m.liga, mot, bane, a, h=h)
+            kr = forvent_kamp(p, m.styrke, m.liga, mot, bane, a, robust=True, h=h)
             tot += k["total"]
             tot_r += kr["total"]
+            p_ikke *= 1 - a * (ps + pi)
             for c in KOMPONENTER:
                 ut["komp"][c] += k[c]
         if len(kamper) == 0:
@@ -1306,6 +1388,7 @@ def projiser(m: Modell, eid: int, runder: list[int], fravaer: dict[int, Fravaer]
             ut["merknader"].append(f"GW{n}: {len(kamper)} kamper (dobbelrunde)")
         ut["runder"][n] = tot
         ut["robust"][n] = tot_r
+        ut["spiller"][n] = 1 - p_ikke
     ut["merknader"] = list(dict.fromkeys(ut["merknader"]))
     return ut
 
@@ -1448,8 +1531,9 @@ def tilbaketest(kilde: Kilde, fravaer: dict[int, dict[int, Fravaer]], noytral: b
             x, xr = 0.0, 0.0
             for f in mine:
                 mot, bane = (f["team_a"], "H") if f["team_h"] == lag else (f["team_h"], "B")
-                x += forvent_kamp(p, m.styrke, m.liga, mot, bane, 1.0)["total"]
-                xr += forvent_kamp(p, m.styrke, m.liga, mot, bane, 1.0, robust=True)["total"]
+                h = f["event"] - maal
+                x += forvent_kamp(p, m.styrke, m.liga, mot, bane, 1.0, h=h)["total"]
+                xr += forvent_kamp(p, m.styrke, m.liga, mot, bane, 1.0, robust=True, h=h)["total"]
             p._xgc90 = xgc90[eid]  # type: ignore[attr-defined]
             ny.append(x)
             rob.append(xr)
@@ -1562,7 +1646,9 @@ def markdown(m: Modell, runder: list[int], rader: dict[int, dict], feil: list[st
     L += ["## Modell og estimerte parametre", "",
           "Formelen står i toppen av `scripts/forventning.py`.", "",
           f"- **Faste konstanter** (valgt på 2024/25 og 2025/26, se `scripts/historikk.py`): avtak i startandel "
-          f"{AVTAK}, krymping av spillerrater mot posisjon og startpris {SPILLER_K:g} kamper, krymping av "
+          f"{AVTAK}, start- og spillesannsynlighet kalibrert per runde fram (fast starter: P(start) "
+          f"{sum(START_KAL[0]):.2f} i første runde etter grunnlaget, {sum(START_KAL[max(START_KAL)]):.2f} i den "
+          f"{max(START_KAL) + 1}.), krymping av spillerrater mot posisjon og startpris {SPILLER_K:g} kamper, krymping av "
           f"DC-treffrate mot posisjonssnitt {DC_K:g} kamper, CS-faktor {CS_FAKTOR}, målfaktor "
           + ", ".join(f"{p} {MAL_FAKTOR[p]}" for p in POSISJONER) + "; assistfaktor "
           + ", ".join(f"{p} {ASSIST_FAKTOR[p]}" for p in POSISJONER) + ".",

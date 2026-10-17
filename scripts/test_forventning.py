@@ -374,6 +374,32 @@ class TestKjede(unittest.TestCase):
         self.assertGreater(pr["runder"][5], 1.5 * enkel)
         self.assertTrue(any("dobbelrunde" in x for x in pr["merknader"]))
 
+    def test_sannsynlighet_for_aa_spille(self):
+        m = self.modell()
+        # Grunnlaget er GW1–3, så GW4 er h = 0 og GW5 er h = 1.
+        # Spiller 2 startet alle tre: s = u = 1. Lag 2 har én kamp i både GW4 og GW5.
+        pr = fv.projiser(m, 2, [4, 5], {})
+        for n, h in ((4, 0), (5, 1)):
+            ps = sum(fv.START_KAL[h])
+            self.assertAlmostEqual(pr["spiller"][n], max(ps, sum(fv.SPILL_KAL[h])))
+            self.assertLess(pr["spiller"][n], 1.0)
+        # Spiller 1: lag 1 har to kamper i GW5, så P(spiller) = 1 − (1 − p)².
+        p = m.profiler[1]
+        pr1 = fv.projiser(m, 1, [4, 5], {})
+        self.assertAlmostEqual(pr1["spiller"][4], sum(fv.minutt_sannsynlighet(p, 0)))
+        self.assertAlmostEqual(pr1["spiller"][5], 1 - (1 - sum(fv.minutt_sannsynlighet(p, 1))) ** 2)
+        skadet = fv.projiser(m, 1, [4], {4: fv.Fravaer("skade", None, "")})
+        self.assertEqual(skadet["spiller"][4], 0.0)
+
+    def test_h_regnes_fra_siste_runde_i_grunnlaget(self):
+        m = self.modell()
+        p = m.profiler[2]
+        alene = fv.projiser(m, 2, [5], {})["runder"][5]
+        mot, bane = 3, "H"  # GW5: (2, 3), lag 2 hjemme
+        self.assertAlmostEqual(alene, fv.forvent_kamp(p, m.styrke, m.liga, mot, bane, 1.0, h=1)["total"])
+        self.assertNotAlmostEqual(alene, fv.forvent_kamp(p, m.styrke, m.liga, mot, bane, 1.0, h=0)["total"])
+
+
     def test_krymping_mot_pris(self):
         uten = fv.bygg_modell(self.data, {}, spiller_k=0.0).profiler[1]
         med = fv.bygg_modell(self.data, {}, spiller_k=3.0).profiler[1]
@@ -388,6 +414,62 @@ class TestKjede(unittest.TestCase):
         k = fv.forvent_kamp(p, m.styrke, m.liga, 1, "H", 1.0)
         self.assertGreater(k["redninger"], 0)
         self.assertEqual(k["dc"], 0.0)
+
+
+class TestMinuttkalibrering(unittest.TestCase):
+    def fast(self, **k) -> fv.Profil:
+        p = profil(**k)
+        p.telte, p.starter, p.innbytter, p.startandel, p.innbytterandel = 10, 10, 0, 1.0, 0.0
+        return p
+
+    def test_raa_andeler_uten_h(self):
+        p = profil()
+        p.telte, p.starter, p.innbytter, p.startandel, p.innbytterandel = 4, 2, 1, 0.6, 0.5
+        ps, pi = fv.minutt_sannsynlighet(p, None)
+        self.assertAlmostEqual(ps, 0.6)
+        self.assertAlmostEqual(pi, 0.4 * 0.5)
+
+    def test_fast_starter_under_en_og_synkende(self):
+        p = self.fast()
+        start = [fv.minutt_sannsynlighet(p, h)[0] for h in range(7)]
+        self.assertTrue(all(a > b for a, b in zip(start, start[1:])), start)
+        self.assertTrue(0.85 < start[0] < 0.95, start[0])
+        self.assertTrue(0.75 < start[6] < 0.85, start[6])
+
+    def test_reserve_over_null_og_stigende(self):
+        p = profil()
+        p.telte, p.starter, p.innbytter, p.startandel, p.innbytterandel = 10, 0, 0, 0.0, 0.0
+        start = [fv.minutt_sannsynlighet(p, h)[0] for h in range(7)]
+        self.assertTrue(all(a < b for a, b in zip(start, start[1:])), start)
+        self.assertGreater(start[0], 0.0)
+
+    def test_spiller_minst_like_ofte_som_start(self):
+        for s in (0.0, 0.3, 0.7, 1.0):
+            for ib in (0.0, 0.5, 1.0):
+                p = profil()
+                p.telte, p.starter, p.innbytter = 10, round(10 * s), round(10 * (1 - s) * ib)
+                p.startandel, p.innbytterandel = s, ib
+                for h in range(9):
+                    ps, pi = fv.minutt_sannsynlighet(p, h)
+                    self.assertGreaterEqual(pi, 0.0)
+                    self.assertLessEqual(ps + pi, 1.0)
+                    self.assertGreaterEqual(ps, 0.0)
+
+    def test_h_utover_tabellen_bruker_siste(self):
+        p = self.fast()
+        siste = max(fv.START_KAL)
+        self.assertEqual(fv.minutt_sannsynlighet(p, siste + 5), fv.minutt_sannsynlighet(p, siste))
+
+    def test_ingen_telte_kamper_gir_null(self):
+        p = profil()
+        self.assertEqual(fv.minutt_sannsynlighet(p, 0), (0.0, 0.0))
+
+    def test_konstantene_passer_forklaringsvariablene(self):
+        n = len(fv.minuttledd(0.5, 0.5))
+        self.assertEqual(sorted(fv.START_KAL), list(range(len(fv.START_KAL))))
+        self.assertEqual(sorted(fv.SPILL_KAL), sorted(fv.START_KAL))
+        for c in list(fv.START_KAL.values()) + list(fv.SPILL_KAL.values()):
+            self.assertEqual(len(c), n)
 
 
 # --------------------------------------------------------------------------- 3. ekte data

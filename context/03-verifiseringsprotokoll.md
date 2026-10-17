@@ -1,6 +1,7 @@
 # Verifiseringsprotokoll
 
-*Sist oppdatert: 17. oktober 2026, fjerde versjon — **`scripts/forventning.py` erstatter håndmodellen.** Ny regel: forventede poeng kommer fra skriptet, aldri fra hånd. To nye feillogger: «korreksjonen» av GW7-pakken (+0,84) var regnet med en modell der fire av seks feil sto (riktig: +1,73), og Fernandes ble anbefalt solgt på fem kamper uten at startprisen og forrige sesong ble veid. Minimumskrav 1, 2, 11 og 12 presisert, nr. 13 lagt til.*
+*Sist oppdatert: 17. oktober 2026, femte versjon — **ny feillogg: modellen ga faste startere P(start) = 1,00, og begrensningslista oppga en mekanisme som aldri var målt.** Start- og spillesannsynligheten er kalibrert mot to sesonger. Nye punkter 7 og 8 i regelen om `scripts/forventning.py`: hver sannsynlighet kalibreres i grupper før bruk, og byttepakker regnes med `scripts/bytter.py`. Valideringstabellen erstattet med tall utenfor utvalget også for minuttene. **Fjernet:** «Forskjeller under 2–3 poeng over fem runder er støy» (punkt 3) — påstanden hadde ingen utregning bak seg; de gamle valideringstallene 0,550 og 0,621 (fem runder) står i feilloggen.*
+*Forrige: 17. oktober 2026, fjerde versjon — **`scripts/forventning.py` erstatter håndmodellen.** Ny regel: forventede poeng kommer fra skriptet, aldri fra hånd. To nye feillogger: «korreksjonen» av GW7-pakken (+0,84) var regnet med en modell der fire av seks feil sto (riktig: +1,73), og Fernandes ble anbefalt solgt på fem kamper uten at startprisen og forrige sesong ble veid. Minimumskrav 1, 2, 11 og 12 presisert, nr. 13 lagt til.*
 *Forrige: 17. oktober 2026, tredje versjon — **ny feillogg: B.Fernandes beholdt på en sesongsum, og etterprøvingen leverte en gal mekanisme med forbehold der et oppslag var mulig. Ny seksjon: «Minimumskrav før en spillervurdering». Verktøyraden for `element-summary` rettet — WebFetch når den. Deretter: ny feillogg om at modellen talte João Pedros skadefravær som framtidig, og minimumskrav 11 (minutter) lagt til. Deretter: modellen revidert i sin helhet — fem feil til, én av dem en gjentakelse av Egan-feilen fra 12. september. Minimumskrav 12 lagt til.***
 *Forrige: 17. oktober 2026, andre versjon — **fire feillogger fra GW7-økten: kontekstfilene sto stille i fem uker, et utdatert tall bærte en salgsbegrunnelse, sesongpoeng ble brukt som bevis for et bytte en tidligere økt hadde avvist på samme grunnlag, og anbefalingen vinglet fordi modellen ble byttet underveis. Ny regel: premierleague.com/injuries som første sjekkpunkt for lagnytt.***
 *Forrige: 17. oktober 2026 — **fire feillogger fra kampprogramsjekkene 1.–15. oktober ført inn: to kunngjøringer om samme runde lest som én (GW9), en ukunngjort runde antatt uten å sjekke kunngjøringslista (GW17–20), en påstand om innholdet i `04` skrevet uten at fila var lest, og en PL-URL som serverer feil sesong. Ny regel: PLs rundskriv (Circular N) er primærkilde og diffgrunnlag for kampprogrammet.**
@@ -205,7 +206,7 @@ Gjelder enhver konklusjon om å kjøpe, selge eller beholde en spiller, og hver 
 10. **Konklusjonen merkes.** Oppgi hvilke ledd som er verifisert, hvilke som er utledet og hvilke som ikke er funnet.
 11. **Minutter: rate og tilgjengelighet skilles.** Forventning = rate per 90 × forventede minutter framover. Hvert fravær i dataene får en årsak slått opp før forventede minutter settes. Skade som er over gir fulle minutter. Rotasjon eller innbytterrolle gir observert andel. Skadet nå gir 0. Skalering med minutter/540 brukes ikke — den teller et lukket fravær som framtidig. I skriptet: årsaken føres i `context/fravaer.csv`; uten rad flagges fraværet UAVKLART og telles som ikke-start.
 12. **Terskelledd regnes fra rundetallene.** DC-poeng = 2 × andelen kamper over terskelen, talt i `live/gw{n}.csv`. Aldri fra snitt per 90. Regelen sto allerede (Egan, 12. september) og ble brutt i GW7-modellen. I skriptet krympes andelen mot posisjonssnittet (4 kamper); rapporten viser rå treff, f.eks. «4/6».
-13. **Forventede poeng kommer fra `scripts/forventning.py`.** Aldri regnet for hånd i en økt. Se regelen under.
+13. **Forventede poeng kommer fra `scripts/forventning.py`.** Aldri regnet for hånd i en økt. Se regelen under. **Byttepakker** — salg, kjøp, bank og frikjøp over to runder — regnes med `scripts/bytter.py` (punkt 8 i regelen under).
 
 ## Ny regel, 17. oktober: forventede poeng kommer fra `scripts/forventning.py`
 
@@ -213,21 +214,30 @@ Håndmodellen fra GW7-økten hadde seks feil, og to korreksjoner samme dag var o
 
 1. **Ingen forventede poeng regnes for hånd i en økt.** Les `analyse/forventning.md` (generert av CI fire ganger i døgnet, en halvtime etter speilet) eller kjør `python3 scripts/forventning.py` fra reporoten. `--spillere id,id` tar med kandidater, `--runder 6` endrer horisonten.
 2. **Kontrollblokka øverst i rapporten skal være uten ❌**, og speilet yngre enn 26 timer, før tallene brukes. Feiler en kontroll — poengregler i API-et, rundedata mot sesongtotaler, en ugyldig rad i `fravaer.csv` — stopper skriptet og skriver ingenting.
-3. **«Sum» og «Robust» oppgis begge.** Sum er estimatet. Robust er en følsomhetssjekk. Forskjeller under 2–3 poeng over fem runder er støy.
+3. **«Sum» og «Robust» oppgis begge.** Sum er estimatet. Robust er en følsomhetssjekk. Over fem runder bommer modellen i snitt med 5,1–5,8 poeng per spiller (MAE i tilbaketesten). En forskjell på noen få poeng mellom to spillere eller to planer er en svak preferanse, ikke en dom.
 4. **Uavklart fravær** i troppen eller blant kandidatene slås opp og føres i `context/fravaer.csv` (id, navn, runder, årsak, kilde) før tallene brukes. Feil navn eller id stopper kjøringen.
-5. **Modellen endres bare med tilbaketest på begge sesongene:** `python3 scripts/historikk.py tilbaketest` (2025/26) og `python3 scripts/historikk.py tilbaketest --sesong 2024-25 --faktorer-fra 2025-26` (utenfor utvalget). Endringen beholdes bare hvis r ikke blir dårligere i noen av dem. Tallene føres i docstringen, og testene skal passere: `python3 -m unittest discover -s scripts -p "test_*.py"`.
+5. **Modellen endres bare med tilbaketest på begge sesongene:** `python3 scripts/historikk.py tilbaketest --minutter-fra 2024-25` (2025/26) og `python3 scripts/historikk.py tilbaketest --sesong 2024-25 --faktorer-fra 2025-26 --minutter-fra 2025-26` (utenfor utvalget). Endres minuttkalibreringen, kjøres også `python3 scripts/historikk.py minutter`. Endringen beholdes bare hvis r ikke blir dårligere i noen av dem. Tallene føres i docstringen, og testene skal passere: `python3 -m unittest discover -s scripts -p "test_*.py"`.
 6. **Modellen er ikke en beslutning.** Den rangerer spillere på forventning. Klubbfordeling, bank, salgspris og frikjøp vurderes fortsatt etter anti-drift-reglene.
+7. **Hver sannsynlighet modellen bruker, kalibreres i grupper mot utfall, utenfor utvalget, før den brukes til beslutninger.** Et snitt som treffer, er ikke kalibrering: det skjulte at faste startere fikk P(start) = 1,00 (feilloggen). Status 17.10.:
 
-**Validering, 17.10.:** korrelasjon mellom forventet og faktisk poeng, målrunde GW4–38.
+   | Sannsynlighet | Status | Grunnlag |
+   |---|---|---|
+   | Start og spille | ✅ Kalibrert per runde fram (`START_KAL`, `SPILL_KAL`) | Fast starter: 0,91–0,92 spådd mot 0,89–0,90 faktisk rett etter grunnlaget, 0,82 mot 0,79–0,80 sju runder fram. Reserver fortsatt for lavt |
+   | Clean sheet per lagkamp | ✅ Innenfor støy | Grupper 0,1–0,4: avvik −0,05 til +0,05, uten fast retning mellom sesongene (~700 lagkamper per sesong) |
+   | DC-treff per start | ⚠️ Innenfor 5 prosentpoeng, unntatt øverst | Spådd 0,65, faktisk 0,57 i øverste gruppe (81 starter, 2025/26). Bare én sesong har DC |
 
-| Sesong | Horisont | Modellen | Poeng per kamp | Gammel håndmodell |
-|---|---|---|---|---|
-| 2025/26 (delvis i utvalget) | 1 runde | **0,433** | 0,345 | 0,353 |
-| 2025/26 | 5 runder | **0,550** | 0,486 | 0,502 |
-| 2024/25 (utenfor utvalget) | 1 runde | **0,468** | 0,392 | 0,401 |
-| 2024/25 | 5 runder | **0,621** | 0,562 | 0,579 |
+8. **Byttepakker regnes med `scripts/bytter.py`, aldri for hånd.** Skriptet leser tropp, bank, innkjøpspriser og frikjøp fra speilet, kontrollerer bankkjeden og frikjøpene mot historikken, og søker gjennom bytter i de to neste rundene med salgspris, bank, klubbgrense og minuspoeng. Lagets poeng regnes med elleveren, kapteinen og innbytterne etter `05`. Bytter gjort etter siste speiling føres inn med `--ekstra-bytter`. Rapporten (`analyse/bytter.md`) gir beste plan totalt, beste plan som selger hver spiller, og anti-drift for de tre beste. Den er et verktøy, ikke en beslutning: minimumskravene gjelder for spillerne som kommer inn.
 
-Modellen har også lavest MAE i alle fire. Den forklarer om lag 20 % av variansen i én runde og 30–40 % over fem — FPL-poeng er støyete, og modellen er et rangeringsverktøy, ikke en fasit.
+**Validering, 17.10., femte versjon:** forventet mot faktisk poeng, målrunde GW4–38, alle spillere med minst én start. Minuttkalibreringen er tilpasset på den andre sesongen.
+
+| Sesong | Horisont | r modellen | r poeng per kamp | r gammel håndmodell | MAE modellen |
+|---|---|---|---|---|---|
+| 2025/26 (delvis i utvalget) | 1 runde | **0,433** | 0,345 | 0,353 | 1,74 |
+| 2025/26 | 5 runder | **0,560** | 0,486 | 0,502 | 5,77 |
+| 2024/25 (utenfor utvalget) | 1 runde | **0,469** | 0,392 | 0,401 | 1,58 |
+| 2024/25 | 5 runder | **0,629** | 0,562 | 0,579 | 5,13 |
+
+Modellen har også lavest MAE i alle fire. Den forklarer om lag 20 % av variansen i én runde og 30–40 % over fem — FPL-poeng er støyete, og modellen er et rangeringsverktøy, ikke en fasit. Snittet ligger 4–6 % under fasit; avviket sitter hos spillere med lav startandel.
 
 **Testet og forkastet:** forrige sesongs xG/xA per spiller som utgangspunkt i stedet for startprisen. Ingen gevinst i noen vekting (r endret seg under 0,005 i begge sesonger). Startprisen fanger historikken.
 
@@ -505,6 +515,22 @@ Premier League publiserer hver kampprogramendring som et nummerert rundskriv, «
 - **`premierleague.com/en/news/3774835` brukes ikke.** Adressen har to ganger (3.9. og 15.10.) servert 2025/26-innhold. Betingede endringer hentes fra fotnotene i rundskrivet og fra begge klubbers sider.
 
 ## Feillogg
+
+### Ny feil, 17. oktober: modellen ga faste startere P(start) = 1,00 — minuttene ble aldri kalibrert, og begrensningslista oppga en mekanisme som ikke var målt
+
+**Hva som sto (versjonen levert ca. kl. 13):** `scripts/forventning.py` brukte rå startandel som sannsynlighet. En spiller som hadde startet alle kampene i grunnlaget, fikk P(start) = 1,00 i hver runde i horisonten. Begrensningslista forklarte at snittet lå 1–4 % over fasit «fordi historisk skadestatus ikke finnes … I bruk dekker FPL-status kjente skader». Regelen i denne fila sa at «forskjeller under 2–3 poeng over fem runder er støy».
+
+**Hva som er riktig, målt:**
+1. **Startandel 1 er ikke start i 100 % av kampene.** 2024/25 og 2025/26: de startet 89–90 % av kampene i runden rett etter grunnlaget og 79–80 % sju runder fram. Motsatt for reserver: med startandel 0,05–0,2 (snitt 0,11–0,12) startet de 16–17 % av kampene rett etter grunnlaget og 25–34 % fire til sju runder fram.
+2. **FPL-status forklarer lite av det.** I år, GW3–6, startet spillere med startandel 1 og status «a» før deadline 91,2 % av kampene (605 tilfeller), mot 88,2 % for alle. Det meste av fraværet er uvarslet.
+3. **Konsekvens:** forventede poeng for faste startere var 8 % for høye én runde fram (2025/26: 3,68 spådd mot 3,42 faktisk) og mer lenger fram. Bytteplanleggeren ga benken verdien null, fordi ingen starter kunne mangle. Alle modelltall fra 17.10. før kl. 14 ligger 10–15 % for høyt i absolutt nivå; rangeringen mellom to faste startere er uendret (GW7-pakken: +1,73 → +1,49 per runde).
+4. **«2–3 poeng er støy» hadde ingen utregning bak seg.** Tallet som finnes: realiserte poeng over fem runder avviker i snitt 5,1–5,8 poeng per spiller fra forventningen (MAE).
+
+**Rettet samme økt:** start- og spillesannsynligheten kalibreres per runde fram, lineært i vektet og uvektet andel (`START_KAL`, `SPILL_KAL`, `python3 scripts/historikk.py minutter`). Utenfor utvalget: Brier for start 0,126 → 0,114 og 0,130 → 0,120. Fem runder fram: r 0,550 → 0,560 og 0,621 → 0,629, MAE 5,90 → 5,77 og 5,21 → 5,13. Én runde fram: r uendret, MAE ned. Testet og forkastet: kvadratledd og startpris. Nytt, kjent avvik: snittet ligger 4–6 % under fasit, og det sitter hos spillere med lav startandel (under 0,2: 16 % under). Faste startere treffer innenfor 1 %.
+
+**Rotårsak:** tilbaketesten målte bare poeng — r, MAE og snitt. Overslaget på minutter for faste startere ble motvirket av underslag for reserver, så snittet så bra ut (+1,4 %). Ingen sannsynlighet i modellen var sjekket mot utfall i grupper. Mekanismen i begrensningslista ble skrevet uten å måles — regel 8 i prosjektinstruksen, brutt i egen kode.
+
+**Avledet regel:** punkt 7 i regelen om `scripts/forventning.py`: hver sannsynlighet modellen bruker, kalibreres i grupper mot utfall, utenfor utvalget, før den brukes til beslutninger. En mekanisme i begrensningslista måles før den skrives.
 
 ### Ny feil, 17. oktober: «korreksjonen» av GW7-pakken var selv feil — regnet med en modell der fire av seks feil fortsatt sto
 

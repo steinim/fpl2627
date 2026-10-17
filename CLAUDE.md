@@ -18,7 +18,8 @@ Ingen påstand om priser, kamper, minutter, skadestatus eller poengregler uten �
 - **Treningskampmål:** aldri bevis.
 - **Spillervurdering (kjøp, salg, behold):** gjennomfør «Minimumskrav før en spillervurdering» i `03` før konklusjonen — for spilleren og hver kandidat han sammenlignes med. Rundedata, ikke sesongsum. Mekanisme, ikke trend. Ledd som ikke er gjort, står i svaret som ikke gjort.
 - **Forbehold er ikke oppslag:** kan en påstand verifiseres med et verktøy i økten, verifiseres den før svaret. Ett mislykket verktøy er ikke «blokkert» — prøv `curl`, WebFetch og nettleser før det skrives.
-- **Forventede poeng:** kommer fra `scripts/forventning.py`, aldri fra hånd. Les `analyse/forventning.md` (CI, fire ganger i døgnet) eller kjør skriptet fra reporoten. Kontrollblokka øverst skal være uten ❌ før tallene brukes. «Sum» er estimatet, «Robust» en følsomhetssjekk; forskjeller under 2–3 poeng over fem runder er støy. Modellen endres bare med tilbaketest på to sesonger. Se regelen i `03`.
+- **Forventede poeng:** kommer fra `scripts/forventning.py`, aldri fra hånd. Les `analyse/forventning.md` (CI, fire ganger i døgnet) eller kjør skriptet fra reporoten. Kontrollblokka øverst skal være uten ❌ før tallene brukes. «Sum» er estimatet, «Robust» en følsomhetssjekk. Over fem runder bommer modellen i snitt med 5–6 poeng per spiller, så en forskjell på noen få poeng er en svak preferanse. Modellen endres bare med tilbaketest på to sesonger, og hver sannsynlighet den bruker skal være kalibrert i grupper. Se regelen i `03`.
+- **Byttepakker:** regnes med `scripts/bytter.py` — salgspris, bank, frikjøp, klubbgrense, kaptein og innbyttere over de to neste rundene. Bytter gjort etter siste speiling føres inn med `--ekstra-bytter`. Kontrollblokka skal være uten ❌. Minimumskravene i `03` gjelder fortsatt for spillerne som kommer inn.
 
 ## Anti-drift — før hvert bytteforslag
 
@@ -42,6 +43,7 @@ Enkeltbytter som hver for seg gir mening kan sammen endre lagets form uten at no
 | `fravaer.csv` | Årsaken til hvert fravær i grunnlaget (skade, karantene, rotasjon …), med kilde. Føres for hånd. Leses av `scripts/forventning.py` |
 | `lagstyrke-prior.csv` | Forrige sesongs lagstyrke. Lages én gang per sesong med `scripts/historikk.py prior` |
 | `../analyse/forventning.md` og `.csv` | Forventede poeng de neste fem rundene for alle spillere, generert av `scripts/forventning.py`. Rør ikke for hånd |
+| `../analyse/bytter.md` | Beste byttepakker for de to neste rundene, beste plan som selger hver spiller, anti-drift. Generert av `scripts/bytter.py`. Rør ikke for hånd |
 | `01-vurderte-spillere.md` | Historiske øyeblikksbilder uten styrende status — les kun hvis eksplisitt bedt om |
 
 ### Hvor filene ligger — ført inn 3. september 2026
