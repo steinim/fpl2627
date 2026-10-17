@@ -223,46 +223,29 @@ Ingen spillere i troppen berøres.
 
 ## Kampprogram — generert fra speilet
 
-*Generert 09.10.2026 kl. 06:52 UTC av `scripts/gen_kampprogram.py` fra `fpl-data`. **Rør ikke denne blokka for hånd** — endringer blir overskrevet ved neste kjøring. Endringsloggen og verifiseringsnotatene ligger under markøren.*
+*Generert 17.10.2026 kl. 06:32 UTC av `scripts/gen_kampprogram.py` fra `fpl-data`. **Rør ikke denne blokka for hånd** — endringer blir overskrevet ved neste kjøring. Endringsloggen og verifiseringsnotatene ligger under markøren.*
 
 **Strukturkontroll: ingen avvik.** 380 kamper, 38 runder, 20 lag, alle runder med nøyaktig 10 kamper og 20 unike lag. Ingen blankrunde, ingen dobbelrunde, 0 kamper med foreløpig klokkeslett. csv og json i speilet er identiske.
 
-**Spillerkolonnen bygger på `entry/picks/gw5.csv`** (15 spillere) — nyeste tilgjengelige øyeblikksbilde. Bytter gjort etter GW5-deadline vises ikke.
+**Spillerkolonnen bygger på `entry/picks/gw6.csv`** (15 spillere) — nyeste tilgjengelige øyeblikksbilde. Bytter gjort etter GW6-deadline vises ikke.
 
-
-### GW6
-
-| Dato | UK-tid | Kamp | Troppen |
-|---|---|---|---|
-| lør 10.10. | 12:30 | Arsenal – Leeds | Calafiori, Calvert-Lewin, Ødegaard |
-| lør 10.10. | 15:00 | Aston Villa – Brentford | — |
-| lør 10.10. | 15:00 | Chelsea – Bournemouth | João Pedro |
-| lør 10.10. | 15:00 | Ipswich Town – Fulham | Davis, Diop |
-| lør 10.10. | 15:00 | Sunderland – Brighton | Verbruggen |
-| lør 10.10. | 17:30 | Man Utd – Spurs | B.Fernandes, Kinsky, Mbeumo |
-| søn 11.10. | 14:00 | Crystal Palace – Nott'm Forest | Gibbs-White, N.Williams |
-| søn 11.10. | 14:00 | Hull City – Everton | Egan, Slater |
-| søn 11.10. | 16:30 | Liverpool – Man City | Haaland |
-| man 12.10. | 20:00 | Coventry City – Newcastle | — |
-
-15 spillere i spill. Interne oppgjør: Arsenal–Leeds (3), Man Utd–Spurs (3).
 
 ### GW7
 
 | Dato | UK-tid | Kamp | Troppen |
 |---|---|---|---|
-| lør 17.10. | 12:30 | Everton – Chelsea | João Pedro |
+| lør 17.10. | 12:30 | Everton – Chelsea | Barry, João Pedro |
 | lør 17.10. | 15:00 | Brentford – Liverpool | — |
 | lør 17.10. | 15:00 | Fulham – Hull City | Egan, Slater |
 | lør 17.10. | 15:00 | Man City – Ipswich Town | Davis, Diop, Haaland |
 | lør 17.10. | 17:30 | Newcastle – Aston Villa | — |
 | søn 18.10. | 14:00 | Bournemouth – Sunderland | — |
 | søn 18.10. | 14:00 | Brighton – Crystal Palace | Verbruggen |
-| søn 18.10. | 14:00 | Leeds – Man Utd | B.Fernandes, Calvert-Lewin, Mbeumo |
+| søn 18.10. | 14:00 | Leeds – Man Utd | B.Fernandes, Mbeumo |
 | søn 18.10. | 16:30 | Nott'm Forest – Arsenal | Calafiori, Gibbs-White, N.Williams, Ødegaard |
 | man 19.10. | 20:00 | Spurs – Coventry City | Kinsky |
 
-15 spillere i spill. Interne oppgjør: Man City–Ipswich Town (3), Leeds–Man Utd (3), Nott'm Forest–Arsenal (4).
+15 spillere i spill. Interne oppgjør: Everton–Chelsea (2), Man City–Ipswich Town (3), Nott'm Forest–Arsenal (4).
 
 ### GW8
 
@@ -270,16 +253,16 @@ Ingen spillere i troppen berøres.
 |---|---|---|---|
 | fre 23.10. | 20:00 | Ipswich Town – Nott'm Forest | Davis, Diop, Gibbs-White, N.Williams |
 | lør 24.10. | 12:30 | Aston Villa – Man City | Haaland |
-| lør 24.10. | 15:00 | Arsenal – Everton | Calafiori, Ødegaard |
+| lør 24.10. | 15:00 | Arsenal – Everton | Barry, Calafiori, Ødegaard |
 | lør 24.10. | 15:00 | Coventry City – Fulham | — |
 | lør 24.10. | 17:30 | Chelsea – Spurs | João Pedro, Kinsky |
 | søn 25.10. | 14:00 | Crystal Palace – Newcastle | — |
 | søn 25.10. | 14:00 | Hull City – Brentford | Egan, Slater |
 | søn 25.10. | 14:00 | Liverpool – Brighton | Verbruggen |
 | søn 25.10. | 14:00 | Man Utd – Bournemouth | B.Fernandes, Mbeumo |
-| søn 25.10. | 16:30 | Sunderland – Leeds | Calvert-Lewin |
+| søn 25.10. | 16:30 | Sunderland – Leeds | — |
 
-15 spillere i spill. Interne oppgjør: Ipswich Town–Nott'm Forest (4), Chelsea–Spurs (2).
+15 spillere i spill. Interne oppgjør: Ipswich Town–Nott'm Forest (4), Arsenal–Everton (3), Chelsea–Spurs (2).
 
 ⚠️ **Klokka stilles inne i denne runden** — kampene ligger i både BST og GMT. Kolonnen er ferdig omregnet til UK-tid.
 
@@ -288,7 +271,7 @@ Ingen spillere i troppen berøres.
 | Dato | UK-tid | Kamp | Troppen |
 |---|---|---|---|
 | lør 31.10. | 12:30 | Chelsea – Man Utd | B.Fernandes, João Pedro, Mbeumo |
-| lør 31.10. | 15:00 | Bournemouth – Leeds | Calvert-Lewin |
+| lør 31.10. | 15:00 | Bournemouth – Leeds | — |
 | lør 31.10. | 15:00 | Brentford – Nott'm Forest | Gibbs-White, N.Williams |
 | lør 31.10. | 15:00 | Coventry City – Sunderland | — |
 | lør 31.10. | 15:00 | Hull City – Ipswich Town | Davis, Diop, Egan, Slater |
@@ -296,7 +279,7 @@ Ingen spillere i troppen berøres.
 | lør 31.10. | 17:30 | Spurs – Crystal Palace | Kinsky |
 | lør 31.10. | 20:00 | Aston Villa – Fulham | — |
 | søn 1.11. | 16:30 | Liverpool – Arsenal | Calafiori, Ødegaard |
-| man 2.11. | 20:00 | Newcastle – Everton | — |
+| man 2.11. | 20:00 | Newcastle – Everton | Barry |
 
 15 spillere i spill. Interne oppgjør: Chelsea–Man Utd (3), Hull City–Ipswich Town (4), Man City–Brighton (2).
 
@@ -304,8 +287,8 @@ Ingen spillere i troppen berøres.
 
 | Dato | UK-tid | Kamp | Troppen |
 |---|---|---|---|
-| fre 6.11. | 20:00 | Everton – Coventry City | — |
-| lør 7.11. | 12:30 | Leeds – Spurs | Calvert-Lewin, Kinsky |
+| fre 6.11. | 20:00 | Everton – Coventry City | Barry |
+| lør 7.11. | 12:30 | Leeds – Spurs | Kinsky |
 | lør 7.11. | 15:00 | Arsenal – Hull City | Calafiori, Egan, Slater, Ødegaard |
 | lør 7.11. | 15:00 | Fulham – Newcastle | — |
 | lør 7.11. | 17:30 | Nott'm Forest – Man City | Gibbs-White, Haaland, N.Williams |
@@ -315,17 +298,34 @@ Ingen spillere i troppen berøres.
 | søn 8.11. | 14:00 | Sunderland – Chelsea | João Pedro |
 | søn 8.11. | 16:30 | Man Utd – Aston Villa | B.Fernandes, Mbeumo |
 
-15 spillere i spill. Interne oppgjør: Leeds–Spurs (2), Arsenal–Hull City (4), Nott'm Forest–Man City (3).
+15 spillere i spill. Interne oppgjør: Arsenal–Hull City (4), Nott'm Forest–Man City (3).
+
+### GW11
+
+| Dato | UK-tid | Kamp | Troppen |
+|---|---|---|---|
+| lør 21.11. | 12:30 | Man City – Fulham | Haaland |
+| lør 21.11. | 15:00 | Aston Villa – Sunderland | — |
+| lør 21.11. | 15:00 | Bournemouth – Nott'm Forest | Gibbs-White, N.Williams |
+| lør 21.11. | 15:00 | Chelsea – Leeds | João Pedro |
+| lør 21.11. | 15:00 | Coventry City – Crystal Palace | — |
+| lør 21.11. | 15:00 | Spurs – Ipswich Town | Davis, Diop, Kinsky |
+| lør 21.11. | 17:30 | Newcastle – Arsenal | Calafiori, Ødegaard |
+| søn 22.11. | 14:00 | Hull City – Brighton | Egan, Slater, Verbruggen |
+| søn 22.11. | 16:30 | Liverpool – Man Utd | B.Fernandes, Mbeumo |
+| man 23.11. | 20:00 | Brentford – Everton | Barry |
+
+15 spillere i spill. Interne oppgjør: Spurs–Ipswich Town (3), Hull City–Brighton (3).
 
 ### Deadlines
 
 | Runde | Deadline (UTC) | Deadline (UK) |
 |---|---|---|
-| GW6 | `2026-10-10T10:00:00Z` | lør 10.10. 11:00 |
 | GW7 | `2026-10-17T10:00:00Z` | lør 17.10. 11:00 |
 | GW8 | `2026-10-23T17:30:00Z` | fre 23.10. 18:30 |
 | GW9 | `2026-10-31T11:00:00Z` | lør 31.10. 11:00 |
 | GW10 | `2026-11-06T18:30:00Z` | fre 6.11. 18:30 |
+| GW11 | `2026-11-21T11:00:00Z` | lør 21.11. 11:00 |
 
 ### Rundestruktur, alle 38
 
