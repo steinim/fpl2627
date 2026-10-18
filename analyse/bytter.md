@@ -1,12 +1,12 @@
 # Byttepakker — generert
 
-*Generert 18.10.2026 kl. 07:13 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW8–12. Bytter vurderes i GW8 og GW9. Maks minuspoeng per runde: 0.*
+*Generert 18.10.2026 kl. 12:39 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW8–12. Bytter vurderes i GW8 og GW9. Maks minuspoeng per runde: 0.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–6 summerer til sesongtotalene for 333 spillere, 19 felt; 334 spillere på lag som har spilt i GW7 er kontrollert mot grunnlaget pluss live-fila
-- ✅ Speilet hentet 18.10.2026 06:34 UTC, 0.6 t gammelt ved kjøring
+- ✅ Speilet hentet 18.10.2026 12:11 UTC, 0.5 t gammelt ved kjøring
 - ✅ Bytteregler i API-et stemmer med 05 og skriptet: maks 3 per klubb, maks 5 frikjøp, halve prisstigningen ved salg, tropp på 15
 - ✅ Bank regnet fra 6 overganger stemmer med historikken i alle 7 runder
 - ✅ Frikjøp til GW8: 1. Kostnaden i hver runde stemmer med historikken
@@ -29,7 +29,7 @@ Bank **£0.3m**, frikjøp **1**. Salgspris etter regelen i `05`.
 | Saka | ARS | MID | £9.6m | £9.6m | £9.6m | 28.04 | 25.35 | 0.91 | 17.0 % |
 | B.Fernandes | MUN | MID | £11.8m | £12.0m | £11.8m | 26.44 | 20.81 | 0.91 | 30.7 % |
 | Mbeumo | MUN | MID | £7.8m | £8.0m | £7.8m | 24.77 | 20.47 | 0.91 | 19.5 % |
-| Groß | BHA | MID | £6.1m | £6.1m | £6.1m | 19.85 | 17.88 | 0.91 | 44.2 % |
+| Groß | BHA | MID | £6.1m | £6.1m | £6.1m | 19.85 | 17.88 | 0.91 | 44.3 % |
 | Slater | HUL | MID | £4.5m | £4.5m | £4.5m | 12.31 | 11.65 | 0.91 | 5.0 % |
 | Haaland | MCI | FWD | £15.7m | £15.5m | £15.6m | 28.00 | 26.24 | 0.91 | 76.5 % |
 | Barry | EVE | FWD | £5.7m | £5.7m | £5.7m | 21.91 | 19.41 | 0.91 | 8.7 % |
@@ -114,7 +114,7 @@ Flaggene kommer fra `forventning.py`. Én kamp som bærer xGI-en, slår ut i rob
 
 | Spiller | Lag | Pos | Pris | Eid | Sum GW8–12 | Robust | P(spiller) GW8 | Flagg |
 |---|---|---|---|---|---|---|---|---|
-| Trafford | LEE | GKP | £5.0m | 5.7 % | 15.76 | 15.75 | 0.91 | — |
+| Trafford | LEE | GKP | £5.0m | 5.8 % | 15.76 | 15.75 | 0.91 | — |
 | Silva | BOU | DEF | £5.0m | 0.6 % | 18.60 | 16.99 | 0.91 | én kamp (GW4) står for 50% av xGI |
 | Bogle | LEE | DEF | £4.7m | 9.7 % | 17.53 | 15.40 | 0.91 | én kamp (GW3) står for 57% av xGI |
 | Mitchell | CRY | DEF | £4.5m | 5.8 % | 16.06 | 14.39 | 0.91 | én kamp (GW3) står for 64% av xGI |
