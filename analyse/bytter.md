@@ -1,15 +1,16 @@
 # Byttepakker — generert
 
-*Generert 18.10.2026 kl. 12:39 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW8–12. Bytter vurderes i GW8 og GW9. Maks minuspoeng per runde: 0.*
+*Generert 18.10.2026 kl. 17:23 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW8–12. Bytter vurderes i GW8 og GW9. Maks minuspoeng per runde: 0.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
-- ✅ Rundedata GW1–6 summerer til sesongtotalene for 333 spillere, 19 felt; 334 spillere på lag som har spilt i GW7 er kontrollert mot grunnlaget pluss live-fila
-- ✅ Speilet hentet 18.10.2026 12:11 UTC, 0.5 t gammelt ved kjøring
+- ✅ Rundedata GW1–6 summerer til sesongtotalene for 77 spillere, 19 felt; 590 spillere på lag som har spilt i GW7 er kontrollert mot grunnlaget pluss live-fila
+- ✅ Speilet hentet 18.10.2026 16:53 UTC, 0.5 t gammelt ved kjøring
 - ✅ Bytteregler i API-et stemmer med 05 og skriptet: maks 3 per klubb, maks 5 frikjøp, halve prisstigningen ved salg, tropp på 15
 - ✅ Bank regnet fra 6 overganger stemmer med historikken i alle 7 runder
 - ✅ Frikjøp til GW8: 1. Kostnaden i hver runde stemmer med historikken
+- ⚠️ 22 spillere på lag som har spilt i GW7 avviker fra grunnlaget pluss live-fila — runden er ikke ferdig, og bootstrap og live-fila hentes hver for seg. Brukes ikke i modellen: Raya minutes: sesong 599, runder 601; Raya clean_sheets: sesong 3, runder 4; Raya bps: sesong 131, runder 146
 
 **Frikjøp, runde for runde:** GW1: første runde → 1 · GW2: 1 frikjøp, 0 brukt → 2 · GW3: 2 frikjøp, 0 brukt → 3 · GW4: 3 frikjøp, 2 brukt → 2 · GW5: 2 frikjøp, 0 brukt → 3 · GW6: 3 frikjøp, 1 brukt → 3 · GW7: 3 frikjøp, 3 brukt → 1
 
@@ -19,20 +20,20 @@ Bank **£0.3m**, frikjøp **1**. Salgspris etter regelen i `05`.
 
 | Spiller | Lag | Pos | Nå | Kjøpt | Salgspris | Sum GW8–12 | Robust | P(spiller) GW8 | Eid |
 |---|---|---|---|---|---|---|---|---|---|
-| Verbruggen | BHA | GKP | £4.6m | £4.5m | £4.5m | 13.22 | 12.82 | 0.91 | 22.4 % |
+| Verbruggen | BHA | GKP | £4.6m | £4.5m | £4.5m | 13.22 | 12.82 | 0.91 | 22.5 % |
 | Kinsky | TOT | GKP | £4.5m | £4.5m | £4.5m | 13.14 | 13.15 | 0.91 | 15.5 % |
-| Calafiori | ARS | DEF | £6.0m | £5.5m | £5.7m | 19.93 | 18.81 | 0.91 | 53.3 % |
+| Calafiori | ARS | DEF | £6.0m | £5.5m | £5.7m | 19.93 | 18.81 | 0.91 | 53.4 % |
 | Thomas (COV) | COV | DEF | £4.0m | £4.0m | £4.0m | 17.25 | 16.50 | 0.91 | 9.2 % |
 | Davis | IPS | DEF | £4.0m | £4.0m | £4.0m | 16.51 | 15.24 | 0.91 | 7.5 % |
 | Diop | IPS | DEF | £3.9m | £4.0m | £3.9m | 14.72 | 14.61 | 0.91 | 11.1 % |
 | Egan | HUL | DEF | £4.1m | £4.1m | £4.1m | 13.09 | 12.81 | 0.91 | 7.2 % |
 | Saka | ARS | MID | £9.6m | £9.6m | £9.6m | 28.04 | 25.35 | 0.91 | 17.0 % |
-| B.Fernandes | MUN | MID | £11.8m | £12.0m | £11.8m | 26.44 | 20.81 | 0.91 | 30.7 % |
-| Mbeumo | MUN | MID | £7.8m | £8.0m | £7.8m | 24.77 | 20.47 | 0.91 | 19.5 % |
-| Groß | BHA | MID | £6.1m | £6.1m | £6.1m | 19.85 | 17.88 | 0.91 | 44.3 % |
-| Slater | HUL | MID | £4.5m | £4.5m | £4.5m | 12.31 | 11.65 | 0.91 | 5.0 % |
-| Haaland | MCI | FWD | £15.7m | £15.5m | £15.6m | 28.00 | 26.24 | 0.91 | 76.5 % |
-| Barry | EVE | FWD | £5.7m | £5.7m | £5.7m | 21.91 | 19.41 | 0.91 | 8.7 % |
+| B.Fernandes | MUN | MID | £11.8m | £12.0m | £11.8m | 26.44 | 20.81 | 0.91 | 30.3 % |
+| Mbeumo | MUN | MID | £7.8m | £8.0m | £7.8m | 24.77 | 20.47 | 0.91 | 19.7 % |
+| Groß | BHA | MID | £6.1m | £6.1m | £6.1m | 19.85 | 17.88 | 0.91 | 44.5 % |
+| Slater | HUL | MID | £4.5m | £4.5m | £4.5m | 12.31 | 11.65 | 0.91 | 4.9 % |
+| Haaland | MCI | FWD | £15.7m | £15.5m | £15.6m | 28.00 | 26.24 | 0.91 | 76.6 % |
+| Barry | EVE | FWD | £5.7m | £5.7m | £5.7m | 21.91 | 19.41 | 0.91 | 8.6 % |
 | João Pedro | CHE | FWD | £7.8m | £7.5m | £7.6m | 21.71 | 19.66 | 0.91 | 72.4 % |
 
 ## Spar — ingen bytter
@@ -41,7 +42,7 @@ Lagets forventede poeng: **288.70** over horisonten (robust 261.22). Per runde: 
 
 GW8: elleveren 49.11 + kapteinsledd 6.60 (Saka, vise Haaland) + innbytterledd 2.88. Benk: Kinsky, Diop, Egan, Slater.
 
-## Beste planer (16758 lovlige av 49411 vurderte)
+## Beste planer (16701 lovlige av 48902 vurderte)
 
 Endring = forventede poeng mot å spare, over hele horisonten, etter minuspoeng.
 
@@ -116,12 +117,12 @@ Flaggene kommer fra `forventning.py`. Én kamp som bærer xGI-en, slår ut i rob
 |---|---|---|---|---|---|---|---|---|
 | Trafford | LEE | GKP | £5.0m | 5.8 % | 15.76 | 15.75 | 0.91 | — |
 | Silva | BOU | DEF | £5.0m | 0.6 % | 18.60 | 16.99 | 0.91 | én kamp (GW4) står for 50% av xGI |
-| Bogle | LEE | DEF | £4.7m | 9.7 % | 17.53 | 15.40 | 0.91 | én kamp (GW3) står for 57% av xGI |
+| Bogle | LEE | DEF | £4.7m | 9.8 % | 17.53 | 15.40 | 0.91 | én kamp (GW3) står for 57% av xGI |
 | Mitchell | CRY | DEF | £4.5m | 5.8 % | 16.06 | 14.39 | 0.91 | én kamp (GW3) står for 64% av xGI |
 | Justin | LEE | DEF | £4.5m | 2.0 % | 15.88 | 15.68 | 0.91 | — |
 | E.Le Fée | SUN | MID | £5.7m | 3.0 % | 22.18 | 19.03 | 0.91 | — |
 | Ødegaard | ARS | MID | £6.8m | 19.0 % | 21.62 | 18.49 | 0.91 | — |
-| Gibbs-White | NFO | MID | £8.0m | 12.1 % | 21.35 | 20.09 | 0.68 | første straffeskytter (penalties_order 1) · GW8: FPL-sjanse 75 % |
+| Gibbs-White | NFO | MID | £8.0m | 11.9 % | 21.35 | 20.09 | 0.68 | første straffeskytter (penalties_order 1) · GW8: FPL-sjanse 75 % |
 | Rudoni | COV | MID | £4.9m | 0.2 % | 18.98 | 17.32 | 0.91 | første straffeskytter (penalties_order 1) |
 | Gomez (BHA) | BHA | MID | £5.0m | 3.6 % | 17.73 | 16.75 | 0.91 | — |
 | Timber | CRY | MID | £5.0m | 0.1 % | 15.89 | 15.72 | 0.91 | — |
@@ -129,8 +130,8 @@ Flaggene kommer fra `forventning.py`. Én kamp som bærer xGI-en, slår ut i rob
 
 ## Søkets omfang og forutsetninger
 
-- Kandidater per posisjon: GKP 25, DEF 26, MID 26, FWD 25 (25 beste på forventning, 10 beste per million).
-- 385 enkeltbytter vurdert i hver runde. Utvalg for kombinasjoner: 108 i GW8, 107 i GW9. Søket er ikke uttømmende for kombinasjoner.
+- Kandidater per posisjon: GKP 25, DEF 25, MID 26, FWD 25 (25 beste på forventning, 10 beste per million).
+- 380 enkeltbytter vurdert i hver runde. Utvalg for kombinasjoner: 108 i GW8, 107 i GW9. Søket er ikke uttømmende for kombinasjoner.
 - Priser er dagens. Prisendringer før byttet er ikke modellert.
 - De operative reglene i `01` (template i premiumslottene, differensialer bare mellom £4,0m og £5,5m og maks tre samtidig, ett bytte per runde) er ikke modellert. Eierandelen står i tabellene; sjekk reglene for spillerne som kommer inn.
 - Bytter i tredje runde og senere er ikke med. En plan som sparer, har verdi utover horisonten som tabellen ikke viser.
