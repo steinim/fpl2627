@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 17.10.2026 kl. 22:20 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–6 (data_checked). Horisont: GW8–12. Fraværsfil: context/fravaer.csv.*
+*Generert 18.10.2026 kl. 07:13 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–6 (data_checked). Horisont: GW8–12. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–6 summerer til sesongtotalene for 333 spillere, 19 felt; 334 spillere på lag som har spilt i GW7 er kontrollert mot grunnlaget pluss live-fila
-- ✅ Speilet hentet 17.10.2026 21:43 UTC, 0.6 t gammelt ved kjøring
+- ✅ Speilet hentet 18.10.2026 06:34 UTC, 0.6 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -66,10 +66,10 @@ Bytter gjort etter GW7-deadline vises ikke.
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Verbruggen ★ | BHA | GKP | 4.6 | 2.67 | 2.46 | 2.59 | 2.80 | 2.70 | **13.22** | 12.82 | 0.03 | 0.00 | 1.00 |  |  | — |
 | Kinsky ★ | TOT | GKP | 4.5 | 2.55 | 2.70 | 2.58 | 2.77 | 2.54 | **13.14** | 13.15 | 0.00 | 0.00 | 1.00 |  |  | — |
-| Calafiori ★ | ARS | DEF | 5.9 | 4.40 | 3.68 | 4.50 | 3.79 | 3.57 | **19.93** | 18.81 | 0.34 | 0.28 | 1.00 | 0/6 |  | — |
+| Calafiori ★ | ARS | DEF | 6.0 | 4.40 | 3.68 | 4.50 | 3.79 | 3.57 | **19.93** | 18.81 | 0.34 | 0.28 | 1.00 | 0/6 |  | — |
 | Thomas ★ | COV | DEF | 4.0 | 3.68 | 3.63 | 3.34 | 3.44 | 3.18 | **17.25** | 16.50 | 0.14 | 0.08 | 1.00 | 4/6 |  | — |
 | Davis ★ | IPS | DEF | 4.0 | 3.38 | 3.39 | 3.22 | 3.18 | 3.34 | **16.51** | 15.24 | 0.35 | 0.28 | 1.00 | 0/6 |  | — |
-| Diop ★ | IPS | DEF | 4.0 | 2.96 | 3.04 | 2.83 | 2.94 | 2.96 | **14.72** | 14.61 | 0.04 | 0.03 | 1.00 | 3/6 |  | — |
+| Diop ★ | IPS | DEF | 3.9 | 2.96 | 3.04 | 2.83 | 2.94 | 2.96 | **14.72** | 14.61 | 0.04 | 0.03 | 1.00 | 3/6 |  | — |
 | Egan ★ | HUL | DEF | 4.1 | 2.70 | 3.12 | 2.29 | 2.46 | 2.53 | **13.09** | 12.81 | 0.04 | 0.01 | 1.00 | 3/6 |  | — |
 | Saka ★ | ARS | MID | 9.6 | 6.09 | 5.12 | 6.09 | 5.47 | 5.28 | **28.04** | 25.35 | 0.83 | 0.69 | 1.00 | 0/6 | 1 | første straffeskytter (penalties_order 1) |
 | B.Fernandes ★ | MUN | MID | 11.8 | 5.68 | 5.11 | 5.52 | 4.73 | 5.40 | **26.44** | 20.81 | 0.67 | 0.31 | 1.00 | 0/6 | 1 | én kamp (GW2) står for 62% av xGI | første straffeskytter (penalties_order 1) |
@@ -101,7 +101,7 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 
 | Spiller | Lag | Pos | Pris | GW8 | GW9 | GW10 | GW11 | GW12 | Sum | Robust | xGI/90 | Uten beste | Start | DC | Str | Flagg |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Calafiori ★ | ARS | DEF | 5.9 | 4.40 | 3.68 | 4.50 | 3.79 | 3.57 | **19.93** | 18.81 | 0.34 | 0.28 | 1.00 | 0/6 |  | — |
+| Calafiori ★ | ARS | DEF | 6.0 | 4.40 | 3.68 | 4.50 | 3.79 | 3.57 | **19.93** | 18.81 | 0.34 | 0.28 | 1.00 | 0/6 |  | — |
 | Silva | BOU | DEF | 5.0 | 3.42 | 4.00 | 3.81 | 3.83 | 3.53 | **18.60** | 16.99 | 0.27 | 0.16 | 1.00 | 4/6 |  | én kamp (GW4) står for 50% av xGI |
 | Gabriel | ARS | DEF | 7.9 | 3.97 | 3.36 | 4.07 | 3.41 | 3.21 | **18.02** | 17.41 | 0.12 | 0.08 | 1.00 | 2/6 |  | — |
 | De Cuyper | BHA | DEF | 5.2 | 3.44 | 3.06 | 3.62 | 3.87 | 3.89 | **17.89** | 13.83 | 0.45 | 0.17 | 1.00 | 0/6 |  | én kamp (GW1) står for 68% av xGI |
