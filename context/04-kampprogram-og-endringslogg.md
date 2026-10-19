@@ -228,7 +228,7 @@ Ingen spillere i troppen berøres.
 
 ## Kampprogram — generert fra speilet
 
-*Generert 17.10.2026 kl. 19:43 UTC av `scripts/gen_kampprogram.py` fra `fpl-data`. **Rør ikke denne blokka for hånd** — endringer blir overskrevet ved neste kjøring. Endringsloggen og verifiseringsnotatene ligger under markøren.*
+*Generert 19.10.2026 kl. 21:45 UTC av `scripts/gen_kampprogram.py` fra `fpl-data`. **Rør ikke denne blokka for hånd** — endringer blir overskrevet ved neste kjøring. Endringsloggen og verifiseringsnotatene ligger under markøren.*
 
 **Strukturkontroll: ingen avvik.** 380 kamper, 38 runder, 20 lag, alle runder med nøyaktig 10 kamper og 20 unike lag. Ingen blankrunde, ingen dobbelrunde, 0 kamper med foreløpig klokkeslett. csv og json i speilet er identiske.
 
@@ -350,10 +350,10 @@ Antall ulike avsparkstidspunkt per runde. Står alle ti kampene på samme slott,
 | GW10 | 10 | 6 | 06.11.–08.11. |
 | GW11 | 10 | 6 | 21.11.–23.11. |
 | GW12 | 10 | 6 | 27.11.–29.11. |
-| GW13 | 10 | 1 — **trolig ikke kunngjort** | 02.12. |
-| GW14 | 10 | 1 — **trolig ikke kunngjort** | 05.12. |
-| GW15 | 10 | 1 — **trolig ikke kunngjort** | 12.12. |
-| GW16 | 10 | 1 — **trolig ikke kunngjort** | 19.12. |
+| GW13 | 10 | 4 | 01.12.–03.12. |
+| GW14 | 10 | 6 | 05.12.–06.12. |
+| GW15 | 10 | 6 | 12.12.–14.12. |
+| GW16 | 10 | 6 | 19.12.–21.12. |
 | GW17 | 10 | 7 | 26.12.–27.12. |
 | GW18 | 10 | 4 | 29.12.–30.12. |
 | GW19 | 10 | 6 | 01.01.–03.01. |
