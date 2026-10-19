@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 19.10.2026 kl. 19:56 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–6 (data_checked). Horisont: GW8–12. Fraværsfil: context/fravaer.csv.*
+*Generert 19.10.2026 kl. 23:43 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–6 (data_checked). Horisont: GW8–12. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
-- ✅ Rundedata GW1–6 summerer til sesongtotalene for 77 spillere, 19 felt; 591 spillere på lag som har spilt i GW7 er kontrollert mot grunnlaget pluss live-fila
-- ✅ Speilet hentet 19.10.2026 18:44 UTC, 1.2 t gammelt ved kjøring
+- ✅ Rundedata GW1–6 summerer til sesongtotalene for 0 spillere, 19 felt; 668 spillere på lag som har spilt i GW7 er kontrollert mot grunnlaget pluss live-fila
+- ✅ Speilet hentet 19.10.2026 23:04 UTC, 0.7 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -74,7 +74,7 @@ Bytter gjort etter GW7-deadline vises ikke.
 | Saka ★ | ARS | MID | 9.6 | 6.09 | 5.12 | 6.09 | 5.47 | 5.28 | **28.04** | 25.35 | 0.83 | 0.69 | 1.00 | 0/6 | 1 | første straffeskytter (penalties_order 1) |
 | B.Fernandes ★ | MUN | MID | 11.8 | 5.68 | 5.11 | 5.52 | 4.73 | 5.40 | **26.44** | 20.81 | 0.67 | 0.31 | 1.00 | 0/6 | 1 | én kamp (GW2) står for 62% av xGI | første straffeskytter (penalties_order 1) |
 | Mbeumo ★ | MUN | MID | 7.8 | 5.32 | 4.80 | 5.16 | 4.45 | 5.05 | **24.77** | 20.47 | 0.70 | 0.45 | 1.00 | 0/6 | 2 | — |
-| Groß ★ | BHA | MID | 6.1 | 3.81 | 3.70 | 4.14 | 4.00 | 4.20 | **19.85** | 17.88 | 0.51 | 0.41 | 1.00 | 0/6 | 1 | første straffeskytter (penalties_order 1) |
+| Groß ★ | BHA | MID | 6.2 | 3.81 | 3.70 | 4.14 | 4.00 | 4.20 | **19.85** | 17.88 | 0.51 | 0.41 | 1.00 | 0/6 | 1 | første straffeskytter (penalties_order 1) |
 | Slater ★ | HUL | MID | 4.5 | 2.60 | 2.66 | 2.22 | 2.44 | 2.40 | **12.31** | 11.65 | 0.14 | 0.08 | 1.00 | 0/6 |  | — |
 | Haaland ★ | MCI | FWD | 15.7 | 4.35 | 6.13 | 5.63 | 6.04 | 4.40 | **26.55** | 24.88 | 0.91 | 0.78 | 1.00 | 0/6 | 1 | første straffeskytter (penalties_order 1) | GW8: FPL-sjanse 75 % |
 | Barry ★ | EVE | FWD | 5.7 | 3.72 | 4.62 | 4.87 | 4.35 | 4.35 | **21.91** | 19.41 | 0.82 | 0.64 | 1.00 | 0/6 | 1 | første straffeskytter (penalties_order 1) |
@@ -104,7 +104,7 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Calafiori ★ | ARS | DEF | 6.0 | 4.40 | 3.68 | 4.50 | 3.79 | 3.57 | **19.93** | 18.81 | 0.34 | 0.28 | 1.00 | 0/6 |  | — |
 | Silva | BOU | DEF | 5.0 | 3.42 | 4.00 | 3.81 | 3.83 | 3.53 | **18.60** | 16.99 | 0.27 | 0.16 | 1.00 | 4/6 |  | én kamp (GW4) står for 50% av xGI |
 | Gabriel | ARS | DEF | 7.9 | 3.97 | 3.36 | 4.07 | 3.41 | 3.21 | **18.02** | 17.41 | 0.12 | 0.08 | 1.00 | 2/6 |  | — |
-| De Cuyper | BHA | DEF | 5.2 | 3.44 | 3.06 | 3.62 | 3.87 | 3.89 | **17.89** | 13.83 | 0.45 | 0.17 | 1.00 | 0/6 |  | én kamp (GW1) står for 68% av xGI |
+| De Cuyper | BHA | DEF | 5.3 | 3.44 | 3.06 | 3.62 | 3.87 | 3.89 | **17.89** | 13.83 | 0.45 | 0.17 | 1.00 | 0/6 |  | én kamp (GW1) står for 68% av xGI |
 | Bogle | LEE | DEF | 4.7 | 3.44 | 3.25 | 3.90 | 3.06 | 3.88 | **17.53** | 15.40 | 0.32 | 0.16 | 1.00 | 0/6 |  | én kamp (GW3) står for 57% av xGI |
 | Thomas ★ | COV | DEF | 4.0 | 3.68 | 3.63 | 3.34 | 3.44 | 3.18 | **17.25** | 16.50 | 0.14 | 0.08 | 1.00 | 4/6 |  | — |
 | Khalaili | CRY | DEF | 5.0 | 3.64 | 3.42 | 3.22 | 3.34 | 3.63 | **17.24** | 15.62 | 0.32 | 0.23 | 0.94 | 2/5 |  | — |
@@ -125,10 +125,10 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | B.Fernandes ★ | MUN | MID | 11.8 | 5.68 | 5.11 | 5.52 | 4.73 | 5.40 | **26.44** | 20.81 | 0.67 | 0.31 | 1.00 | 0/6 | 1 | én kamp (GW2) står for 62% av xGI | første straffeskytter (penalties_order 1) |
 | Mbeumo ★ | MUN | MID | 7.8 | 5.32 | 4.80 | 5.16 | 4.45 | 5.05 | **24.77** | 20.47 | 0.70 | 0.45 | 1.00 | 0/6 | 2 | — |
 | E.Le Fée | SUN | MID | 5.7 | 4.65 | 4.46 | 4.51 | 4.18 | 4.39 | **22.18** | 19.03 | 0.64 | 0.47 | 1.00 | 0/6 | 2 | — |
-| Rogers | CHE | MID | 7.9 | 4.64 | 4.48 | 4.16 | 4.41 | 4.13 | **21.82** | 20.40 | 0.55 | 0.43 | 1.00 | 1/6 |  | — |
+| Rogers | CHE | MID | 8.0 | 4.64 | 4.48 | 4.16 | 4.41 | 4.13 | **21.82** | 20.40 | 0.55 | 0.43 | 1.00 | 1/6 |  | — |
 | Ødegaard | ARS | MID | 6.8 | 4.66 | 4.01 | 4.65 | 4.21 | 4.08 | **21.62** | 18.49 | 0.65 | 0.40 | 1.00 | 0/6 | 3 | — |
 | Gibbs-White | NFO | MID | 7.9 | 3.58 | 4.45 | 4.44 | 4.30 | 4.57 | **21.35** | 20.09 | 0.59 | 0.49 | 1.00 | 0/6 | 1 | første straffeskytter (penalties_order 1) | GW8: FPL-sjanse 75 % |
-| Groß ★ | BHA | MID | 6.1 | 3.81 | 3.70 | 4.14 | 4.00 | 4.20 | **19.85** | 17.88 | 0.51 | 0.41 | 1.00 | 0/6 | 1 | første straffeskytter (penalties_order 1) |
+| Groß ★ | BHA | MID | 6.2 | 3.81 | 3.70 | 4.14 | 4.00 | 4.20 | **19.85** | 17.88 | 0.51 | 0.41 | 1.00 | 0/6 | 1 | første straffeskytter (penalties_order 1) |
 | Palmer | CHE | MID | 9.7 | 4.21 | 4.05 | 3.77 | 3.99 | 3.74 | **19.76** | 18.61 | 0.37 | 0.28 | 1.00 | 0/6 | 1 | første straffeskytter (penalties_order 1) |
 | Rudoni | COV | MID | 4.9 | 4.08 | 3.91 | 3.66 | 3.88 | 3.46 | **18.98** | 17.32 | 0.68 | 0.53 | 0.94 | 1/5 | 1 | første straffeskytter (penalties_order 1) |
 | Enciso | IPS | MID | 5.5 | 4.00 | 3.83 | 3.82 | 3.52 | 3.77 | **18.93** | 17.96 | 0.55 | 0.47 | 1.00 | 0/6 |  | — |
