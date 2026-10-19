@@ -1,12 +1,12 @@
 # Byttepakker — generert
 
-*Generert 18.10.2026 kl. 22:26 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW8–12. Bytter vurderes i GW8 og GW9. Maks minuspoeng per runde: 0.*
+*Generert 19.10.2026 kl. 07:45 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW8–12. Bytter vurderes i GW8 og GW9. Maks minuspoeng per runde: 0.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–6 summerer til sesongtotalene for 77 spillere, 19 felt; 591 spillere på lag som har spilt i GW7 er kontrollert mot grunnlaget pluss live-fila
-- ✅ Speilet hentet 18.10.2026 21:51 UTC, 0.6 t gammelt ved kjøring
+- ✅ Speilet hentet 19.10.2026 06:47 UTC, 1.0 t gammelt ved kjøring
 - ✅ Bytteregler i API-et stemmer med 05 og skriptet: maks 3 per klubb, maks 5 frikjøp, halve prisstigningen ved salg, tropp på 15
 - ✅ Bank regnet fra 6 overganger stemmer med historikken i alle 7 runder
 - ✅ Frikjøp til GW8: 1. Kostnaden i hver runde stemmer med historikken
@@ -26,14 +26,14 @@ Bank **£0.3m**, frikjøp **1**. Salgspris etter regelen i `05`.
 | Davis | IPS | DEF | £4.0m | £4.0m | £4.0m | 16.51 | 15.24 | 0.91 | 7.5 % |
 | Diop | IPS | DEF | £3.9m | £4.0m | £3.9m | 14.72 | 14.61 | 0.91 | 11.1 % |
 | Egan | HUL | DEF | £4.1m | £4.1m | £4.1m | 13.09 | 12.81 | 0.91 | 7.2 % |
-| Saka | ARS | MID | £9.6m | £9.6m | £9.6m | 28.04 | 25.35 | 0.91 | 16.9 % |
-| B.Fernandes | MUN | MID | £11.8m | £12.0m | £11.8m | 26.44 | 20.81 | 0.91 | 30.0 % |
-| Mbeumo | MUN | MID | £7.8m | £8.0m | £7.8m | 24.77 | 20.47 | 0.91 | 19.8 % |
-| Groß | BHA | MID | £6.1m | £6.1m | £6.1m | 19.85 | 17.88 | 0.91 | 44.7 % |
+| Saka | ARS | MID | £9.6m | £9.6m | £9.6m | 28.04 | 25.35 | 0.91 | 16.8 % |
+| B.Fernandes | MUN | MID | £11.8m | £12.0m | £11.8m | 26.44 | 20.81 | 0.91 | 29.8 % |
+| Mbeumo | MUN | MID | £7.8m | £8.0m | £7.8m | 24.77 | 20.47 | 0.91 | 19.9 % |
+| Groß | BHA | MID | £6.1m | £6.1m | £6.1m | 19.85 | 17.88 | 0.91 | 44.8 % |
 | Slater | HUL | MID | £4.5m | £4.5m | £4.5m | 12.31 | 11.65 | 0.91 | 4.9 % |
-| Haaland | MCI | FWD | £15.7m | £15.5m | £15.6m | 28.00 | 26.24 | 0.91 | 76.7 % |
+| Haaland | MCI | FWD | £15.7m | £15.5m | £15.6m | 28.00 | 26.24 | 0.91 | 76.8 % |
 | Barry | EVE | FWD | £5.7m | £5.7m | £5.7m | 21.91 | 19.41 | 0.91 | 8.6 % |
-| João Pedro | CHE | FWD | £7.8m | £7.5m | £7.6m | 21.71 | 19.66 | 0.91 | 72.5 % |
+| João Pedro | CHE | FWD | £7.9m | £7.5m | £7.7m | 21.71 | 19.66 | 0.91 | 72.6 % |
 
 ## Spar — ingen bytter
 
@@ -41,7 +41,7 @@ Lagets forventede poeng: **288.70** over horisonten (robust 261.22). Per runde: 
 
 GW8: elleveren 49.11 + kapteinsledd 6.60 (Saka, vise Haaland) + innbytterledd 2.88. Benk: Kinsky, Diop, Egan, Slater.
 
-## Beste planer (16701 lovlige av 48902 vurderte)
+## Beste planer (16757 lovlige av 48902 vurderte)
 
 Endring = forventede poeng mot å spare, over hele horisonten, etter minuspoeng.
 
@@ -50,11 +50,11 @@ Endring = forventede poeng mot å spare, over hele horisonten, etter minuspoeng.
 | GW8: Groß → E.Le Fée · GW9: Egan → Bogle | 0 | **+4.92** | +2.65 | +0.83 | £0.7m | £0.1m | — |
 | GW8: Groß → E.Le Fée · GW9: Slater → Rudoni | 0 | **+4.77** | +2.97 | +0.83 | £0.7m | £0.3m | — |
 | GW8: Groß → E.Le Fée · GW9: Slater → Gomez (BHA) | 0 | **+4.41** | +2.90 | +0.83 | £0.7m | £0.2m | — |
-| GW9: Slater → E.Le Fée, João Pedro → Gonzalo | 0 | **+4.32** | +2.93 | +0.00 | £0.3m | £0.6m | — |
+| GW9: Slater → E.Le Fée, João Pedro → Gonzalo | 0 | **+4.32** | +2.93 | +0.00 | £0.3m | £0.7m | — |
 | GW8: Groß → Rudoni · GW9: Slater → E.Le Fée | 0 | **+4.19** | +2.70 | +0.26 | £1.5m | £0.3m | — |
 | GW8: Groß → E.Le Fée · GW9: Kinsky → Trafford | 0 | **+4.14** | +3.05 | +0.83 | £0.7m | £0.2m | — |
 | GW8: Groß → E.Le Fée · GW9: Verbruggen → Trafford | 0 | **+4.14** | +3.09 | +0.83 | £0.7m | £0.2m | — |
-| GW8: João Pedro → Gonzalo · GW9: Slater → E.Le Fée | 0 | **+4.09** | +2.81 | -0.22 | £1.8m | £0.6m | — |
+| GW8: João Pedro → Gonzalo · GW9: Slater → E.Le Fée | 0 | **+4.09** | +2.81 | -0.22 | £1.9m | £0.7m | — |
 | GW9: Egan → Bogle, Groß → E.Le Fée | 0 | **+4.08** | +2.12 | +0.00 | £0.3m | £0.1m | — |
 | GW9: Slater → E.Le Fée, Groß → Rudoni | 0 | **+3.93** | +2.45 | +0.00 | £0.3m | £0.3m | — |
 | GW8: Groß → E.Le Fée · GW9: Egan → Justin | 0 | **+3.87** | +2.80 | +0.83 | £0.7m | £0.3m | — |
@@ -72,18 +72,18 @@ Svarer på «bør X selges?»: den beste lovlige planen der spilleren går ut, m
 | **Verbruggen ut:** GW8: Groß → E.Le Fée · GW9: Verbruggen → Trafford | 0 | **+4.14** | +3.09 | +0.83 | £0.7m | £0.2m | — |
 | **Kinsky ut:** GW8: Groß → E.Le Fée · GW9: Kinsky → Trafford | 0 | **+4.14** | +3.05 | +0.83 | £0.7m | £0.2m | — |
 | **Calafiori ut:** GW9: Slater → E.Le Fée, Calafiori → Bogle | 0 | **+3.22** | +0.98 | +0.00 | £0.3m | £0.1m | — |
-| **Thomas (COV) ut:** GW9: Thomas (COV) → Silva, João Pedro → Gonzalo | 0 | **+1.21** | +0.82 | +0.00 | £0.3m | £0.8m | — |
+| **Thomas (COV) ut:** GW9: Thomas (COV) → Silva, João Pedro → Gonzalo | 0 | **+1.21** | +0.82 | +0.00 | £0.3m | £0.9m | — |
 | **Davis ut:** GW8: Groß → E.Le Fée · GW9: Davis → Bogle | 0 | **+3.29** | +1.59 | +0.83 | £0.7m | £0.0m | — |
 | **Diop ut:** GW8: Groß → E.Le Fée · GW9: Diop → Justin | 0 | **+3.28** | +2.14 | +0.83 | £0.7m | £0.1m | — |
 | **Egan ut:** GW8: Groß → E.Le Fée · GW9: Egan → Bogle | 0 | **+4.92** | +2.65 | +0.83 | £0.7m | £0.1m | — |
-| **Saka ut:** GW9: Slater → E.Le Fée, Saka → Gibbs-White | 0 | **-0.12** | -1.13 | +0.00 | £0.3m | £0.7m | — |
-| **B.Fernandes ut:** GW9: Slater → E.Le Fée, B.Fernandes → Gibbs-White | 0 | **+1.51** | +3.34 | +0.00 | £0.3m | £2.9m | — |
+| **Saka ut:** GW9: Slater → E.Le Fée, Saka → Gibbs-White | 0 | **-0.12** | -1.13 | +0.00 | £0.3m | £0.8m | — |
+| **B.Fernandes ut:** GW9: Slater → E.Le Fée, B.Fernandes → Gibbs-White | 0 | **+1.51** | +3.34 | +0.00 | £0.3m | £3.0m | — |
 | **Mbeumo ut:** GW9: Slater → E.Le Fée, Mbeumo → Ødegaard | 0 | **+2.18** | +1.48 | +0.00 | £0.3m | £0.1m | ARS |
 | **Groß ut:** GW8: Groß → E.Le Fée · GW9: Egan → Bogle | 0 | **+4.92** | +2.65 | +0.83 | £0.7m | £0.1m | — |
 | **Slater ut:** GW8: Groß → E.Le Fée · GW9: Slater → Rudoni | 0 | **+4.77** | +2.97 | +0.83 | £0.7m | £0.3m | — |
-| **Haaland ut:** GW9: Slater → Gibbs-White, Haaland → Gonzalo | 0 | **-2.16** | -2.71 | +0.00 | £0.3m | £6.3m | — |
+| **Haaland ut:** GW9: Slater → Gibbs-White, Haaland → Gonzalo | 0 | **-2.16** | -2.71 | +0.00 | £0.3m | £6.4m | — |
 | **Barry ut:** GW8: Groß → E.Le Fée · GW9: Barry → Gonzalo | 0 | **+0.90** | +0.56 | +0.83 | £0.7m | £0.3m | — |
-| **João Pedro ut:** GW9: Slater → E.Le Fée, João Pedro → Gonzalo | 0 | **+4.32** | +2.93 | +0.00 | £0.3m | £0.6m | — |
+| **João Pedro ut:** GW9: Slater → E.Le Fée, João Pedro → Gonzalo | 0 | **+4.32** | +2.93 | +0.00 | £0.3m | £0.7m | — |
 
 ## Anti-drift for de tre beste planene
 
@@ -116,13 +116,13 @@ Flaggene kommer fra `forventning.py`. Én kamp som bærer xGI-en, slår ut i rob
 |---|---|---|---|---|---|---|---|---|
 | Trafford | LEE | GKP | £5.0m | 5.8 % | 15.76 | 15.75 | 0.91 | — |
 | Silva | BOU | DEF | £5.0m | 0.6 % | 18.60 | 16.99 | 0.91 | én kamp (GW4) står for 50% av xGI |
-| Bogle | LEE | DEF | £4.7m | 9.8 % | 17.53 | 15.40 | 0.91 | én kamp (GW3) står for 57% av xGI |
-| Mitchell | CRY | DEF | £4.5m | 5.8 % | 16.06 | 14.39 | 0.91 | én kamp (GW3) står for 64% av xGI |
+| Bogle | LEE | DEF | £4.7m | 9.9 % | 17.53 | 15.40 | 0.91 | én kamp (GW3) står for 57% av xGI |
+| Mitchell | CRY | DEF | £4.5m | 5.7 % | 16.06 | 14.39 | 0.91 | én kamp (GW3) står for 64% av xGI |
 | Justin | LEE | DEF | £4.5m | 2.0 % | 15.88 | 15.68 | 0.91 | — |
 | E.Le Fée | SUN | MID | £5.7m | 3.0 % | 22.18 | 19.03 | 0.91 | — |
-| Ødegaard | ARS | MID | £6.8m | 18.9 % | 21.62 | 18.49 | 0.91 | — |
-| Gibbs-White | NFO | MID | £8.0m | 11.8 % | 21.35 | 20.09 | 0.68 | første straffeskytter (penalties_order 1) · GW8: FPL-sjanse 75 % |
-| Rudoni | COV | MID | £4.9m | 0.2 % | 18.98 | 17.32 | 0.91 | første straffeskytter (penalties_order 1) |
+| Ødegaard | ARS | MID | £6.8m | 18.8 % | 21.62 | 18.49 | 0.91 | — |
+| Gibbs-White | NFO | MID | £7.9m | 11.7 % | 21.35 | 20.09 | 0.68 | første straffeskytter (penalties_order 1) · GW8: FPL-sjanse 75 % |
+| Rudoni | COV | MID | £4.9m | 0.3 % | 18.98 | 17.32 | 0.91 | første straffeskytter (penalties_order 1) |
 | Gomez (BHA) | BHA | MID | £5.0m | 3.7 % | 17.73 | 16.75 | 0.91 | — |
 | Timber | CRY | MID | £5.0m | 0.1 % | 15.89 | 15.72 | 0.91 | — |
 | Gonzalo | FUL | FWD | £6.1m | 7.0 % | 21.10 | 19.48 | 0.91 | første straffeskytter (penalties_order 1) |
