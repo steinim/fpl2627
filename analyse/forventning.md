@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 20.10.2026 kl. 18:28 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–7 (data_checked). Horisont: GW8–12. Fraværsfil: context/fravaer.csv.*
+*Generert 20.10.2026 kl. 23:11 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–7 (data_checked). Horisont: GW8–12. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–7 summerer til sesongtotalene for alle 668 spillere, 19 felt
-- ✅ Speilet hentet 20.10.2026 18:06 UTC, 0.4 t gammelt ved kjøring
+- ✅ Speilet hentet 20.10.2026 22:38 UTC, 0.5 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -76,7 +76,7 @@ Bytter gjort etter GW7-deadline vises ikke.
 | B.Fernandes ★ | MUN | MID | 11.8 | 5.43 | 4.75 | 5.33 | 4.33 | 5.16 | **25.00** | 19.74 | 0.59 | 0.28 | 1.00 | 0/7 | 1 | én kamp (GW2) står for 60% av xGI | første straffeskytter (penalties_order 1) |
 | Groß ★ | BHA | MID | 6.2 | 3.63 | 3.54 | 4.05 | 3.80 | 4.08 | **19.09** | 17.30 | 0.49 | 0.40 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) |
 | Slater ★ | HUL | MID | 4.5 | 2.60 | 2.66 | 2.16 | 2.40 | 2.32 | **12.14** | 11.52 | 0.13 | 0.08 | 1.00 | 0/7 |  | — |
-| Haaland ★ | MCI | FWD | 15.7 | 4.50 | 6.46 | 5.71 | 6.30 | 4.44 | **27.41** | 26.01 | 0.94 | 0.84 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) | GW8: FPL-sjanse 75 % |
+| Haaland ★ | MCI | FWD | 15.7 | 6.01 | 6.46 | 5.71 | 6.30 | 4.44 | **28.92** | 27.43 | 0.94 | 0.84 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) |
 | João Pedro ★ | CHE | FWD | 7.9 | 4.69 | 4.59 | 4.18 | 4.43 | 4.02 | **21.90** | 19.90 | 0.58 | 0.44 | 1.00 | 0/6 |  | — |
 | Barry ★ | EVE | FWD | 5.7 | 3.69 | 4.53 | 4.91 | 4.23 | 4.29 | **21.65** | 19.23 | 0.74 | 0.58 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) |
 
@@ -141,7 +141,7 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 
 | Spiller | Lag | Pos | Pris | GW8 | GW9 | GW10 | GW11 | GW12 | Sum | Robust | xGI/90 | Uten beste | Start | DC | Str | Flagg |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Haaland ★ | MCI | FWD | 15.7 | 4.50 | 6.46 | 5.71 | 6.30 | 4.44 | **27.41** | 26.01 | 0.94 | 0.84 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) | GW8: FPL-sjanse 75 % |
+| Haaland ★ | MCI | FWD | 15.7 | 6.01 | 6.46 | 5.71 | 6.30 | 4.44 | **28.92** | 27.43 | 0.94 | 0.84 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) |
 | João Pedro ★ | CHE | FWD | 7.9 | 4.69 | 4.59 | 4.18 | 4.43 | 4.02 | **21.90** | 19.90 | 0.58 | 0.44 | 1.00 | 0/6 |  | — |
 | Barry ★ | EVE | FWD | 5.7 | 3.69 | 4.53 | 4.91 | 4.23 | 4.29 | **21.65** | 19.23 | 0.74 | 0.58 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) |
 | Gonzalo | FUL | FWD | 6.1 | 4.45 | 4.20 | 4.74 | 3.86 | 4.34 | **21.59** | 20.16 | 0.63 | 0.55 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) |
