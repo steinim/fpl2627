@@ -1,12 +1,12 @@
 # Byttepakker — generert
 
-*Generert 20.10.2026 kl. 23:11 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW8–12. Bytter vurderes i GW8 og GW9. Maks minuspoeng per runde: 0.*
+*Generert 21.10.2026 kl. 07:37 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW8–12. Bytter vurderes i GW8 og GW9. Maks minuspoeng per runde: 0.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–7 summerer til sesongtotalene for alle 668 spillere, 19 felt
-- ✅ Speilet hentet 20.10.2026 22:38 UTC, 0.5 t gammelt ved kjøring
+- ✅ Speilet hentet 21.10.2026 06:33 UTC, 1.1 t gammelt ved kjøring
 - ✅ Bytteregler i API-et stemmer med 05 og skriptet: maks 3 per klubb, maks 5 frikjøp, halve prisstigningen ved salg, tropp på 15
 - ✅ Bank regnet fra 6 overganger stemmer med historikken i alle 7 runder
 - ✅ Frikjøp til GW8: 1. Kostnaden i hver runde stemmer med historikken
@@ -28,8 +28,8 @@ Bank **£0.3m**, frikjøp **1**. Salgspris etter regelen i `05`.
 | Egan | HUL | DEF | £4.1m | £4.1m | £4.1m | 13.94 | 13.66 | 0.93 | 7.2 % |
 | Saka | ARS | MID | £9.6m | £9.6m | £9.6m | 27.13 | 24.52 | 0.93 | 16.7 % |
 | Mbeumo | MUN | MID | £7.8m | £8.0m | £7.8m | 25.33 | 21.52 | 0.93 | 20.4 % |
-| B.Fernandes | MUN | MID | £11.8m | £12.0m | £11.8m | 25.00 | 19.74 | 0.93 | 29.2 % |
-| Groß | BHA | MID | £6.2m | £6.1m | £6.1m | 19.09 | 17.30 | 0.93 | 45.3 % |
+| B.Fernandes | MUN | MID | £11.8m | £12.0m | £11.8m | 25.00 | 19.74 | 0.93 | 29.1 % |
+| Groß | BHA | MID | £6.2m | £6.1m | £6.1m | 19.09 | 17.30 | 0.93 | 45.4 % |
 | Slater | HUL | MID | £4.5m | £4.5m | £4.5m | 12.14 | 11.52 | 0.93 | 4.9 % |
 | Haaland | MCI | FWD | £15.7m | £15.5m | £15.6m | 28.92 | 27.43 | 0.93 | 76.8 % |
 | João Pedro | CHE | FWD | £7.9m | £7.5m | £7.7m | 21.90 | 19.90 | 0.93 | 72.8 % |
@@ -41,7 +41,7 @@ Lagets forventede poeng: **286.44** over horisonten (robust 261.38). Per runde: 
 
 GW8: elleveren 49.54 + kapteinsledd 6.44 (Saka, vise Haaland) + innbytterledd 2.38. Benk: Kinsky, Diop, Egan, Slater.
 
-## Beste planer (16410 lovlige av 47814 vurderte)
+## Beste planer (16399 lovlige av 47814 vurderte)
 
 Endring = forventede poeng mot å spare, over hele horisonten, etter minuspoeng.
 
