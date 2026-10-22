@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 21.10.2026 kl. 23:21 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–7 (data_checked). Horisont: GW8–12. Fraværsfil: context/fravaer.csv.*
+*Generert 22.10.2026 kl. 07:33 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–7 (data_checked). Horisont: GW8–12. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–7 summerer til sesongtotalene for alle 668 spillere, 19 felt
-- ✅ Speilet hentet 21.10.2026 22:43 UTC, 0.6 t gammelt ved kjøring
+- ✅ Speilet hentet 22.10.2026 06:34 UTC, 1.0 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -147,7 +147,7 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Gonzalo | FUL | FWD | 6.1 | 4.45 | 4.20 | 4.74 | 3.86 | 4.34 | **21.59** | 20.16 | 0.63 | 0.55 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) |
 | Thiago | BRE | FWD | 7.8 | 4.47 | 4.65 | 4.02 | 4.53 | 3.87 | **21.54** | 20.17 | 0.60 | 0.52 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) |
 | Evanilson | BOU | FWD | 6.1 | 3.99 | 4.29 | 4.13 | 4.21 | 3.75 | **20.37** | 17.69 | 0.54 | 0.37 | 1.00 | 0/7 |  | — |
-| Calvert-Lewin | LEE | FWD | 6.0 | 4.05 | 3.83 | 4.12 | 3.73 | 4.25 | **19.98** | 19.07 | 0.56 | 0.49 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) |
+| Calvert-Lewin | LEE | FWD | 6.1 | 4.05 | 3.83 | 4.12 | 3.73 | 4.25 | **19.98** | 19.07 | 0.56 | 0.49 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) |
 | Isak | LIV | FWD | 9.0 | 4.00 | 3.29 | 3.75 | 3.93 | 3.64 | **18.60** | 17.65 | 0.73 | 0.64 | 0.77 | 0/6 | 2 | UAVKLART FRAVÆR GW6 — telt som ikke-start; før årsaken i context/fravaer.csv |
 | Delap | NFO | FWD | 5.5 | 4.00 | 3.64 | 3.70 | 3.36 | 3.69 | **18.39** | 16.41 | 0.54 | 0.39 | 0.94 | 0/5 | 3 | — |
 | Havertz | ARS | FWD | 7.5 | 4.01 | 3.32 | 3.94 | 3.51 | 3.53 | **18.31** | 17.31 | 0.41 | 0.33 | 1.00 | 0/7 |  | — |

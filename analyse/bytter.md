@@ -1,12 +1,12 @@
 # Byttepakker — generert
 
-*Generert 21.10.2026 kl. 23:21 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW8–12. Bytter vurderes i GW8 og GW9. Maks minuspoeng per runde: 0.*
+*Generert 22.10.2026 kl. 07:33 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW8–12. Bytter vurderes i GW8 og GW9. Maks minuspoeng per runde: 0.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–7 summerer til sesongtotalene for alle 668 spillere, 19 felt
-- ✅ Speilet hentet 21.10.2026 22:43 UTC, 0.6 t gammelt ved kjøring
+- ✅ Speilet hentet 22.10.2026 06:34 UTC, 1.0 t gammelt ved kjøring
 - ✅ Bytteregler i API-et stemmer med 05 og skriptet: maks 3 per klubb, maks 5 frikjøp, halve prisstigningen ved salg, tropp på 15
 - ✅ Bank regnet fra 6 overganger stemmer med historikken i alle 7 runder
 - ✅ Frikjøp til GW8: 1. Kostnaden i hver runde stemmer med historikken
@@ -21,17 +21,17 @@ Bank **£0.3m**, frikjøp **1**. Salgspris etter regelen i `05`.
 |---|---|---|---|---|---|---|---|---|---|
 | Verbruggen | BHA | GKP | £4.6m | £4.5m | £4.5m | 13.22 | 12.87 | 0.93 | 22.6 % |
 | Kinsky | TOT | GKP | £4.5m | £4.5m | £4.5m | 13.08 | 13.08 | 0.93 | 15.3 % |
-| Calafiori | ARS | DEF | £6.0m | £5.5m | £5.7m | 20.44 | 19.42 | 0.93 | 53.9 % |
+| Calafiori | ARS | DEF | £6.0m | £5.5m | £5.7m | 20.44 | 19.42 | 0.93 | 54.0 % |
 | Thomas (COV) | COV | DEF | £4.0m | £4.0m | £4.0m | 18.28 | 17.58 | 0.93 | 9.3 % |
 | Davis | IPS | DEF | £4.0m | £4.0m | £4.0m | 15.93 | 14.70 | 0.93 | 7.4 % |
 | Diop | IPS | DEF | £3.9m | £4.0m | £3.9m | 15.17 | 15.05 | 0.93 | 11.0 % |
 | Egan | HUL | DEF | £4.1m | £4.1m | £4.1m | 13.94 | 13.66 | 0.93 | 7.2 % |
-| Mbeumo | MUN | MID | £7.8m | £8.0m | £7.8m | 25.33 | 21.52 | 0.93 | 20.5 % |
-| B.Fernandes | MUN | MID | £11.8m | £12.0m | £11.8m | 25.00 | 19.74 | 0.93 | 28.9 % |
-| Saka | ARS | MID | £9.6m | £9.6m | £9.6m | 24.12 | 21.80 | 0.47 | 16.5 % |
+| Mbeumo | MUN | MID | £7.8m | £8.0m | £7.8m | 25.33 | 21.52 | 0.93 | 20.6 % |
+| B.Fernandes | MUN | MID | £11.8m | £12.0m | £11.8m | 25.00 | 19.74 | 0.93 | 28.8 % |
+| Saka | ARS | MID | £9.6m | £9.6m | £9.6m | 24.12 | 21.80 | 0.47 | 16.3 % |
 | Groß | BHA | MID | £6.2m | £6.1m | £6.1m | 19.09 | 17.30 | 0.93 | 45.5 % |
 | Slater | HUL | MID | £4.5m | £4.5m | £4.5m | 12.14 | 11.52 | 0.93 | 4.9 % |
-| Haaland | MCI | FWD | £15.7m | £15.5m | £15.6m | 28.92 | 27.43 | 0.93 | 76.8 % |
+| Haaland | MCI | FWD | £15.7m | £15.5m | £15.6m | 28.92 | 27.43 | 0.93 | 76.9 % |
 | João Pedro | CHE | FWD | £7.9m | £7.5m | £7.7m | 21.90 | 19.90 | 0.93 | 72.9 % |
 | Barry | EVE | FWD | £5.7m | £5.7m | £5.7m | 21.65 | 19.23 | 0.93 | 8.3 % |
 
@@ -41,7 +41,7 @@ Lagets forventede poeng: **284.09** over horisonten (robust 259.00). Per runde: 
 
 GW8: elleveren 46.63 + kapteinsledd 6.38 (Haaland, vise Mbeumo) + innbytterledd 2.99. Benk: Kinsky, Saka, Egan, Slater.
 
-## Beste planer (16187 lovlige av 47814 vurderte)
+## Beste planer (16162 lovlige av 47814 vurderte)
 
 Endring = forventede poeng mot å spare, over hele horisonten, etter minuspoeng.
 
@@ -122,10 +122,10 @@ Flaggene kommer fra `forventning.py`. Én kamp som bærer xGI-en, slår ut i rob
 | Konsa | ARS | DEF | £4.6m | 17.9 % | 15.90 | 15.35 | 0.89 | UAVKLART FRAVÆR GW1 — telt som ikke-start; før årsaken i context/fravaer.csv |
 | Justin | LEE | DEF | £4.5m | 2.1 % | 15.74 | 15.54 | 0.93 | — |
 | E.Le Fée | SUN | MID | £5.7m | 2.9 % | 22.27 | 19.26 | 0.93 | — |
-| Tavernier | BOU | MID | £6.2m | 9.6 % | 21.45 | 18.92 | 0.93 | — |
+| Tavernier | BOU | MID | £6.2m | 9.7 % | 21.45 | 18.92 | 0.93 | — |
 | Rudoni | COV | MID | £4.9m | 0.3 % | 19.04 | 17.38 | 0.93 | første straffeskytter (penalties_order 1) |
 | Gomez (BHA) | BHA | MID | £5.0m | 3.9 % | 17.04 | 16.11 | 0.93 | — |
-| Gonzalo | FUL | FWD | £6.1m | 6.9 % | 21.59 | 20.16 | 0.93 | første straffeskytter (penalties_order 1) |
+| Gonzalo | FUL | FWD | £6.1m | 6.8 % | 21.59 | 20.16 | 0.93 | første straffeskytter (penalties_order 1) |
 | Thiago | BRE | FWD | £7.8m | 8.8 % | 21.54 | 20.17 | 0.93 | første straffeskytter (penalties_order 1) |
 
 ## Søkets omfang og forutsetninger
