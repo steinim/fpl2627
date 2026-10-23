@@ -228,31 +228,12 @@ Ingen spillere i troppen berøres.
 
 ## Kampprogram — generert fra speilet
 
-*Generert 19.10.2026 kl. 21:45 UTC av `scripts/gen_kampprogram.py` fra `fpl-data`. **Rør ikke denne blokka for hånd** — endringer blir overskrevet ved neste kjøring. Endringsloggen og verifiseringsnotatene ligger under markøren.*
+*Generert 23.10.2026 kl. 20:40 UTC av `scripts/gen_kampprogram.py` fra `fpl-data`. **Rør ikke denne blokka for hånd** — endringer blir overskrevet ved neste kjøring. Endringsloggen og verifiseringsnotatene ligger under markøren.*
 
 **Strukturkontroll: ingen avvik.** 380 kamper, 38 runder, 20 lag, alle runder med nøyaktig 10 kamper og 20 unike lag. Ingen blankrunde, ingen dobbelrunde, 0 kamper med foreløpig klokkeslett. csv og json i speilet er identiske.
 
-**Spillerkolonnen bygger på `entry/picks/gw7.csv`** (15 spillere) — nyeste tilgjengelige øyeblikksbilde. Bytter gjort etter GW7-deadline vises ikke.
+**Spillerkolonnen bygger på `entry/picks/gw8.csv`** (15 spillere) — nyeste tilgjengelige øyeblikksbilde. Bytter gjort etter GW8-deadline vises ikke.
 
-
-### GW8
-
-| Dato | UK-tid | Kamp | Troppen |
-|---|---|---|---|
-| fre 23.10. | 20:00 | Ipswich Town – Nott'm Forest | Davis, Diop |
-| lør 24.10. | 12:30 | Aston Villa – Man City | Haaland |
-| lør 24.10. | 15:00 | Arsenal – Everton | Barry, Calafiori, Saka |
-| lør 24.10. | 15:00 | Coventry City – Fulham | Thomas |
-| lør 24.10. | 17:30 | Chelsea – Spurs | João Pedro, Kinsky |
-| søn 25.10. | 14:00 | Crystal Palace – Newcastle | — |
-| søn 25.10. | 14:00 | Hull City – Brentford | Egan, Slater |
-| søn 25.10. | 14:00 | Liverpool – Brighton | Groß, Verbruggen |
-| søn 25.10. | 14:00 | Man Utd – Bournemouth | B.Fernandes, Mbeumo |
-| søn 25.10. | 16:30 | Sunderland – Leeds | — |
-
-15 spillere i spill. Interne oppgjør: Arsenal–Everton (3), Chelsea–Spurs (2).
-
-⚠️ **Klokka stilles inne i denne runden** — kampene ligger i både BST og GMT. Kolonnen er ferdig omregnet til UK-tid.
 
 ### GW9
 
@@ -322,15 +303,32 @@ Ingen spillere i troppen berøres.
 
 15 spillere i spill. Interne oppgjør: Arsenal–Man City (3).
 
+### GW13
+
+| Dato | UK-tid | Kamp | Troppen |
+|---|---|---|---|
+| tir 1.12. | 20:00 | Coventry City – Ipswich Town | Davis, Diop, Thomas |
+| ons 2.12. | 19:30 | Chelsea – Crystal Palace | João Pedro |
+| ons 2.12. | 19:30 | Hull City – Nott'm Forest | Egan, Slater |
+| ons 2.12. | 19:30 | Liverpool – Sunderland | — |
+| ons 2.12. | 19:30 | Man City – Leeds | Haaland |
+| ons 2.12. | 20:15 | Aston Villa – Everton | Barry |
+| ons 2.12. | 20:15 | Bournemouth – Brighton | Groß, Verbruggen |
+| ons 2.12. | 20:15 | Brentford – Arsenal | Calafiori, Saka |
+| ons 2.12. | 20:15 | Newcastle – Man Utd | B.Fernandes, Mbeumo |
+| tor 3.12. | 20:00 | Spurs – Fulham | Kinsky |
+
+15 spillere i spill. Interne oppgjør: Coventry City–Ipswich Town (3).
+
 ### Deadlines
 
 | Runde | Deadline (UTC) | Deadline (UK) |
 |---|---|---|
-| GW8 | `2026-10-23T17:30:00Z` | fre 23.10. 18:30 |
 | GW9 | `2026-10-31T11:00:00Z` | lør 31.10. 11:00 |
 | GW10 | `2026-11-06T18:30:00Z` | fre 6.11. 18:30 |
 | GW11 | `2026-11-21T11:00:00Z` | lør 21.11. 11:00 |
 | GW12 | `2026-11-27T18:30:00Z` | fre 27.11. 18:30 |
+| GW13 | `2026-12-01T18:30:00Z` | tir 1.12. 18:30 |
 
 ### Rundestruktur, alle 38
 
