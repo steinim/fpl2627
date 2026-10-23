@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 23.10.2026 kl. 18:21 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–7 (data_checked). Horisont: GW9–13. Fraværsfil: context/fravaer.csv.*
+*Generert 23.10.2026 kl. 23:10 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–7 (data_checked). Horisont: GW9–13. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
-- ✅ Rundedata GW1–7 summerer til sesongtotalene for alle 668 spillere, 19 felt
-- ✅ Speilet hentet 23.10.2026 17:58 UTC, 0.4 t gammelt ved kjøring
+- ✅ Rundedata GW1–7 summerer til sesongtotalene for 602 spillere, 19 felt; 66 spillere på lag som har spilt i GW8 er kontrollert mot grunnlaget pluss live-fila
+- ✅ Speilet hentet 23.10.2026 22:37 UTC, 0.5 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -58,9 +58,9 @@ Formelen står i toppen av `scripts/forventning.py`.
 | TOT | 0.81 | 0.97 |
 | HUL | 0.80 | 1.08 |
 
-## Troppen (picks GW7)
+## Troppen (picks GW8)
 
-Bytter gjort etter GW7-deadline vises ikke.
+Bytter gjort etter GW8-deadline vises ikke.
 
 | Spiller | Lag | Pos | Pris | GW9 | GW10 | GW11 | GW12 | GW13 | Sum | Robust | xGI/90 | Uten beste | Start | DC | Str | Flagg |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -75,7 +75,7 @@ Bytter gjort etter GW7-deadline vises ikke.
 | B.Fernandes ★ | MUN | MID | 11.8 | 4.75 | 5.33 | 4.33 | 5.16 | 4.73 | **24.30** | 19.21 | 0.59 | 0.28 | 1.00 | 0/7 | 1 | én kamp (GW2) står for 60% av xGI | første straffeskytter (penalties_order 1) |
 | Groß ★ | BHA | MID | 6.2 | 3.54 | 4.05 | 3.80 | 4.08 | 3.44 | **18.91** | 17.12 | 0.49 | 0.40 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) |
 | Slater ★ | HUL | MID | 4.5 | 2.66 | 2.16 | 2.40 | 2.32 | 2.40 | **11.95** | 11.34 | 0.13 | 0.08 | 1.00 | 0/7 |  | — |
-| Saka ★ | ARS | MID | 9.6 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | **0.00** | 0.00 | 0.73 | 0.60 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) | FPL-sjansen gjelder GW8; brukt for GW9 | GW9: FPL-sjanse 0 % | GW10: status i uten returdato | GW11: status i uten returdato | GW12: status i uten returdato | GW13: status i uten returdato |
+| Saka ★ | ARS | MID | 9.6 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | **0.00** | 0.00 | 0.73 | 0.60 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) | GW9: FPL-sjanse 0 % | GW10: status i uten returdato | GW11: status i uten returdato | GW12: status i uten returdato | GW13: status i uten returdato |
 | Haaland ★ | MCI | FWD | 15.7 | 6.46 | 5.71 | 6.30 | 4.44 | 6.05 | **28.96** | 27.46 | 0.94 | 0.84 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) |
 | Barry ★ | EVE | FWD | 5.7 | 4.53 | 4.91 | 4.23 | 4.29 | 4.10 | **22.06** | 19.55 | 0.74 | 0.58 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) |
 | João Pedro ★ | CHE | FWD | 7.9 | 4.59 | 4.18 | 4.43 | 4.02 | 4.57 | **21.78** | 19.78 | 0.58 | 0.44 | 1.00 | 0/6 |  | — |
