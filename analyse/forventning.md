@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 22.10.2026 kl. 18:33 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–7 (data_checked). Horisont: GW8–12. Fraværsfil: context/fravaer.csv.*
+*Generert 23.10.2026 kl. 07:29 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–7 (data_checked). Horisont: GW8–12. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–7 summerer til sesongtotalene for alle 668 spillere, 19 felt
-- ✅ Speilet hentet 22.10.2026 18:09 UTC, 0.4 t gammelt ved kjøring
+- ✅ Speilet hentet 23.10.2026 06:27 UTC, 1.0 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -71,7 +71,7 @@ Bytter gjort etter GW7-deadline vises ikke.
 | Davis ★ | IPS | DEF | 4.0 | 3.33 | 3.28 | 3.00 | 3.02 | 3.29 | **15.93** | 14.70 | 0.32 | 0.25 | 1.00 | 0/7 |  | — |
 | Diop ★ | IPS | DEF | 3.9 | 3.11 | 3.16 | 2.82 | 3.00 | 3.08 | **15.17** | 15.05 | 0.04 | 0.02 | 1.00 | 4/7 |  | — |
 | Egan ★ | HUL | DEF | 4.1 | 2.95 | 3.28 | 2.41 | 2.67 | 2.63 | **13.94** | 13.66 | 0.04 | 0.01 | 1.00 | 4/7 |  | — |
-| Mbeumo ★ | MUN | MID | 7.8 | 5.49 | 4.82 | 5.40 | 4.40 | 5.22 | **25.33** | 21.52 | 0.69 | 0.48 | 1.00 | 0/7 | 2 | — |
+| Mbeumo ★ | MUN | MID | 7.9 | 5.49 | 4.82 | 5.40 | 4.40 | 5.22 | **25.33** | 21.52 | 0.69 | 0.48 | 1.00 | 0/7 | 2 | — |
 | B.Fernandes ★ | MUN | MID | 11.8 | 5.43 | 4.75 | 5.33 | 4.33 | 5.16 | **25.00** | 19.74 | 0.59 | 0.28 | 1.00 | 0/7 | 1 | én kamp (GW2) står for 60% av xGI | første straffeskytter (penalties_order 1) |
 | Saka ★ | ARS | MID | 9.6 | 3.01 | 4.82 | 5.96 | 5.16 | 5.17 | **24.12** | 21.80 | 0.73 | 0.60 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) | GW8: FPL-sjanse 50 % |
 | Groß ★ | BHA | MID | 6.2 | 3.63 | 3.54 | 4.05 | 3.80 | 4.08 | **19.09** | 17.30 | 0.49 | 0.40 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) |
@@ -121,14 +121,14 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 
 | Spiller | Lag | Pos | Pris | GW8 | GW9 | GW10 | GW11 | GW12 | Sum | Robust | xGI/90 | Uten beste | Start | DC | Str | Flagg |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Mbeumo ★ | MUN | MID | 7.8 | 5.49 | 4.82 | 5.40 | 4.40 | 5.22 | **25.33** | 21.52 | 0.69 | 0.48 | 1.00 | 0/7 | 2 | — |
+| Mbeumo ★ | MUN | MID | 7.9 | 5.49 | 4.82 | 5.40 | 4.40 | 5.22 | **25.33** | 21.52 | 0.69 | 0.48 | 1.00 | 0/7 | 2 | — |
 | B.Fernandes ★ | MUN | MID | 11.8 | 5.43 | 4.75 | 5.33 | 4.33 | 5.16 | **25.00** | 19.74 | 0.59 | 0.28 | 1.00 | 0/7 | 1 | én kamp (GW2) står for 60% av xGI | første straffeskytter (penalties_order 1) |
 | Saka ★ | ARS | MID | 9.6 | 3.01 | 4.82 | 5.96 | 5.16 | 5.17 | **24.12** | 21.80 | 0.73 | 0.60 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) | GW8: FPL-sjanse 50 % |
 | E.Le Fée | SUN | MID | 5.7 | 4.75 | 4.42 | 4.54 | 4.13 | 4.43 | **22.27** | 19.26 | 0.55 | 0.39 | 1.00 | 1/7 | 2 | — |
 | Tavernier | BOU | MID | 6.2 | 4.17 | 4.54 | 4.34 | 4.43 | 3.96 | **21.45** | 18.92 | 0.63 | 0.48 | 1.00 | 0/7 | 3 | — |
 | Rogers | CHE | MID | 8.0 | 4.65 | 4.45 | 4.10 | 4.33 | 3.92 | **21.45** | 20.07 | 0.51 | 0.39 | 1.00 | 1/7 |  | — |
 | Ødegaard | ARS | MID | 6.8 | 4.69 | 3.86 | 4.63 | 4.06 | 4.05 | **21.31** | 18.32 | 0.57 | 0.36 | 1.00 | 0/7 | 3 | — |
-| Palmer | CHE | MID | 9.7 | 4.20 | 4.01 | 3.70 | 3.91 | 3.53 | **19.34** | 18.22 | 0.34 | 0.27 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) |
+| Palmer | CHE | MID | 9.8 | 4.20 | 4.01 | 3.70 | 3.91 | 3.53 | **19.34** | 18.22 | 0.34 | 0.27 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) |
 | Stach | LEE | MID | 6.0 | 3.94 | 3.73 | 4.00 | 3.61 | 4.02 | **19.29** | 18.69 | 0.27 | 0.23 | 1.00 | 3/7 |  | — |
 | Groß ★ | BHA | MID | 6.2 | 3.63 | 3.54 | 4.05 | 3.80 | 4.08 | **19.09** | 17.30 | 0.49 | 0.40 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) |
 | Rudoni | COV | MID | 4.9 | 4.16 | 4.05 | 3.60 | 3.88 | 3.36 | **19.04** | 17.38 | 0.58 | 0.45 | 0.96 | 1/6 | 1 | første straffeskytter (penalties_order 1) |
