@@ -1,14 +1,14 @@
 # Forventede poeng — generert
 
-*Generert 24.10.2026 kl. 12:45 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–7 (data_checked). Horisont: GW9–13. Fraværsfil: context/fravaer.csv.*
+*Generert 24.10.2026 kl. 17:27 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–7 (data_checked). Horisont: GW9–13. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
-- ✅ Rundedata GW1–7 summerer til sesongtotalene for 533 spillere, 19 felt; 135 spillere på lag som har spilt i GW8 er kontrollert mot grunnlaget pluss live-fila
-- ✅ Speilet hentet 24.10.2026 12:13 UTC, 0.5 t gammelt ved kjøring
+- ✅ Rundedata GW1–7 summerer til sesongtotalene for 340 spillere, 19 felt; 328 spillere på lag som har spilt i GW8 er kontrollert mot grunnlaget pluss live-fila
+- ✅ Speilet hentet 24.10.2026 16:56 UTC, 0.5 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
-- ⚠️ 22 spillere på lag som har spilt i GW8 avviker fra grunnlaget pluss live-fila — runden er ikke ferdig, og bootstrap og live-fila hentes hver for seg. Brukes ikke i modellen: Cash minutes: sesong 514, runder 516; Pau minutes: sesong 238, runder 240; Maatsen minutes: sesong 373, runder 375
+- ⚠️ 22 spillere på lag som har spilt i GW8 avviker fra grunnlaget pluss live-fila — runden er ikke ferdig, og bootstrap og live-fila hentes hver for seg. Brukes ikke i modellen: Rogers minutes: sesong 633, runder 635; Henderson minutes: sesong 293, runder 295; Hato minutes: sesong 371, runder 373
 
 ## Modell og estimerte parametre
 
@@ -79,7 +79,7 @@ Bytter gjort etter GW8-deadline vises ikke.
 | Saka ★ | ARS | MID | 9.5 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | **0.00** | 0.00 | 0.73 | 0.60 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) | GW9: FPL-sjanse 0 % | GW10: status i uten returdato | GW11: status i uten returdato | GW12: status i uten returdato | GW13: status i uten returdato |
 | Haaland ★ | MCI | FWD | 15.7 | 6.46 | 5.71 | 6.30 | 4.44 | 6.05 | **28.96** | 27.46 | 0.94 | 0.84 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) |
 | Barry ★ | EVE | FWD | 5.7 | 4.53 | 4.91 | 4.23 | 4.29 | 4.10 | **22.06** | 19.55 | 0.74 | 0.58 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) |
-| João Pedro ★ | CHE | FWD | 7.9 | 4.59 | 4.18 | 4.43 | 4.02 | 4.57 | **21.78** | 19.78 | 0.58 | 0.44 | 1.00 | 0/6 |  | — |
+| João Pedro ★ | CHE | FWD | 7.9 | 3.44 | 4.18 | 4.43 | 4.02 | 4.57 | **20.63** | 18.74 | 0.58 | 0.44 | 1.00 | 0/6 |  | GW9: FPL-sjanse 75 % |
 
 ## Beste per posisjon (sum over horisonten)
 
@@ -144,8 +144,8 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Haaland ★ | MCI | FWD | 15.7 | 6.46 | 5.71 | 6.30 | 4.44 | 6.05 | **28.96** | 27.46 | 0.94 | 0.84 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) |
 | Barry ★ | EVE | FWD | 5.7 | 4.53 | 4.91 | 4.23 | 4.29 | 4.10 | **22.06** | 19.55 | 0.74 | 0.58 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) |
-| João Pedro ★ | CHE | FWD | 7.9 | 4.59 | 4.18 | 4.43 | 4.02 | 4.57 | **21.78** | 19.78 | 0.58 | 0.44 | 1.00 | 0/6 |  | — |
 | Gonzalo | FUL | FWD | 6.1 | 4.20 | 4.74 | 3.86 | 4.34 | 3.85 | **20.99** | 19.62 | 0.63 | 0.55 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) |
+| João Pedro ★ | CHE | FWD | 7.9 | 3.44 | 4.18 | 4.43 | 4.02 | 4.57 | **20.63** | 18.74 | 0.58 | 0.44 | 1.00 | 0/6 |  | GW9: FPL-sjanse 75 % |
 | Thiago | BRE | FWD | 7.8 | 4.65 | 4.02 | 4.53 | 3.87 | 3.53 | **20.60** | 19.30 | 0.60 | 0.52 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) |
 | Evanilson | BOU | FWD | 6.2 | 4.29 | 4.13 | 4.21 | 3.75 | 4.06 | **20.44** | 17.72 | 0.54 | 0.37 | 1.00 | 0/7 |  | — |
 | Isak | LIV | FWD | 9.0 | 3.29 | 3.75 | 3.93 | 3.64 | 4.03 | **18.63** | 17.67 | 0.73 | 0.64 | 0.77 | 0/6 | 2 | UAVKLART FRAVÆR GW6 — telt som ikke-start; før årsaken i context/fravaer.csv |
