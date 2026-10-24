@@ -1,14 +1,13 @@
 # Forventede poeng — generert
 
-*Generert 24.10.2026 kl. 17:27 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–7 (data_checked). Horisont: GW9–13. Fraværsfil: context/fravaer.csv.*
+*Generert 24.10.2026 kl. 22:29 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–7 (data_checked). Horisont: GW9–13. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
-- ✅ Rundedata GW1–7 summerer til sesongtotalene for 340 spillere, 19 felt; 328 spillere på lag som har spilt i GW8 er kontrollert mot grunnlaget pluss live-fila
-- ✅ Speilet hentet 24.10.2026 16:56 UTC, 0.5 t gammelt ved kjøring
+- ✅ Rundedata GW1–7 summerer til sesongtotalene for 340 spillere, 19 felt; 329 spillere på lag som har spilt i GW8 er kontrollert mot grunnlaget pluss live-fila
+- ✅ Speilet hentet 24.10.2026 21:52 UTC, 0.6 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
-- ⚠️ 22 spillere på lag som har spilt i GW8 avviker fra grunnlaget pluss live-fila — runden er ikke ferdig, og bootstrap og live-fila hentes hver for seg. Brukes ikke i modellen: Rogers minutes: sesong 633, runder 635; Henderson minutes: sesong 293, runder 295; Hato minutes: sesong 371, runder 373
 
 ## Modell og estimerte parametre
 
@@ -67,8 +66,8 @@ Bytter gjort etter GW8-deadline vises ikke.
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Kinsky ★ | TOT | GKP | 4.4 | 2.76 | 2.53 | 2.76 | 2.52 | 2.67 | **13.25** | 13.25 | 0.00 | 0.00 | 1.00 |  |  | — |
 | Verbruggen ★ | BHA | GKP | 4.6 | 2.40 | 2.63 | 2.81 | 2.74 | 2.37 | **12.95** | 12.60 | 0.03 | 0.00 | 1.00 |  |  | — |
-| Calafiori ★ | ARS | DEF | 6.0 | 3.65 | 4.70 | 3.79 | 3.66 | 3.40 | **19.19** | 18.22 | 0.34 | 0.28 | 1.00 | 0/7 |  | — |
-| Thomas ★ | COV | DEF | 4.0 | 3.93 | 3.49 | 3.67 | 3.24 | 3.75 | **18.07** | 17.36 | 0.14 | 0.09 | 1.00 | 5/7 |  | — |
+| Calafiori ★ | ARS | DEF | 6.0 | 2.73 | 4.70 | 3.79 | 3.66 | 3.40 | **18.28** | 17.35 | 0.34 | 0.28 | 1.00 | 0/7 |  | GW9: FPL-sjanse 75 % |
+| Thomas ★ | COV | DEF | 4.0 | 2.95 | 3.49 | 3.67 | 3.24 | 3.75 | **17.09** | 16.42 | 0.14 | 0.09 | 1.00 | 5/7 |  | GW9: FPL-sjanse 75 % |
 | Davis ★ | IPS | DEF | 4.0 | 3.28 | 3.00 | 3.02 | 3.29 | 3.02 | **15.62** | 14.44 | 0.32 | 0.25 | 1.00 | 0/7 |  | — |
 | Diop ★ | IPS | DEF | 3.9 | 3.16 | 2.82 | 3.00 | 3.08 | 2.92 | **14.98** | 14.86 | 0.04 | 0.02 | 1.00 | 4/7 |  | — |
 | Egan ★ | HUL | DEF | 4.1 | 3.28 | 2.41 | 2.67 | 2.63 | 2.88 | **13.87** | 13.60 | 0.04 | 0.01 | 1.00 | 4/7 |  | — |
@@ -102,13 +101,13 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 
 | Spiller | Lag | Pos | Pris | GW9 | GW10 | GW11 | GW12 | GW13 | Sum | Robust | xGI/90 | Uten beste | Start | DC | Str | Flagg |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Calafiori ★ | ARS | DEF | 6.0 | 3.65 | 4.70 | 3.79 | 3.66 | 3.40 | **19.19** | 18.22 | 0.34 | 0.28 | 1.00 | 0/7 |  | — |
 | Gabriel | ARS | DEF | 7.9 | 3.64 | 4.60 | 3.73 | 3.59 | 3.36 | **18.91** | 18.15 | 0.17 | 0.12 | 1.00 | 3/7 |  | — |
 | Silva | BOU | DEF | 5.0 | 4.13 | 3.79 | 3.90 | 3.53 | 3.53 | **18.88** | 17.36 | 0.24 | 0.14 | 1.00 | 5/7 |  | — |
-| Thomas ★ | COV | DEF | 4.0 | 3.93 | 3.49 | 3.67 | 3.24 | 3.75 | **18.07** | 17.36 | 0.14 | 0.09 | 1.00 | 5/7 |  | — |
+| Calafiori ★ | ARS | DEF | 6.0 | 2.73 | 4.70 | 3.79 | 3.66 | 3.40 | **18.28** | 17.35 | 0.34 | 0.28 | 1.00 | 0/7 |  | GW9: FPL-sjanse 75 % |
 | Murillo | NFO | DEF | 5.5 | 3.30 | 3.45 | 3.20 | 3.62 | 3.78 | **17.35** | 16.78 | 0.21 | 0.18 | 1.00 | 5/7 |  | — |
 | Vuskovic | BHA | DEF | 5.1 | 3.00 | 3.60 | 3.79 | 3.81 | 3.06 | **17.26** | 16.55 | 0.19 | 0.14 | 1.00 | 4/7 |  | — |
 | De Cuyper | BHA | DEF | 5.3 | 2.90 | 3.65 | 3.77 | 3.87 | 2.99 | **17.18** | 13.54 | 0.40 | 0.16 | 1.00 | 0/7 |  | én kamp (GW1) står for 65% av xGI |
+| Thomas ★ | COV | DEF | 4.0 | 2.95 | 3.49 | 3.67 | 3.24 | 3.75 | **17.09** | 16.42 | 0.14 | 0.09 | 1.00 | 5/7 |  | GW9: FPL-sjanse 75 % |
 | Van Hecke | TOT | DEF | 4.9 | 3.59 | 3.09 | 3.63 | 3.12 | 3.42 | **16.84** | 15.66 | 0.17 | 0.09 | 1.00 | 3/7 |  | én kamp (GW5) står for 55% av xGI |
 | Bogle | LEE | DEF | 4.7 | 3.07 | 4.04 | 2.99 | 4.00 | 2.66 | **16.76** | 14.87 | 0.33 | 0.20 | 1.00 | 0/7 |  | — |
 | Mukiele | SUN | DEF | 5.4 | 3.62 | 3.37 | 3.18 | 3.69 | 2.80 | **16.66** | 15.02 | 0.19 | 0.08 | 0.96 | 4/6 |  | UAVKLART FRAVÆR GW1 — telt som ikke-start; før årsaken i context/fravaer.csv | én kamp (GW4) står for 63% av xGI |
