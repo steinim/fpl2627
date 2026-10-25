@@ -1,13 +1,14 @@
 # Forventede poeng — generert
 
-*Generert 25.10.2026 kl. 07:34 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–7 (data_checked). Horisont: GW9–13. Fraværsfil: context/fravaer.csv.*
+*Generert 25.10.2026 kl. 17:39 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–7 (data_checked). Horisont: GW9–13. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
-- ✅ Rundedata GW1–7 summerer til sesongtotalene for 340 spillere, 19 felt; 329 spillere på lag som har spilt i GW8 er kontrollert mot grunnlaget pluss live-fila
-- ✅ Speilet hentet 25.10.2026 06:50 UTC, 0.7 t gammelt ved kjøring
+- ✅ Rundedata GW1–7 summerer til sesongtotalene for 0 spillere, 19 felt; 669 spillere på lag som har spilt i GW8 er kontrollert mot grunnlaget pluss live-fila
+- ✅ Speilet hentet 25.10.2026 17:13 UTC, 0.4 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
+- ⚠️ 22 spillere på lag som har spilt i GW8 avviker fra grunnlaget pluss live-fila — runden er ikke ferdig, og bootstrap og live-fila hentes hver for seg. Brukes ikke i modellen: Wilson minutes: sesong 203, runder 204; Bijol minutes: sesong 207, runder 208; Bogle minutes: sesong 579, runder 580
 
 ## Modell og estimerte parametre
 
