@@ -1,14 +1,13 @@
 # Forventede poeng — generert
 
-*Generert 25.10.2026 kl. 17:39 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–7 (data_checked). Horisont: GW9–13. Fraværsfil: context/fravaer.csv.*
+*Generert 25.10.2026 kl. 22:34 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–7 (data_checked). Horisont: GW9–13. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–7 summerer til sesongtotalene for 0 spillere, 19 felt; 669 spillere på lag som har spilt i GW8 er kontrollert mot grunnlaget pluss live-fila
-- ✅ Speilet hentet 25.10.2026 17:13 UTC, 0.4 t gammelt ved kjøring
+- ✅ Speilet hentet 25.10.2026 22:01 UTC, 0.5 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
-- ⚠️ 22 spillere på lag som har spilt i GW8 avviker fra grunnlaget pluss live-fila — runden er ikke ferdig, og bootstrap og live-fila hentes hver for seg. Brukes ikke i modellen: Wilson minutes: sesong 203, runder 204; Bijol minutes: sesong 207, runder 208; Bogle minutes: sesong 579, runder 580
 
 ## Modell og estimerte parametre
 
@@ -130,13 +129,13 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Ødegaard | ARS | MID | 6.8 | 3.86 | 4.63 | 4.06 | 4.05 | 3.83 | **20.45** | 17.61 | 0.57 | 0.36 | 1.00 | 0/7 | 3 | — |
 | Palmer | CHE | MID | 9.8 | 4.01 | 3.70 | 3.91 | 3.53 | 3.99 | **19.13** | 18.01 | 0.34 | 0.27 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) |
 | Groß ★ | BHA | MID | 6.2 | 3.54 | 4.05 | 3.80 | 4.08 | 3.44 | **18.91** | 17.12 | 0.49 | 0.40 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) |
+| Stach | LEE | MID | 6.0 | 3.73 | 4.00 | 3.61 | 4.02 | 3.43 | **18.78** | 18.20 | 0.27 | 0.23 | 1.00 | 3/7 |  | — |
 | Rudoni | COV | MID | 4.9 | 4.05 | 3.60 | 3.88 | 3.36 | 3.88 | **18.77** | 17.12 | 0.58 | 0.45 | 0.96 | 1/6 | 1 | første straffeskytter (penalties_order 1) |
 | Enciso | IPS | MID | 5.5 | 3.69 | 3.69 | 3.37 | 3.69 | 3.44 | **17.88** | 16.96 | 0.47 | 0.40 | 1.00 | 0/7 |  | — |
 | Iwobi | FUL | MID | 5.4 | 3.61 | 3.95 | 3.29 | 3.64 | 3.37 | **17.86** | 16.11 | 0.46 | 0.33 | 1.00 | 0/7 | 3 | — |
 | Buendía | AVL | MID | 5.9 | 3.73 | 3.30 | 3.64 | 3.44 | 3.57 | **17.69** | 16.45 | 0.32 | 0.24 | 1.00 | 1/7 | 1 | første straffeskytter (penalties_order 1) |
 | Rayan | BOU | MID | 6.3 | 3.67 | 3.52 | 3.57 | 3.25 | 3.42 | **17.43** | 16.89 | 0.31 | 0.27 | 1.00 | 0/7 |  | — |
 | Dewsbury-Hall | EVE | MID | 6.6 | 3.54 | 3.83 | 3.30 | 3.39 | 3.27 | **17.34** | 16.53 | 0.34 | 0.28 | 1.00 | 0/7 |  | — |
-| Gibbs-White | NFO | MID | 7.9 | 3.25 | 3.47 | 3.27 | 3.69 | 3.56 | **17.24** | 16.20 | 0.59 | 0.49 | 0.67 | 0/6 | 1 | UAVKLART FRAVÆR GW7 — telt som ikke-start; før årsaken i context/fravaer.csv | første straffeskytter (penalties_order 1) |
 
 ### FWD
 
@@ -148,10 +147,10 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | João Pedro ★ | CHE | FWD | 7.9 | 3.44 | 4.18 | 4.43 | 4.02 | 4.57 | **20.63** | 18.74 | 0.58 | 0.44 | 1.00 | 0/6 |  | GW9: FPL-sjanse 75 % |
 | Thiago | BRE | FWD | 7.8 | 4.65 | 4.02 | 4.53 | 3.87 | 3.53 | **20.60** | 19.30 | 0.60 | 0.52 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) |
 | Evanilson | BOU | FWD | 6.2 | 4.29 | 4.13 | 4.21 | 3.75 | 4.06 | **20.44** | 17.72 | 0.54 | 0.37 | 1.00 | 0/7 |  | — |
+| Calvert-Lewin | LEE | FWD | 6.1 | 3.83 | 4.12 | 3.73 | 4.25 | 3.52 | **19.45** | 18.57 | 0.56 | 0.49 | 1.00 | 0/7 | 1 | første straffeskytter (penalties_order 1) |
 | Isak | LIV | FWD | 9.0 | 3.29 | 3.75 | 3.93 | 3.64 | 4.03 | **18.63** | 17.67 | 0.73 | 0.64 | 0.77 | 0/6 | 2 | UAVKLART FRAVÆR GW6 — telt som ikke-start; før årsaken i context/fravaer.csv |
 | Delap | NFO | FWD | 5.5 | 3.64 | 3.70 | 3.36 | 3.69 | 3.46 | **17.85** | 15.94 | 0.54 | 0.39 | 0.94 | 0/5 | 3 | — |
 | N.Jackson | AVL | FWD | 6.7 | 3.73 | 3.27 | 3.64 | 3.44 | 3.57 | **17.65** | 16.66 | 0.45 | 0.38 | 1.00 | 0/6 | 2 | — |
-| Havertz | ARS | FWD | 7.5 | 3.32 | 3.94 | 3.51 | 3.53 | 3.34 | **17.64** | 16.70 | 0.41 | 0.33 | 1.00 | 0/7 |  | — |
 
 ## Uavklart fravær i troppen og valgte spillere
 
