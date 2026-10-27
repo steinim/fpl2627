@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 27.10.2026 kl. 14:37 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–8 (data_checked). Horisont: GW9–13. Fraværsfil: context/fravaer.csv.*
+*Generert 27.10.2026 kl. 19:26 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–8 (data_checked). Horisont: GW9–13. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–8 summerer til sesongtotalene for alle 669 spillere, 19 felt
-- ✅ Speilet hentet 27.10.2026 13:33 UTC, 1.1 t gammelt ved kjøring
+- ✅ Speilet hentet 27.10.2026 18:57 UTC, 0.5 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -78,7 +78,7 @@ Bytter gjort etter GW8-deadline vises ikke.
 | Saka ★ | ARS | MID | 9.5 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | **0.00** | 0.00 | 0.73 | 0.60 | 0.68 | 0/7 | 1 | UAVKLART FRAVÆR GW8 — telt som ikke-start; før årsaken i context/fravaer.csv | første straffeskytter (penalties_order 1) | GW9: FPL-sjanse 0 % | GW10: status i uten returdato | GW11: status i uten returdato | GW12: status i uten returdato | GW13: status i uten returdato |
 | Haaland ★ | MCI | FWD | 15.7 | 6.38 | 5.66 | 6.12 | 4.43 | 5.79 | **28.39** | 26.83 | 0.87 | 0.77 | 1.00 | 0/8 | 1 | første straffeskytter (penalties_order 1) |
 | Barry ★ | EVE | FWD | 5.6 | 4.74 | 4.92 | 4.42 | 4.29 | 4.19 | **22.56** | 20.14 | 0.69 | 0.55 | 1.00 | 0/8 | 1 | første straffeskytter (penalties_order 1) |
-| João Pedro ★ | CHE | FWD | 7.9 | 2.34 | 3.04 | 3.26 | 3.11 | 3.57 | **15.33** | 13.89 | 0.58 | 0.44 | 0.64 | 0/6 |  | UAVKLART FRAVÆR GW8 — telt som ikke-start; før årsaken i context/fravaer.csv | GW9: FPL-sjanse 75 % |
+| João Pedro ★ | CHE | FWD | 7.9 | 0.00 | 0.00 | 0.00 | 0.00 | 0.00 | **0.00** | 0.00 | 0.58 | 0.44 | 0.64 | 0/6 |  | UAVKLART FRAVÆR GW8 — telt som ikke-start; før årsaken i context/fravaer.csv | GW9: FPL-sjanse 0 % | GW10: status i uten returdato | GW11: status i uten returdato | GW12: status i uten returdato | GW13: status i uten returdato |
 
 ## Beste per posisjon (sum over horisonten)
 
