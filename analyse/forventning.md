@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 26.10.2026 kl. 19:56 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–8 (data_checked). Horisont: GW9–13. Fraværsfil: context/fravaer.csv.*
+*Generert 27.10.2026 kl. 07:50 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–8 (data_checked). Horisont: GW9–13. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–8 summerer til sesongtotalene for alle 669 spillere, 19 felt
-- ✅ Speilet hentet 26.10.2026 18:42 UTC, 1.2 t gammelt ved kjøring
+- ✅ Speilet hentet 27.10.2026 06:49 UTC, 1.0 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -95,7 +95,7 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Kelleher | BRE | GKP | 5.0 | 3.06 | 2.79 | 3.06 | 2.74 | 2.77 | **14.41** | 14.40 | 0.00 | 0.00 | 1.00 |  |  | — |
 | Horníček | NEW | GKP | 5.0 | 3.16 | 2.94 | 2.83 | 2.69 | 2.77 | **14.39** | 14.39 | 0.00 | 0.00 | 1.00 |  |  | — |
 | Kinsky ★ | TOT | GKP | 4.4 | 2.99 | 2.79 | 2.96 | 2.73 | 2.83 | **14.31** | 14.31 | 0.00 | 0.00 | 1.00 |  |  | — |
-| Lammens | MUN | GKP | 4.9 | 2.88 | 3.13 | 2.78 | 2.75 | 2.76 | **14.30** | 14.24 | 0.01 | 0.00 | 1.00 |  |  | — |
+| Lammens | MUN | GKP | 4.8 | 2.88 | 3.13 | 2.78 | 2.75 | 2.76 | **14.30** | 14.24 | 0.01 | 0.00 | 1.00 |  |  | — |
 
 ### DEF
 
@@ -109,7 +109,7 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Vuskovic | BHA | DEF | 5.1 | 3.10 | 3.60 | 3.87 | 3.82 | 3.08 | **17.46** | 16.79 | 0.18 | 0.14 | 1.00 | 4/8 |  | — |
 | Van Hecke | TOT | DEF | 4.9 | 3.65 | 3.24 | 3.68 | 3.22 | 3.44 | **17.23** | 16.10 | 0.15 | 0.08 | 1.00 | 3/8 |  | én kamp (GW5) står for 54% av xGI |
 | Muharemović | LEE | DEF | 5.1 | 3.20 | 4.06 | 3.17 | 3.95 | 2.77 | **17.15** | 16.43 | 0.11 | 0.07 | 1.00 | 5/8 |  | — |
-| Bogle | LEE | DEF | 4.7 | 3.16 | 4.06 | 3.14 | 4.00 | 2.71 | **17.07** | 15.31 | 0.32 | 0.21 | 1.00 | 0/8 |  | — |
+| Bogle | LEE | DEF | 4.8 | 3.16 | 4.06 | 3.14 | 4.00 | 2.71 | **17.07** | 15.31 | 0.32 | 0.21 | 1.00 | 0/8 |  | — |
 | Virgil | LIV | DEF | 6.4 | 3.32 | 3.35 | 3.33 | 3.38 | 3.60 | **16.98** | 16.54 | 0.05 | 0.02 | 1.00 | 5/8 |  | — |
 | Jacquet | LIV | DEF | 5.1 | 3.30 | 3.33 | 3.30 | 3.36 | 3.57 | **16.84** | 16.36 | 0.06 | 0.03 | 1.00 | 4/8 |  | — |
 | Richards | CRY | DEF | 4.9 | 3.59 | 3.28 | 3.44 | 3.66 | 2.83 | **16.79** | 16.74 | 0.03 | 0.03 | 1.00 | 6/8 |  | — |
@@ -122,8 +122,8 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Spiller | Lag | Pos | Pris | GW9 | GW10 | GW11 | GW12 | GW13 | Sum | Robust | xGI/90 | Uten beste | Start | DC | Str | Flagg |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Mbeumo ★ | MUN | MID | 7.9 | 4.88 | 5.26 | 4.39 | 5.13 | 4.78 | **24.44** | 20.95 | 0.65 | 0.46 | 1.00 | 0/8 | 2 | — |
-| Tavernier | BOU | MID | 6.3 | 4.90 | 4.82 | 4.71 | 4.32 | 4.52 | **23.26** | 20.97 | 0.67 | 0.56 | 1.00 | 0/8 | 3 | — |
-| Ødegaard | ARS | MID | 6.8 | 4.10 | 4.81 | 4.30 | 4.15 | 4.05 | **21.41** | 18.80 | 0.58 | 0.41 | 1.00 | 0/8 | 3 | — |
+| Tavernier | BOU | MID | 6.4 | 4.90 | 4.82 | 4.71 | 4.32 | 4.52 | **23.26** | 20.97 | 0.67 | 0.56 | 1.00 | 0/8 | 3 | — |
+| Ødegaard | ARS | MID | 6.7 | 4.10 | 4.81 | 4.30 | 4.15 | 4.05 | **21.41** | 18.80 | 0.58 | 0.41 | 1.00 | 0/8 | 3 | — |
 | E.Le Fée | SUN | MID | 5.7 | 4.44 | 4.44 | 4.11 | 4.27 | 3.75 | **21.00** | 18.40 | 0.52 | 0.38 | 1.00 | 1/8 | 2 | — |
 | Rogers | CHE | MID | 8.0 | 4.30 | 3.98 | 4.09 | 3.74 | 4.18 | **20.30** | 18.94 | 0.45 | 0.35 | 1.00 | 1/8 |  | — |
 | Rayan | BOU | MID | 6.3 | 4.22 | 4.14 | 4.04 | 3.75 | 3.88 | **20.02** | 18.32 | 0.39 | 0.31 | 1.00 | 1/8 |  | — |
