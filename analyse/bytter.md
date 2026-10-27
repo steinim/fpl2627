@@ -1,12 +1,12 @@
 # Byttepakker — generert
 
-*Generert 27.10.2026 kl. 07:50 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW9–13. Bytter vurderes i GW9 og GW10. Maks minuspoeng per runde: 0.*
+*Generert 27.10.2026 kl. 14:37 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW9–13. Bytter vurderes i GW9 og GW10. Maks minuspoeng per runde: 0.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–8 summerer til sesongtotalene for alle 669 spillere, 19 felt
-- ✅ Speilet hentet 27.10.2026 06:49 UTC, 1.0 t gammelt ved kjøring
+- ✅ Speilet hentet 27.10.2026 13:33 UTC, 1.1 t gammelt ved kjøring
 - ✅ Bytteregler i API-et stemmer med 05 og skriptet: maks 3 per klubb, maks 5 frikjøp, halve prisstigningen ved salg, tropp på 15
 - ✅ Bank regnet fra 6 overganger stemmer med historikken i alle 8 runder
 - ✅ Frikjøp til GW9: 2. Kostnaden i hver runde stemmer med historikken
@@ -21,19 +21,19 @@ Bank **£0.3m**, frikjøp **2**. Salgspris etter regelen i `05`.
 |---|---|---|---|---|---|---|---|---|---|
 | Kinsky | TOT | GKP | £4.4m | £4.5m | £4.4m | 14.31 | 14.31 | 0.93 | 14.9 % |
 | Verbruggen | BHA | GKP | £4.6m | £4.5m | £4.5m | 13.38 | 13.05 | 0.93 | 22.5 % |
-| Thomas (COV) | COV | DEF | £4.0m | £4.0m | £4.0m | 16.27 | 15.65 | 0.70 | 9.5 % |
-| Calafiori | ARS | DEF | £6.0m | £5.5m | £5.7m | 15.57 | 14.79 | 0.70 | 52.5 % |
-| Davis | IPS | DEF | £4.0m | £4.0m | £4.0m | 15.53 | 14.42 | 0.93 | 7.3 % |
+| Thomas (COV) | COV | DEF | £4.0m | £4.0m | £4.0m | 16.27 | 15.65 | 0.70 | 9.4 % |
+| Calafiori | ARS | DEF | £6.0m | £5.5m | £5.7m | 15.57 | 14.79 | 0.70 | 52.3 % |
+| Davis | IPS | DEF | £4.0m | £4.0m | £4.0m | 15.53 | 14.42 | 0.93 | 7.2 % |
 | Diop | IPS | DEF | £3.9m | £4.0m | £3.9m | 14.74 | 14.61 | 0.93 | 10.7 % |
 | Egan | HUL | DEF | £4.1m | £4.1m | £4.1m | 14.58 | 14.32 | 0.93 | 7.2 % |
 | Mbeumo | MUN | MID | £7.9m | £8.0m | £7.9m | 24.44 | 20.95 | 0.93 | 21.6 % |
 | Groß | BHA | MID | £6.2m | £6.1m | £6.1m | 19.33 | 17.61 | 0.93 | 46.4 % |
-| B.Fernandes | MUN | MID | £11.7m | £12.0m | £11.7m | 19.03 | 15.06 | 0.65 | 24.7 % |
+| B.Fernandes | MUN | MID | £11.7m | £12.0m | £11.7m | 19.03 | 15.06 | 0.65 | 24.6 % |
 | Slater | HUL | MID | £4.5m | £4.5m | £4.5m | 11.98 | 11.42 | 0.93 | 4.7 % |
 | Saka | ARS | MID | £9.5m | £9.6m | £9.5m | 0.00 | 0.00 | 0.00 | 8.7 % |
 | Haaland | MCI | FWD | £15.7m | £15.5m | £15.6m | 28.39 | 26.83 | 0.93 | 78.0 % |
 | Barry | EVE | FWD | £5.6m | £5.7m | £5.6m | 22.56 | 20.14 | 0.93 | 7.4 % |
-| João Pedro | CHE | FWD | £7.9m | £7.5m | £7.7m | 15.33 | 13.89 | 0.46 | 70.8 % |
+| João Pedro | CHE | FWD | £7.9m | £7.5m | £7.7m | 15.33 | 13.89 | 0.46 | 70.6 % |
 
 ## Spar — ingen bytter
 
@@ -115,16 +115,16 @@ Flaggene kommer fra `forventning.py`. Én kamp som bærer xGI-en, slår ut i rob
 | Spiller | Lag | Pos | Pris | Eid | Sum GW9–13 | Robust | P(spiller) GW9 | Flagg |
 |---|---|---|---|---|---|---|---|---|
 | Trafford | LEE | GKP | £5.0m | 6.1 % | 16.45 | 16.44 | 0.93 | — |
-| Gabriel | ARS | DEF | £7.9m | 22.3 % | 21.29 | 20.44 | 0.93 | — |
-| Silva | BOU | DEF | £5.0m | 0.8 % | 19.47 | 18.02 | 0.93 | — |
+| Gabriel | ARS | DEF | £7.9m | 22.4 % | 21.29 | 20.44 | 0.93 | — |
+| Silva | BOU | DEF | £5.0m | 0.9 % | 19.47 | 18.02 | 0.93 | — |
 | De Cuyper | BHA | DEF | £5.3m | 42.6 % | 17.76 | 14.28 | 0.93 | én kamp (GW1) står for 57% av xGI |
-| Vuskovic | BHA | DEF | £5.1m | 6.5 % | 17.46 | 16.79 | 0.93 | — |
-| Tavernier | BOU | MID | £6.4m | 17.8 % | 23.26 | 20.97 | 0.93 | — |
+| Vuskovic | BHA | DEF | £5.1m | 6.6 % | 17.46 | 16.79 | 0.93 | — |
+| Tavernier | BOU | MID | £6.4m | 18.1 % | 23.26 | 20.97 | 0.93 | — |
 | Ødegaard | ARS | MID | £6.7m | 17.7 % | 21.41 | 18.80 | 0.93 | — |
 | E.Le Fée | SUN | MID | £5.7m | 2.8 % | 21.00 | 18.40 | 0.93 | — |
 | Gibbs-White | NFO | MID | £7.9m | 12.0 % | 19.78 | 18.89 | 0.73 | UAVKLART FRAVÆR GW7 — telt som ikke-start; før årsaken i context/fravaer.csv · første straffeskytter (penalties_order 1) |
 | Thiago | BRE | FWD | £7.8m | 8.8 % | 22.06 | 20.90 | 0.93 | første straffeskytter (penalties_order 1) |
-| Isak | LIV | FWD | £9.0m | 15.4 % | 19.63 | 18.69 | 0.79 | UAVKLART FRAVÆR GW6 — telt som ikke-start; før årsaken i context/fravaer.csv |
+| Isak | LIV | FWD | £9.0m | 15.5 % | 19.63 | 18.69 | 0.79 | UAVKLART FRAVÆR GW6 — telt som ikke-start; før årsaken i context/fravaer.csv |
 
 ## Søkets omfang og forutsetninger
 
