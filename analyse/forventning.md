@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 29.10.2026 kl. 15:17 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–8 (data_checked). Horisont: GW9–13. Fraværsfil: context/fravaer.csv.*
+*Generert 29.10.2026 kl. 23:57 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–8 (data_checked). Horisont: GW9–13. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–8 summerer til sesongtotalene for alle 669 spillere, 19 felt
-- ✅ Speilet hentet 29.10.2026 14:38 UTC, 0.6 t gammelt ved kjøring
+- ✅ Speilet hentet 29.10.2026 23:34 UTC, 0.4 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -66,9 +66,9 @@ Bytter gjort etter GW8-deadline vises ikke.
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Kinsky ★ | TOT | GKP | 4.4 | 2.99 | 2.79 | 2.96 | 2.73 | 2.83 | **14.31** | 14.31 | 0.00 | 0.00 | 1.00 |  |  | — |
 | Verbruggen ★ | BHA | GKP | 4.6 | 2.53 | 2.69 | 2.91 | 2.80 | 2.44 | **13.38** | 13.05 | 0.03 | 0.00 | 1.00 |  |  | — |
-| Thomas ★ | COV | DEF | 4.0 | 2.80 | 3.36 | 3.45 | 3.13 | 3.52 | **16.27** | 15.65 | 0.13 | 0.09 | 1.00 | 5/8 |  | GW9: FPL-sjanse 75 % |
 | Calafiori ★ | ARS | DEF | 6.0 | 2.27 | 3.82 | 3.31 | 3.13 | 3.04 | **15.57** | 14.79 | 0.33 | 0.27 | 0.68 | 0/7 |  | GW9: FPL-sjanse 75 % |
 | Davis ★ | IPS | DEF | 4.0 | 3.33 | 2.88 | 3.05 | 3.22 | 3.05 | **15.53** | 14.42 | 0.28 | 0.22 | 1.00 | 0/8 |  | — |
+| Thomas ★ | COV | DEF | 4.0 | 1.86 | 3.36 | 3.45 | 3.13 | 3.52 | **15.34** | 14.76 | 0.13 | 0.09 | 1.00 | 5/8 |  | GW9: FPL-sjanse 50 % |
 | Diop ★ | IPS | DEF | 3.9 | 3.15 | 2.69 | 2.99 | 3.01 | 2.91 | **14.74** | 14.61 | 0.03 | 0.02 | 1.00 | 4/8 |  | — |
 | Egan ★ | HUL | DEF | 4.1 | 3.49 | 2.58 | 2.74 | 2.83 | 2.93 | **14.58** | 14.32 | 0.04 | 0.01 | 1.00 | 5/8 |  | — |
 | Mbeumo ★ | MUN | MID | 7.9 | 4.88 | 5.26 | 4.39 | 5.13 | 4.78 | **24.44** | 20.95 | 0.65 | 0.46 | 1.00 | 0/8 | 2 | — |
@@ -115,7 +115,7 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Richards | CRY | DEF | 4.9 | 3.59 | 3.28 | 3.44 | 3.66 | 2.83 | **16.79** | 16.74 | 0.03 | 0.03 | 1.00 | 6/8 |  | — |
 | Khalaili | CRY | DEF | 5.0 | 3.55 | 3.26 | 3.39 | 3.68 | 2.74 | **16.63** | 15.29 | 0.26 | 0.19 | 0.97 | 2/7 |  | — |
 | Konsa | ARS | DEF | 4.7 | 3.45 | 4.00 | 3.28 | 2.97 | 2.81 | **16.50** | 15.76 | 0.10 | 0.05 | 0.94 | 2/6 |  | UAVKLART FRAVÆR GW1 — telt som ikke-start; før årsaken i context/fravaer.csv |
-| Thomas ★ | COV | DEF | 4.0 | 2.80 | 3.36 | 3.45 | 3.13 | 3.52 | **16.27** | 15.65 | 0.13 | 0.09 | 1.00 | 5/8 |  | GW9: FPL-sjanse 75 % |
+| N.Williams | NFO | DEF | 5.0 | 3.15 | 3.19 | 2.99 | 3.42 | 3.60 | **16.35** | 15.69 | 0.26 | 0.22 | 1.00 | 2/8 |  | — |
 
 ### MID
 
