@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 29.10.2026 kl. 23:57 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–8 (data_checked). Horisont: GW9–13. Fraværsfil: context/fravaer.csv.*
+*Generert 30.10.2026 kl. 08:37 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–8 (data_checked). Horisont: GW9–13. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–8 summerer til sesongtotalene for alle 669 spillere, 19 felt
-- ✅ Speilet hentet 29.10.2026 23:34 UTC, 0.4 t gammelt ved kjøring
+- ✅ Speilet hentet 30.10.2026 07:43 UTC, 0.9 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -66,7 +66,7 @@ Bytter gjort etter GW8-deadline vises ikke.
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Kinsky ★ | TOT | GKP | 4.4 | 2.99 | 2.79 | 2.96 | 2.73 | 2.83 | **14.31** | 14.31 | 0.00 | 0.00 | 1.00 |  |  | — |
 | Verbruggen ★ | BHA | GKP | 4.6 | 2.53 | 2.69 | 2.91 | 2.80 | 2.44 | **13.38** | 13.05 | 0.03 | 0.00 | 1.00 |  |  | — |
-| Calafiori ★ | ARS | DEF | 6.0 | 2.27 | 3.82 | 3.31 | 3.13 | 3.04 | **15.57** | 14.79 | 0.33 | 0.27 | 0.68 | 0/7 |  | GW9: FPL-sjanse 75 % |
+| Calafiori ★ | ARS | DEF | 5.9 | 2.27 | 3.82 | 3.31 | 3.13 | 3.04 | **15.57** | 14.79 | 0.33 | 0.27 | 0.68 | 0/7 |  | GW9: FPL-sjanse 75 % |
 | Davis ★ | IPS | DEF | 4.0 | 3.33 | 2.88 | 3.05 | 3.22 | 3.05 | **15.53** | 14.42 | 0.28 | 0.22 | 1.00 | 0/8 |  | — |
 | Thomas ★ | COV | DEF | 4.0 | 1.86 | 3.36 | 3.45 | 3.13 | 3.52 | **15.34** | 14.76 | 0.13 | 0.09 | 1.00 | 5/8 |  | GW9: FPL-sjanse 50 % |
 | Diop ★ | IPS | DEF | 3.9 | 3.15 | 2.69 | 2.99 | 3.01 | 2.91 | **14.74** | 14.61 | 0.03 | 0.02 | 1.00 | 4/8 |  | — |
@@ -144,7 +144,7 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Haaland ★ | MCI | FWD | 15.8 | 6.38 | 5.66 | 6.12 | 4.43 | 5.79 | **28.39** | 26.83 | 0.87 | 0.77 | 1.00 | 0/8 | 1 | første straffeskytter (penalties_order 1) |
 | Barry ★ | EVE | FWD | 5.6 | 4.74 | 4.92 | 4.42 | 4.29 | 4.19 | **22.56** | 20.14 | 0.69 | 0.55 | 1.00 | 0/8 | 1 | første straffeskytter (penalties_order 1) |
 | Thiago | BRE | FWD | 7.8 | 4.93 | 4.38 | 4.82 | 4.23 | 3.70 | **22.06** | 20.90 | 0.64 | 0.57 | 1.00 | 0/8 | 1 | første straffeskytter (penalties_order 1) |
-| Evanilson | BOU | FWD | 6.2 | 4.33 | 4.29 | 4.20 | 3.84 | 4.07 | **20.73** | 18.20 | 0.54 | 0.39 | 1.00 | 0/8 |  | — |
+| Evanilson | BOU | FWD | 6.3 | 4.33 | 4.29 | 4.20 | 3.84 | 4.07 | **20.73** | 18.20 | 0.54 | 0.39 | 1.00 | 0/8 |  | — |
 | Gonzalo | FUL | FWD | 6.0 | 4.17 | 4.60 | 3.81 | 4.16 | 3.75 | **20.49** | 19.16 | 0.59 | 0.51 | 1.00 | 0/8 | 1 | første straffeskytter (penalties_order 1) |
 | Isak | LIV | FWD | 9.1 | 3.52 | 4.03 | 4.12 | 3.84 | 4.11 | **19.63** | 18.69 | 0.70 | 0.62 | 0.84 | 0/7 | 2 | UAVKLART FRAVÆR GW6 — telt som ikke-start; før årsaken i context/fravaer.csv |
 | Calvert-Lewin | LEE | FWD | 6.1 | 3.81 | 3.94 | 3.66 | 4.02 | 3.44 | **18.87** | 17.93 | 0.49 | 0.42 | 1.00 | 0/8 | 1 | første straffeskytter (penalties_order 1) |
