@@ -1,16 +1,15 @@
 # Byttepakker — generert
 
-*Generert 31.10.2026 kl. 14:35 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW10–14. Bytter vurderes i GW10 og GW11. Maks minuspoeng per runde: 0.*
+*Generert 31.10.2026 kl. 18:33 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW10–14. Bytter vurderes i GW10 og GW11. Maks minuspoeng per runde: 0.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
-- ✅ Rundedata GW1–8 summerer til sesongtotalene for 600 spillere, 19 felt; 69 spillere på lag som har spilt i GW9 er kontrollert mot grunnlaget pluss live-fila
-- ✅ Speilet hentet 31.10.2026 13:53 UTC, 0.7 t gammelt ved kjøring
+- ✅ Rundedata GW1–8 summerer til sesongtotalene for 188 spillere, 19 felt; 481 spillere på lag som har spilt i GW9 er kontrollert mot grunnlaget pluss live-fila
+- ✅ Speilet hentet 31.10.2026 17:16 UTC, 1.3 t gammelt ved kjøring
 - ✅ Bytteregler i API-et stemmer med 05 og skriptet: maks 3 per klubb, maks 5 frikjøp, halve prisstigningen ved salg, tropp på 15
 - ✅ Bank regnet fra 8 overganger stemmer med historikken i alle 9 runder
 - ✅ Frikjøp til GW10: 1. Kostnaden i hver runde stemmer med historikken
-- ⚠️ 22 spillere på lag som har spilt i GW9 avviker fra grunnlaget pluss live-fila — runden er ikke ferdig, og bootstrap og live-fila hentes hver for seg. Brukes ikke i modellen: Rogers minutes: sesong 759, runder 760; Rogers clean_sheets: sesong 1, runder 2; Rogers bonus: sesong 5, runder 4
 
 **Frikjøp, runde for runde:** GW1: første runde → 1 · GW2: 1 frikjøp, 0 brukt → 2 · GW3: 2 frikjøp, 0 brukt → 3 · GW4: 3 frikjøp, 2 brukt → 2 · GW5: 2 frikjøp, 0 brukt → 3 · GW6: 3 frikjøp, 1 brukt → 3 · GW7: 3 frikjøp, 3 brukt → 1 · GW8: 1 frikjøp, 0 brukt → 2 · GW9: 2 frikjøp, 2 brukt → 1
 
@@ -21,20 +20,20 @@ Bank **£4.7m**, frikjøp **1**. Salgspris etter regelen i `05`.
 | Spiller | Lag | Pos | Nå | Kjøpt | Salgspris | Sum GW10–14 | Robust | P(spiller) GW10 | Eid |
 |---|---|---|---|---|---|---|---|---|---|
 | Kinsky | TOT | GKP | £4.4m | £4.5m | £4.4m | 13.88 | 13.89 | 0.91 | 15.3 % |
-| Verbruggen | BHA | GKP | £4.6m | £4.5m | £4.5m | 13.34 | 13.00 | 0.91 | 22.4 % |
-| Calafiori | ARS | DEF | £5.9m | £5.5m | £5.7m | 15.81 | 15.04 | 0.68 | 48.3 % |
+| Verbruggen | BHA | GKP | £4.6m | £4.5m | £4.5m | 13.34 | 13.00 | 0.91 | 22.5 % |
+| Calafiori | ARS | DEF | £5.9m | £5.5m | £5.7m | 15.81 | 15.04 | 0.68 | 48.1 % |
 | Davis | IPS | DEF | £4.0m | £4.0m | £4.0m | 14.85 | 13.78 | 0.91 | 7.1 % |
-| Thomas (COV) | COV | DEF | £4.0m | £4.0m | £4.0m | 14.60 | 14.05 | 0.46 | 8.6 % |
-| Diop | IPS | DEF | £3.9m | £4.0m | £3.9m | 14.17 | 14.05 | 0.91 | 10.4 % |
+| Thomas (COV) | COV | DEF | £4.0m | £4.0m | £4.0m | 14.60 | 14.05 | 0.46 | 8.5 % |
+| Diop | IPS | DEF | £3.9m | £4.0m | £3.9m | 14.17 | 14.05 | 0.91 | 10.3 % |
 | Egan | HUL | DEF | £4.1m | £4.1m | £4.1m | 13.62 | 13.38 | 0.91 | 7.3 % |
-| Mbeumo | MUN | MID | £7.9m | £8.0m | £7.9m | 24.69 | 21.14 | 0.91 | 21.2 % |
-| Tavernier | BOU | MID | £6.5m | £6.4m | £6.4m | 23.22 | 20.92 | 0.91 | 25.3 % |
-| B.Fernandes | MUN | MID | £11.7m | £12.0m | £11.7m | 19.85 | 15.68 | 0.67 | 22.6 % |
+| Mbeumo | MUN | MID | £7.9m | £8.0m | £7.9m | 24.69 | 21.14 | 0.91 | 21.1 % |
+| Tavernier | BOU | MID | £6.5m | £6.4m | £6.4m | 23.22 | 20.92 | 0.91 | 25.6 % |
+| B.Fernandes | MUN | MID | £11.7m | £12.0m | £11.7m | 19.85 | 15.68 | 0.67 | 22.4 % |
 | Groß | BHA | MID | £6.2m | £6.1m | £6.1m | 19.17 | 17.46 | 0.91 | 46.7 % |
 | Slater | HUL | MID | £4.5m | £4.5m | £4.5m | 11.51 | 10.99 | 0.91 | 4.5 % |
 | Haaland | MCI | FWD | £15.8m | £15.5m | £15.6m | 27.53 | 26.03 | 0.91 | 78.9 % |
 | Barry | EVE | FWD | £5.6m | £5.7m | £5.6m | 22.32 | 19.91 | 0.91 | 7.4 % |
-| Evanilson | BOU | FWD | £6.3m | £6.3m | £6.3m | 20.67 | 18.13 | 0.91 | 14.4 % |
+| Evanilson | BOU | FWD | £6.3m | £6.3m | £6.3m | 20.67 | 18.13 | 0.91 | 14.8 % |
 
 ## Spar — ingen bytter
 
@@ -42,7 +41,7 @@ Lagets forventede poeng: **269.13** over horisonten (robust 245.67). Per runde: 
 
 GW10: elleveren 44.29 + kapteinsledd 6.13 (Haaland, vise Mbeumo) + innbytterledd 3.47. Benk: Verbruggen, Egan, Slater, Thomas (COV).
 
-## Beste planer (40793 lovlige av 48991 vurderte)
+## Beste planer (40780 lovlige av 48982 vurderte)
 
 Endring = forventede poeng mot å spare, over hele horisonten, etter minuspoeng.
 
@@ -116,7 +115,7 @@ Flaggene kommer fra `forventning.py`. Én kamp som bærer xGI-en, slår ut i rob
 | Spiller | Lag | Pos | Pris | Eid | Sum GW10–14 | Robust | P(spiller) GW10 | Flagg |
 |---|---|---|---|---|---|---|---|---|
 | Trafford | LEE | GKP | £5.0m | 6.3 % | 16.44 | 16.43 | 0.91 | — |
-| Gabriel | ARS | DEF | £8.0m | 23.8 % | 21.41 | 20.57 | 0.91 | — |
+| Gabriel | ARS | DEF | £8.0m | 23.9 % | 21.41 | 20.57 | 0.91 | — |
 | Silva | BOU | DEF | £5.0m | 2.0 % | 19.50 | 18.04 | 0.91 | — |
 | Ødegaard | ARS | MID | £6.7m | 16.8 % | 21.25 | 18.65 | 0.91 | — |
 | Gibbs-White | NFO | MID | £7.9m | 11.3 % | 19.93 | 19.03 | 0.74 | UAVKLART FRAVÆR GW7 — telt som ikke-start; før årsaken i context/fravaer.csv · første straffeskytter (penalties_order 1) |
