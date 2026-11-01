@@ -1,14 +1,13 @@
 # Forventede poeng — generert
 
-*Generert 01.11.2026 kl. 18:56 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–8 (data_checked). Horisont: GW10–14. Fraværsfil: context/fravaer.csv.*
+*Generert 01.11.2026 kl. 23:36 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–8 (data_checked). Horisont: GW10–14. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–8 summerer til sesongtotalene for 59 spillere, 19 felt; 611 spillere på lag som har spilt i GW9 er kontrollert mot grunnlaget pluss live-fila
-- ✅ Speilet hentet 01.11.2026 18:33 UTC, 0.4 t gammelt ved kjøring
+- ✅ Speilet hentet 01.11.2026 23:03 UTC, 0.5 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
-- ⚠️ 2 spillere på lag som har spilt i GW9 avviker fra grunnlaget pluss live-fila — runden er ikke ferdig, og bootstrap og live-fila hentes hver for seg. Brukes ikke i modellen: Virgil yellow_cards: sesong 2, runder 3; Virgil bps: sesong 144, runder 141; Virgil total_points: sesong 40, runder 39
 
 ## Modell og estimerte parametre
 
