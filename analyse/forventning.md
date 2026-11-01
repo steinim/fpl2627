@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 31.10.2026 kl. 23:24 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–8 (data_checked). Horisont: GW10–14. Fraværsfil: context/fravaer.csv.*
+*Generert 01.11.2026 kl. 09:14 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–8 (data_checked). Horisont: GW10–14. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
-- ✅ Rundedata GW1–8 summerer til sesongtotalene for 124 spillere, 19 felt; 545 spillere på lag som har spilt i GW9 er kontrollert mot grunnlaget pluss live-fila
-- ✅ Speilet hentet 31.10.2026 22:48 UTC, 0.6 t gammelt ved kjøring
+- ✅ Rundedata GW1–8 summerer til sesongtotalene for 124 spillere, 19 felt; 546 spillere på lag som har spilt i GW9 er kontrollert mot grunnlaget pluss live-fila
+- ✅ Speilet hentet 01.11.2026 08:07 UTC, 1.1 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -72,13 +72,13 @@ Bytter gjort etter GW9-deadline vises ikke.
 | Diop ★ | IPS | DEF | 3.9 | 2.69 | 2.99 | 3.01 | 2.91 | 2.58 | **14.17** | 14.05 | 0.03 | 0.02 | 1.00 | 4/8 |  | — |
 | Egan ★ | HUL | DEF | 4.1 | 2.58 | 2.74 | 2.83 | 2.93 | 2.53 | **13.62** | 13.38 | 0.04 | 0.01 | 1.00 | 5/8 |  | — |
 | Mbeumo ★ | MUN | MID | 7.9 | 5.26 | 4.39 | 5.13 | 4.78 | 5.13 | **24.69** | 21.14 | 0.65 | 0.46 | 1.00 | 0/8 | 2 | — |
-| Tavernier ★ | BOU | MID | 6.5 | 4.82 | 4.71 | 4.32 | 4.52 | 4.85 | **23.22** | 20.92 | 0.67 | 0.56 | 1.00 | 0/8 | 3 | — |
+| Tavernier ★ | BOU | MID | 6.6 | 4.82 | 4.71 | 4.32 | 4.52 | 4.85 | **23.22** | 20.92 | 0.67 | 0.56 | 1.00 | 0/8 | 3 | — |
 | B.Fernandes ★ | MUN | MID | 11.7 | 3.98 | 3.44 | 4.16 | 3.95 | 4.30 | **19.85** | 15.68 | 0.59 | 0.28 | 0.68 | 0/7 | 1 | UAVKLART FRAVÆR GW8 — telt som ikke-start; før årsaken i context/fravaer.csv | én kamp (GW2) står for 60% av xGI | første straffeskytter (penalties_order 1) |
 | Groß ★ | BHA | MID | 6.2 | 4.12 | 3.92 | 4.10 | 3.51 | 3.52 | **19.17** | 17.46 | 0.47 | 0.39 | 1.00 | 0/8 | 1 | første straffeskytter (penalties_order 1) |
 | Slater ★ | HUL | MID | 4.5 | 2.19 | 2.39 | 2.34 | 2.37 | 2.21 | **11.51** | 10.99 | 0.13 | 0.08 | 1.00 | 0/8 |  | — |
 | Haaland ★ | MCI | FWD | 15.8 | 5.66 | 6.12 | 4.43 | 5.79 | 5.52 | **27.53** | 26.03 | 0.87 | 0.77 | 1.00 | 0/8 | 1 | første straffeskytter (penalties_order 1) |
 | Barry ★ | EVE | FWD | 5.6 | 4.92 | 4.42 | 4.29 | 4.19 | 4.50 | **22.32** | 19.91 | 0.69 | 0.55 | 1.00 | 0/8 | 1 | første straffeskytter (penalties_order 1) |
-| Evanilson ★ | BOU | FWD | 6.3 | 4.29 | 4.20 | 3.84 | 4.07 | 4.27 | **20.67** | 18.13 | 0.54 | 0.39 | 1.00 | 0/8 |  | — |
+| Evanilson ★ | BOU | FWD | 6.4 | 4.29 | 4.20 | 3.84 | 4.07 | 4.27 | **20.67** | 18.13 | 0.54 | 0.39 | 1.00 | 0/8 |  | — |
 
 ## Beste per posisjon (sum over horisonten)
 
@@ -103,7 +103,7 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Gabriel | ARS | DEF | 8.0 | 5.06 | 4.27 | 3.96 | 3.80 | 4.31 | **21.41** | 20.57 | 0.21 | 0.17 | 1.00 | 4/8 |  | — |
 | Silva | BOU | DEF | 5.0 | 4.03 | 3.91 | 3.72 | 3.53 | 4.31 | **19.50** | 18.04 | 0.21 | 0.12 | 1.00 | 6/8 |  | — |
-| De Cuyper | BHA | DEF | 5.3 | 3.71 | 3.93 | 3.95 | 3.09 | 3.19 | **17.87** | 14.42 | 0.39 | 0.19 | 1.00 | 0/8 |  | én kamp (GW1) står for 57% av xGI |
+| De Cuyper | BHA | DEF | 5.4 | 3.71 | 3.93 | 3.95 | 3.09 | 3.19 | **17.87** | 14.42 | 0.39 | 0.19 | 1.00 | 0/8 |  | én kamp (GW1) står for 57% av xGI |
 | Bogle | LEE | DEF | 4.8 | 4.06 | 3.14 | 4.00 | 2.71 | 3.80 | **17.70** | 15.88 | 0.32 | 0.21 | 1.00 | 0/8 |  | — |
 | Hill | BOU | DEF | 5.5 | 3.65 | 3.54 | 3.40 | 3.17 | 3.92 | **17.68** | 16.57 | 0.12 | 0.03 | 1.00 | 5/8 |  | — |
 | Muharemović | LEE | DEF | 5.1 | 4.06 | 3.17 | 3.95 | 2.77 | 3.70 | **17.65** | 16.90 | 0.11 | 0.07 | 1.00 | 5/8 |  | — |
@@ -111,10 +111,10 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Murillo | NFO | DEF | 5.5 | 3.45 | 3.25 | 3.66 | 3.84 | 3.33 | **17.53** | 17.01 | 0.21 | 0.19 | 1.00 | 5/8 |  | — |
 | Virgil | LIV | DEF | 6.4 | 3.35 | 3.33 | 3.38 | 3.60 | 3.01 | **16.67** | 16.22 | 0.05 | 0.02 | 1.00 | 5/8 |  | — |
 | Jacquet | LIV | DEF | 5.1 | 3.33 | 3.30 | 3.36 | 3.57 | 2.99 | **16.53** | 16.05 | 0.06 | 0.03 | 1.00 | 4/8 |  | — |
-| Van Hecke | TOT | DEF | 4.9 | 3.24 | 3.68 | 3.22 | 3.44 | 2.87 | **16.44** | 15.41 | 0.15 | 0.08 | 1.00 | 3/8 |  | én kamp (GW5) står for 54% av xGI |
+| Van Hecke | TOT | DEF | 5.0 | 3.24 | 3.68 | 3.22 | 3.44 | 2.87 | **16.44** | 15.41 | 0.15 | 0.08 | 1.00 | 3/8 |  | én kamp (GW5) står for 54% av xGI |
 | Konsa | ARS | DEF | 4.7 | 4.00 | 3.28 | 2.97 | 2.81 | 3.24 | **16.30** | 15.57 | 0.10 | 0.05 | 0.94 | 2/6 |  | UAVKLART FRAVÆR GW1 — telt som ikke-start; før årsaken i context/fravaer.csv |
 | Richards | CRY | DEF | 4.9 | 3.28 | 3.44 | 3.66 | 2.83 | 3.10 | **16.30** | 16.25 | 0.03 | 0.03 | 1.00 | 6/8 |  | — |
-| N.Williams | NFO | DEF | 5.0 | 3.19 | 2.99 | 3.42 | 3.60 | 3.09 | **16.29** | 15.64 | 0.26 | 0.22 | 1.00 | 2/8 |  | — |
+| N.Williams | NFO | DEF | 4.9 | 3.19 | 2.99 | 3.42 | 3.60 | 3.09 | **16.29** | 15.64 | 0.26 | 0.22 | 1.00 | 2/8 |  | — |
 | Tarkowski | EVE | DEF | 6.2 | 3.81 | 2.79 | 3.18 | 3.15 | 3.30 | **16.23** | 16.10 | 0.04 | 0.03 | 1.00 | 5/8 |  | — |
 
 ### MID
@@ -122,7 +122,7 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Spiller | Lag | Pos | Pris | GW10 | GW11 | GW12 | GW13 | GW14 | Sum | Robust | xGI/90 | Uten beste | Start | DC | Str | Flagg |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Mbeumo ★ | MUN | MID | 7.9 | 5.26 | 4.39 | 5.13 | 4.78 | 5.13 | **24.69** | 21.14 | 0.65 | 0.46 | 1.00 | 0/8 | 2 | — |
-| Tavernier ★ | BOU | MID | 6.5 | 4.82 | 4.71 | 4.32 | 4.52 | 4.85 | **23.22** | 20.92 | 0.67 | 0.56 | 1.00 | 0/8 | 3 | — |
+| Tavernier ★ | BOU | MID | 6.6 | 4.82 | 4.71 | 4.32 | 4.52 | 4.85 | **23.22** | 20.92 | 0.67 | 0.56 | 1.00 | 0/8 | 3 | — |
 | Ødegaard | ARS | MID | 6.7 | 4.81 | 4.30 | 4.15 | 4.05 | 3.94 | **21.25** | 18.65 | 0.58 | 0.41 | 1.00 | 0/8 | 3 | — |
 | E.Le Fée | SUN | MID | 5.7 | 4.44 | 4.11 | 4.27 | 3.75 | 4.08 | **20.64** | 18.07 | 0.52 | 0.38 | 1.00 | 1/8 | 2 | — |
 | Rayan | BOU | MID | 6.3 | 4.14 | 4.04 | 3.75 | 3.88 | 4.14 | **19.95** | 18.24 | 0.39 | 0.31 | 1.00 | 1/8 |  | — |
@@ -144,12 +144,12 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Haaland ★ | MCI | FWD | 15.8 | 5.66 | 6.12 | 4.43 | 5.79 | 5.52 | **27.53** | 26.03 | 0.87 | 0.77 | 1.00 | 0/8 | 1 | første straffeskytter (penalties_order 1) |
 | Barry ★ | EVE | FWD | 5.6 | 4.92 | 4.42 | 4.29 | 4.19 | 4.50 | **22.32** | 19.91 | 0.69 | 0.55 | 1.00 | 0/8 | 1 | første straffeskytter (penalties_order 1) |
 | Thiago | BRE | FWD | 7.8 | 4.38 | 4.82 | 4.23 | 3.70 | 4.33 | **21.45** | 20.34 | 0.64 | 0.57 | 1.00 | 0/8 | 1 | første straffeskytter (penalties_order 1) |
-| Evanilson ★ | BOU | FWD | 6.3 | 4.29 | 4.20 | 3.84 | 4.07 | 4.27 | **20.67** | 18.13 | 0.54 | 0.39 | 1.00 | 0/8 |  | — |
+| Evanilson ★ | BOU | FWD | 6.4 | 4.29 | 4.20 | 3.84 | 4.07 | 4.27 | **20.67** | 18.13 | 0.54 | 0.39 | 1.00 | 0/8 |  | — |
 | Gonzalo | FUL | FWD | 6.0 | 4.60 | 3.81 | 4.16 | 3.75 | 3.88 | **20.20** | 18.89 | 0.59 | 0.51 | 1.00 | 0/8 | 1 | første straffeskytter (penalties_order 1) |
-| Isak | LIV | FWD | 9.1 | 4.03 | 4.12 | 3.84 | 4.11 | 3.69 | **19.80** | 18.84 | 0.70 | 0.62 | 0.84 | 0/7 | 2 | UAVKLART FRAVÆR GW6 — telt som ikke-start; før årsaken i context/fravaer.csv |
+| Isak | LIV | FWD | 9.2 | 4.03 | 4.12 | 3.84 | 4.11 | 3.69 | **19.80** | 18.84 | 0.70 | 0.62 | 0.84 | 0/7 | 2 | UAVKLART FRAVÆR GW6 — telt som ikke-start; før årsaken i context/fravaer.csv |
 | Calvert-Lewin | LEE | FWD | 6.1 | 3.94 | 3.66 | 4.02 | 3.44 | 4.13 | **19.19** | 18.21 | 0.49 | 0.42 | 1.00 | 0/8 | 1 | første straffeskytter (penalties_order 1) |
 | Delap | NFO | FWD | 5.4 | 3.77 | 3.49 | 3.71 | 3.57 | 3.60 | **18.13** | 16.33 | 0.52 | 0.39 | 0.96 | 0/6 | 3 | — |
-| N.Jackson | AVL | FWD | 6.9 | 3.42 | 3.67 | 3.56 | 3.58 | 3.62 | **17.85** | 16.97 | 0.44 | 0.39 | 1.00 | 0/7 | 2 | — |
+| N.Jackson | AVL | FWD | 7.0 | 3.42 | 3.67 | 3.56 | 3.58 | 3.62 | **17.85** | 16.97 | 0.44 | 0.39 | 1.00 | 0/7 | 2 | — |
 | Kostoulas | BHA | FWD | 5.8 | 3.43 | 3.18 | 3.32 | 2.89 | 2.88 | **15.69** | 15.23 | 0.39 | 0.36 | 0.97 | 0/7 |  | — |
 
 ## Uavklart fravær i troppen og valgte spillere
