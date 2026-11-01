@@ -1,13 +1,14 @@
 # Forventede poeng — generert
 
-*Generert 01.11.2026 kl. 09:14 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–8 (data_checked). Horisont: GW10–14. Fraværsfil: context/fravaer.csv.*
+*Generert 01.11.2026 kl. 18:56 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–8 (data_checked). Horisont: GW10–14. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
-- ✅ Rundedata GW1–8 summerer til sesongtotalene for 124 spillere, 19 felt; 546 spillere på lag som har spilt i GW9 er kontrollert mot grunnlaget pluss live-fila
-- ✅ Speilet hentet 01.11.2026 08:07 UTC, 1.1 t gammelt ved kjøring
+- ✅ Rundedata GW1–8 summerer til sesongtotalene for 59 spillere, 19 felt; 611 spillere på lag som har spilt i GW9 er kontrollert mot grunnlaget pluss live-fila
+- ✅ Speilet hentet 01.11.2026 18:33 UTC, 0.4 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
+- ⚠️ 2 spillere på lag som har spilt i GW9 avviker fra grunnlaget pluss live-fila — runden er ikke ferdig, og bootstrap og live-fila hentes hver for seg. Brukes ikke i modellen: Virgil yellow_cards: sesong 2, runder 3; Virgil bps: sesong 144, runder 141; Virgil total_points: sesong 40, runder 39
 
 ## Modell og estimerte parametre
 
@@ -66,7 +67,7 @@ Bytter gjort etter GW9-deadline vises ikke.
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Kinsky ★ | TOT | GKP | 4.4 | 2.79 | 2.96 | 2.73 | 2.83 | 2.56 | **13.88** | 13.89 | 0.00 | 0.00 | 1.00 |  |  | — |
 | Verbruggen ★ | BHA | GKP | 4.6 | 2.69 | 2.91 | 2.80 | 2.44 | 2.48 | **13.34** | 13.00 | 0.03 | 0.00 | 1.00 |  |  | — |
-| Calafiori ★ | ARS | DEF | 5.9 | 2.87 | 3.31 | 3.13 | 3.04 | 3.47 | **15.81** | 15.04 | 0.33 | 0.27 | 0.68 | 0/7 |  | GW10: FPL-sjanse 75 % |
+| Calafiori ★ | ARS | DEF | 5.9 | 3.82 | 3.31 | 3.13 | 3.04 | 3.47 | **16.77** | 15.94 | 0.33 | 0.27 | 0.68 | 0/7 |  | — |
 | Davis ★ | IPS | DEF | 4.0 | 2.88 | 3.05 | 3.22 | 3.05 | 2.65 | **14.85** | 13.78 | 0.28 | 0.22 | 1.00 | 0/8 |  | — |
 | Thomas ★ | COV | DEF | 4.0 | 1.68 | 3.45 | 3.13 | 3.52 | 2.81 | **14.60** | 14.05 | 0.13 | 0.09 | 1.00 | 5/8 |  | GW10: FPL-sjanse 50 % |
 | Diop ★ | IPS | DEF | 3.9 | 2.69 | 2.99 | 3.01 | 2.91 | 2.58 | **14.17** | 14.05 | 0.03 | 0.02 | 1.00 | 4/8 |  | — |
@@ -109,13 +110,13 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Muharemović | LEE | DEF | 5.1 | 4.06 | 3.17 | 3.95 | 2.77 | 3.70 | **17.65** | 16.90 | 0.11 | 0.07 | 1.00 | 5/8 |  | — |
 | Vuskovic | BHA | DEF | 5.2 | 3.60 | 3.87 | 3.82 | 3.08 | 3.18 | **17.54** | 16.88 | 0.18 | 0.14 | 1.00 | 4/8 |  | — |
 | Murillo | NFO | DEF | 5.5 | 3.45 | 3.25 | 3.66 | 3.84 | 3.33 | **17.53** | 17.01 | 0.21 | 0.19 | 1.00 | 5/8 |  | — |
+| Calafiori ★ | ARS | DEF | 5.9 | 3.82 | 3.31 | 3.13 | 3.04 | 3.47 | **16.77** | 15.94 | 0.33 | 0.27 | 0.68 | 0/7 |  | — |
 | Virgil | LIV | DEF | 6.4 | 3.35 | 3.33 | 3.38 | 3.60 | 3.01 | **16.67** | 16.22 | 0.05 | 0.02 | 1.00 | 5/8 |  | — |
 | Jacquet | LIV | DEF | 5.1 | 3.33 | 3.30 | 3.36 | 3.57 | 2.99 | **16.53** | 16.05 | 0.06 | 0.03 | 1.00 | 4/8 |  | — |
 | Van Hecke | TOT | DEF | 5.0 | 3.24 | 3.68 | 3.22 | 3.44 | 2.87 | **16.44** | 15.41 | 0.15 | 0.08 | 1.00 | 3/8 |  | én kamp (GW5) står for 54% av xGI |
 | Konsa | ARS | DEF | 4.7 | 4.00 | 3.28 | 2.97 | 2.81 | 3.24 | **16.30** | 15.57 | 0.10 | 0.05 | 0.94 | 2/6 |  | UAVKLART FRAVÆR GW1 — telt som ikke-start; før årsaken i context/fravaer.csv |
 | Richards | CRY | DEF | 4.9 | 3.28 | 3.44 | 3.66 | 2.83 | 3.10 | **16.30** | 16.25 | 0.03 | 0.03 | 1.00 | 6/8 |  | — |
 | N.Williams | NFO | DEF | 4.9 | 3.19 | 2.99 | 3.42 | 3.60 | 3.09 | **16.29** | 15.64 | 0.26 | 0.22 | 1.00 | 2/8 |  | — |
-| Tarkowski | EVE | DEF | 6.2 | 3.81 | 2.79 | 3.18 | 3.15 | 3.30 | **16.23** | 16.10 | 0.04 | 0.03 | 1.00 | 5/8 |  | — |
 
 ### MID
 
@@ -134,8 +135,8 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Rudoni | COV | MID | 4.9 | 3.67 | 3.87 | 3.37 | 3.85 | 3.27 | **18.04** | 16.52 | 0.52 | 0.40 | 0.97 | 1/7 | 1 | første straffeskytter (penalties_order 1) |
 | Iwobi | FUL | MID | 5.4 | 3.98 | 3.36 | 3.62 | 3.41 | 3.45 | **17.82** | 16.22 | 0.45 | 0.33 | 1.00 | 0/8 | 3 | — |
 | Enciso | IPS | MID | 5.5 | 3.74 | 3.47 | 3.72 | 3.52 | 3.31 | **17.77** | 16.95 | 0.46 | 0.39 | 1.00 | 0/8 |  | — |
+| Rice | ARS | MID | 7.4 | 3.88 | 3.52 | 3.40 | 3.32 | 3.29 | **17.41** | 16.84 | 0.26 | 0.22 | 1.00 | 1/8 |  | — |
 | Dewsbury-Hall | EVE | MID | 6.6 | 3.80 | 3.37 | 3.35 | 3.28 | 3.46 | **17.27** | 16.46 | 0.31 | 0.25 | 1.00 | 0/8 |  | — |
-| Gomez | BHA | MID | 5.0 | 3.62 | 3.49 | 3.59 | 3.18 | 3.18 | **17.05** | 16.19 | 0.29 | 0.23 | 1.00 | 2/8 |  | — |
 
 ### FWD
 
