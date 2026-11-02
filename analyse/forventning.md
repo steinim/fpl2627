@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 02.11.2026 kl. 09:27 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–8 (data_checked). Horisont: GW10–14. Fraværsfil: context/fravaer.csv.*
+*Generert 02.11.2026 kl. 22:46 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–8 (data_checked). Horisont: GW10–14. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
-- ✅ Rundedata GW1–8 summerer til sesongtotalene for 59 spillere, 19 felt; 611 spillere på lag som har spilt i GW9 er kontrollert mot grunnlaget pluss live-fila
-- ✅ Speilet hentet 02.11.2026 08:17 UTC, 1.2 t gammelt ved kjøring
+- ✅ Rundedata GW1–8 summerer til sesongtotalene for 0 spillere, 19 felt; 670 spillere på lag som har spilt i GW9 er kontrollert mot grunnlaget pluss live-fila
+- ✅ Speilet hentet 02.11.2026 22:27 UTC, 0.3 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -149,7 +149,7 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Isak | LIV | FWD | 9.2 | 4.03 | 4.12 | 3.84 | 4.11 | 3.69 | **19.80** | 18.84 | 0.70 | 0.62 | 0.84 | 0/7 | 2 | UAVKLART FRAVÆR GW6 — telt som ikke-start; før årsaken i context/fravaer.csv |
 | Calvert-Lewin | LEE | FWD | 6.1 | 3.94 | 3.66 | 4.02 | 3.44 | 4.13 | **19.19** | 18.21 | 0.49 | 0.42 | 1.00 | 0/8 | 1 | første straffeskytter (penalties_order 1) |
 | Delap | NFO | FWD | 5.4 | 3.77 | 3.49 | 3.71 | 3.57 | 3.60 | **18.13** | 16.33 | 0.52 | 0.39 | 0.96 | 0/6 | 3 | — |
-| N.Jackson | AVL | FWD | 7.0 | 3.42 | 3.67 | 3.56 | 3.58 | 3.62 | **17.85** | 16.97 | 0.44 | 0.39 | 1.00 | 0/7 | 2 | — |
+| N.Jackson | AVL | FWD | 7.0 | 3.42 | 3.67 | 3.56 | 3.58 | 3.62 | **17.85** | 16.97 | 0.44 | 0.39 | 1.00 | 0/7 | 3 | — |
 | Kostoulas | BHA | FWD | 5.8 | 3.43 | 3.18 | 3.32 | 2.89 | 2.88 | **15.69** | 15.23 | 0.39 | 0.36 | 0.97 | 0/7 |  | — |
 
 ## Uavklart fravær i troppen og valgte spillere
