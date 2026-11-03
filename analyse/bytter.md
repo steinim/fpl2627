@@ -1,12 +1,12 @@
 # Byttepakker — generert
 
-*Generert 03.11.2026 kl. 09:30 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW10–14. Bytter vurderes i GW10 og GW11. Maks minuspoeng per runde: 0.*
+*Generert 03.11.2026 kl. 20:30 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW10–14. Bytter vurderes i GW10 og GW11. Maks minuspoeng per runde: 0.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
-- ✅ Rundedata GW1–8 summerer til sesongtotalene for 0 spillere, 19 felt; 670 spillere på lag som har spilt i GW9 er kontrollert mot grunnlaget pluss live-fila
-- ✅ Speilet hentet 03.11.2026 08:32 UTC, 1.0 t gammelt ved kjøring
+- ✅ Rundedata GW1–9 summerer til sesongtotalene for alle 670 spillere, 19 felt
+- ✅ Speilet hentet 03.11.2026 20:16 UTC, 0.2 t gammelt ved kjøring
 - ✅ Bytteregler i API-et stemmer med 05 og skriptet: maks 3 per klubb, maks 5 frikjøp, halve prisstigningen ved salg, tropp på 15
 - ✅ Bank regnet fra 8 overganger stemmer med historikken i alle 9 runder
 - ✅ Frikjøp til GW10: 1. Kostnaden i hver runde stemmer med historikken
@@ -19,49 +19,49 @@ Bank **£4.7m**, frikjøp **1**. Salgspris etter regelen i `05`.
 
 | Spiller | Lag | Pos | Nå | Kjøpt | Salgspris | Sum GW10–14 | Robust | P(spiller) GW10 | Eid |
 |---|---|---|---|---|---|---|---|---|---|
-| Kinsky | TOT | GKP | £4.4m | £4.5m | £4.4m | 13.88 | 13.89 | 0.91 | 15.4 % |
-| Verbruggen | BHA | GKP | £4.6m | £4.5m | £4.5m | 13.34 | 13.00 | 0.91 | 23.0 % |
-| Calafiori | ARS | DEF | £5.9m | £5.5m | £5.7m | 16.77 | 15.94 | 0.91 | 47.9 % |
-| Davis | IPS | DEF | £4.0m | £4.0m | £4.0m | 14.85 | 13.78 | 0.91 | 6.9 % |
-| Thomas (COV) | COV | DEF | £4.0m | £4.0m | £4.0m | 14.60 | 14.05 | 0.46 | 8.2 % |
-| Diop | IPS | DEF | £3.9m | £4.0m | £3.9m | 14.17 | 14.05 | 0.91 | 10.2 % |
-| Egan | HUL | DEF | £4.1m | £4.1m | £4.1m | 13.62 | 13.38 | 0.91 | 7.1 % |
-| Mbeumo | MUN | MID | £7.9m | £8.0m | £7.9m | 24.69 | 21.14 | 0.91 | 20.5 % |
-| Tavernier | BOU | MID | £6.6m | £6.4m | £6.5m | 23.22 | 20.92 | 0.91 | 27.4 % |
-| B.Fernandes | MUN | MID | £11.7m | £12.0m | £11.7m | 19.85 | 15.68 | 0.67 | 21.7 % |
-| Groß | BHA | MID | £6.2m | £6.1m | £6.1m | 19.17 | 17.46 | 0.91 | 46.9 % |
-| Slater | HUL | MID | £4.5m | £4.5m | £4.5m | 11.51 | 10.99 | 0.91 | 4.4 % |
-| Haaland | MCI | FWD | £15.8m | £15.5m | £15.6m | 27.53 | 26.03 | 0.91 | 79.0 % |
-| Barry | EVE | FWD | £5.6m | £5.7m | £5.6m | 22.32 | 19.91 | 0.91 | 7.5 % |
-| Evanilson | BOU | FWD | £6.4m | £6.3m | £6.3m | 20.67 | 18.13 | 0.91 | 17.7 % |
+| Verbruggen | BHA | GKP | £4.6m | £4.5m | £4.5m | 14.68 | 14.37 | 0.93 | 23.1 % |
+| Kinsky | TOT | GKP | £4.4m | £4.5m | £4.4m | 13.93 | 13.94 | 0.93 | 15.4 % |
+| Calafiori | ARS | DEF | £5.9m | £5.5m | £5.7m | 17.36 | 16.52 | 0.93 | 47.9 % |
+| Davis | IPS | DEF | £4.0m | £4.0m | £4.0m | 14.65 | 13.63 | 0.93 | 6.9 % |
+| Diop | IPS | DEF | £3.9m | £4.0m | £3.9m | 14.46 | 14.35 | 0.93 | 10.2 % |
+| Egan | HUL | DEF | £4.1m | £4.1m | £4.1m | 13.32 | 13.12 | 0.93 | 7.0 % |
+| Thomas (COV) | COV | DEF | £4.0m | £4.0m | £4.0m | 11.53 | 11.08 | 0.33 | 8.2 % |
+| Mbeumo | MUN | MID | £7.9m | £8.0m | £7.9m | 24.49 | 21.10 | 0.93 | 20.4 % |
+| Tavernier | BOU | MID | £6.6m | £6.4m | £6.5m | 22.54 | 20.36 | 0.93 | 27.6 % |
+| B.Fernandes | MUN | MID | £11.7m | £12.0m | £11.7m | 21.16 | 17.05 | 0.74 | 21.6 % |
+| Groß | BHA | MID | £6.2m | £6.1m | £6.1m | 18.39 | 16.76 | 0.93 | 46.9 % |
+| Slater | HUL | MID | £4.5m | £4.5m | £4.5m | 11.61 | 11.13 | 0.93 | 4.4 % |
+| Haaland | MCI | FWD | £15.8m | £15.5m | £15.6m | 27.12 | 25.68 | 0.93 | 79.0 % |
+| Barry | EVE | FWD | £5.6m | £5.7m | £5.6m | 25.16 | 23.13 | 0.93 | 7.6 % |
+| Evanilson | BOU | FWD | £6.4m | £6.3m | £6.3m | 21.25 | 18.91 | 0.93 | 18.0 % |
 
 ## Spar — ingen bytter
 
-Lagets forventede poeng: **269.62** over horisonten (robust 246.13). Per runde: GW10 54.38, GW11 54.56, GW12 52.54, GW13 54.17, GW14 53.98.
+Lagets forventede poeng: **269.08** over horisonten (robust 247.23). Per runde: GW10 55.33, GW11 54.02, GW12 52.41, GW13 53.73, GW14 53.59.
 
-GW10: elleveren 45.25 + kapteinsledd 6.13 (Haaland, vise Mbeumo) + innbytterledd 3.00. Benk: Verbruggen, Egan, Slater, Thomas (COV).
+GW10: elleveren 46.94 + kapteinsledd 6.04 (Barry, vise Haaland) + innbytterledd 2.35. Benk: Kinsky, Egan, Slater, Thomas (COV).
 
-## Beste planer (40776 lovlige av 48984 vurderte)
+## Beste planer (41838 lovlige av 50741 vurderte)
 
 Endring = forventede poeng mot å spare, over hele horisonten, etter minuspoeng.
 
 | Plan | Minus | Endring GW10–14 | Robust endring | Endring GW10 | Bank etter GW10 | Bank etter GW11 | Klubber med 3 |
 |---|---|---|---|---|---|---|---|
-| GW10: Egan → Silva · GW11: Slater → Gibbs-White | 0 | **+10.76** | +9.51 | +1.42 | £3.8m | £0.4m | BOU |
-| GW10: Diop → Silva · GW11: Slater → Gibbs-White | 0 | **+10.58** | +9.32 | +1.34 | £3.6m | £0.2m | BOU |
-| GW10: Slater → Gibbs-White · GW11: Egan → Silva | 0 | **+10.52** | +9.58 | +1.17 | £1.3m | £0.4m | BOU |
-| GW10: Slater → Gibbs-White · GW11: Diop → Silva | 0 | **+10.41** | +9.48 | +1.17 | £1.3m | £0.2m | BOU |
-| GW10: Slater → Gibbs-White · GW11: Davis → Silva | 0 | **+10.09** | +9.62 | +1.17 | £1.3m | £0.3m | BOU |
-| GW10: Davis → Silva · GW11: Slater → Gibbs-White | 0 | **+10.07** | +9.48 | +1.15 | £3.7m | £0.3m | BOU |
-| GW10: Egan → Gabriel · GW11: Calafiori → Silva | 0 | **+9.94** | +8.78 | +2.45 | £0.8m | £1.5m | BOU |
-| GW10: Diop → Gabriel · GW11: Calafiori → Silva | 0 | **+9.67** | +8.57 | +2.38 | £0.6m | £1.3m | BOU |
-| GW10: Thomas (COV) → Silva · GW11: Slater → Gibbs-White | 0 | **+9.59** | +8.58 | +1.62 | £3.7m | £0.3m | BOU |
-| GW10: Egan → Gabriel · GW11: Slater → Rudoni | 0 | **+9.58** | +8.52 | +2.45 | £0.8m | £0.4m | — |
-| GW10: Egan → Silva · GW11: Slater → Ødegaard | 0 | **+9.50** | +6.87 | +1.42 | £3.8m | £1.6m | BOU |
-| GW10: Diop → Gabriel · GW11: Slater → Rudoni | 0 | **+9.41** | +8.34 | +2.38 | £0.6m | £0.2m | — |
-| GW10: Slater → Ødegaard · GW11: Egan → Silva | 0 | **+9.35** | +6.85 | +1.26 | £2.5m | £1.6m | BOU |
-| GW11: Slater → Gibbs-White, Egan → Silva | 0 | **+9.35** | +8.36 | +0.00 | £4.7m | £0.4m | BOU |
-| GW10: Diop → Silva · GW11: Slater → Ødegaard | 0 | **+9.34** | +6.69 | +1.34 | £3.6m | £1.4m | BOU |
+| GW10: Thomas (COV) → Silva · GW11: Slater → Gibbs-White | 0 | **+11.15** | +10.18 | +1.58 | £3.7m | £0.3m | BOU |
+| GW10: Slater → Gibbs-White · GW11: Thomas (COV) → Silva | 0 | **+11.00** | +9.88 | +1.43 | £1.3m | £0.3m | BOU |
+| GW10: Slater → Gibbs-White · GW11: Egan → Silva | 0 | **+10.90** | +9.73 | +1.43 | £1.3m | £0.4m | BOU |
+| GW10: Egan → Silva · GW11: Slater → Gibbs-White | 0 | **+10.90** | +9.87 | +1.43 | £3.8m | £0.4m | BOU |
+| GW10: Slater → E.Le Fée · GW11: Thomas (COV) → Silva | 0 | **+10.72** | +8.20 | +1.66 | £3.5m | £2.5m | BOU |
+| GW10: Thomas (COV) → Silva · GW11: Slater → E.Le Fée | 0 | **+10.64** | +8.66 | +1.58 | £3.7m | £2.5m | BOU |
+| GW10: Slater → E.Le Fée · GW11: Egan → Silva | 0 | **+10.63** | +8.07 | +1.66 | £3.5m | £2.6m | BOU |
+| GW10: Slater → Gibbs-White · GW11: Thomas (COV) → Van Hecke | 0 | **+10.49** | +8.97 | +1.43 | £1.3m | £0.3m | — |
+| GW10: Slater → Gibbs-White · GW11: Diop → Silva | 0 | **+10.43** | +8.96 | +1.43 | £1.3m | £0.2m | BOU |
+| GW10: Egan → Gabriel · GW11: Groß → E.Le Fée | 0 | **+10.40** | +9.40 | +2.48 | £0.8m | £1.2m | — |
+| GW10: Egan → Silva · GW11: Slater → E.Le Fée | 0 | **+10.40** | +8.37 | +1.43 | £3.8m | £2.6m | BOU |
+| GW10: Slater → Gibbs-White · GW11: Egan → Van Hecke | 0 | **+10.39** | +8.82 | +1.43 | £1.3m | £0.4m | — |
+| GW10: Slater → Gibbs-White · GW11: Davis → Silva | 0 | **+10.33** | +9.56 | +1.43 | £1.3m | £0.3m | BOU |
+| GW10: Thomas (COV) → Gabriel · GW11: Groß → E.Le Fée | 0 | **+10.32** | +9.44 | +2.64 | £0.7m | £1.1m | — |
+| GW10: Thomas (COV) → Van Hecke · GW11: Slater → Gibbs-White | 0 | **+10.30** | +8.87 | +1.24 | £3.7m | £0.3m | — |
 
 ## Beste plan som selger hver spiller
 
@@ -69,44 +69,44 @@ Svarer på «bør X selges?»: den beste lovlige planen der spilleren går ut, m
 
 | Plan | Minus | Endring GW10–14 | Robust endring | Endring GW10 | Bank etter GW10 | Bank etter GW11 | Klubber med 3 |
 |---|---|---|---|---|---|---|---|
-| **Kinsky ut:** GW10: Egan → Gabriel · GW11: Kinsky → Trafford | 0 | **+9.11** | +8.53 | +2.45 | £0.8m | £0.2m | — |
-| **Verbruggen ut:** GW10: Egan → Gabriel · GW11: Verbruggen → Trafford | 0 | **+9.17** | +8.62 | +2.45 | £0.8m | £0.3m | — |
-| **Calafiori ut:** GW10: Egan → Gabriel · GW11: Calafiori → Silva | 0 | **+9.94** | +8.78 | +2.45 | £0.8m | £1.5m | BOU |
-| **Davis ut:** GW10: Slater → Gibbs-White · GW11: Davis → Silva | 0 | **+10.09** | +9.62 | +1.17 | £1.3m | £0.3m | BOU |
-| **Thomas (COV) ut:** GW10: Thomas (COV) → Silva · GW11: Slater → Gibbs-White | 0 | **+9.59** | +8.58 | +1.62 | £3.7m | £0.3m | BOU |
-| **Diop ut:** GW10: Diop → Silva · GW11: Slater → Gibbs-White | 0 | **+10.58** | +9.32 | +1.34 | £3.6m | £0.2m | BOU |
-| **Egan ut:** GW10: Egan → Silva · GW11: Slater → Gibbs-White | 0 | **+10.76** | +9.51 | +1.42 | £3.8m | £0.4m | BOU |
-| **Mbeumo ut:** GW10: Egan → Gabriel · GW11: Mbeumo → Gibbs-White | 0 | **+4.59** | +6.95 | +2.45 | £0.8m | £0.8m | — |
-| **Tavernier ut:** GW10: Egan → Gabriel · GW11: Tavernier → Ødegaard | 0 | **+5.42** | +4.64 | +2.45 | £0.8m | £0.6m | ARS |
-| **B.Fernandes ut:** GW10: Egan → Gabriel · GW11: B.Fernandes → Gibbs-White | 0 | **+7.12** | +9.68 | +2.45 | £0.8m | £4.6m | — |
-| **Groß ut:** GW10: Egan → Gabriel · GW11: Groß → Ødegaard | 0 | **+8.80** | +7.51 | +2.45 | £0.8m | £0.2m | ARS |
-| **Slater ut:** GW10: Egan → Silva · GW11: Slater → Gibbs-White | 0 | **+10.76** | +9.51 | +1.42 | £3.8m | £0.4m | BOU |
-| **Haaland ut:** GW10: Egan → Gabriel · GW11: Haaland → Thiago | 0 | **-0.18** | -1.18 | +2.45 | £0.8m | £8.6m | — |
-| **Barry ut:** GW10: Egan → Silva · GW11: Barry → Thiago | 0 | **+5.19** | +4.89 | +1.42 | £3.8m | £1.6m | BOU |
-| **Evanilson ut:** GW10: Egan → Silva · GW11: Evanilson → Thiago | 0 | **+6.21** | +6.07 | +1.42 | £3.8m | £2.3m | — |
+| **Verbruggen ut:** GW10: Egan → Gabriel · GW11: Verbruggen → Trafford | 0 | **+8.56** | +8.27 | +2.48 | £0.8m | £0.3m | — |
+| **Kinsky ut:** GW10: Egan → Gabriel · GW11: Kinsky → Trafford | 0 | **+8.65** | +8.30 | +2.48 | £0.8m | £0.2m | — |
+| **Calafiori ut:** GW10: Egan → Gabriel · GW11: Calafiori → Silva | 0 | **+9.69** | +8.78 | +2.48 | £0.8m | £1.5m | BOU |
+| **Davis ut:** GW10: Slater → Gibbs-White · GW11: Davis → Silva | 0 | **+10.33** | +9.56 | +1.43 | £1.3m | £0.3m | BOU |
+| **Diop ut:** GW10: Slater → Gibbs-White · GW11: Diop → Silva | 0 | **+10.43** | +8.96 | +1.43 | £1.3m | £0.2m | BOU |
+| **Egan ut:** GW10: Slater → Gibbs-White · GW11: Egan → Silva | 0 | **+10.90** | +9.73 | +1.43 | £1.3m | £0.4m | BOU |
+| **Thomas (COV) ut:** GW10: Thomas (COV) → Silva · GW11: Slater → Gibbs-White | 0 | **+11.15** | +10.18 | +1.58 | £3.7m | £0.3m | BOU |
+| **Mbeumo ut:** GW10: Egan → Gabriel · GW11: Mbeumo → Gibbs-White | 0 | **+6.02** | +7.53 | +2.48 | £0.8m | £0.8m | — |
+| **Tavernier ut:** GW10: Egan → Gabriel · GW11: Tavernier → E.Le Fée | 0 | **+7.01** | +6.48 | +2.48 | £0.8m | £1.6m | — |
+| **B.Fernandes ut:** GW10: Egan → Gabriel · GW11: B.Fernandes → Gibbs-White | 0 | **+6.84** | +8.93 | +2.48 | £0.8m | £4.6m | — |
+| **Groß ut:** GW10: Egan → Gabriel · GW11: Groß → E.Le Fée | 0 | **+10.40** | +9.40 | +2.48 | £0.8m | £1.2m | — |
+| **Slater ut:** GW10: Thomas (COV) → Silva · GW11: Slater → Gibbs-White | 0 | **+11.15** | +10.18 | +1.58 | £3.7m | £0.3m | BOU |
+| **Haaland ut:** GW10: Egan → Gabriel · GW11: Haaland → Isak | 0 | **+0.88** | +0.49 | +2.48 | £0.8m | £7.2m | — |
+| **Barry ut:** GW10: Slater → E.Le Fée · GW11: Barry → Thiago | 0 | **+3.88** | +2.45 | +1.66 | £3.5m | £1.3m | — |
+| **Evanilson ut:** GW10: Slater → E.Le Fée · GW11: Evanilson → Isak | 0 | **+6.95** | +6.20 | +1.66 | £3.5m | £0.6m | — |
 
 ## Anti-drift for de tre beste planene
 
-**GW10: Egan → Silva · GW11: Slater → Gibbs-White**
+**GW10: Thomas (COV) → Silva · GW11: Slater → Gibbs-White**
 
-- Klubber etter: BOU 3 · BHA 2 · IPS 2 · MUN 2 · ARS 1 · COV 1 · EVE 1 · MCI 1 · NFO 1 · TOT 1
-- Keeper- og forsvarsbudsjett (nåpris): £30.9m → £31.8m. Topplagsandelen regnes ikke — `01` har erklært den utløpt som styringstall.
-- Bank: £4.7m → £3.8m etter GW10 → £0.4m etter GW11
-- Endring per runde: GW10 +1.42, GW11 +1.85, GW12 +2.14, GW13 +2.00, GW14 +3.36
+- Klubber etter: BOU 3 · BHA 2 · IPS 2 · MUN 2 · ARS 1 · EVE 1 · HUL 1 · MCI 1 · NFO 1 · TOT 1
+- Keeper- og forsvarsbudsjett (nåpris): £30.9m → £31.9m. Topplagsandelen regnes ikke — `01` har erklært den utløpt som styringstall.
+- Bank: £4.7m → £3.7m etter GW10 → £0.3m etter GW11
+- Endring per runde: GW10 +1.58, GW11 +1.88, GW12 +2.19, GW13 +2.01, GW14 +3.49
 
-**GW10: Diop → Silva · GW11: Slater → Gibbs-White**
+**GW10: Slater → Gibbs-White · GW11: Thomas (COV) → Silva**
 
-- Klubber etter: BOU 3 · BHA 2 · MUN 2 · ARS 1 · COV 1 · EVE 1 · HUL 1 · IPS 1 · MCI 1 · NFO 1 · TOT 1
-- Keeper- og forsvarsbudsjett (nåpris): £30.9m → £32.0m. Topplagsandelen regnes ikke — `01` har erklært den utløpt som styringstall.
-- Bank: £4.7m → £3.6m etter GW10 → £0.2m etter GW11
-- Endring per runde: GW10 +1.34, GW11 +1.80, GW12 +2.09, GW13 +2.01, GW14 +3.34
+- Klubber etter: BOU 3 · BHA 2 · IPS 2 · MUN 2 · ARS 1 · EVE 1 · HUL 1 · MCI 1 · NFO 1 · TOT 1
+- Keeper- og forsvarsbudsjett (nåpris): £30.9m → £31.9m. Topplagsandelen regnes ikke — `01` har erklært den utløpt som styringstall.
+- Bank: £4.7m → £1.3m etter GW10 → £0.3m etter GW11
+- Endring per runde: GW10 +1.43, GW11 +1.88, GW12 +2.19, GW13 +2.01, GW14 +3.49
 
 **GW10: Slater → Gibbs-White · GW11: Egan → Silva**
 
 - Klubber etter: BOU 3 · BHA 2 · IPS 2 · MUN 2 · ARS 1 · COV 1 · EVE 1 · MCI 1 · NFO 1 · TOT 1
 - Keeper- og forsvarsbudsjett (nåpris): £30.9m → £31.8m. Topplagsandelen regnes ikke — `01` har erklært den utløpt som styringstall.
 - Bank: £4.7m → £1.3m etter GW10 → £0.4m etter GW11
-- Endring per runde: GW10 +1.17, GW11 +1.85, GW12 +2.14, GW13 +2.00, GW14 +3.36
+- Endring per runde: GW10 +1.43, GW11 +1.87, GW12 +2.13, GW13 +2.01, GW14 +3.46
 
 ## Spillere inn i planene over
 
@@ -114,18 +114,19 @@ Flaggene kommer fra `forventning.py`. Én kamp som bærer xGI-en, slår ut i rob
 
 | Spiller | Lag | Pos | Pris | Eid | Sum GW10–14 | Robust | P(spiller) GW10 | Flagg |
 |---|---|---|---|---|---|---|---|---|
-| Trafford | LEE | GKP | £5.0m | 6.3 % | 16.44 | 16.43 | 0.91 | — |
-| Gabriel | ARS | DEF | £8.0m | 24.4 % | 21.41 | 20.57 | 0.91 | — |
-| Silva | BOU | DEF | £5.0m | 2.4 % | 19.50 | 18.04 | 0.91 | — |
-| Ødegaard | ARS | MID | £6.7m | 16.6 % | 21.25 | 18.65 | 0.91 | — |
-| Gibbs-White | NFO | MID | £7.9m | 10.8 % | 19.93 | 19.03 | 0.74 | UAVKLART FRAVÆR GW7 — telt som ikke-start; før årsaken i context/fravaer.csv · første straffeskytter (penalties_order 1) |
-| Rudoni | COV | MID | £4.9m | 0.9 % | 18.04 | 16.52 | 0.91 | første straffeskytter (penalties_order 1) |
-| Thiago | BRE | FWD | £7.8m | 9.2 % | 21.45 | 20.34 | 0.91 | første straffeskytter (penalties_order 1) |
+| Trafford | LEE | GKP | £5.0m | 6.3 % | 16.40 | 16.39 | 0.93 | — |
+| Gabriel | ARS | DEF | £8.0m | 24.5 % | 21.15 | 20.32 | 0.93 | — |
+| Silva | BOU | DEF | £5.0m | 2.5 % | 19.51 | 18.13 | 0.93 | — |
+| Van Hecke | TOT | DEF | £5.0m | 11.2 % | 18.66 | 16.82 | 0.93 | — |
+| E.Le Fée | SUN | MID | £5.7m | 2.7 % | 22.13 | 19.81 | 0.93 | — |
+| Gibbs-White | NFO | MID | £7.9m | 10.7 % | 20.58 | 19.71 | 0.79 | UAVKLART FRAVÆR GW7 — telt som ikke-start; før årsaken i context/fravaer.csv · første straffeskytter (penalties_order 1) |
+| Thiago | BRE | FWD | £7.8m | 9.2 % | 21.39 | 20.25 | 0.93 | første straffeskytter (penalties_order 1) |
+| Isak | LIV | FWD | £9.2m | 21.7 % | 20.80 | 19.77 | 0.83 | UAVKLART FRAVÆR GW6 — telt som ikke-start; før årsaken i context/fravaer.csv |
 
 ## Søkets omfang og forutsetninger
 
-- Kandidater per posisjon: GKP 25, DEF 26, MID 25, FWD 25 (25 beste på forventning, 10 beste per million).
-- 380 enkeltbytter vurdert i hver runde. Utvalg for kombinasjoner: 107 i GW10, 107 i GW11. Søket er ikke uttømmende for kombinasjoner.
+- Kandidater per posisjon: GKP 25, DEF 25, MID 25, FWD 25 (25 beste på forventning, 10 beste per million).
+- 375 enkeltbytter vurdert i hver runde. Utvalg for kombinasjoner: 111 i GW10, 111 i GW11. Søket er ikke uttømmende for kombinasjoner.
 - Priser er dagens. Prisendringer før byttet er ikke modellert.
 - De operative reglene i `01` (template i premiumslottene, differensialer bare mellom £4,0m og £5,5m og maks tre samtidig, ett bytte per runde) er ikke modellert. Eierandelen står i tabellene; sjekk reglene for spillerne som kommer inn.
 - Bytter i tredje runde og senere er ikke med. En plan som sparer, har verdi utover horisonten som tabellen ikke viser.
