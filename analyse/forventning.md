@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 02.11.2026 kl. 22:46 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–8 (data_checked). Horisont: GW10–14. Fraværsfil: context/fravaer.csv.*
+*Generert 03.11.2026 kl. 09:30 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–8 (data_checked). Horisont: GW10–14. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–8 summerer til sesongtotalene for 0 spillere, 19 felt; 670 spillere på lag som har spilt i GW9 er kontrollert mot grunnlaget pluss live-fila
-- ✅ Speilet hentet 02.11.2026 22:27 UTC, 0.3 t gammelt ved kjøring
+- ✅ Speilet hentet 03.11.2026 08:32 UTC, 1.0 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -145,7 +145,7 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Barry ★ | EVE | FWD | 5.6 | 4.92 | 4.42 | 4.29 | 4.19 | 4.50 | **22.32** | 19.91 | 0.69 | 0.55 | 1.00 | 0/8 | 1 | første straffeskytter (penalties_order 1) |
 | Thiago | BRE | FWD | 7.8 | 4.38 | 4.82 | 4.23 | 3.70 | 4.33 | **21.45** | 20.34 | 0.64 | 0.57 | 1.00 | 0/8 | 1 | første straffeskytter (penalties_order 1) |
 | Evanilson ★ | BOU | FWD | 6.4 | 4.29 | 4.20 | 3.84 | 4.07 | 4.27 | **20.67** | 18.13 | 0.54 | 0.39 | 1.00 | 0/8 |  | — |
-| Gonzalo | FUL | FWD | 6.0 | 4.60 | 3.81 | 4.16 | 3.75 | 3.88 | **20.20** | 18.89 | 0.59 | 0.51 | 1.00 | 0/8 | 1 | første straffeskytter (penalties_order 1) |
+| Gonzalo | FUL | FWD | 5.9 | 4.60 | 3.81 | 4.16 | 3.75 | 3.88 | **20.20** | 18.89 | 0.59 | 0.51 | 1.00 | 0/8 | 1 | første straffeskytter (penalties_order 1) |
 | Isak | LIV | FWD | 9.2 | 4.03 | 4.12 | 3.84 | 4.11 | 3.69 | **19.80** | 18.84 | 0.70 | 0.62 | 0.84 | 0/7 | 2 | UAVKLART FRAVÆR GW6 — telt som ikke-start; før årsaken i context/fravaer.csv |
 | Calvert-Lewin | LEE | FWD | 6.1 | 3.94 | 3.66 | 4.02 | 3.44 | 4.13 | **19.19** | 18.21 | 0.49 | 0.42 | 1.00 | 0/8 | 1 | første straffeskytter (penalties_order 1) |
 | Delap | NFO | FWD | 5.4 | 3.77 | 3.49 | 3.71 | 3.57 | 3.60 | **18.13** | 16.33 | 0.52 | 0.39 | 0.96 | 0/6 | 3 | — |
