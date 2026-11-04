@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 03.11.2026 kl. 20:30 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–9 (data_checked). Horisont: GW10–14. Fraværsfil: context/fravaer.csv.*
+*Generert 04.11.2026 kl. 09:08 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–9 (data_checked). Horisont: GW10–14. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–9 summerer til sesongtotalene for alle 670 spillere, 19 felt
-- ✅ Speilet hentet 03.11.2026 20:16 UTC, 0.2 t gammelt ved kjøring
+- ✅ Speilet hentet 04.11.2026 07:59 UTC, 1.2 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -102,12 +102,12 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Spiller | Lag | Pos | Pris | GW10 | GW11 | GW12 | GW13 | GW14 | Sum | Robust | xGI/90 | Uten beste | Start | DC | Str | Flagg |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Gabriel | ARS | DEF | 8.0 | 5.11 | 4.25 | 3.94 | 3.73 | 4.12 | **21.15** | 20.32 | 0.19 | 0.14 | 1.00 | 4/9 |  | — |
-| Silva | BOU | DEF | 5.0 | 4.05 | 3.94 | 3.66 | 3.54 | 4.32 | **19.51** | 18.13 | 0.18 | 0.11 | 1.00 | 6/9 |  | — |
+| Silva | BOU | DEF | 5.1 | 4.05 | 3.94 | 3.66 | 3.54 | 4.32 | **19.51** | 18.13 | 0.18 | 0.11 | 1.00 | 6/9 |  | — |
 | Van Hecke | TOT | DEF | 5.0 | 3.71 | 4.28 | 3.58 | 3.88 | 3.21 | **18.66** | 16.82 | 0.26 | 0.15 | 1.00 | 3/9 |  | — |
 | Murillo | NFO | DEF | 5.5 | 3.67 | 3.38 | 3.74 | 4.01 | 3.51 | **18.30** | 17.80 | 0.19 | 0.17 | 1.00 | 6/9 |  | — |
 | De Cuyper | BHA | DEF | 5.4 | 3.83 | 4.03 | 4.07 | 3.09 | 3.23 | **18.26** | 15.10 | 0.39 | 0.20 | 1.00 | 0/9 |  | én kamp (GW1) står for 53% av xGI |
 | Muharemović | LEE | DEF | 5.1 | 4.13 | 3.20 | 4.11 | 2.89 | 3.82 | **18.15** | 17.44 | 0.10 | 0.06 | 1.00 | 6/9 |  | — |
-| Konsa | ARS | DEF | 4.7 | 4.50 | 3.63 | 3.29 | 3.07 | 3.40 | **17.89** | 17.16 | 0.09 | 0.04 | 0.96 | 3/7 |  | UAVKLART FRAVÆR GW1 — telt som ikke-start; før årsaken i context/fravaer.csv |
+| Konsa | ARS | DEF | 4.8 | 4.50 | 3.63 | 3.29 | 3.07 | 3.40 | **17.89** | 17.16 | 0.09 | 0.04 | 0.96 | 3/7 |  | UAVKLART FRAVÆR GW1 — telt som ikke-start; før årsaken i context/fravaer.csv |
 | Hill | BOU | DEF | 5.5 | 3.66 | 3.57 | 3.33 | 3.18 | 3.92 | **17.66** | 16.62 | 0.11 | 0.03 | 1.00 | 5/9 |  | — |
 | Vuskovic | BHA | DEF | 5.2 | 3.65 | 3.91 | 3.85 | 3.03 | 3.17 | **17.61** | 16.98 | 0.16 | 0.12 | 1.00 | 4/9 |  | — |
 | Bogle | LEE | DEF | 4.8 | 3.96 | 3.00 | 4.02 | 2.66 | 3.76 | **17.41** | 15.66 | 0.28 | 0.18 | 1.00 | 0/9 |  | — |
@@ -126,7 +126,7 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | E.Le Fée | SUN | MID | 5.7 | 4.81 | 4.45 | 4.53 | 3.97 | 4.37 | **22.13** | 19.81 | 0.56 | 0.45 | 1.00 | 1/9 | 2 | — |
 | B.Fernandes ★ | MUN | MID | 11.7 | 4.43 | 3.67 | 4.34 | 4.18 | 4.54 | **21.16** | 17.05 | 0.57 | 0.29 | 0.78 | 0/8 | 1 | UAVKLART FRAVÆR GW8 — telt som ikke-start; før årsaken i context/fravaer.csv | én kamp (GW2) står for 55% av xGI | første straffeskytter (penalties_order 1) |
 | Ødegaard | ARS | MID | 6.7 | 4.80 | 4.29 | 4.09 | 3.93 | 3.82 | **20.93** | 18.45 | 0.53 | 0.37 | 1.00 | 0/9 | 3 | — |
-| Rogers | CHE | MID | 8.1 | 4.22 | 4.33 | 3.87 | 4.52 | 3.93 | **20.87** | 19.71 | 0.48 | 0.39 | 1.00 | 1/9 |  | — |
+| Rogers | CHE | MID | 8.2 | 4.22 | 4.33 | 3.87 | 4.52 | 3.93 | **20.87** | 19.71 | 0.48 | 0.39 | 1.00 | 1/9 |  | — |
 | Gibbs-White | NFO | MID | 7.9 | 4.17 | 3.89 | 4.26 | 4.14 | 4.13 | **20.58** | 19.71 | 0.60 | 0.54 | 0.85 | 0/8 | 1 | UAVKLART FRAVÆR GW7 — telt som ikke-start; før årsaken i context/fravaer.csv | første straffeskytter (penalties_order 1) |
 | Palmer | CHE | MID | 9.8 | 4.14 | 4.24 | 3.79 | 4.44 | 3.85 | **20.45** | 18.99 | 0.41 | 0.33 | 1.00 | 0/9 | 1 | første straffeskytter (penalties_order 1) |
 | Rayan | BOU | MID | 6.3 | 4.11 | 3.95 | 3.69 | 3.79 | 4.05 | **19.59** | 17.99 | 0.36 | 0.28 | 1.00 | 1/9 |  | — |
