@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 05.11.2026 kl. 09:27 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–9 (data_checked). Horisont: GW10–14. Fraværsfil: context/fravaer.csv.*
+*Generert 05.11.2026 kl. 21:05 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–9 (data_checked). Horisont: GW10–14. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–9 summerer til sesongtotalene for alle 670 spillere, 19 felt
-- ✅ Speilet hentet 05.11.2026 08:30 UTC, 1.0 t gammelt ved kjøring
+- ✅ Speilet hentet 05.11.2026 20:48 UTC, 0.3 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -107,11 +107,11 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Murillo | NFO | DEF | 5.5 | 3.67 | 3.38 | 3.74 | 4.01 | 3.51 | **18.30** | 17.80 | 0.19 | 0.17 | 1.00 | 6/9 |  | — |
 | De Cuyper | BHA | DEF | 5.4 | 3.83 | 4.03 | 4.07 | 3.09 | 3.23 | **18.26** | 15.10 | 0.39 | 0.20 | 1.00 | 0/9 |  | én kamp (GW1) står for 53% av xGI |
 | Muharemović | LEE | DEF | 5.1 | 4.13 | 3.20 | 4.11 | 2.89 | 3.82 | **18.15** | 17.44 | 0.10 | 0.06 | 1.00 | 6/9 |  | — |
-| Konsa | ARS | DEF | 4.8 | 4.50 | 3.63 | 3.29 | 3.07 | 3.40 | **17.89** | 17.16 | 0.09 | 0.04 | 0.96 | 3/7 |  | UAVKLART FRAVÆR GW1 — telt som ikke-start; før årsaken i context/fravaer.csv |
 | Hill | BOU | DEF | 5.5 | 3.66 | 3.57 | 3.33 | 3.18 | 3.92 | **17.66** | 16.62 | 0.11 | 0.03 | 1.00 | 5/9 |  | — |
 | Vuskovic | BHA | DEF | 5.2 | 3.65 | 3.91 | 3.85 | 3.03 | 3.17 | **17.61** | 16.98 | 0.16 | 0.12 | 1.00 | 4/9 |  | — |
 | Bogle | LEE | DEF | 4.8 | 3.96 | 3.00 | 4.02 | 2.66 | 3.76 | **17.41** | 15.66 | 0.28 | 0.18 | 1.00 | 0/9 |  | — |
 | Calafiori ★ | ARS | DEF | 5.9 | 4.09 | 3.46 | 3.25 | 3.11 | 3.45 | **17.36** | 16.52 | 0.29 | 0.23 | 0.78 | 0/8 |  | — |
+| Konsa | ARS | DEF | 4.8 | 3.37 | 3.63 | 3.29 | 3.07 | 3.40 | **16.76** | 16.08 | 0.09 | 0.04 | 0.96 | 3/7 |  | UAVKLART FRAVÆR GW1 — telt som ikke-start; før årsaken i context/fravaer.csv | GW10: FPL-sjanse 75 % |
 | Justin | LEE | DEF | 4.5 | 3.82 | 2.89 | 3.84 | 2.57 | 3.56 | **16.68** | 15.94 | 0.18 | 0.12 | 1.00 | 2/9 |  | — |
 | N.Williams | NFO | DEF | 4.9 | 3.29 | 3.01 | 3.38 | 3.66 | 3.16 | **16.49** | 15.86 | 0.24 | 0.20 | 1.00 | 2/9 |  | — |
 | Virgil | LIV | DEF | 6.4 | 3.41 | 3.32 | 3.32 | 3.52 | 2.87 | **16.44** | 16.02 | 0.06 | 0.04 | 1.00 | 5/9 |  | — |
@@ -147,8 +147,8 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Evanilson ★ | BOU | FWD | 6.4 | 4.47 | 4.28 | 3.97 | 4.16 | 4.37 | **21.25** | 18.91 | 0.55 | 0.42 | 1.00 | 0/9 |  | — |
 | Isak | LIV | FWD | 9.2 | 4.39 | 4.39 | 3.97 | 4.26 | 3.78 | **20.80** | 19.77 | 0.63 | 0.56 | 0.89 | 0/8 | 2 | UAVKLART FRAVÆR GW6 — telt som ikke-start; før årsaken i context/fravaer.csv |
 | Gonzalo | FUL | FWD | 5.9 | 4.77 | 3.84 | 4.21 | 3.74 | 3.90 | **20.46** | 19.24 | 0.56 | 0.49 | 1.00 | 0/9 | 1 | første straffeskytter (penalties_order 1) |
-| Calvert-Lewin | LEE | FWD | 6.1 | 3.99 | 3.70 | 4.10 | 3.42 | 4.15 | **19.37** | 18.38 | 0.47 | 0.41 | 1.00 | 0/9 | 1 | første straffeskytter (penalties_order 1) |
 | N.Jackson | AVL | FWD | 7.0 | 3.58 | 3.79 | 3.63 | 3.65 | 3.80 | **18.45** | 17.58 | 0.43 | 0.38 | 1.00 | 0/8 | 3 | — |
+| Calvert-Lewin | LEE | FWD | 6.1 | 2.99 | 3.70 | 4.10 | 3.42 | 4.15 | **18.37** | 17.43 | 0.47 | 0.41 | 1.00 | 0/9 | 1 | første straffeskytter (penalties_order 1) | GW10: FPL-sjanse 75 % |
 | Delap | NFO | FWD | 5.4 | 3.80 | 3.49 | 3.72 | 3.52 | 3.55 | **18.09** | 16.41 | 0.49 | 0.37 | 0.97 | 0/7 | 3 | — |
 | Havertz | ARS | FWD | 7.4 | 3.67 | 3.41 | 3.30 | 3.22 | 3.07 | **16.67** | 15.91 | 0.43 | 0.37 | 0.78 | 0/8 |  | — |
 
