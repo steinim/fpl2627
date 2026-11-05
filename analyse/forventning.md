@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 04.11.2026 kl. 20:49 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–9 (data_checked). Horisont: GW10–14. Fraværsfil: context/fravaer.csv.*
+*Generert 05.11.2026 kl. 09:27 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–9 (data_checked). Horisont: GW10–14. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–9 summerer til sesongtotalene for alle 670 spillere, 19 felt
-- ✅ Speilet hentet 04.11.2026 20:32 UTC, 0.3 t gammelt ved kjøring
+- ✅ Speilet hentet 05.11.2026 08:30 UTC, 1.0 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -127,7 +127,7 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | B.Fernandes ★ | MUN | MID | 11.7 | 4.43 | 3.67 | 4.34 | 4.18 | 4.54 | **21.16** | 17.05 | 0.57 | 0.29 | 0.78 | 0/8 | 1 | UAVKLART FRAVÆR GW8 — telt som ikke-start; før årsaken i context/fravaer.csv | én kamp (GW2) står for 55% av xGI | første straffeskytter (penalties_order 1) |
 | Ødegaard | ARS | MID | 6.7 | 4.80 | 4.29 | 4.09 | 3.93 | 3.82 | **20.93** | 18.45 | 0.53 | 0.37 | 1.00 | 0/9 | 3 | — |
 | Rogers | CHE | MID | 8.2 | 4.22 | 4.33 | 3.87 | 4.52 | 3.93 | **20.87** | 19.71 | 0.48 | 0.39 | 1.00 | 1/9 |  | — |
-| Gibbs-White | NFO | MID | 7.9 | 4.17 | 3.89 | 4.26 | 4.14 | 4.13 | **20.58** | 19.71 | 0.60 | 0.54 | 0.85 | 0/8 | 1 | UAVKLART FRAVÆR GW7 — telt som ikke-start; før årsaken i context/fravaer.csv | første straffeskytter (penalties_order 1) |
+| Gibbs-White | NFO | MID | 7.8 | 4.17 | 3.89 | 4.26 | 4.14 | 4.13 | **20.58** | 19.71 | 0.60 | 0.54 | 0.85 | 0/8 | 1 | UAVKLART FRAVÆR GW7 — telt som ikke-start; før årsaken i context/fravaer.csv | første straffeskytter (penalties_order 1) |
 | Palmer | CHE | MID | 9.8 | 4.14 | 4.24 | 3.79 | 4.44 | 3.85 | **20.45** | 18.99 | 0.41 | 0.33 | 1.00 | 0/9 | 1 | første straffeskytter (penalties_order 1) |
 | Rayan | BOU | MID | 6.3 | 4.11 | 3.95 | 3.69 | 3.79 | 4.05 | **19.59** | 17.99 | 0.36 | 0.28 | 1.00 | 1/9 |  | — |
 | Iwobi | FUL | MID | 5.4 | 4.37 | 3.56 | 3.87 | 3.57 | 3.64 | **19.01** | 17.66 | 0.51 | 0.41 | 1.00 | 0/9 | 3 | — |
