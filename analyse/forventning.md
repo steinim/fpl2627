@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 05.11.2026 kl. 21:05 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–9 (data_checked). Horisont: GW10–14. Fraværsfil: context/fravaer.csv.*
+*Generert 06.11.2026 kl. 09:21 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–9 (data_checked). Horisont: GW10–14. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–9 summerer til sesongtotalene for alle 670 spillere, 19 felt
-- ✅ Speilet hentet 05.11.2026 20:48 UTC, 0.3 t gammelt ved kjøring
+- ✅ Speilet hentet 06.11.2026 08:29 UTC, 0.9 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -107,7 +107,7 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Murillo | NFO | DEF | 5.5 | 3.67 | 3.38 | 3.74 | 4.01 | 3.51 | **18.30** | 17.80 | 0.19 | 0.17 | 1.00 | 6/9 |  | — |
 | De Cuyper | BHA | DEF | 5.4 | 3.83 | 4.03 | 4.07 | 3.09 | 3.23 | **18.26** | 15.10 | 0.39 | 0.20 | 1.00 | 0/9 |  | én kamp (GW1) står for 53% av xGI |
 | Muharemović | LEE | DEF | 5.1 | 4.13 | 3.20 | 4.11 | 2.89 | 3.82 | **18.15** | 17.44 | 0.10 | 0.06 | 1.00 | 6/9 |  | — |
-| Hill | BOU | DEF | 5.5 | 3.66 | 3.57 | 3.33 | 3.18 | 3.92 | **17.66** | 16.62 | 0.11 | 0.03 | 1.00 | 5/9 |  | — |
+| Hill | BOU | DEF | 5.6 | 3.66 | 3.57 | 3.33 | 3.18 | 3.92 | **17.66** | 16.62 | 0.11 | 0.03 | 1.00 | 5/9 |  | — |
 | Vuskovic | BHA | DEF | 5.2 | 3.65 | 3.91 | 3.85 | 3.03 | 3.17 | **17.61** | 16.98 | 0.16 | 0.12 | 1.00 | 4/9 |  | — |
 | Bogle | LEE | DEF | 4.8 | 3.96 | 3.00 | 4.02 | 2.66 | 3.76 | **17.41** | 15.66 | 0.28 | 0.18 | 1.00 | 0/9 |  | — |
 | Calafiori ★ | ARS | DEF | 5.9 | 4.09 | 3.46 | 3.25 | 3.11 | 3.45 | **17.36** | 16.52 | 0.29 | 0.23 | 0.78 | 0/8 |  | — |
