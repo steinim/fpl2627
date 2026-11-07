@@ -1,14 +1,13 @@
 # Forventede poeng — generert
 
-*Generert 07.11.2026 kl. 18:47 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–9 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
+*Generert 07.11.2026 kl. 23:38 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–9 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
-- ✅ Rundedata GW1–9 summerer til sesongtotalene for 340 spillere, 19 felt; 330 spillere på lag som har spilt i GW10 er kontrollert mot grunnlaget pluss live-fila
-- ✅ Speilet hentet 07.11.2026 18:17 UTC, 0.5 t gammelt ved kjøring
+- ✅ Rundedata GW1–9 summerer til sesongtotalene for 340 spillere, 19 felt; 331 spillere på lag som har spilt i GW10 er kontrollert mot grunnlaget pluss live-fila
+- ✅ Speilet hentet 07.11.2026 22:59 UTC, 0.7 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
-- ⚠️ 22 spillere på lag som har spilt i GW10 avviker fra grunnlaget pluss live-fila — runden er ikke ferdig, og bootstrap og live-fila hentes hver for seg. Brukes ikke i modellen: Enzo minutes: sesong 584, runder 586; Ndiaye minutes: sesong 717, runder 719; Donnarumma minutes: sesong 851, runder 853
 
 ## Modell og estimerte parametre
 
