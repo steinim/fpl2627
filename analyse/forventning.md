@@ -1,13 +1,14 @@
 # Forventede poeng — generert
 
-*Generert 07.11.2026 kl. 08:45 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–9 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
+*Generert 07.11.2026 kl. 18:47 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–9 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
-- ✅ Rundedata GW1–9 summerer til sesongtotalene for 608 spillere, 19 felt; 62 spillere på lag som har spilt i GW10 er kontrollert mot grunnlaget pluss live-fila
-- ✅ Speilet hentet 07.11.2026 07:45 UTC, 1.0 t gammelt ved kjøring
+- ✅ Rundedata GW1–9 summerer til sesongtotalene for 340 spillere, 19 felt; 330 spillere på lag som har spilt i GW10 er kontrollert mot grunnlaget pluss live-fila
+- ✅ Speilet hentet 07.11.2026 18:17 UTC, 0.5 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
+- ⚠️ 22 spillere på lag som har spilt i GW10 avviker fra grunnlaget pluss live-fila — runden er ikke ferdig, og bootstrap og live-fila hentes hver for seg. Brukes ikke i modellen: Enzo minutes: sesong 584, runder 586; Ndiaye minutes: sesong 717, runder 719; Donnarumma minutes: sesong 851, runder 853
 
 ## Modell og estimerte parametre
 
@@ -147,8 +148,8 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Isak | LIV | FWD | 9.2 | 4.39 | 3.97 | 4.26 | 3.78 | 4.01 | **20.41** | 19.40 | 0.63 | 0.56 | 0.89 | 0/8 | 2 | UAVKLART FRAVÆR GW6 — telt som ikke-start; før årsaken i context/fravaer.csv |
 | Evanilson ★ | BOU | FWD | 6.5 | 4.28 | 3.97 | 4.16 | 4.37 | 3.18 | **19.96** | 17.83 | 0.55 | 0.42 | 1.00 | 0/9 |  | — |
 | Gonzalo | FUL | FWD | 5.9 | 3.84 | 4.21 | 3.74 | 3.90 | 4.17 | **19.86** | 18.69 | 0.56 | 0.49 | 1.00 | 0/9 | 1 | første straffeskytter (penalties_order 1) |
+| Calvert-Lewin | LEE | FWD | 6.0 | 3.70 | 4.10 | 3.42 | 4.15 | 3.31 | **18.69** | 17.75 | 0.47 | 0.41 | 1.00 | 0/9 | 1 | første straffeskytter (penalties_order 1) |
 | N.Jackson | AVL | FWD | 7.0 | 3.79 | 3.63 | 3.65 | 3.80 | 3.36 | **18.23** | 17.37 | 0.43 | 0.38 | 1.00 | 0/8 | 3 | — |
-| Calvert-Lewin | LEE | FWD | 6.0 | 2.78 | 4.10 | 3.42 | 4.15 | 3.31 | **17.77** | 16.87 | 0.47 | 0.41 | 1.00 | 0/9 | 1 | første straffeskytter (penalties_order 1) | GW11: FPL-sjanse 75 % |
 | Delap | NFO | FWD | 5.3 | 3.49 | 3.72 | 3.52 | 3.55 | 3.33 | **17.61** | 15.99 | 0.49 | 0.37 | 0.97 | 0/7 | 3 | — |
 | Havertz | ARS | FWD | 7.4 | 3.41 | 3.30 | 3.22 | 3.07 | 3.34 | **16.34** | 15.60 | 0.43 | 0.37 | 0.78 | 0/8 |  | — |
 
