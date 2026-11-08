@@ -1,12 +1,12 @@
 # Byttepakker — generert
 
-*Generert 07.11.2026 kl. 23:38 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW11–15. Bytter vurderes i GW11 og GW12. Maks minuspoeng per runde: 0.*
+*Generert 08.11.2026 kl. 08:57 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW11–15. Bytter vurderes i GW11 og GW12. Maks minuspoeng per runde: 0.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–9 summerer til sesongtotalene for 340 spillere, 19 felt; 331 spillere på lag som har spilt i GW10 er kontrollert mot grunnlaget pluss live-fila
-- ✅ Speilet hentet 07.11.2026 22:59 UTC, 0.7 t gammelt ved kjøring
+- ✅ Speilet hentet 08.11.2026 07:57 UTC, 1.0 t gammelt ved kjøring
 - ✅ Bytteregler i API-et stemmer med 05 og skriptet: maks 3 per klubb, maks 5 frikjøp, halve prisstigningen ved salg, tropp på 15
 - ✅ Bank regnet fra 8 overganger stemmer med historikken i alle 10 runder
 - ✅ Frikjøp til GW11: 2. Kostnaden i hver runde stemmer med historikken
@@ -27,13 +27,13 @@ Bank **£4.7m**, frikjøp **2**. Salgspris etter regelen i `05`.
 | Diop | IPS | DEF | £3.9m | £4.0m | £3.9m | 14.57 | 14.45 | 0.91 | 10.0 % |
 | Egan | HUL | DEF | £4.1m | £4.1m | £4.1m | 13.91 | 13.71 | 0.91 | 6.7 % |
 | Mbeumo | MUN | MID | £7.9m | £8.0m | £7.9m | 23.81 | 20.53 | 0.91 | 19.7 % |
-| Tavernier | BOU | MID | £6.6m | £6.4m | £6.5m | 21.17 | 19.18 | 0.91 | 30.7 % |
-| B.Fernandes | MUN | MID | £11.7m | £12.0m | £11.7m | 20.93 | 16.87 | 0.74 | 20.6 % |
+| Tavernier | BOU | MID | £6.7m | £6.4m | £6.5m | 21.17 | 19.18 | 0.91 | 30.8 % |
+| B.Fernandes | MUN | MID | £11.6m | £12.0m | £11.6m | 20.93 | 16.87 | 0.74 | 20.6 % |
 | Groß | BHA | MID | £6.3m | £6.1m | £6.2m | 18.13 | 16.54 | 0.91 | 47.4 % |
 | Slater | HUL | MID | £4.5m | £4.5m | £4.5m | 11.73 | 11.22 | 0.91 | 4.3 % |
 | Haaland | MCI | FWD | £15.8m | £15.5m | £15.6m | 27.27 | 25.81 | 0.91 | 79.2 % |
-| Barry | EVE | FWD | £5.7m | £5.7m | £5.7m | 23.98 | 22.07 | 0.91 | 9.6 % |
-| Evanilson | BOU | FWD | £6.5m | £6.3m | £6.4m | 19.96 | 17.83 | 0.91 | 22.1 % |
+| Barry | EVE | FWD | £5.7m | £5.7m | £5.7m | 23.98 | 22.07 | 0.91 | 9.7 % |
+| Evanilson | BOU | FWD | £6.5m | £6.3m | £6.4m | 19.96 | 17.83 | 0.91 | 22.2 % |
 
 ## Spar — ingen bytter
 
@@ -41,7 +41,7 @@ Lagets forventede poeng: **267.96** over horisonten (robust 246.70). Per runde: 
 
 GW11: elleveren 44.13 + kapteinsledd 6.56 (Haaland, vise Barry) + innbytterledd 3.06. Benk: Kinsky, Egan, Slater, Thomas (COV).
 
-## Beste planer (47907 lovlige av 60346 vurderte)
+## Beste planer (47906 lovlige av 60346 vurderte)
 
 Endring = forventede poeng mot å spare, over hele horisonten, etter minuspoeng.
 
@@ -78,7 +78,7 @@ Svarer på «bør X selges?»: den beste lovlige planen der spilleren går ut, m
 | **Egan ut:** GW11: Slater → Gibbs-White, Egan → Van Hecke · GW12: Groß → E.Le Fée | 0 | **+14.47** | +12.55 | +2.54 | £0.5m | £1.0m | — |
 | **Mbeumo ut:** GW11: Slater → Gibbs-White, Egan → Van Hecke · GW12: Mbeumo → E.Le Fée | 0 | **+9.79** | +9.64 | +2.54 | £0.5m | £2.7m | — |
 | **Tavernier ut:** GW11: Slater → Gibbs-White, Egan → Van Hecke · GW12: Tavernier → E.Le Fée | 0 | **+12.78** | +11.31 | +2.54 | £0.5m | £1.3m | — |
-| **B.Fernandes ut:** GW11: Slater → Gibbs-White, Egan → Van Hecke · GW12: B.Fernandes → E.Le Fée | 0 | **+10.49** | +11.22 | +2.54 | £0.5m | £6.5m | — |
+| **B.Fernandes ut:** GW11: Slater → Gibbs-White, Egan → Van Hecke · GW12: B.Fernandes → E.Le Fée | 0 | **+10.49** | +11.22 | +2.54 | £0.5m | £6.4m | — |
 | **Groß ut:** GW11: Slater → Gibbs-White, Egan → Van Hecke · GW12: Groß → E.Le Fée | 0 | **+14.47** | +12.55 | +2.54 | £0.5m | £1.0m | — |
 | **Slater ut:** GW11: Slater → Gibbs-White, Egan → Van Hecke · GW12: Groß → E.Le Fée | 0 | **+14.47** | +12.55 | +2.54 | £0.5m | £1.0m | — |
 | **Haaland ut:** GW11: Slater → Gibbs-White, Egan → Van Hecke · GW12: Haaland → Isak | 0 | **+5.82** | +4.71 | +2.54 | £0.5m | £6.9m | — |
@@ -115,8 +115,8 @@ Flaggene kommer fra `forventning.py`. Én kamp som bærer xGI-en, slår ut i rob
 | Spiller | Lag | Pos | Pris | Eid | Sum GW11–15 | Robust | P(spiller) GW11 | Flagg |
 |---|---|---|---|---|---|---|---|---|
 | Trafford | LEE | GKP | £5.0m | 6.3 % | 15.81 | 15.80 | 0.91 | — |
-| Van Hecke | TOT | DEF | £5.0m | 13.5 % | 18.78 | 16.93 | 0.91 | — |
-| Silva | BOU | DEF | £5.1m | 3.5 % | 18.45 | 17.19 | 0.91 | — |
+| Van Hecke | TOT | DEF | £5.0m | 13.6 % | 18.78 | 16.93 | 0.91 | — |
+| Silva | BOU | DEF | £5.1m | 3.6 % | 18.45 | 17.19 | 0.91 | — |
 | De Cuyper | BHA | DEF | £5.4m | 46.8 % | 18.31 | 15.21 | 0.91 | én kamp (GW1) står for 53% av xGI |
 | Murillo | NFO | DEF | £5.5m | 2.0 % | 18.18 | 17.68 | 0.91 | — |
 | Gibbs-White | NFO | MID | £7.8m | 9.3 % | 23.27 | 22.29 | 0.91 | første straffeskytter (penalties_order 1) |

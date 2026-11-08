@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 07.11.2026 kl. 23:38 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–9 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
+*Generert 08.11.2026 kl. 08:57 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–9 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–9 summerer til sesongtotalene for 340 spillere, 19 felt; 331 spillere på lag som har spilt i GW10 er kontrollert mot grunnlaget pluss live-fila
-- ✅ Speilet hentet 07.11.2026 22:59 UTC, 0.7 t gammelt ved kjøring
+- ✅ Speilet hentet 08.11.2026 07:57 UTC, 1.0 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -72,8 +72,8 @@ Bytter gjort etter GW10-deadline vises ikke.
 | Diop ★ | IPS | DEF | 3.9 | 2.97 | 3.05 | 3.00 | 2.64 | 2.90 | **14.57** | 14.45 | 0.03 | 0.02 | 1.00 | 5/9 |  | — |
 | Egan ★ | HUL | DEF | 4.1 | 2.74 | 2.77 | 2.88 | 2.42 | 3.11 | **13.91** | 13.71 | 0.05 | 0.03 | 1.00 | 5/9 |  | — |
 | Mbeumo ★ | MUN | MID | 7.9 | 4.33 | 5.00 | 4.73 | 5.08 | 4.67 | **23.81** | 20.53 | 0.61 | 0.44 | 1.00 | 0/9 | 2 | — |
-| Tavernier ★ | BOU | MID | 6.6 | 4.54 | 4.21 | 4.37 | 4.69 | 3.37 | **21.17** | 19.18 | 0.61 | 0.50 | 1.00 | 0/9 | 3 | — |
-| B.Fernandes ★ | MUN | MID | 11.7 | 3.67 | 4.34 | 4.18 | 4.54 | 4.20 | **20.93** | 16.87 | 0.57 | 0.29 | 0.78 | 0/8 | 1 | én kamp (GW2) står for 55% av xGI | første straffeskytter (penalties_order 1) |
+| Tavernier ★ | BOU | MID | 6.7 | 4.54 | 4.21 | 4.37 | 4.69 | 3.37 | **21.17** | 19.18 | 0.61 | 0.50 | 1.00 | 0/9 | 3 | — |
+| B.Fernandes ★ | MUN | MID | 11.6 | 3.67 | 4.34 | 4.18 | 4.54 | 4.20 | **20.93** | 16.87 | 0.57 | 0.29 | 0.78 | 0/8 | 1 | én kamp (GW2) står for 55% av xGI | første straffeskytter (penalties_order 1) |
 | Groß ★ | BHA | MID | 6.3 | 3.77 | 3.99 | 3.34 | 3.32 | 3.71 | **18.13** | 16.54 | 0.42 | 0.35 | 1.00 | 0/9 | 1 | første straffeskytter (penalties_order 1) |
 | Slater ★ | HUL | MID | 4.5 | 2.42 | 2.39 | 2.37 | 2.20 | 2.35 | **11.73** | 11.22 | 0.13 | 0.09 | 1.00 | 0/9 |  | — |
 | Haaland ★ | MCI | FWD | 15.8 | 6.13 | 4.39 | 5.73 | 5.33 | 5.70 | **27.27** | 25.81 | 0.83 | 0.75 | 1.00 | 0/9 | 1 | første straffeskytter (penalties_order 1) |
@@ -124,8 +124,8 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Mbeumo ★ | MUN | MID | 7.9 | 4.33 | 5.00 | 4.73 | 5.08 | 4.67 | **23.81** | 20.53 | 0.61 | 0.44 | 1.00 | 0/9 | 2 | — |
 | Gibbs-White | NFO | MID | 7.8 | 4.51 | 4.89 | 4.72 | 4.70 | 4.44 | **23.27** | 22.29 | 0.60 | 0.54 | 1.00 | 0/8 | 1 | første straffeskytter (penalties_order 1) |
 | E.Le Fée | SUN | MID | 5.7 | 4.45 | 4.53 | 3.97 | 4.37 | 4.36 | **21.68** | 19.42 | 0.56 | 0.45 | 1.00 | 1/9 | 2 | — |
-| Tavernier ★ | BOU | MID | 6.6 | 4.54 | 4.21 | 4.37 | 4.69 | 3.37 | **21.17** | 19.18 | 0.61 | 0.50 | 1.00 | 0/9 | 3 | — |
-| B.Fernandes ★ | MUN | MID | 11.7 | 3.67 | 4.34 | 4.18 | 4.54 | 4.20 | **20.93** | 16.87 | 0.57 | 0.29 | 0.78 | 0/8 | 1 | én kamp (GW2) står for 55% av xGI | første straffeskytter (penalties_order 1) |
+| Tavernier ★ | BOU | MID | 6.7 | 4.54 | 4.21 | 4.37 | 4.69 | 3.37 | **21.17** | 19.18 | 0.61 | 0.50 | 1.00 | 0/9 | 3 | — |
+| B.Fernandes ★ | MUN | MID | 11.6 | 3.67 | 4.34 | 4.18 | 4.54 | 4.20 | **20.93** | 16.87 | 0.57 | 0.29 | 0.78 | 0/8 | 1 | én kamp (GW2) står for 55% av xGI | første straffeskytter (penalties_order 1) |
 | Rogers | CHE | MID | 8.2 | 4.33 | 3.87 | 4.52 | 3.93 | 3.58 | **20.23** | 19.10 | 0.48 | 0.39 | 1.00 | 1/9 |  | — |
 | Ødegaard | ARS | MID | 6.7 | 4.29 | 4.09 | 3.93 | 3.82 | 4.06 | **20.18** | 17.81 | 0.53 | 0.37 | 1.00 | 0/9 | 3 | — |
 | Palmer | CHE | MID | 9.8 | 4.24 | 3.79 | 4.44 | 3.85 | 3.50 | **19.82** | 18.41 | 0.41 | 0.33 | 1.00 | 0/9 | 1 | første straffeskytter (penalties_order 1) |
@@ -148,7 +148,7 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Evanilson ★ | BOU | FWD | 6.5 | 4.28 | 3.97 | 4.16 | 4.37 | 3.18 | **19.96** | 17.83 | 0.55 | 0.42 | 1.00 | 0/9 |  | — |
 | Gonzalo | FUL | FWD | 5.9 | 3.84 | 4.21 | 3.74 | 3.90 | 4.17 | **19.86** | 18.69 | 0.56 | 0.49 | 1.00 | 0/9 | 1 | første straffeskytter (penalties_order 1) |
 | Calvert-Lewin | LEE | FWD | 6.0 | 3.70 | 4.10 | 3.42 | 4.15 | 3.31 | **18.69** | 17.75 | 0.47 | 0.41 | 1.00 | 0/9 | 1 | første straffeskytter (penalties_order 1) |
-| N.Jackson | AVL | FWD | 7.0 | 3.79 | 3.63 | 3.65 | 3.80 | 3.36 | **18.23** | 17.37 | 0.43 | 0.38 | 1.00 | 0/8 | 3 | — |
+| N.Jackson | AVL | FWD | 7.1 | 3.79 | 3.63 | 3.65 | 3.80 | 3.36 | **18.23** | 17.37 | 0.43 | 0.38 | 1.00 | 0/8 | 3 | — |
 | Delap | NFO | FWD | 5.3 | 3.49 | 3.72 | 3.52 | 3.55 | 3.33 | **17.61** | 15.99 | 0.49 | 0.37 | 0.97 | 0/7 | 3 | — |
 | Havertz | ARS | FWD | 7.4 | 3.41 | 3.30 | 3.22 | 3.07 | 3.34 | **16.34** | 15.60 | 0.43 | 0.37 | 0.78 | 0/8 |  | — |
 
