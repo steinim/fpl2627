@@ -1,14 +1,13 @@
 # Forventede poeng — generert
 
-*Generert 08.11.2026 kl. 18:49 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–9 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
+*Generert 08.11.2026 kl. 23:44 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–9 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
-- ✅ Rundedata GW1–9 summerer til sesongtotalene for 0 spillere, 19 felt; 671 spillere på lag som har spilt i GW10 er kontrollert mot grunnlaget pluss live-fila
-- ✅ Speilet hentet 08.11.2026 18:29 UTC, 0.3 t gammelt ved kjøring
+- ✅ Rundedata GW1–9 summerer til sesongtotalene for 0 spillere, 19 felt; 672 spillere på lag som har spilt i GW10 er kontrollert mot grunnlaget pluss live-fila
+- ✅ Speilet hentet 08.11.2026 23:07 UTC, 0.6 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
-- ⚠️ 19 spillere på lag som har spilt i GW10 avviker fra grunnlaget pluss live-fila — runden er ikke ferdig, og bootstrap og live-fila hentes hver for seg. Brukes ikke i modellen: Pau goals_conceded: sesong 10, runder 11; Pau bps: sesong 12, runder 8; Pau total_points: sesong 11, runder 10
 
 ## Modell og estimerte parametre
 
