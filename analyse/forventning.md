@@ -1,13 +1,14 @@
 # Forventede poeng — generert
 
-*Generert 08.11.2026 kl. 08:57 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–9 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
+*Generert 08.11.2026 kl. 18:49 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–9 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
-- ✅ Rundedata GW1–9 summerer til sesongtotalene for 340 spillere, 19 felt; 331 spillere på lag som har spilt i GW10 er kontrollert mot grunnlaget pluss live-fila
-- ✅ Speilet hentet 08.11.2026 07:57 UTC, 1.0 t gammelt ved kjøring
+- ✅ Rundedata GW1–9 summerer til sesongtotalene for 0 spillere, 19 felt; 671 spillere på lag som har spilt i GW10 er kontrollert mot grunnlaget pluss live-fila
+- ✅ Speilet hentet 08.11.2026 18:29 UTC, 0.3 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
+- ⚠️ 19 spillere på lag som har spilt i GW10 avviker fra grunnlaget pluss live-fila — runden er ikke ferdig, og bootstrap og live-fila hentes hver for seg. Brukes ikke i modellen: Pau goals_conceded: sesong 10, runder 11; Pau bps: sesong 12, runder 8; Pau total_points: sesong 11, runder 10
 
 ## Modell og estimerte parametre
 
@@ -143,7 +144,6 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Haaland ★ | MCI | FWD | 15.8 | 6.13 | 4.39 | 5.73 | 5.33 | 5.70 | **27.27** | 25.81 | 0.83 | 0.75 | 1.00 | 0/9 | 1 | første straffeskytter (penalties_order 1) |
 | Barry ★ | EVE | FWD | 5.7 | 4.88 | 4.83 | 4.74 | 5.05 | 4.47 | **23.98** | 22.07 | 0.80 | 0.69 | 1.00 | 0/9 | 1 | første straffeskytter (penalties_order 1) |
-| Thiago | BRE | FWD | 7.8 | 4.82 | 4.28 | 3.69 | 4.24 | 4.08 | **21.11** | 19.98 | 0.60 | 0.53 | 1.00 | 0/9 | 1 | første straffeskytter (penalties_order 1) |
 | Isak | LIV | FWD | 9.2 | 4.39 | 3.97 | 4.26 | 3.78 | 4.01 | **20.41** | 19.40 | 0.63 | 0.56 | 0.89 | 0/8 | 2 | UAVKLART FRAVÆR GW6 — telt som ikke-start; før årsaken i context/fravaer.csv |
 | Evanilson ★ | BOU | FWD | 6.5 | 4.28 | 3.97 | 4.16 | 4.37 | 3.18 | **19.96** | 17.83 | 0.55 | 0.42 | 1.00 | 0/9 |  | — |
 | Gonzalo | FUL | FWD | 5.9 | 3.84 | 4.21 | 3.74 | 3.90 | 4.17 | **19.86** | 18.69 | 0.56 | 0.49 | 1.00 | 0/9 | 1 | første straffeskytter (penalties_order 1) |
@@ -151,6 +151,7 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | N.Jackson | AVL | FWD | 7.1 | 3.79 | 3.63 | 3.65 | 3.80 | 3.36 | **18.23** | 17.37 | 0.43 | 0.38 | 1.00 | 0/8 | 3 | — |
 | Delap | NFO | FWD | 5.3 | 3.49 | 3.72 | 3.52 | 3.55 | 3.33 | **17.61** | 15.99 | 0.49 | 0.37 | 0.97 | 0/7 | 3 | — |
 | Havertz | ARS | FWD | 7.4 | 3.41 | 3.30 | 3.22 | 3.07 | 3.34 | **16.34** | 15.60 | 0.43 | 0.37 | 0.78 | 0/8 |  | — |
+| Kostoulas | BHA | FWD | 5.8 | 3.17 | 3.36 | 2.86 | 2.81 | 3.07 | **15.27** | 14.78 | 0.35 | 0.32 | 0.98 | 0/8 |  | — |
 
 ## Uavklart fravær i troppen og valgte spillere
 
