@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 10.11.2026 kl. 09:46 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–10 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
+*Generert 10.11.2026 kl. 20:49 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–10 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–10 summerer til sesongtotalene for alle 672 spillere, 19 felt
-- ✅ Speilet hentet 10.11.2026 08:49 UTC, 1.0 t gammelt ved kjøring
+- ✅ Speilet hentet 10.11.2026 20:36 UTC, 0.2 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -149,8 +149,8 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Calvert-Lewin | LEE | FWD | 6.0 | 3.90 | 4.31 | 3.49 | 4.31 | 3.45 | **19.46** | 18.61 | 0.48 | 0.43 | 1.00 | 0/10 | 1 | første straffeskytter (penalties_order 1) |
 | Gonzalo | FUL | FWD | 5.9 | 3.71 | 4.08 | 3.63 | 3.75 | 4.00 | **19.17** | 18.09 | 0.53 | 0.46 | 1.00 | 0/10 | 1 | første straffeskytter (penalties_order 1) |
 | Delap | NFO | FWD | 5.3 | 3.54 | 3.82 | 3.52 | 3.51 | 3.30 | **17.68** | 16.14 | 0.46 | 0.35 | 0.98 | 0/8 | 3 | — |
-| Brobbey | SUN | FWD | 5.7 | 3.52 | 3.47 | 3.07 | 3.27 | 3.33 | **16.66** | 12.95 | 0.63 | 0.33 | 0.82 | 0/8 |  | UAVKLART FRAVÆR GW6, GW7 — telt som ikke-start; før årsaken i context/fravaer.csv | én kamp (GW5) står for 55% av xGI |
 | Havertz | ARS | FWD | 7.4 | 3.35 | 3.25 | 3.16 | 3.01 | 3.26 | **16.03** | 15.26 | 0.40 | 0.34 | 0.85 | 0/9 |  | — |
+| Brobbey | SUN | FWD | 5.7 | 2.64 | 3.47 | 3.07 | 3.27 | 3.33 | **15.78** | 12.27 | 0.63 | 0.33 | 0.82 | 0/8 |  | UAVKLART FRAVÆR GW6, GW7 — telt som ikke-start; før årsaken i context/fravaer.csv | én kamp (GW5) står for 55% av xGI | GW11: FPL-sjanse 75 % |
 
 ## Uavklart fravær i troppen og valgte spillere
 
