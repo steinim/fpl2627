@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 10.11.2026 kl. 20:49 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–10 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
+*Generert 11.11.2026 kl. 09:21 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–10 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–10 summerer til sesongtotalene for alle 672 spillere, 19 felt
-- ✅ Speilet hentet 10.11.2026 20:36 UTC, 0.2 t gammelt ved kjøring
+- ✅ Speilet hentet 11.11.2026 08:22 UTC, 1.0 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -64,7 +64,7 @@ Bytter gjort etter GW10-deadline vises ikke.
 
 | Spiller | Lag | Pos | Pris | GW11 | GW12 | GW13 | GW14 | GW15 | Sum | Robust | xGI/90 | Uten beste | Start | DC | Str | Flagg |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Verbruggen ★ | BHA | GKP | 4.6 | 3.18 | 3.05 | 2.61 | 2.68 | 2.93 | **14.45** | 14.17 | 0.02 | 0.00 | 1.00 |  |  | — |
+| Verbruggen ★ | BHA | GKP | 4.7 | 3.18 | 3.05 | 2.61 | 2.68 | 2.93 | **14.45** | 14.17 | 0.02 | 0.00 | 1.00 |  |  | — |
 | Kinsky ★ | TOT | GKP | 4.4 | 3.05 | 2.64 | 2.89 | 2.58 | 2.83 | **13.99** | 13.99 | 0.00 | 0.00 | 1.00 |  |  | — |
 | Calafiori ★ | ARS | DEF | 5.9 | 3.61 | 3.35 | 3.22 | 3.54 | 3.41 | **17.12** | 16.34 | 0.26 | 0.21 | 0.85 | 0/9 |  | — |
 | Davis ★ | IPS | DEF | 4.0 | 2.94 | 3.10 | 2.96 | 2.50 | 3.03 | **14.53** | 13.55 | 0.23 | 0.18 | 1.00 | 0/10 |  | — |
@@ -94,7 +94,7 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Suzuki | AVL | GKP | 5.0 | 3.19 | 3.01 | 3.01 | 2.85 | 2.85 | **14.90** | 14.89 | 0.00 | 0.00 | 0.99 |  |  | UAVKLART FRAVÆR GW1 — telt som ikke-start; før årsaken i context/fravaer.csv |
 | Horníček | NEW | GKP | 5.0 | 3.08 | 2.92 | 2.92 | 2.97 | 2.90 | **14.80** | 14.80 | 0.00 | 0.00 | 1.00 |  |  | — |
 | Lammens | MUN | GKP | 4.8 | 2.95 | 2.98 | 2.91 | 3.13 | 2.77 | **14.75** | 14.70 | 0.00 | 0.00 | 1.00 |  |  | — |
-| Verbruggen ★ | BHA | GKP | 4.6 | 3.18 | 3.05 | 2.61 | 2.68 | 2.93 | **14.45** | 14.17 | 0.02 | 0.00 | 1.00 |  |  | — |
+| Verbruggen ★ | BHA | GKP | 4.7 | 3.18 | 3.05 | 2.61 | 2.68 | 2.93 | **14.45** | 14.17 | 0.02 | 0.00 | 1.00 |  |  | — |
 | Donnarumma | MCI | GKP | 5.4 | 3.21 | 2.71 | 2.98 | 2.64 | 2.77 | **14.30** | 14.30 | 0.00 | 0.00 | 1.00 |  |  | — |
 
 ### DEF

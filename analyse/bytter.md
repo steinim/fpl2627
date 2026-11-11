@@ -1,12 +1,12 @@
 # Byttepakker — generert
 
-*Generert 10.11.2026 kl. 20:49 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW11–15. Bytter vurderes i GW11 og GW12. Maks minuspoeng per runde: 0.*
+*Generert 11.11.2026 kl. 09:21 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW11–15. Bytter vurderes i GW11 og GW12. Maks minuspoeng per runde: 0.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–10 summerer til sesongtotalene for alle 672 spillere, 19 felt
-- ✅ Speilet hentet 10.11.2026 20:36 UTC, 0.2 t gammelt ved kjøring
+- ✅ Speilet hentet 11.11.2026 08:22 UTC, 1.0 t gammelt ved kjøring
 - ✅ Bytteregler i API-et stemmer med 05 og skriptet: maks 3 per klubb, maks 5 frikjøp, halve prisstigningen ved salg, tropp på 15
 - ✅ Bank regnet fra 8 overganger stemmer med historikken i alle 10 runder
 - ✅ Frikjøp til GW11: 2. Kostnaden i hver runde stemmer med historikken
@@ -19,21 +19,21 @@ Bank **£4.7m**, frikjøp **2**. Salgspris etter regelen i `05`.
 
 | Spiller | Lag | Pos | Nå | Kjøpt | Salgspris | Sum GW11–15 | Robust | P(spiller) GW11 | Eid |
 |---|---|---|---|---|---|---|---|---|---|
-| Verbruggen | BHA | GKP | £4.6m | £4.5m | £4.5m | 14.45 | 14.17 | 0.93 | 23.9 % |
+| Verbruggen | BHA | GKP | £4.7m | £4.5m | £4.6m | 14.45 | 14.17 | 0.93 | 23.9 % |
 | Kinsky | TOT | GKP | £4.4m | £4.5m | £4.4m | 13.99 | 13.99 | 0.93 | 15.6 % |
 | Calafiori | ARS | DEF | £5.9m | £5.5m | £5.7m | 17.12 | 16.34 | 0.93 | 48.7 % |
 | Davis | IPS | DEF | £4.0m | £4.0m | £4.0m | 14.53 | 13.55 | 0.93 | 6.6 % |
 | Diop | IPS | DEF | £3.9m | £4.0m | £3.9m | 14.27 | 14.15 | 0.93 | 9.9 % |
 | Egan | HUL | DEF | £4.1m | £4.1m | £4.1m | 13.99 | 13.80 | 0.93 | 6.6 % |
-| Thomas (COV) | COV | DEF | £4.0m | £4.0m | £4.0m | 10.73 | 10.29 | 0.29 | 7.4 % |
+| Thomas (COV) | COV | DEF | £4.0m | £4.0m | £4.0m | 10.73 | 10.29 | 0.29 | 7.3 % |
 | Mbeumo | MUN | MID | £7.9m | £8.0m | £7.9m | 23.85 | 20.79 | 0.93 | 19.2 % |
 | B.Fernandes | MUN | MID | £11.6m | £12.0m | £11.6m | 23.57 | 19.91 | 0.80 | 20.4 % |
-| Tavernier | BOU | MID | £6.7m | £6.4m | £6.5m | 22.11 | 20.29 | 0.93 | 31.2 % |
+| Tavernier | BOU | MID | £6.7m | £6.4m | £6.5m | 22.11 | 20.29 | 0.93 | 31.3 % |
 | Groß | BHA | MID | £6.3m | £6.1m | £6.2m | 20.64 | 18.52 | 0.93 | 48.0 % |
 | Slater | HUL | MID | £4.5m | £4.5m | £4.5m | 11.93 | 11.45 | 0.93 | 4.3 % |
 | Haaland | MCI | FWD | £15.8m | £15.5m | £15.6m | 27.01 | 25.61 | 0.93 | 78.9 % |
 | Barry | EVE | FWD | £5.7m | £5.7m | £5.7m | 24.87 | 23.11 | 0.93 | 10.6 % |
-| Evanilson | BOU | FWD | £6.5m | £6.3m | £6.4m | 20.96 | 19.06 | 0.93 | 23.5 % |
+| Evanilson | BOU | FWD | £6.5m | £6.3m | £6.4m | 20.96 | 19.06 | 0.93 | 23.6 % |
 
 ## Spar — ingen bytter
 
@@ -41,7 +41,7 @@ Lagets forventede poeng: **271.96** over horisonten (robust 251.11). Per runde: 
 
 GW11: elleveren 46.28 + kapteinsledd 6.45 (Haaland, vise Barry) + innbytterledd 2.43. Benk: Kinsky, Egan, Slater, Thomas (COV).
 
-## Beste planer (49536 lovlige av 62428 vurderte)
+## Beste planer (49539 lovlige av 62428 vurderte)
 
 Endring = forventede poeng mot å spare, over hele horisonten, etter minuspoeng.
 
@@ -69,7 +69,7 @@ Svarer på «bør X selges?»: den beste lovlige planen der spilleren går ut, m
 
 | Plan | Minus | Endring GW11–15 | Robust endring | Endring GW11 | Bank etter GW11 | Bank etter GW12 | Klubber med 3 |
 |---|---|---|---|---|---|---|---|
-| **Verbruggen ut:** GW11: Slater → E.Le Fée, Thomas (COV) → De Cuyper · GW12: Verbruggen → Trafford | 0 | **+14.14** | +11.28 | +2.50 | £2.0m | £1.5m | — |
+| **Verbruggen ut:** GW11: Slater → E.Le Fée, Thomas (COV) → De Cuyper · GW12: Verbruggen → Trafford | 0 | **+14.14** | +11.28 | +2.50 | £2.0m | £1.6m | — |
 | **Kinsky ut:** GW11: Slater → E.Le Fée, Thomas (COV) → De Cuyper · GW12: Kinsky → Trafford | 0 | **+14.18** | +11.29 | +2.50 | £2.0m | £1.4m | BHA |
 | **Calafiori ut:** GW11: Slater → E.Le Fée, Thomas (COV) → Van Hecke · GW12: Calafiori → Gabriel | 0 | **+15.03** | +12.96 | +2.64 | £2.4m | £0.0m | — |
 | **Davis ut:** GW11: Slater → E.Le Fée, Thomas (COV) → De Cuyper · GW12: Davis → Murillo | 0 | **+16.09** | +13.23 | +2.50 | £2.0m | £0.5m | BHA |
@@ -90,21 +90,21 @@ Svarer på «bør X selges?»: den beste lovlige planen der spilleren går ut, m
 **GW11: Slater → E.Le Fée, Thomas (COV) → De Cuyper · GW12: Diop → Murillo**
 
 - Klubber etter: BHA 3 · BOU 2 · MUN 2 · ARS 1 · EVE 1 · HUL 1 · IPS 1 · MCI 1 · NFO 1 · SUN 1 · TOT 1
-- Keeper- og forsvarsbudsjett (nåpris): £30.9m → £34.0m. Topplagsandelen regnes ikke — `01` har erklært den utløpt som styringstall.
+- Keeper- og forsvarsbudsjett (nåpris): £31.0m → £34.1m. Topplagsandelen regnes ikke — `01` har erklært den utløpt som styringstall.
 - Bank: £4.7m → £2.0m etter GW11 → £0.4m etter GW12
 - Endring per runde: GW11 +2.50, GW12 +4.04, GW13 +2.50, GW14 +3.81, GW15 +3.33
 
 **GW11: Slater → E.Le Fée, Thomas (COV) → De Cuyper · GW12: Egan → Murillo**
 
 - Klubber etter: BHA 3 · BOU 2 · IPS 2 · MUN 2 · ARS 1 · EVE 1 · MCI 1 · NFO 1 · SUN 1 · TOT 1
-- Keeper- og forsvarsbudsjett (nåpris): £30.9m → £33.8m. Topplagsandelen regnes ikke — `01` har erklært den utløpt som styringstall.
+- Keeper- og forsvarsbudsjett (nåpris): £31.0m → £33.9m. Topplagsandelen regnes ikke — `01` har erklært den utløpt som styringstall.
 - Bank: £4.7m → £2.0m etter GW11 → £0.6m etter GW12
 - Endring per runde: GW11 +2.50, GW12 +4.07, GW13 +2.50, GW14 +3.84, GW15 +3.23
 
 **GW11: Slater → E.Le Fée, Thomas (COV) → Van Hecke · GW12: Diop → Murillo**
 
 - Klubber etter: BHA 2 · BOU 2 · MUN 2 · TOT 2 · ARS 1 · EVE 1 · HUL 1 · IPS 1 · MCI 1 · NFO 1 · SUN 1
-- Keeper- og forsvarsbudsjett (nåpris): £30.9m → £33.6m. Topplagsandelen regnes ikke — `01` har erklært den utløpt som styringstall.
+- Keeper- og forsvarsbudsjett (nåpris): £31.0m → £33.7m. Topplagsandelen regnes ikke — `01` har erklært den utløpt som styringstall.
 - Bank: £4.7m → £2.4m etter GW11 → £0.8m etter GW12
 - Endring per runde: GW11 +2.64, GW12 +3.29, GW13 +3.33, GW14 +3.73, GW15 +3.11
 
@@ -115,14 +115,14 @@ Flaggene kommer fra `forventning.py`. Én kamp som bærer xGI-en, slår ut i rob
 | Spiller | Lag | Pos | Pris | Eid | Sum GW11–15 | Robust | P(spiller) GW11 | Flagg |
 |---|---|---|---|---|---|---|---|---|
 | Trafford | LEE | GKP | £5.0m | 6.4 % | 16.47 | 16.45 | 0.93 | — |
-| Gabriel | ARS | DEF | £8.1m | 26.0 % | 20.46 | 19.71 | 0.93 | — |
+| Gabriel | ARS | DEF | £8.1m | 26.1 % | 20.46 | 19.71 | 0.93 | — |
 | De Cuyper | BHA | DEF | £5.5m | 47.7 % | 19.40 | 16.64 | 0.93 | — |
 | Van Hecke | TOT | DEF | £5.1m | 14.5 % | 19.32 | 17.59 | 0.93 | — |
 | Murillo | NFO | DEF | £5.5m | 2.0 % | 18.73 | 18.27 | 0.93 | — |
 | E.Le Fée | SUN | MID | £5.7m | 2.7 % | 23.11 | 21.04 | 0.93 | — |
 | Gibbs-White | NFO | MID | £7.8m | 9.3 % | 22.54 | 21.59 | 0.93 | første straffeskytter (penalties_order 1) |
 | Isak | LIV | FWD | £9.3m | 25.0 % | 21.46 | 20.42 | 0.86 | UAVKLART FRAVÆR GW6 — telt som ikke-start; før årsaken i context/fravaer.csv |
-| N.Jackson | AVL | FWD | £7.1m | 30.8 % | 20.82 | 18.88 | 0.93 | — |
+| N.Jackson | AVL | FWD | £7.1m | 30.9 % | 20.82 | 18.88 | 0.93 | — |
 
 ## Søkets omfang og forutsetninger
 
