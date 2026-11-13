@@ -1,12 +1,12 @@
 # Byttepakker — generert
 
-*Generert 12.11.2026 kl. 21:28 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW11–15. Bytter vurderes i GW11 og GW12. Maks minuspoeng per runde: 0.*
+*Generert 13.11.2026 kl. 09:29 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW11–15. Bytter vurderes i GW11 og GW12. Maks minuspoeng per runde: 0.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–10 summerer til sesongtotalene for alle 672 spillere, 19 felt
-- ✅ Speilet hentet 12.11.2026 21:05 UTC, 0.4 t gammelt ved kjøring
+- ✅ Speilet hentet 13.11.2026 08:44 UTC, 0.7 t gammelt ved kjøring
 - ✅ Bytteregler i API-et stemmer med 05 og skriptet: maks 3 per klubb, maks 5 frikjøp, halve prisstigningen ved salg, tropp på 15
 - ✅ Bank regnet fra 8 overganger stemmer med historikken i alle 10 runder
 - ✅ Frikjøp til GW11: 2. Kostnaden i hver runde stemmer med historikken
@@ -117,7 +117,7 @@ Flaggene kommer fra `forventning.py`. Én kamp som bærer xGI-en, slår ut i rob
 | Trafford | LEE | GKP | £5.0m | 6.5 % | 16.47 | 16.45 | 0.93 | — |
 | Gabriel | ARS | DEF | £8.1m | 26.1 % | 20.46 | 19.71 | 0.93 | — |
 | De Cuyper | BHA | DEF | £5.5m | 47.8 % | 19.40 | 16.64 | 0.93 | — |
-| Van Hecke | TOT | DEF | £5.1m | 14.6 % | 19.32 | 17.59 | 0.93 | — |
+| Van Hecke | TOT | DEF | £5.1m | 14.7 % | 19.32 | 17.59 | 0.93 | — |
 | Murillo | NFO | DEF | £5.5m | 2.0 % | 18.73 | 18.27 | 0.93 | — |
 | E.Le Fée | SUN | MID | £5.7m | 2.8 % | 23.11 | 21.04 | 0.93 | — |
 | Gibbs-White | NFO | MID | £7.8m | 9.3 % | 22.54 | 21.59 | 0.93 | første straffeskytter (penalties_order 1) |
