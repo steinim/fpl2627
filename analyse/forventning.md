@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 12.11.2026 kl. 21:28 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–10 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
+*Generert 13.11.2026 kl. 20:54 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–10 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–10 summerer til sesongtotalene for alle 672 spillere, 19 felt
-- ✅ Speilet hentet 12.11.2026 21:05 UTC, 0.4 t gammelt ved kjøring
+- ✅ Speilet hentet 13.11.2026 20:38 UTC, 0.3 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -123,14 +123,14 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Mbeumo ★ | MUN | MID | 7.9 | 4.43 | 5.02 | 4.63 | 5.09 | 4.67 | **23.85** | 20.79 | 0.60 | 0.44 | 1.00 | 0/10 | 2 | — |
 | B.Fernandes ★ | MUN | MID | 11.6 | 4.26 | 4.94 | 4.58 | 5.10 | 4.69 | **23.57** | 19.91 | 0.68 | 0.45 | 0.85 | 0/9 | 1 | første straffeskytter (penalties_order 1) |
-| E.Le Fée | SUN | MID | 5.7 | 4.84 | 4.87 | 4.25 | 4.54 | 4.62 | **23.11** | 21.04 | 0.59 | 0.49 | 1.00 | 1/10 | 2 | — |
+| E.Le Fée | SUN | MID | 5.7 | 4.84 | 4.87 | 4.25 | 4.54 | 4.62 | **23.11** | 21.04 | 0.59 | 0.49 | 1.00 | 1/10 | 1 | første straffeskytter (penalties_order 1) |
 | Gibbs-White | NFO | MID | 7.8 | 4.41 | 4.84 | 4.55 | 4.49 | 4.25 | **22.54** | 21.59 | 0.54 | 0.48 | 1.00 | 0/9 | 1 | første straffeskytter (penalties_order 1) |
 | Tavernier ★ | BOU | MID | 6.7 | 4.83 | 4.39 | 4.53 | 4.88 | 3.49 | **22.11** | 20.29 | 0.61 | 0.51 | 1.00 | 1/10 | 3 | — |
 | Ødegaard | ARS | MID | 6.7 | 4.39 | 4.19 | 4.04 | 3.92 | 4.16 | **20.70** | 18.56 | 0.53 | 0.40 | 1.00 | 0/10 | 3 | — |
 | Groß ★ | BHA | MID | 6.3 | 4.31 | 4.55 | 3.78 | 3.74 | 4.26 | **20.64** | 18.52 | 0.54 | 0.42 | 1.00 | 0/10 | 1 | første straffeskytter (penalties_order 1) |
 | Rogers | CHE | MID | 8.2 | 4.41 | 3.90 | 4.63 | 4.02 | 3.54 | **20.49** | 19.40 | 0.47 | 0.39 | 1.00 | 1/10 |  | — |
 | Palmer | CHE | MID | 9.8 | 4.23 | 3.74 | 4.43 | 3.86 | 3.39 | **19.65** | 18.30 | 0.38 | 0.31 | 1.00 | 0/10 | 1 | første straffeskytter (penalties_order 1) |
-| McGinn | AVL | MID | 5.4 | 4.02 | 3.81 | 3.89 | 4.03 | 3.56 | **19.30** | 17.74 | 0.46 | 0.38 | 0.89 | 0/9 | 2 | — |
+| McGinn | AVL | MID | 5.4 | 4.02 | 3.81 | 3.89 | 4.03 | 3.56 | **19.30** | 17.74 | 0.46 | 0.38 | 0.89 | 0/9 | 1 | første straffeskytter (penalties_order 1) |
 | Rudoni | COV | MID | 4.9 | 4.34 | 3.55 | 4.08 | 3.47 | 3.79 | **19.22** | 17.76 | 0.48 | 0.39 | 0.99 | 1/9 | 1 | første straffeskytter (penalties_order 1) |
 | Enciso | IPS | MID | 5.5 | 3.56 | 3.97 | 3.61 | 3.33 | 3.79 | **18.27** | 17.56 | 0.46 | 0.41 | 1.00 | 0/10 |  | — |
 | Iwobi | FUL | MID | 5.4 | 3.53 | 3.84 | 3.54 | 3.59 | 3.76 | **18.26** | 17.01 | 0.47 | 0.38 | 1.00 | 0/10 | 3 | — |
