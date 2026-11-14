@@ -1,12 +1,12 @@
 # Byttepakker — generert
 
-*Generert 14.11.2026 kl. 08:56 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW11–15. Bytter vurderes i GW11 og GW12. Maks minuspoeng per runde: 0.*
+*Generert 14.11.2026 kl. 19:10 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW11–15. Bytter vurderes i GW11 og GW12. Maks minuspoeng per runde: 0.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–10 summerer til sesongtotalene for alle 672 spillere, 19 felt
-- ✅ Speilet hentet 14.11.2026 07:59 UTC, 1.0 t gammelt ved kjøring
+- ✅ Speilet hentet 14.11.2026 18:50 UTC, 0.3 t gammelt ved kjøring
 - ✅ Bytteregler i API-et stemmer med 05 og skriptet: maks 3 per klubb, maks 5 frikjøp, halve prisstigningen ved salg, tropp på 15
 - ✅ Bank regnet fra 8 overganger stemmer med historikken i alle 10 runder
 - ✅ Frikjøp til GW11: 2. Kostnaden i hver runde stemmer med historikken
@@ -26,9 +26,9 @@ Bank **£4.7m**, frikjøp **2**. Salgspris etter regelen i `05`.
 | Diop | IPS | DEF | £3.9m | £4.0m | £3.9m | 14.27 | 14.15 | 0.93 | 9.8 % |
 | Egan | HUL | DEF | £4.1m | £4.1m | £4.1m | 13.99 | 13.80 | 0.93 | 6.6 % |
 | Thomas (COV) | COV | DEF | £4.0m | £4.0m | £4.0m | 10.73 | 10.29 | 0.29 | 7.3 % |
-| Mbeumo | MUN | MID | £7.9m | £8.0m | £7.9m | 23.85 | 20.79 | 0.93 | 19.1 % |
+| Mbeumo | MUN | MID | £7.9m | £8.0m | £7.9m | 23.85 | 20.79 | 0.93 | 19.0 % |
 | B.Fernandes | MUN | MID | £11.6m | £12.0m | £11.6m | 23.57 | 19.91 | 0.80 | 20.4 % |
-| Tavernier | BOU | MID | £6.7m | £6.4m | £6.5m | 22.11 | 20.29 | 0.93 | 31.4 % |
+| Tavernier | BOU | MID | £6.7m | £6.4m | £6.5m | 22.11 | 20.29 | 0.93 | 31.5 % |
 | Groß | BHA | MID | £6.3m | £6.1m | £6.2m | 20.64 | 18.52 | 0.93 | 48.1 % |
 | Slater | HUL | MID | £4.5m | £4.5m | £4.5m | 11.93 | 11.45 | 0.93 | 4.3 % |
 | Haaland | MCI | FWD | £15.8m | £15.5m | £15.6m | 27.01 | 25.61 | 0.93 | 78.8 % |
@@ -117,7 +117,7 @@ Flaggene kommer fra `forventning.py`. Én kamp som bærer xGI-en, slår ut i rob
 | Trafford | LEE | GKP | £5.0m | 6.5 % | 16.47 | 16.45 | 0.93 | — |
 | Gabriel | ARS | DEF | £8.1m | 26.2 % | 20.46 | 19.71 | 0.93 | — |
 | De Cuyper | BHA | DEF | £5.5m | 47.9 % | 19.40 | 16.64 | 0.93 | — |
-| Van Hecke | TOT | DEF | £5.1m | 14.7 % | 19.32 | 17.59 | 0.93 | — |
+| Van Hecke | TOT | DEF | £5.1m | 14.8 % | 19.32 | 17.59 | 0.93 | — |
 | Murillo | NFO | DEF | £5.5m | 2.0 % | 18.73 | 18.27 | 0.93 | — |
 | E.Le Fée | SUN | MID | £5.7m | 2.8 % | 23.11 | 21.04 | 0.93 | første straffeskytter (penalties_order 1) |
 | Gibbs-White | NFO | MID | £7.8m | 9.3 % | 22.54 | 21.59 | 0.93 | første straffeskytter (penalties_order 1) |
