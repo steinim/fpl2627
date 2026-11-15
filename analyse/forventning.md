@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 14.11.2026 kl. 19:10 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–10 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
+*Generert 15.11.2026 kl. 09:21 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–10 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–10 summerer til sesongtotalene for alle 672 spillere, 19 felt
-- ✅ Speilet hentet 14.11.2026 18:50 UTC, 0.3 t gammelt ved kjøring
+- ✅ Speilet hentet 15.11.2026 08:26 UTC, 0.9 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -108,7 +108,7 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Murillo | NFO | DEF | 5.5 | 3.50 | 3.94 | 4.13 | 3.61 | 3.54 | **18.73** | 18.27 | 0.19 | 0.17 | 1.00 | 7/10 |  | — |
 | Hill | BOU | DEF | 5.6 | 3.91 | 3.63 | 3.43 | 4.19 | 2.94 | **18.09** | 17.26 | 0.13 | 0.06 | 1.00 | 6/10 |  | én kamp (GW2) står for 56% av xGI |
 | Vuskovic | BHA | DEF | 5.3 | 3.99 | 3.92 | 3.03 | 3.21 | 3.75 | **17.90** | 17.32 | 0.15 | 0.11 | 1.00 | 4/10 |  | — |
-| Konsa | ARS | DEF | 4.8 | 3.97 | 3.55 | 3.33 | 3.61 | 3.35 | **17.81** | 17.17 | 0.08 | 0.04 | 0.97 | 4/8 |  | UAVKLART FRAVÆR GW1 — telt som ikke-start; før årsaken i context/fravaer.csv |
+| Konsa | ARS | DEF | 4.9 | 3.97 | 3.55 | 3.33 | 3.61 | 3.35 | **17.81** | 17.17 | 0.08 | 0.04 | 0.97 | 4/8 |  | UAVKLART FRAVÆR GW1 — telt som ikke-start; før årsaken i context/fravaer.csv |
 | Muharemović | LEE | DEF | 5.1 | 3.39 | 4.23 | 2.97 | 3.92 | 3.10 | **17.61** | 16.97 | 0.09 | 0.05 | 1.00 | 7/10 |  | — |
 | Calafiori ★ | ARS | DEF | 5.9 | 3.61 | 3.35 | 3.22 | 3.54 | 3.41 | **17.12** | 16.34 | 0.26 | 0.21 | 0.85 | 0/9 |  | — |
 | Jacquet | LIV | DEF | 5.1 | 3.44 | 3.44 | 3.58 | 3.00 | 3.49 | **16.95** | 16.53 | 0.08 | 0.06 | 1.00 | 5/10 |  | — |

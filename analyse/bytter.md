@@ -1,12 +1,12 @@
 # Byttepakker — generert
 
-*Generert 14.11.2026 kl. 23:55 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW11–15. Bytter vurderes i GW11 og GW12. Maks minuspoeng per runde: 0.*
+*Generert 15.11.2026 kl. 09:21 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW11–15. Bytter vurderes i GW11 og GW12. Maks minuspoeng per runde: 0.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–10 summerer til sesongtotalene for alle 672 spillere, 19 felt
-- ✅ Speilet hentet 14.11.2026 23:22 UTC, 0.6 t gammelt ved kjøring
+- ✅ Speilet hentet 15.11.2026 08:26 UTC, 0.9 t gammelt ved kjøring
 - ✅ Bytteregler i API-et stemmer med 05 og skriptet: maks 3 per klubb, maks 5 frikjøp, halve prisstigningen ved salg, tropp på 15
 - ✅ Bank regnet fra 8 overganger stemmer med historikken i alle 10 runder
 - ✅ Frikjøp til GW11: 2. Kostnaden i hver runde stemmer med historikken
@@ -29,7 +29,7 @@ Bank **£4.7m**, frikjøp **2**. Salgspris etter regelen i `05`.
 | Mbeumo | MUN | MID | £7.9m | £8.0m | £7.9m | 23.85 | 20.79 | 0.93 | 19.0 % |
 | B.Fernandes | MUN | MID | £11.6m | £12.0m | £11.6m | 23.57 | 19.91 | 0.80 | 20.3 % |
 | Tavernier | BOU | MID | £6.7m | £6.4m | £6.5m | 22.11 | 20.29 | 0.93 | 31.5 % |
-| Groß | BHA | MID | £6.3m | £6.1m | £6.2m | 20.64 | 18.52 | 0.93 | 48.1 % |
+| Groß | BHA | MID | £6.3m | £6.1m | £6.2m | 20.64 | 18.52 | 0.93 | 48.2 % |
 | Slater | HUL | MID | £4.5m | £4.5m | £4.5m | 11.93 | 11.45 | 0.93 | 4.3 % |
 | Haaland | MCI | FWD | £15.8m | £15.5m | £15.6m | 27.01 | 25.61 | 0.93 | 78.8 % |
 | Barry | EVE | FWD | £5.7m | £5.7m | £5.7m | 24.87 | 23.11 | 0.93 | 10.8 % |
@@ -41,7 +41,7 @@ Lagets forventede poeng: **271.96** over horisonten (robust 251.11). Per runde: 
 
 GW11: elleveren 46.28 + kapteinsledd 6.45 (Haaland, vise Barry) + innbytterledd 2.43. Benk: Kinsky, Egan, Slater, Thomas (COV).
 
-## Beste planer (49507 lovlige av 62462 vurderte)
+## Beste planer (49504 lovlige av 62462 vurderte)
 
 Endring = forventede poeng mot å spare, over hele horisonten, etter minuspoeng.
 
