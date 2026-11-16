@@ -1,12 +1,12 @@
 # Byttepakker — generert
 
-*Generert 15.11.2026 kl. 19:46 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW11–15. Bytter vurderes i GW11 og GW12. Maks minuspoeng per runde: 0.*
+*Generert 16.11.2026 kl. 09:38 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW11–15. Bytter vurderes i GW11 og GW12. Maks minuspoeng per runde: 0.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–10 summerer til sesongtotalene for alle 672 spillere, 19 felt
-- ✅ Speilet hentet 15.11.2026 19:27 UTC, 0.3 t gammelt ved kjøring
+- ✅ Speilet hentet 16.11.2026 08:34 UTC, 1.1 t gammelt ved kjøring
 - ✅ Bytteregler i API-et stemmer med 05 og skriptet: maks 3 per klubb, maks 5 frikjøp, halve prisstigningen ved salg, tropp på 15
 - ✅ Bank regnet fra 8 overganger stemmer med historikken i alle 10 runder
 - ✅ Frikjøp til GW11: 2. Kostnaden i hver runde stemmer med historikken
@@ -122,7 +122,7 @@ Flaggene kommer fra `forventning.py`. Én kamp som bærer xGI-en, slår ut i rob
 | E.Le Fée | SUN | MID | £5.7m | 2.8 % | 23.11 | 21.04 | 0.93 | første straffeskytter (penalties_order 1) |
 | Gibbs-White | NFO | MID | £7.8m | 9.2 % | 22.54 | 21.59 | 0.93 | første straffeskytter (penalties_order 1) |
 | Isak | LIV | FWD | £9.3m | 25.2 % | 21.46 | 20.42 | 0.86 | UAVKLART FRAVÆR GW6 — telt som ikke-start; før årsaken i context/fravaer.csv |
-| N.Jackson | AVL | FWD | £7.1m | 31.4 % | 20.82 | 18.88 | 0.93 | — |
+| N.Jackson | AVL | FWD | £7.1m | 31.5 % | 20.82 | 18.88 | 0.93 | — |
 
 ## Søkets omfang og forutsetninger
 
