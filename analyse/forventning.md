@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 16.11.2026 kl. 09:38 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–10 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
+*Generert 16.11.2026 kl. 23:23 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–10 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–10 summerer til sesongtotalene for alle 672 spillere, 19 felt
-- ✅ Speilet hentet 16.11.2026 08:34 UTC, 1.1 t gammelt ved kjøring
+- ✅ Speilet hentet 16.11.2026 23:01 UTC, 0.4 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -115,7 +115,7 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Bogle | LEE | DEF | 4.8 | 3.14 | 4.10 | 2.68 | 3.84 | 2.83 | **16.59** | 15.02 | 0.29 | 0.20 | 1.00 | 0/10 |  | — |
 | Justin | LEE | DEF | 4.5 | 3.10 | 3.99 | 2.68 | 3.70 | 2.83 | **16.30** | 15.62 | 0.17 | 0.12 | 1.00 | 3/10 |  | — |
 | Hall | NEW | DEF | 5.2 | 3.26 | 2.86 | 3.24 | 3.48 | 3.30 | **16.13** | 15.86 | 0.15 | 0.13 | 1.00 | 5/10 |  | — |
-| N.Williams | NFO | DEF | 4.9 | 2.96 | 3.42 | 3.62 | 3.11 | 3.04 | **16.13** | 15.52 | 0.21 | 0.18 | 1.00 | 2/10 |  | — |
+| Araujo | LIV | DEF | 5.5 | 3.40 | 3.27 | 3.35 | 2.79 | 3.17 | **15.98** | 14.41 | 0.16 | 0.05 | 0.97 | 4/8 |  | én kamp (GW10) står for 71% av xGI |
 
 ### MID
 
