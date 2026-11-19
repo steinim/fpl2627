@@ -17,6 +17,16 @@ Bruk (fra reporoten):
                                                        # (navn, navn@LAG eller element-id)
     python3 scripts/bytter.py --frikjop 1 --bank 0.3   # overstyr beregnet frikjøp og bank
     python3 scripts/bytter.py --kilde DIR              # les speilets data/-struktur fra en mappe
+    python3 scripts/bytter.py --uten-wildcard          # hopp over wildcardsøket
+
+WILDCARD
+========
+Beste tropp innenfor bank + salgspriser (beholdte spillere koster salgsprisen, nye nåprisen) og
+klubbgrensen, over samme horisont. Lokalsøk på elleveren og kapteinsleddet: beste enkeltbytte til
+ingen bedrer, så beste parbytte (to slott samtidig, så penger flyttes), og om igjen, fra dagens
+tropp, fra en grådig start og fra 12 tilfeldige lovlige tropper (fast frø). Resultatet regnes med Evaluator (med innbytterledd) og sammenlignes
+med spar og beste plan. Kandidater: de 30 beste per posisjon og de 15 beste per million.
+Chipstatus leses fra entry/history.json (chips) og vises med fristen for settet (05).
 
 LAGETS POENG I EN RUNDE
 =======================
@@ -61,7 +71,7 @@ salg i A som finansierer et kjøp i B blir funnet selv om salget alene taper poe
 Utvalget for B: de 80 beste, de 2 beste for hver spiller i troppen, og de 3 beste for hver
 spiller blant bytter som frigjør minst £1,0m. Søket er ikke uttømmende for kombinasjoner.
 Prisendringer før byttet og bytter i tredje runde eller senere er ikke modellert. Heller ikke de
-operative reglene i context/01 (template i premiumslottene, differensialer, ett bytte per runde);
+operative reglene i arkiv/01 (template i premiumslottene, differensialer, ett bytte per runde);
 eierandelen står i rapporten så de kan sjekkes.
 
 USIKKERHET
@@ -200,6 +210,7 @@ class Tilstand:
     advarsler: list[str]
     feil: list[str]
     forklaring_ft: list[str]
+    chips: list[dict] = dataclasses.field(default_factory=list)   # entry/history.json → chips
 
 
 def finn_spiller(tekst: str, data: fv.Data) -> int:
@@ -329,7 +340,8 @@ def bygg_tilstand(kilde: fv.Kilde, data: fv.Data, runde_a: int, ekstra: list[tup
     if bank_overstyr is not None:
         adv.append(f"bank overstyrt til £{bank_overstyr / 10:.1f}m (beregnet: £{bank / 10:.1f}m)")
         bank = bank_overstyr
-    return Tilstand(tropp, innkjop, bank, ft, runde_a, ok, adv, feil, forklaring)
+    return Tilstand(tropp, innkjop, bank, ft, runde_a, ok, adv, feil, forklaring,
+                    list(historikk.get("chips", [])))
 
 
 # --------------------------------------------------------------------------- lagpoeng
@@ -660,6 +672,210 @@ def kandidater(spillere: dict[int, Spiller], tropp: list[int]) -> dict[str, list
     return ut
 
 
+# --------------------------------------------------------------------------- wildcard
+
+WC_K_XP = 30                # kandidater per posisjon: de beste på forventning over horisonten
+WC_K_VERDI = 15             # … og de beste per million blant dem med minst halvparten av toppen
+WC_PAR_XP = 8               # kandidater per posisjon i parbytter: de beste på forventning
+WC_PAR_VERDI = 6            # … og de beste per million
+WC_MAKS_RUNDER = 50
+
+
+def wc_pris(S: dict[int, Spiller], tilstand: Tilstand) -> dict[int, int]:
+    """Hva en spiller koster i en wildcardtropp: salgspris for dem vi har (de beholdes til
+    innkjøpsprisen), nåpris for resten. Budsjettet er bank + salgsprisene (05, seksjon 2)."""
+    pris = {e: s.pris for e, s in S.items()}
+    for e in tilstand.tropp:
+        pris[e] = salgspris(tilstand.innkjop.get(e, S[e].pris), S[e].pris)
+    return pris
+
+
+def raskt_lag(S: dict[int, Spiller], tropp: tuple[int, ...], g: int) -> float:
+    """Elleveren og kapteinsleddet i runde g, uten innbytterledd. Samme regler som Evaluator."""
+    etter: dict[str, list[tuple[float, float]]] = {"GKP": [], "DEF": [], "MID": [], "FWD": []}
+    for e in tropp:
+        etter[S[e].pos].append((S[e].xp[g], S[e].p[g]))
+    for pos in etter:
+        etter[pos].sort(reverse=True)
+    resten = sorted(etter["DEF"][3:] + etter["MID"] + etter["FWD"][1:], reverse=True)
+    elleve = [etter["GKP"][0]] + etter["DEF"][:3] + etter["FWD"][:1] + resten[:6]
+    rang = sorted(elleve, reverse=True)
+    kap = max(rang[i][0] + (1 - rang[i][1]) * rang[1 if i == 0 else 0][0] for i in range(3))
+    return sum(x for x, _ in elleve) + kap
+
+
+def wc_kandidater(S: dict[int, Spiller], tropp: list[int]) -> dict[str, list[int]]:
+    ut: dict[str, list[int]] = {}
+    for pos in fv.POSISJONER:
+        alle = sorted((s for s in S.values() if s.pos == pos and sum(s.xp) > 0), key=lambda s: (-sum(s.xp), s.eid))
+        valgt = [s.eid for s in alle[:WC_K_XP]]
+        if alle:
+            terskel = 0.5 * sum(alle[0].xp)
+            for s in sorted((s for s in alle if sum(s.xp) >= terskel),
+                            key=lambda s: (-sum(s.xp) / max(s.pris, 1), s.eid))[:WC_K_VERDI]:
+                if s.eid not in valgt:
+                    valgt.append(s.eid)
+        for e in tropp:
+            if S[e].pos == pos and e not in valgt:
+                valgt.append(e)
+        ut[pos] = valgt
+    return ut
+
+
+def wildcard(S: dict[int, Spiller], kand: dict[str, list[int]], pris: dict[int, int], budsjett: int,
+             n: int, starter: list[tuple[int, ...]]) -> tuple[tuple[int, ...], float]:
+    """Beste tropp innenfor budsjett og klubbgrense på elleveren og kapteinsleddet over n runder.
+
+    Lokalsøk fra hver start: beste enkeltbytte til ingen bedrer, deretter beste parbytte (to
+    posisjoner samtidig, så penger kan flyttes fra ett slott til et annet), og om igjen. Ikke
+    garantert optimalt; testen mot uttømmende søk står i test_bytter.py."""
+    def verdi(t: tuple[int, ...]) -> float:
+        return sum(raskt_lag(S, t, g) for g in range(n))
+
+    def lovlig(t: tuple[int, ...]) -> bool:
+        return (sum(pris[e] for e in t) <= budsjett
+                and max(collections.Counter(S[e].lag for e in t).values()) <= MAKS_PER_KLUBB)
+
+    par_kand: dict[str, list[int]] = {}
+    for pos, k in kand.items():
+        a = sorted(k, key=lambda e: -sum(S[e].xp))[:WC_PAR_XP]
+        b = sorted(k, key=lambda e: -sum(S[e].xp) / max(pris[e], 1))[:WC_PAR_VERDI]
+        par_kand[pos] = list(dict.fromkeys(a + b))
+
+    beste_t, beste_v = None, -math.inf
+    for start in starter:
+        if not lovlig(start):
+            continue
+        t, v = tuple(start), verdi(start)
+        for _ in range(WC_MAKS_RUNDER):
+            kandidat_t, kandidat_v = t, v
+            for i, e in enumerate(t):
+                for k in kand[S[e].pos]:
+                    if k in t:
+                        continue
+                    t2 = t[:i] + (k,) + t[i + 1:]
+                    if lovlig(t2):
+                        v2 = verdi(t2)
+                        if v2 > kandidat_v + 1e-9:
+                            kandidat_t, kandidat_v = t2, v2
+            if kandidat_t == t:
+                for i, j in itertools.combinations(range(len(t)), 2):
+                    for k1 in par_kand[S[t[i]].pos]:
+                        if k1 in t:
+                            continue
+                        for k2 in par_kand[S[t[j]].pos]:
+                            if k2 in t or k2 == k1:
+                                continue
+                            t2 = list(t)
+                            t2[i], t2[j] = k1, k2
+                            t2 = tuple(t2)
+                            if lovlig(t2):
+                                v2 = verdi(t2)
+                                if v2 > kandidat_v + 1e-9:
+                                    kandidat_t, kandidat_v = t2, v2
+            if kandidat_t == t:
+                break
+            t, v = kandidat_t, kandidat_v
+        if v > beste_v:
+            beste_t, beste_v = t, v
+    assert beste_t is not None, "ingen lovlig start for wildcardsøket"
+    return tuple(sorted(beste_t, key=lambda e: (fv.POSISJONER.index(S[e].pos), -sum(S[e].xp)))), beste_v
+
+
+def gradig_start(S: dict[int, Spiller], kand: dict[str, list[int]], pris: dict[int, int],
+                 budsjett: int) -> tuple[int, ...] | None:
+    """Dyreste beste først, så lenge resten av troppen kan fylles med de billigste kandidatene."""
+    billigst = {pos: sorted(pris[e] for e in k) for pos, k in kand.items()}
+    valgt: list[int] = []
+    igjen = dict(TROPP_FORM)
+    klubb: collections.Counter = collections.Counter()
+    brukt = 0
+    for e in sorted((e for k in kand.values() for e in k), key=lambda e: -sum(S[e].xp)):
+        pos = S[e].pos
+        if igjen[pos] == 0 or klubb[S[e].lag] >= MAKS_PER_KLUBB or e in valgt:
+            continue
+        igjen[pos] -= 1
+        minst = sum(sum(billigst[q][:igjen[q]]) for q in igjen)
+        if brukt + pris[e] + minst <= budsjett:
+            valgt.append(e)
+            klubb[S[e].lag] += 1
+            brukt += pris[e]
+        else:
+            igjen[pos] += 1
+    if len(valgt) == sum(TROPP_FORM.values()):
+        return tuple(valgt)
+    # Grådig bommet (klubbgrensen i bunnen av potten): billigste lovlige tropp, lokalsøket gjør resten.
+    valgt, igjen, klubb = [], dict(TROPP_FORM), collections.Counter()
+    for e in sorted((e for k in kand.values() for e in k), key=lambda e: (pris[e], -sum(S[e].xp))):
+        if igjen[S[e].pos] and klubb[S[e].lag] < MAKS_PER_KLUBB and e not in valgt:
+            valgt.append(e)
+            igjen[S[e].pos] -= 1
+            klubb[S[e].lag] += 1
+    if len(valgt) == sum(TROPP_FORM.values()) and sum(pris[e] for e in valgt) <= budsjett:
+        return tuple(valgt)
+    return None
+
+
+WC_TILFELDIGE = 12          # tilfeldige lovlige starter i tillegg til dagens tropp og den grådige
+
+
+def wc_starter(S: dict[int, Spiller], kand: dict[str, list[int]], pris: dict[int, int], budsjett: int,
+               tropp: list[int] | None = None, antall: int = WC_TILFELDIGE, frø: int = 0) -> list[tuple[int, ...]]:
+    """Dagens tropp, den grådige starten og tilfeldige lovlige tropper (fast frø, så rapporten er
+    reproduserbar). Flere starter fordi lokalsøket kan stoppe i et lokalt optimum."""
+    import random
+    rng = random.Random(frø)
+    ut: list[tuple[int, ...]] = [tuple(tropp)] if tropp else []
+    g = gradig_start(S, kand, pris, budsjett)
+    if g:
+        ut.append(g)
+    forsok = 0
+    while len(ut) < antall + 2 and forsok < 200 * antall:
+        forsok += 1
+        t = tuple(e for pos in fv.POSISJONER for e in rng.sample(kand[pos], TROPP_FORM[pos]))
+        if (sum(pris[e] for e in t) <= budsjett
+                and max(collections.Counter(S[e].lag for e in t).values()) <= MAKS_PER_KLUBB):
+            ut.append(t)
+    return ut
+
+
+@dataclasses.dataclass
+class Wildcard:
+    tropp: tuple[int, ...]
+    budsjett: int
+    kost: int
+    verdi: float
+    robust: float
+    per_runde: list[float]
+
+
+def finn_wildcard(pl: "Planlegger") -> Wildcard:
+    S, t = pl.s, pl.t
+    pris = wc_pris(S, t)
+    budsjett = t.bank + sum(pris[e] for e in t.tropp)
+    kand = wc_kandidater(S, t.tropp)
+    tropp, _ = wildcard(S, kand, pris, budsjett, pl.n, wc_starter(S, kand, pris, budsjett, t.tropp))
+    per = [pl.ev.runde(tropp, g) for g in range(pl.n)]
+    robust = sum(pl.ev.runde(tropp, g, robust=True) for g in range(pl.n))
+    return Wildcard(tropp, budsjett, sum(pris[e] for e in tropp), sum(per), robust, per)
+
+
+# --------------------------------------------------------------------------- chips
+
+CHIP_NAVN = {"wildcard": "Wildcard", "freehit": "Free Hit", "bboost": "Bench Boost", "3xc": "Triple Captain"}
+HALVSESONG = 19             # 05: første sett må brukes innen GW19-deadline
+
+
+def chipstatus(chips: list[dict], runde: int) -> tuple[list[str], list[str]]:
+    """(brukt, igjen) i settet som gjelder for runden. Første sett: GW1–19, andre: GW20–38."""
+    forste = runde <= HALVSESONG
+    i_sett = [c for c in chips if (c["event"] <= HALVSESONG) == forste]
+    brukt = [f"{CHIP_NAVN.get(c['name'], c['name'])} GW{c['event']}" for c in sorted(i_sett, key=lambda c: c["event"])]
+    navn = {c["name"] for c in i_sett}
+    igjen = [v for k, v in CHIP_NAVN.items() if k not in navn]
+    return brukt, igjen
+
+
 # --------------------------------------------------------------------------- utskrift
 
 
@@ -687,7 +903,7 @@ def gkdef(tropp: tuple[int, ...], S: dict[int, Spiller]) -> int:
 
 def markdown(t: Tilstand, pl: Planlegger, spar: Plan, planer: list[Plan], omfang: dict, runder: list[int],
              data: fv.Data, vis_ut: list[int], topp: int, naa: dt.datetime, fv_kontroller: tuple,
-             flagg: dict[int, str]) -> str:
+             flagg: dict[int, str], wc: Wildcard | None = None) -> str:
     S = pl.s
     ra = runder[0]
     spenn = f"GW{runder[0]}–{runder[-1]}"
@@ -701,6 +917,13 @@ def markdown(t: Tilstand, pl: Planlegger, spar: Plan, planer: list[Plan], omfang
     L += [f"- ✅ {x}" for x in fv_ok + t.ok]
     L += [f"- ⚠️ {x}" for x in fv_adv + t.advarsler]
     L += ["", "**Frikjøp, runde for runde:** " + " · ".join(t.forklaring_ft), ""]
+
+    brukt, igjen = chipstatus(t.chips, ra)
+    frist = next((e["deadline_time"] for e in data.events if e["id"] == HALVSESONG), None)
+    L += ["## Chips", "",
+          f"Brukt i settet: {', '.join(brukt) or 'ingen'}. Igjen: **{', '.join(igjen) or 'ingen'}**."
+          + (f" Frist: GW{HALVSESONG}-deadline {frist} (UTC), {HALVSESONG - ra + 1} runder fra og med GW{ra}, "
+             "én chip per runde (`05`)." if ra <= HALVSESONG and frist else ""), ""]
 
     L += [f"## Troppen inn i GW{ra}", "", f"Bank **{kr(t.bank)}**, frikjøp **{t.frikjop}**. Salgspris etter regelen i `05`.", "",
           f"| Spiller | Lag | Pos | Nå | Kjøpt | Salgspris | Sum {spenn} | Robust | P(spiller) GW{ra} | Eid |",
@@ -740,6 +963,30 @@ def markdown(t: Tilstand, pl: Planlegger, spar: Plan, planer: list[Plan], omfang
     L += [rad(p) for p in vist]
     L.append("")
 
+    if wc is not None:
+        beste = planer[0] if planer else spar
+        pl.fullfor(beste)
+        inn = [e for e in wc.tropp if e not in pl.tropp0]
+        ut = [e for e in pl.tropp0 if e not in wc.tropp]
+        L += [f"## Wildcard i GW{ra}", "",
+              f"Beste tropp innenfor {kr(wc.budsjett)} (bank + salgspriser), funnet med lokalsøk på elleveren "
+              "og kapteinen, deretter regnet med innbytterledd som planene over.", "",
+              "| | Forventet " + spenn + " | Robust | Mot å spare | Mot beste plan |", "|---|---|---|---|---|",
+              f"| Wildcard | **{wc.verdi:.2f}** | {wc.robust:.2f} | {wc.verdi - spar.verdi:+.2f} "
+              f"| **{wc.verdi - beste.verdi:+.2f}** |",
+              f"| Beste plan | {beste.verdi:.2f} | {beste.robust:.2f} | {beste.verdi - spar.verdi:+.2f} | — |",
+              f"| Spar | {spar.verdi:.2f} | {spar.robust:.2f} | — | — |", "",
+              "Per runde mot beste plan: " + ", ".join(f"GW{r} {w - b:+.2f}" for r, w, b in
+                                                        zip(runder, wc.per_runde, beste.per_runde)) + ".", "",
+              f"Ut ({len(ut)}): " + (", ".join(S[e].navn for e in ut) or "ingen") + ". "
+              f"Inn ({len(inn)}): " + (", ".join(f"{S[e].navn} {kr(S[e].pris)}" for e in inn) or "ingen") + ".", "",
+              f"- Klubber etter: {klubbtekst(wc.tropp, S, data)}",
+              f"- Keeper- og forsvarsbudsjett (nåpris): {kr(gkdef(pl.tropp0, S))} → {kr(gkdef(wc.tropp, S))}",
+              f"- Bank etter: {kr(wc.budsjett - wc.kost)}",
+              "- Wildcardet beholder frikjøpene (`05`), planene bruker dem. Gevinsten over beste plan er det "
+              "chipen kjøper i denne horisonten; det samme wildcardet senere kan være verdt mer eller mindre. "
+              "Søket er ikke garantert optimalt.", ""]
+
     L += ["## Beste plan som selger hver spiller", "",
           "Svarer på «bør X selges?»: den beste lovlige planen der spilleren går ut, mot å spare.", "", hode, skille]
     beste_ut: dict[int, Plan] = {}
@@ -757,7 +1004,7 @@ def markdown(t: Tilstand, pl: Planlegger, spar: Plan, planer: list[Plan], omfang
         pl.fullfor(p)
         return [f"- Klubber etter: {klubbtekst(p.tropp_b, S, data)}",
                 f"- Keeper- og forsvarsbudsjett (nåpris): {kr(gkdef(pl.tropp0, S))} → {kr(gkdef(p.tropp_b, S))}. "
-                "Topplagsandelen regnes ikke — `01` har erklært den utløpt som styringstall.",
+                "Flytter det mer enn £1,0m, er det en strukturendring (CLAUDE.md).",
                 f"- Bank: {kr(t.bank)} → {kr(p.bank_a)} etter GW{ra}"
                 + (f" → {kr(p.bank_b)} etter GW{ra + 1}" if len(runder) > 1 else ""),
                 "- Endring per runde: " + ", ".join(f"GW{r} {v1 - v0:+.2f}"
@@ -800,7 +1047,7 @@ def markdown(t: Tilstand, pl: Planlegger, spar: Plan, planer: list[Plan], omfang
           f"- {omfang['enkeltbytter']} enkeltbytter vurdert i hver runde. Utvalg for kombinasjoner: "
           f"{omfang['utvalg_a']} i GW{ra}, {omfang['utvalg_b']} i GW{ra + 1}. Søket er ikke uttømmende for kombinasjoner.",
           "- Priser er dagens. Prisendringer før byttet er ikke modellert.",
-          "- De operative reglene i `01` (template i premiumslottene, differensialer bare mellom £4,0m og £5,5m "
+          "- De operative reglene i `arkiv/01` (template i premiumslottene, differensialer bare mellom £4,0m og £5,5m "
           "og maks tre samtidig, ett bytte per runde) er ikke modellert. Eierandelen står i tabellene; sjekk "
           "reglene for spillerne som kommer inn.",
           "- Bytter i tredje runde og senere er ikke med. En plan som sparer, har verdi utover horisonten "
@@ -838,6 +1085,7 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--ekstra-runde", type=int, help="runden de ekstra byttene ble gjort i (standard: runden etter siste picks)")
     ap.add_argument("--frikjop", type=int, help="overstyr beregnede frikjøp")
     ap.add_argument("--bank", type=float, help="overstyr beregnet bank, i £m (f.eks. 0.3)")
+    ap.add_argument("--uten-wildcard", action="store_true", help="hopp over wildcardsøket")
     ap.add_argument("--topp", type=int, default=15, help="antall planer i hovedtabellen")
     ap.add_argument("--kilde", type=pathlib.Path, help="mappe med speilets data/-struktur")
     ap.add_argument("--fravaer", type=pathlib.Path, default=fv.FRAVAER_FIL)
@@ -884,7 +1132,9 @@ def main(argv: list[str] | None = None) -> int:
     for e in spillere:
         merk = fv.projiser(m, e, runder, fravaer.get(e, {}))["merknader"]
         flagg[e] = " · ".join(m.profiler[e].flagg + merk)
-    md = markdown(tilstand, pl, spar, planer, omfang, runder, data, vis_ut, a.topp, naa, (fv_feil, fv_adv, fv_ok), flagg)
+    wc = None if a.uten_wildcard else finn_wildcard(pl)
+    md = markdown(tilstand, pl, spar, planer, omfang, runder, data, vis_ut, a.topp, naa, (fv_feil, fv_adv, fv_ok), flagg,
+                  wc)
     print(f"{omfang['vurdert']} planer vurdert, {omfang['lovlige']} lovlige, {time.time() - start:.1f} s", file=sys.stderr)
     if a.stdout:
         print(md)
