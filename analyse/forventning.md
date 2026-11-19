@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 18.11.2026 kl. 10:06 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–10 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
+*Generert 19.11.2026 kl. 10:17 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–10 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–10 summerer til sesongtotalene for alle 672 spillere, 19 felt
-- ✅ Speilet hentet 18.11.2026 09:05 UTC, 1.0 t gammelt ved kjøring
+- ✅ Speilet hentet 19.11.2026 09:29 UTC, 0.8 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -91,7 +91,7 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Trafford | LEE | GKP | 5.0 | 3.32 | 3.59 | 3.12 | 3.36 | 3.08 | **16.47** | 16.45 | 0.00 | 0.00 | 1.00 |  |  | — |
 | Tzolakis | HUL | GKP | 4.7 | 3.28 | 3.18 | 3.21 | 3.05 | 3.24 | **15.96** | 15.96 | 0.00 | 0.00 | 1.00 |  |  | — |
 | Raya | ARS | GKP | 6.2 | 3.28 | 3.06 | 2.96 | 3.22 | 3.00 | **15.52** | 15.51 | 0.00 | 0.00 | 1.00 |  |  | — |
-| Suzuki | AVL | GKP | 5.0 | 3.19 | 3.01 | 3.01 | 2.85 | 2.85 | **14.90** | 14.89 | 0.00 | 0.00 | 0.99 |  |  | UAVKLART FRAVÆR GW1 — telt som ikke-start; før årsaken i context/fravaer.csv |
+| Suzuki | AVL | GKP | 5.1 | 3.19 | 3.01 | 3.01 | 2.85 | 2.85 | **14.90** | 14.89 | 0.00 | 0.00 | 0.99 |  |  | UAVKLART FRAVÆR GW1 — telt som ikke-start; før årsaken i context/fravaer.csv |
 | Horníček | NEW | GKP | 5.0 | 3.08 | 2.92 | 2.92 | 2.97 | 2.90 | **14.80** | 14.80 | 0.00 | 0.00 | 1.00 |  |  | — |
 | Lammens | MUN | GKP | 4.8 | 2.95 | 2.98 | 2.91 | 3.13 | 2.77 | **14.75** | 14.70 | 0.00 | 0.00 | 1.00 |  |  | — |
 | Verbruggen ★ | BHA | GKP | 4.7 | 3.18 | 3.05 | 2.61 | 2.68 | 2.93 | **14.45** | 14.17 | 0.02 | 0.00 | 1.00 |  |  | — |
@@ -130,7 +130,7 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Groß ★ | BHA | MID | 6.3 | 4.31 | 4.55 | 3.78 | 3.74 | 4.26 | **20.64** | 18.52 | 0.54 | 0.42 | 1.00 | 0/10 | 1 | første straffeskytter (penalties_order 1) |
 | Rogers | CHE | MID | 8.2 | 4.41 | 3.90 | 4.63 | 4.02 | 3.54 | **20.49** | 19.40 | 0.47 | 0.39 | 1.00 | 1/10 |  | — |
 | Palmer | CHE | MID | 9.8 | 4.23 | 3.74 | 4.43 | 3.86 | 3.39 | **19.65** | 18.30 | 0.38 | 0.31 | 1.00 | 0/10 | 1 | første straffeskytter (penalties_order 1) |
-| McGinn | AVL | MID | 5.4 | 4.02 | 3.81 | 3.89 | 4.03 | 3.56 | **19.30** | 17.74 | 0.46 | 0.38 | 0.89 | 0/9 | 1 | første straffeskytter (penalties_order 1) |
+| McGinn | AVL | MID | 5.5 | 4.02 | 3.81 | 3.89 | 4.03 | 3.56 | **19.30** | 17.74 | 0.46 | 0.38 | 0.89 | 0/9 | 1 | første straffeskytter (penalties_order 1) |
 | Rudoni | COV | MID | 4.9 | 4.34 | 3.55 | 4.08 | 3.47 | 3.79 | **19.22** | 17.76 | 0.48 | 0.39 | 0.99 | 1/9 | 1 | første straffeskytter (penalties_order 1) |
 | Enciso | IPS | MID | 5.5 | 3.56 | 3.97 | 3.61 | 3.33 | 3.79 | **18.27** | 17.56 | 0.46 | 0.41 | 1.00 | 0/10 |  | — |
 | Iwobi | FUL | MID | 5.4 | 3.53 | 3.84 | 3.54 | 3.59 | 3.76 | **18.26** | 17.01 | 0.47 | 0.38 | 1.00 | 0/10 | 3 | — |
@@ -147,7 +147,7 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Evanilson ★ | BOU | FWD | 6.5 | 4.58 | 4.15 | 4.34 | 4.59 | 3.29 | **20.96** | 19.06 | 0.59 | 0.48 | 1.00 | 0/10 |  | — |
 | N.Jackson | AVL | FWD | 7.1 | 4.36 | 4.12 | 4.18 | 4.39 | 3.78 | **20.82** | 18.88 | 0.54 | 0.43 | 1.00 | 0/9 | 3 | — |
 | Calvert-Lewin | LEE | FWD | 6.0 | 3.90 | 4.31 | 3.49 | 4.31 | 3.45 | **19.46** | 18.61 | 0.48 | 0.43 | 1.00 | 0/10 | 1 | første straffeskytter (penalties_order 1) |
-| Gonzalo | FUL | FWD | 5.9 | 3.71 | 4.08 | 3.63 | 3.75 | 4.00 | **19.17** | 18.09 | 0.53 | 0.46 | 1.00 | 0/10 | 1 | første straffeskytter (penalties_order 1) |
+| Gonzalo | FUL | FWD | 5.8 | 3.71 | 4.08 | 3.63 | 3.75 | 4.00 | **19.17** | 18.09 | 0.53 | 0.46 | 1.00 | 0/10 | 1 | første straffeskytter (penalties_order 1) |
 | Delap | NFO | FWD | 5.3 | 3.54 | 3.82 | 3.52 | 3.51 | 3.30 | **17.68** | 16.14 | 0.46 | 0.35 | 0.98 | 0/8 | 3 | — |
 | Havertz | ARS | FWD | 7.4 | 3.35 | 3.25 | 3.16 | 3.01 | 3.26 | **16.03** | 15.26 | 0.40 | 0.34 | 0.85 | 0/9 |  | — |
 | Brobbey | SUN | FWD | 5.7 | 2.64 | 3.47 | 3.07 | 3.27 | 3.33 | **15.78** | 12.27 | 0.63 | 0.33 | 0.82 | 0/8 |  | UAVKLART FRAVÆR GW6, GW7 — telt som ikke-start; før årsaken i context/fravaer.csv | én kamp (GW5) står for 55% av xGI | GW11: FPL-sjanse 75 % |
