@@ -25,7 +25,7 @@ Ingen påstand om priser, kamper, minutter, skadestatus eller poengregler uten �
 
 Oppgi alltid, før du foreslår et bytte:
 1. Klubbfordeling etter byttet (maks 3 per klubb).
-2. Hvor mange millioner av keeper- og forsvarsbudsjettet som ligger på topplag etter byttet (se definisjon i `01`). Går tallet ned uten at det er en bevisst beslutning, si fra og stopp.
+2. Keeper- og forsvarsbudsjettet før og etter byttet, i nåpris (står i `analyse/bytter.md`). Flytter det mer enn £1,0m, er det en strukturendring og skal sies som en beslutning, ikke gli med.
 3. Hva som står igjen i banken, og hvilke planlagte sidebytter det blokkerer (salgsprisregelen i `03`).
 
 Enkeltbytter som hver for seg gir mening kan sammen endre lagets form uten at noen har bestemt det. Det har skjedd én gang allerede — se feilloggen i `03`.
@@ -34,8 +34,7 @@ Enkeltbytter som hver for seg gir mening kan sammen endre lagets form uten at no
 
 | Fil | Innhold |
 |---|---|
-| `01-strategi-og-tropp.md` | Tropp, spillervurderinger, avviste kandidater, åpne risikoer |
-| `02-regler-og-sesongplan.md` | Sesongregler, fikstursvanskelighet, transferplan, chip-plan |
+| `01-status.md` | Det som ikke ligger i `fpl-data`: chips igjen og chipplan, beslutninger, åpne saker. Les først |
 | `03-verifiseringsprotokoll.md` | Kildehierarki, sjekklister, feillogg — les denne før du gjentar en tidligere feiltype |
 | `04-kampprogram-og-endringslogg.md` | Kampprogram for de neste fem rundene, generert av `scripts/gen_kampprogram.py` (ikke rediger blokka for hånd). Under: endringslogg, verifiseringsnotater, GW1–GW5-arkiv |
 | `05-spillets-regler.md` | Statisk poengregelverk. Endres ikke gjennom sesongen med mindre en verdi var feilført |
@@ -45,11 +44,12 @@ Enkeltbytter som hver for seg gir mening kan sammen endre lagets form uten at no
 | `../analyse/forventning.md` og `.csv` | Forventede poeng de neste fem rundene for alle spillere, generert av `scripts/forventning.py`. Rør ikke for hånd |
 | `../analyse/bytter.md` | Beste byttepakker for de to neste rundene, beste plan som selger hver spiller, anti-drift. Generert av `scripts/bytter.py`. Rør ikke for hånd |
 | `01-vurderte-spillere.md` | Historiske øyeblikksbilder uten styrende status — les kun hvis eksplisitt bedt om |
+| `../arkiv/01-strategi-og-tropp.md`, `../arkiv/02-regler-og-sesongplan.md` | Sto stille fra 17. oktober. Historikk uten styrende status |
 
-### Hvor filene ligger — ført inn 3. september 2026
+### Hvor filene ligger — endret 19. november 2026
 
-**Kanonisk kilde: `/Users/steinim/src/fpl2627/context/`.** Er Filesystem-verktøyet tilgjengelig, les og skriv der — alltid, også for enkeltoppslag. Prosjektopplastingen under `/mnt/project/` er et speil som kan være dager gammelt, og skal kun brukes når Filesystem-verktøyet mangler (mobil). Skjer det, si eksplisitt i svaret at grunnlaget er et mulig utdatert speil, og lever endringer som patch til nedlasting i stedet for å skrive.
+**Kanonisk kilde: `main` på `github.com/steinim/fpl2627`.** Ingen lokale kopier, ingen prosjektopplasting. Les fra en fersk klon eller `raw.githubusercontent.com`.
 
-**Ved skriving:** les fila fra disk først, aldri fra hukommelse eller fra et tidligere svar i samme økt. Vis diffen. Commit gjør brukeren.
+**Ved skriving:** les fila fra `main` først, aldri fra hukommelse eller fra et tidligere svar i samme økt. Skriv på en branch, åpne PR, vis diffen i svaret. Claude kan merge selv (brukeren 19.11.). En økt uten skrivetilgang leverer diffen som tekst og sier at den ikke er lagt inn.
 
 **Når en beslutning eller antakelse endres:** oppdater filen samme økt, ikke senere. En kjent feil i kontekstfilene rettes samme time den oppdages (se `03`). List alltid hva som *fjernes* når en seksjon skrives om, ikke bare hva som legges til.

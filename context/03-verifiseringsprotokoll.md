@@ -517,6 +517,21 @@ Premier League publiserer hver kampprogramendring som et nummerert rundskriv, «
 
 ## Feillogg
 
+### Ny feil, 19. november: statusfilene sto stille i fem uker, og en plan uten eier ble lest som vedtak
+
+**Hva skjedde:** `01` og `02` ble sist oppdatert 17. oktober. Byttene i GW9 (João Pedro og Saka ut, Evanilson og Tavernier inn) står ingen steder i kontekstfilene. GW11-økten 19.11. leste «Wildcard GW16» fra `02` og presenterte den som gjeldende plan. Brukeren hadde aldri vurdert den: den var skrevet av en tidligere Claude-økt før sesongen, på fikstursvanskelighet, og aldri regnet med modellen.
+
+**Mekanismen:** skriving forutsatte en desktop-økt med Filesystem-verktøy, og at brukeren committet. Etter 17.10. jobbet brukeren bare via mobil og GitHub, der økter kunne lese men ikke skrive. Beslutninger ble tatt i chat og forsvant. Fila så fortsatt autoritativ ut, fordi ingenting i den sa hvor gammel tilstanden var.
+
+**Rettet samme økt:** `01` og `02` flyttet til `arkiv/`. Ny `01-status.md` holder bare det speilet ikke har. Claude har skrivetilgang til repoet, skriver via PR og kan merge. Wildcard GW16 trukket; chipplanen regnes på nytt hver runde.
+
+**Rotårsak:** skrivestien hadde ett punkt som kunne falle bort (desktop), og ingen kontroll fanget at den hadde gjort det. Samtidig skilte ikke fila mellom vedtak og forslag fra en økt.
+
+**Avledede regler:**
+1. Status som kan leses fra speilet, skrives ikke i kontekstfilene. Det som skrives, er beslutninger og hvorfor.
+2. En plan i fila har en eier: «besluttet» (brukeren eller Claude med begrunnelse) eller «forslag». En plan uten merke behandles som forslag og regnes på nytt før den brukes.
+3. Ved starten av hver runde: sjekk at `01-status.md` er oppdatert etter forrige runde. Er den ikke det, rettes det før noe annet.
+
 ### Ny feil, 17. oktober: summekontrollen stoppet kjøringen så snart første kamp i GW7 startet
 
 **Hva skjedde:** speilet ble hentet kl. 11:44 UTC, 14 minutter etter avspark i Everton–Chelsea. `scripts/forventning.py` stoppet med «rundedata summerer ikke til sesongtotalene» for 22 spillere (Martinez: 457 minutter i sesongtotalen, 450 i GW1–6). Brukeren limte inn feilmeldingen kl. 14:25 norsk tid. CI-kjøringene fire ganger i døgnet ville feilet fram til GW7 får `data_checked` — og i hver eneste runde resten av sesongen.
