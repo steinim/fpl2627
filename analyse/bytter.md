@@ -1,17 +1,21 @@
 # Byttepakker — generert
 
-*Generert 19.11.2026 kl. 12:16 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW11–15. Bytter vurderes i GW11 og GW12. Maks minuspoeng per runde: 0.*
+*Generert 19.11.2026 kl. 12:40 UTC av `scripts/bytter.py` fra `fpl-data`. **Rør ikke fila for hånd.** Horisont GW11–15. Bytter vurderes i GW11 og GW12. Maks minuspoeng per runde: 0.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–10 summerer til sesongtotalene for alle 672 spillere, 19 felt
-- ✅ Speilet hentet 19.11.2026 09:29 UTC, 2.8 t gammelt ved kjøring
+- ✅ Speilet hentet 19.11.2026 09:29 UTC, 3.2 t gammelt ved kjøring
 - ✅ Bytteregler i API-et stemmer med 05 og skriptet: maks 3 per klubb, maks 5 frikjøp, halve prisstigningen ved salg, tropp på 15
 - ✅ Bank regnet fra 8 overganger stemmer med historikken i alle 10 runder
 - ✅ Frikjøp til GW11: 2. Kostnaden i hver runde stemmer med historikken
 
 **Frikjøp, runde for runde:** GW1: første runde → 1 · GW2: 1 frikjøp, 0 brukt → 2 · GW3: 2 frikjøp, 0 brukt → 3 · GW4: 3 frikjøp, 2 brukt → 2 · GW5: 2 frikjøp, 0 brukt → 3 · GW6: 3 frikjøp, 1 brukt → 3 · GW7: 3 frikjøp, 3 brukt → 1 · GW8: 1 frikjøp, 0 brukt → 2 · GW9: 2 frikjøp, 2 brukt → 1 · GW10: 1 frikjøp, 0 brukt → 2
+
+## Chips
+
+Brukt i settet: Triple Captain GW5. Igjen: **Wildcard, Free Hit, Bench Boost**. Frist: GW19-deadline 2027-01-01T18:30:00Z (UTC), 9 runder fra og med GW11, én chip per runde (`05`).
 
 ## Troppen inn i GW11
 
@@ -63,6 +67,25 @@ Endring = forventede poeng mot å spare, over hele horisonten, etter minuspoeng.
 | GW11: Slater → E.Le Fée, Egan → Van Hecke · GW12: Davis → De Cuyper | 0 | **+14.63** | +11.04 | +2.52 | £2.5m | £1.0m | BHA |
 | GW11: Slater → E.Le Fée, Davis → Van Hecke · GW12: Diop → De Cuyper | 0 | **+14.60** | +11.05 | +2.47 | £2.4m | £0.8m | BHA |
 
+## Wildcard i GW11
+
+Beste tropp innenfor £99.8m (bank + salgspriser), funnet med lokalsøk på elleveren og kapteinen, deretter regnet med innbytterledd som planene over.
+
+| | Forventet GW11–15 | Robust | Mot å spare | Mot beste plan |
+|---|---|---|---|---|
+| Wildcard | **294.68** | 269.87 | +20.59 | **+5.70** |
+| Beste plan | 288.98 | 265.02 | +14.89 | — |
+| Spar | 274.10 | 253.11 | — | — |
+
+Per runde mot beste plan: GW11 +2.01, GW12 +0.88, GW13 +0.99, GW14 +1.53, GW15 +0.29.
+
+Ut (7): Verbruggen, Diop, Davis, Calafiori, Kinsky, Egan, Slater. Inn (7): Trafford £5.0m, Steele £3.9m, De Cuyper £5.5m, Van Hecke £5.1m, Silva £5.1m, Murillo £5.5m, E.Le Fée £5.7m.
+
+- Klubber etter: BHA 3 · BOU 3 · MUN 2 · COV 1 · EVE 1 · LEE 1 · MCI 1 · NFO 1 · SUN 1 · TOT 1
+- Keeper- og forsvarsbudsjett (nåpris): £31.0m → £34.1m
+- Bank etter: £0.1m
+- Wildcardet beholder frikjøpene (`05`), planene bruker dem. Gevinsten over beste plan er det chipen kjøper i denne horisonten; det samme wildcardet senere kan være verdt mer eller mindre. Søket er ikke garantert optimalt.
+
 ## Beste plan som selger hver spiller
 
 Svarer på «bør X selges?»: den beste lovlige planen der spilleren går ut, mot å spare.
@@ -90,21 +113,21 @@ Svarer på «bør X selges?»: den beste lovlige planen der spilleren går ut, m
 **GW11: Slater → E.Le Fée, Egan → De Cuyper · GW12: Diop → Murillo**
 
 - Klubber etter: BHA 3 · BOU 2 · MUN 2 · ARS 1 · COV 1 · EVE 1 · IPS 1 · MCI 1 · NFO 1 · SUN 1 · TOT 1
-- Keeper- og forsvarsbudsjett (nåpris): £31.0m → £34.0m. Topplagsandelen regnes ikke — `01` har erklært den utløpt som styringstall.
+- Keeper- og forsvarsbudsjett (nåpris): £31.0m → £34.0m. Flytter det mer enn £1,0m, er det en strukturendring (CLAUDE.md).
 - Bank: £4.7m → £2.1m etter GW11 → £0.5m etter GW12
 - Endring per runde: GW11 +2.37, GW12 +3.62, GW13 +2.36, GW14 +3.51, GW15 +3.02
 
 **GW11: Slater → E.Le Fée, Egan → De Cuyper · GW12: Davis → Murillo**
 
 - Klubber etter: BHA 3 · BOU 2 · MUN 2 · ARS 1 · COV 1 · EVE 1 · IPS 1 · MCI 1 · NFO 1 · SUN 1 · TOT 1
-- Keeper- og forsvarsbudsjett (nåpris): £31.0m → £33.9m. Topplagsandelen regnes ikke — `01` har erklært den utløpt som styringstall.
+- Keeper- og forsvarsbudsjett (nåpris): £31.0m → £33.9m. Flytter det mer enn £1,0m, er det en strukturendring (CLAUDE.md).
 - Bank: £4.7m → £2.1m etter GW11 → £0.6m etter GW12
 - Endring per runde: GW11 +2.37, GW12 +3.60, GW13 +2.36, GW14 +3.52, GW15 +2.98
 
 **GW11: Slater → E.Le Fée, Egan → Van Hecke · GW12: Diop → Murillo**
 
 - Klubber etter: BHA 2 · BOU 2 · MUN 2 · TOT 2 · ARS 1 · COV 1 · EVE 1 · IPS 1 · MCI 1 · NFO 1 · SUN 1
-- Keeper- og forsvarsbudsjett (nåpris): £31.0m → £33.6m. Topplagsandelen regnes ikke — `01` har erklært den utløpt som styringstall.
+- Keeper- og forsvarsbudsjett (nåpris): £31.0m → £33.6m. Flytter det mer enn £1,0m, er det en strukturendring (CLAUDE.md).
 - Bank: £4.7m → £2.5m etter GW11 → £0.9m etter GW12
 - Endring per runde: GW11 +2.52, GW12 +2.87, GW13 +3.19, GW14 +3.44, GW15 +2.80
 
@@ -129,7 +152,7 @@ Flaggene kommer fra `forventning.py`. Én kamp som bærer xGI-en, slår ut i rob
 - Kandidater per posisjon: GKP 25, DEF 26, MID 26, FWD 25 (25 beste på forventning, 10 beste per million).
 - 385 enkeltbytter vurdert i hver runde. Utvalg for kombinasjoner: 110 i GW11, 109 i GW12. Søket er ikke uttømmende for kombinasjoner.
 - Priser er dagens. Prisendringer før byttet er ikke modellert.
-- De operative reglene i `01` (template i premiumslottene, differensialer bare mellom £4,0m og £5,5m og maks tre samtidig, ett bytte per runde) er ikke modellert. Eierandelen står i tabellene; sjekk reglene for spillerne som kommer inn.
+- De operative reglene i `arkiv/01` (template i premiumslottene, differensialer bare mellom £4,0m og £5,5m og maks tre samtidig, ett bytte per runde) er ikke modellert. Eierandelen står i tabellene; sjekk reglene for spillerne som kommer inn.
 - Bytter i tredje runde og senere er ikke med. En plan som sparer, har verdi utover horisonten som tabellen ikke viser.
 - I tilbaketesten avviker realiserte poeng over fem runder i snitt 5–6 poeng per spiller fra forventningen. En planforskjell på noen få poeng er en svak preferanse, ikke en dom.
 
