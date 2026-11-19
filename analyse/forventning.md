@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 19.11.2026 kl. 10:17 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–10 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
+*Generert 19.11.2026 kl. 12:16 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–10 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–10 summerer til sesongtotalene for alle 672 spillere, 19 felt
-- ✅ Speilet hentet 19.11.2026 09:29 UTC, 0.8 t gammelt ved kjøring
+- ✅ Speilet hentet 19.11.2026 09:29 UTC, 2.8 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -67,10 +67,10 @@ Bytter gjort etter GW10-deadline vises ikke.
 | Verbruggen ★ | BHA | GKP | 4.7 | 3.18 | 3.05 | 2.61 | 2.68 | 2.93 | **14.45** | 14.17 | 0.02 | 0.00 | 1.00 |  |  | — |
 | Kinsky ★ | TOT | GKP | 4.4 | 3.05 | 2.64 | 2.89 | 2.58 | 2.83 | **13.99** | 13.99 | 0.00 | 0.00 | 1.00 |  |  | — |
 | Calafiori ★ | ARS | DEF | 5.9 | 3.61 | 3.35 | 3.22 | 3.54 | 3.41 | **17.12** | 16.34 | 0.26 | 0.21 | 0.85 | 0/9 |  | — |
+| Thomas ★ | COV | DEF | 4.0 | 1.80 | 3.17 | 3.65 | 2.79 | 3.37 | **14.78** | 14.18 | 0.13 | 0.09 | 1.00 | 5/8 |  | GW11: FPL-sjanse 50 % |
 | Davis ★ | IPS | DEF | 4.0 | 2.94 | 3.10 | 2.96 | 2.50 | 3.03 | **14.53** | 13.55 | 0.23 | 0.18 | 1.00 | 0/10 |  | — |
 | Diop ★ | IPS | DEF | 3.9 | 2.99 | 2.94 | 2.92 | 2.54 | 2.89 | **14.27** | 14.15 | 0.03 | 0.02 | 1.00 | 5/10 |  | — |
 | Egan ★ | HUL | DEF | 4.1 | 2.80 | 2.70 | 2.94 | 2.39 | 3.15 | **13.99** | 13.80 | 0.05 | 0.03 | 1.00 | 5/10 |  | — |
-| Thomas ★ | COV | DEF | 4.0 | 1.13 | 2.17 | 2.66 | 2.12 | 2.64 | **10.73** | 10.29 | 0.13 | 0.09 | 0.61 | 5/8 |  | UAVKLART FRAVÆR GW10 — telt som ikke-start; før årsaken i context/fravaer.csv | GW11: FPL-sjanse 50 % |
 | Mbeumo ★ | MUN | MID | 7.9 | 4.43 | 5.02 | 4.63 | 5.09 | 4.67 | **23.85** | 20.79 | 0.60 | 0.44 | 1.00 | 0/10 | 2 | — |
 | B.Fernandes ★ | MUN | MID | 11.6 | 4.26 | 4.94 | 4.58 | 5.10 | 4.69 | **23.57** | 19.91 | 0.68 | 0.45 | 0.85 | 0/9 | 1 | første straffeskytter (penalties_order 1) |
 | Tavernier ★ | BOU | MID | 6.7 | 4.83 | 4.39 | 4.53 | 4.88 | 3.49 | **22.11** | 20.29 | 0.61 | 0.51 | 1.00 | 1/10 | 3 | — |
@@ -154,9 +154,5 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 
 ## Uavklart fravær i troppen og valgte spillere
 
-Telles som ikke-start til årsaken er ført i `context/fravaer.csv`. Slå opp årsaken — ikke gjett.
-
-| Spiller | Lag | Runder |
-|---|---|---|
-| Thomas | COV | GW10 |
+Ingen.
 
