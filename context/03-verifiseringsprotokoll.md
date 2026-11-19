@@ -226,6 +226,7 @@ Håndmodellen fra GW7-økten hadde seks feil, og to korreksjoner samme dag var o
    | Start og spille | ✅ Kalibrert per runde fram (`START_KAL`, `SPILL_KAL`) | Fast starter: 0,91–0,92 spådd mot 0,89–0,90 faktisk rett etter grunnlaget, 0,82 mot 0,79–0,80 sju runder fram. Reserver fortsatt for lavt |
    | Clean sheet per lagkamp | ✅ Innenfor støy | Grupper 0,1–0,4: avvik −0,05 til +0,05, uten fast retning mellom sesongene (~700 lagkamper per sesong) |
    | DC-treff per start | ⚠️ Innenfor 5 prosentpoeng, unntatt øverst | Spådd 0,65, faktisk 0,57 i øverste gruppe (81 starter, 2025/26). Bare én sesong har DC |
+   | Tilgjengelighet ved FPL-flagg «d» (19.11.) | ⚠️ Delvis | `scripts/sjanse.py`, 2026/27 GW3–10. Neste runde: modell = FPL-sjansen; faktisk 0,43/0,55/0,54 av forventet for 25/50/75 %. Rundene etter: modell 1,00; faktisk 0,87–1,08 for spillere som var borte to+ runder, men 0,64–0,71 for spillere som spilte med flagget. Ikke endret: én sesong, overlappende observasjoner, ingen historikk å teste utenfor utvalget |
 
 8. **Byttepakker regnes med `scripts/bytter.py`, aldri for hånd.** Skriptet leser tropp, bank, innkjøpspriser og frikjøp fra speilet, kontrollerer bankkjeden og frikjøpene mot historikken, og søker gjennom bytter i de to neste rundene med salgspris, bank, klubbgrense og minuspoeng. Lagets poeng regnes med elleveren, kapteinen og innbytterne etter `05`. Bytter gjort etter siste speiling føres inn med `--ekstra-bytter`. Rapporten (`analyse/bytter.md`) gir beste plan totalt, beste plan som selger hver spiller, og anti-drift for de tre beste. Den er et verktøy, ikke en beslutning: minimumskravene gjelder for spillerne som kommer inn.
 
@@ -516,6 +517,14 @@ Premier League publiserer hver kampprogramendring som et nummerert rundskriv, «
 - **`premierleague.com/en/news/3774835` brukes ikke.** Adressen har to ganger (3.9. og 15.10.) servert 2025/26-innhold. Betingede endringer hentes fra fotnotene i rundskrivet og fra begge klubbers sider.
 
 ## Feillogg
+
+### Ny feil, 19. november: overstyrte modellen med en mekanisme som ikke var testet
+
+**Hva skjedde:** etter at Thomas' fravær ble ført i `fravaer.csv`, foretrakk modellen å selge Egan framfor Thomas (0,85 over GW11–15). Jeg holdt fast ved Thomas «mot modellen», med begrunnelsen at ingen kilde støttet at han er tilbake fra GW12, og førte det i `01-status.md` og som modellsvakhet. Speilets git-historikk hadde dataene som kunne teste påstanden. Testet samme time: regulære spillere flagget «d» etter to+ runder uten minutter spilte 0,87 og 1,08 av forventet i rundene etter neste. Modellen hadde rett for denne gruppen; påstanden var feil.
+
+**Rotårsak:** «ingen kilde for retur» ble behandlet som evidens for fravær. Det er regel 1 i snudd form: «jeg fant ingen» er ikke det samme som «det finnes ingen». Mekanismen ble påstått, ikke målt, selv om dataene lå i økten.
+
+**Avledet regel:** før en sannsynlighet i modellen overstyres i en beslutning, testes overstyringen mot `fpl-data`-historikken (eller annen data i økten). Finnes ikke data, står overstyringen som skjønn med navn, og beslutningen følger modellen når forskjellen er under feilmarginen.
 
 ### Ny feil, 19. november: statusfilene sto stille i fem uker, og en plan uten eier ble lest som vedtak
 
