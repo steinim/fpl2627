@@ -14,6 +14,7 @@
 
 from __future__ import annotations
 
+import collections
 import itertools
 import json
 import pathlib
@@ -287,6 +288,70 @@ class TestPlaner(unittest.TestCase):
         pl = self.oppsett(frikjop=5)
         self.assertEqual(pl.frikjop_b(0), 5)
 
+
+
+# --------------------------------------------------------------------------- 3b. wildcard og chips
+
+
+class TestWildcard(unittest.TestCase):
+    def liten_pott(self, n: int = 2):
+        """3 keepere, 7 forsvarere, 7 midtbane, 4 spisser med ulike priser og poeng, få klubber
+        så klubbgrensen biter. Liten nok til uttømmende søk."""
+        import random
+        rng = random.Random(7)
+        S = {}
+        e = 0
+        for pos, k in (("GKP", 3), ("DEF", 7), ("MID", 7), ("FWD", 4)):
+            for _ in range(k):
+                e += 1
+                pris = rng.randint(40, 130)
+                xp = [round(pris / 20 + rng.uniform(-2, 2), 2) for _ in range(n)]
+                S[e] = by.Spiller(e, f"S{e}", pos, rng.randint(1, 8), pris, xp, xp, [rng.choice((1.0, 0.8))] * n)
+        return S
+
+    def uttommende(self, S, pris, budsjett, n):
+        per = {pos: [e for e in S if S[e].pos == pos] for pos in fv.POSISJONER}
+        beste = -1e9
+        for g in itertools.combinations(per["GKP"], 2):
+            for d in itertools.combinations(per["DEF"], 5):
+                for m in itertools.combinations(per["MID"], 5):
+                    for f in itertools.combinations(per["FWD"], 3):
+                        t = g + d + m + f
+                        if sum(pris[x] for x in t) > budsjett:
+                            continue
+                        if max(collections.Counter(S[x].lag for x in t).values()) > by.MAKS_PER_KLUBB:
+                            continue
+                        beste = max(beste, sum(by.raskt_lag(S, t, r) for r in range(n)))
+        return beste
+
+    def test_raskt_lag_er_evaluator_uten_innbyttere(self):
+        S = tropp(STANDARD)
+        d = by.Evaluator(S).detaljer(tuple(STANDARD), 0)
+        self.assertAlmostEqual(by.raskt_lag(S, tuple(STANDARD), 0), d["xi"] + d["kapteinsledd"])
+
+    def test_lokalsok_finner_optimum(self):
+        S = self.liten_pott()
+        pris = {e: s.pris for e, s in S.items()}
+        kand = {pos: [e for e in S if S[e].pos == pos] for pos in fv.POSISJONER}
+        for budsjett in (1250, 1320, 1400):
+            fasit = self.uttommende(S, pris, budsjett, 2)
+            self.assertIsNotNone(by.gradig_start(S, kand, pris, budsjett))
+            t, v = by.wildcard(S, kand, pris, budsjett, 2, by.wc_starter(S, kand, pris, budsjett))
+            self.assertAlmostEqual(v, fasit, places=6, msg=f"budsjett {budsjett}")
+            self.assertLessEqual(sum(pris[e] for e in t), budsjett)
+            self.assertLessEqual(max(collections.Counter(S[e].lag for e in t).values()), by.MAKS_PER_KLUBB)
+
+    def test_beholdte_spillere_koster_salgspris(self):
+        S = tropp(STANDARD)
+        S[8].pris = 100
+        t = by.Tilstand(list(STANDARD), {e: 50 for e in STANDARD} | {8: 80}, 3, 1, 8, [], [], [], [])
+        pris = by.wc_pris(S, t)
+        self.assertEqual(pris[8], 90)          # kjøpt 8,0, nå 10,0 → salgspris 9,0
+
+    def test_chipstatus(self):
+        chips = [{"event": 5, "name": "3xc"}, {"event": 22, "name": "wildcard"}]
+        self.assertEqual(by.chipstatus(chips, 11), (["Triple Captain GW5"], ["Wildcard", "Free Hit", "Bench Boost"]))
+        self.assertEqual(by.chipstatus(chips, 25), (["Wildcard GW22"], ["Free Hit", "Bench Boost", "Triple Captain"]))
 
 # --------------------------------------------------------------------------- 4. tilstand fra speilfiler
 

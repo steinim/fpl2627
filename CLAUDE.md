@@ -42,7 +42,7 @@ Enkeltbytter som hver for seg gir mening kan sammen endre lagets form uten at no
 | `fravaer.csv` | Årsaken til hvert fravær i grunnlaget (skade, karantene, rotasjon …), med kilde. Føres for hånd. Leses av `scripts/forventning.py` |
 | `lagstyrke-prior.csv` | Forrige sesongs lagstyrke. Lages én gang per sesong med `scripts/historikk.py prior` |
 | `../analyse/forventning.md` og `.csv` | Forventede poeng de neste fem rundene for alle spillere, generert av `scripts/forventning.py`. Rør ikke for hånd |
-| `../analyse/bytter.md` | Beste byttepakker for de to neste rundene, beste plan som selger hver spiller, anti-drift. Generert av `scripts/bytter.py`. Rør ikke for hånd |
+| `../analyse/bytter.md` | Chips igjen og frist, beste byttepakker for de to neste rundene, beste wildcardtropp mot beste pakke, beste plan som selger hver spiller, anti-drift. Generert av `scripts/bytter.py`. Rør ikke for hånd |
 | `01-vurderte-spillere.md` | Historiske øyeblikksbilder uten styrende status — les kun hvis eksplisitt bedt om |
 | `../arkiv/01-strategi-og-tropp.md`, `../arkiv/02-regler-og-sesongplan.md` | Sto stille fra 17. oktober. Historikk uten styrende status |
 
