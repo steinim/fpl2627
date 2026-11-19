@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 19.11.2026 kl. 12:16 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–10 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
+*Generert 19.11.2026 kl. 22:09 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–10 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–10 summerer til sesongtotalene for alle 672 spillere, 19 felt
-- ✅ Speilet hentet 19.11.2026 09:29 UTC, 2.8 t gammelt ved kjøring
+- ✅ Speilet hentet 19.11.2026 21:47 UTC, 0.4 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -67,7 +67,7 @@ Bytter gjort etter GW10-deadline vises ikke.
 | Verbruggen ★ | BHA | GKP | 4.7 | 3.18 | 3.05 | 2.61 | 2.68 | 2.93 | **14.45** | 14.17 | 0.02 | 0.00 | 1.00 |  |  | — |
 | Kinsky ★ | TOT | GKP | 4.4 | 3.05 | 2.64 | 2.89 | 2.58 | 2.83 | **13.99** | 13.99 | 0.00 | 0.00 | 1.00 |  |  | — |
 | Calafiori ★ | ARS | DEF | 5.9 | 3.61 | 3.35 | 3.22 | 3.54 | 3.41 | **17.12** | 16.34 | 0.26 | 0.21 | 0.85 | 0/9 |  | — |
-| Thomas ★ | COV | DEF | 4.0 | 1.80 | 3.17 | 3.65 | 2.79 | 3.37 | **14.78** | 14.18 | 0.13 | 0.09 | 1.00 | 5/8 |  | GW11: FPL-sjanse 50 % |
+| Thomas ★ | COV | DEF | 4.0 | 2.70 | 3.17 | 3.65 | 2.79 | 3.37 | **15.68** | 15.04 | 0.13 | 0.09 | 1.00 | 5/8 |  | GW11: FPL-sjanse 75 % |
 | Davis ★ | IPS | DEF | 4.0 | 2.94 | 3.10 | 2.96 | 2.50 | 3.03 | **14.53** | 13.55 | 0.23 | 0.18 | 1.00 | 0/10 |  | — |
 | Diop ★ | IPS | DEF | 3.9 | 2.99 | 2.94 | 2.92 | 2.54 | 2.89 | **14.27** | 14.15 | 0.03 | 0.02 | 1.00 | 5/10 |  | — |
 | Egan ★ | HUL | DEF | 4.1 | 2.80 | 2.70 | 2.94 | 2.39 | 3.15 | **13.99** | 13.80 | 0.05 | 0.03 | 1.00 | 5/10 |  | — |
@@ -150,7 +150,7 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Gonzalo | FUL | FWD | 5.8 | 3.71 | 4.08 | 3.63 | 3.75 | 4.00 | **19.17** | 18.09 | 0.53 | 0.46 | 1.00 | 0/10 | 1 | første straffeskytter (penalties_order 1) |
 | Delap | NFO | FWD | 5.3 | 3.54 | 3.82 | 3.52 | 3.51 | 3.30 | **17.68** | 16.14 | 0.46 | 0.35 | 0.98 | 0/8 | 3 | — |
 | Havertz | ARS | FWD | 7.4 | 3.35 | 3.25 | 3.16 | 3.01 | 3.26 | **16.03** | 15.26 | 0.40 | 0.34 | 0.85 | 0/9 |  | — |
-| Brobbey | SUN | FWD | 5.7 | 2.64 | 3.47 | 3.07 | 3.27 | 3.33 | **15.78** | 12.27 | 0.63 | 0.33 | 0.82 | 0/8 |  | UAVKLART FRAVÆR GW6, GW7 — telt som ikke-start; før årsaken i context/fravaer.csv | én kamp (GW5) står for 55% av xGI | GW11: FPL-sjanse 75 % |
+| Kostoulas | BHA | FWD | 5.8 | 3.27 | 3.41 | 2.92 | 2.85 | 3.14 | **15.59** | 15.14 | 0.35 | 0.32 | 0.99 | 0/9 |  | — |
 
 ## Uavklart fravær i troppen og valgte spillere
 
