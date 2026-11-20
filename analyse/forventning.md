@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 19.11.2026 kl. 22:09 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–10 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
+*Generert 20.11.2026 kl. 09:59 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–10 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–10 summerer til sesongtotalene for alle 672 spillere, 19 felt
-- ✅ Speilet hentet 19.11.2026 21:47 UTC, 0.4 t gammelt ved kjøring
+- ✅ Speilet hentet 20.11.2026 09:09 UTC, 0.8 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -145,7 +145,7 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Barry ★ | EVE | FWD | 5.7 | 5.05 | 5.13 | 5.00 | 5.18 | 4.50 | **24.87** | 23.11 | 0.82 | 0.73 | 1.00 | 0/10 | 1 | første straffeskytter (penalties_order 1) |
 | Isak | LIV | FWD | 9.3 | 4.79 | 4.16 | 4.44 | 3.93 | 4.14 | **21.46** | 20.42 | 0.62 | 0.56 | 0.93 | 0/9 | 2 | UAVKLART FRAVÆR GW6 — telt som ikke-start; før årsaken i context/fravaer.csv |
 | Evanilson ★ | BOU | FWD | 6.5 | 4.58 | 4.15 | 4.34 | 4.59 | 3.29 | **20.96** | 19.06 | 0.59 | 0.48 | 1.00 | 0/10 |  | — |
-| N.Jackson | AVL | FWD | 7.1 | 4.36 | 4.12 | 4.18 | 4.39 | 3.78 | **20.82** | 18.88 | 0.54 | 0.43 | 1.00 | 0/9 | 3 | — |
+| N.Jackson | AVL | FWD | 7.2 | 4.36 | 4.12 | 4.18 | 4.39 | 3.78 | **20.82** | 18.88 | 0.54 | 0.43 | 1.00 | 0/9 | 3 | — |
 | Calvert-Lewin | LEE | FWD | 6.0 | 3.90 | 4.31 | 3.49 | 4.31 | 3.45 | **19.46** | 18.61 | 0.48 | 0.43 | 1.00 | 0/10 | 1 | første straffeskytter (penalties_order 1) |
 | Gonzalo | FUL | FWD | 5.8 | 3.71 | 4.08 | 3.63 | 3.75 | 4.00 | **19.17** | 18.09 | 0.53 | 0.46 | 1.00 | 0/10 | 1 | første straffeskytter (penalties_order 1) |
 | Delap | NFO | FWD | 5.3 | 3.54 | 3.82 | 3.52 | 3.51 | 3.30 | **17.68** | 16.14 | 0.46 | 0.35 | 0.98 | 0/8 | 3 | — |
