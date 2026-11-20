@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 20.11.2026 kl. 09:59 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–10 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
+*Generert 20.11.2026 kl. 21:48 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–10 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–10 summerer til sesongtotalene for alle 672 spillere, 19 felt
-- ✅ Speilet hentet 20.11.2026 09:09 UTC, 0.8 t gammelt ved kjøring
+- ✅ Speilet hentet 20.11.2026 21:30 UTC, 0.3 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -112,10 +112,10 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Muharemović | LEE | DEF | 5.1 | 3.39 | 4.23 | 2.97 | 3.92 | 3.10 | **17.61** | 16.97 | 0.09 | 0.05 | 1.00 | 7/10 |  | — |
 | Calafiori ★ | ARS | DEF | 5.9 | 3.61 | 3.35 | 3.22 | 3.54 | 3.41 | **17.12** | 16.34 | 0.26 | 0.21 | 0.85 | 0/9 |  | — |
 | Jacquet | LIV | DEF | 5.1 | 3.44 | 3.44 | 3.58 | 3.00 | 3.49 | **16.95** | 16.53 | 0.08 | 0.06 | 1.00 | 5/10 |  | — |
+| Virgil | LIV | DEF | 6.4 | 3.42 | 3.42 | 3.55 | 2.97 | 3.47 | **16.83** | 16.44 | 0.07 | 0.05 | 1.00 | 6/10 |  | — |
 | Bogle | LEE | DEF | 4.8 | 3.14 | 4.10 | 2.68 | 3.84 | 2.83 | **16.59** | 15.02 | 0.29 | 0.20 | 1.00 | 0/10 |  | — |
 | Justin | LEE | DEF | 4.5 | 3.10 | 3.99 | 2.68 | 3.70 | 2.83 | **16.30** | 15.62 | 0.17 | 0.12 | 1.00 | 3/10 |  | — |
 | Hall | NEW | DEF | 5.2 | 3.26 | 2.86 | 3.24 | 3.48 | 3.30 | **16.13** | 15.86 | 0.15 | 0.13 | 1.00 | 5/10 |  | — |
-| Araujo | LIV | DEF | 5.5 | 3.40 | 3.27 | 3.35 | 2.79 | 3.17 | **15.98** | 14.41 | 0.16 | 0.05 | 0.97 | 4/8 |  | én kamp (GW10) står for 71% av xGI |
 
 ### MID
 
