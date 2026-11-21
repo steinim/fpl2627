@@ -518,6 +518,14 @@ Premier League publiserer hver kampprogramendring som et nummerert rundskriv, «
 
 ## Feillogg
 
+### Ny feil, 19.–21. november: rundeplassering lest som totalplassering
+
+**Hva skjedde:** `entry/history.csv` har kolonnene `gw, points, gw_rank, overall_rank, …`. Claude leste `gw_rank` (2 068 776 i GW10) som OR og skrev i tre dager at OR var 2,07 millioner og «steg fra 3 469 937». Riktig: OR 3 469 937 etter GW9 og 3 024 051 etter GW10. Oppdaget 21.11. da `entry.json` viste `summary_overall_rank` 3 023 936.
+
+**Rotårsak:** kolonner lest etter posisjon fra `tail`, uten overskrift.
+
+**Avledet regel:** CSV-er leses med overskrift (`csv.DictReader` eller `head -1` i samme kall). Et tall som brukes i en konklusjon, oppgis med kolonnenavnet det kom fra.
+
 ### Ny feil, 21. november: oppstillingen snudd tre ganger på støy
 
 **Hva skjedde:** på 5 minutter før GW11-deadline foreslo Claude tre ulike benker (Fernandes, så Groß, så Mbeumo) på forskjeller mellom 0,05 og 0,27 forventede poeng, med ny begrunnelse hver gang. Brukeren måtte rette to ganger.
