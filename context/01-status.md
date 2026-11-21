@@ -55,7 +55,7 @@ Claude spiller laget: foreslår og begrunner bytter, kaptein og chips. Brukeren 
 
 Anti-drift etter byttene: ingen klubb med 3 (BHA, BOU, IPS, MUN, TOT 2 hver; Hull ut). Keeper og forsvar £31,0m → £32,0m. Bank £4,7m → £2,5m; Diop → Murillo i GW12 (£1,6m) er fortsatt mulig.
 
-Kaptein Haaland, vise Barry. **Endelig oppstilling GW11 (21.11.), 3-5-2:** Verbruggen; Van Hecke, Calafiori, Diop; Fernandes, Le Fée, Tavernier, Mbeumo, Groß; Haaland (C), Barry (V). Benk: Kinsky, Evanilson, Davis, Thomas. Fernandes inn fordi GW8-benkingen under Carrick ikke lenger har en mekanisme (testet: 4,98 uten raden). Evanilson (4,58) benket framfor Groß (4,31) eller Mbeumo (4,43); kostnad 0,27 mot modellens beste, innenfor støy. Oppstillingen ble endret tre ganger samme morgen på forskjeller under 0,3 — se feillogg.
+Kaptein Haaland, vise Barry. **Endelig oppstilling GW11 (21.11.), 3-5-2:** Verbruggen; Thomas, Calafiori, Van Hecke; Fernandes, Le Fée, Tavernier, Mbeumo, Groß; Haaland (C), Barry (V). Benk: Kinsky, Evanilson, Diop, Davis. Regnet med modellens innbytterlogikk (Fernandes-raden uten Carrick-benkingen): 58,63 mot 58,18 med Diop i stedet for Thomas og 58,47 for Hubs forslag (Evanilson foran Le Fée). Thomas (0,70) starter fordi Diop kommer inn automatisk hvis han ikke spiller. Oppstillingen ble endret flere ganger samme morgen — se feillogg.
 
 ## Åpne saker
 
@@ -64,4 +64,5 @@ Kaptein Haaland, vise Barry. **Endelig oppstilling GW11 (21.11.), 3-5-2:** Verbr
 - **Gule kort:** Tavernier og Groß har 4 (summert fra `live/gw1–10.csv`). Ett til gir én kamps utestengelse. Ikke prissatt i modellen; benken dekker.
 - **Rank:** OR 3 024 051 etter GW10 (596 poeng). *(Rettet 21.11.: 2 068 776 var rundeplasseringen i GW10, ikke OR.)* Gapet til topp 100k lukkes ikke av en tropp som bare unngår tabber, og skal styre hvordan wildcardet bygges.
 - **Modell, tilgjengelighet:** FPL-sjansen brukes for neste runde, full tilgjengelighet etter. For spillere som er borte (to+ runder uten minutter) stemmer det. For spillere som **spiller med flagg** (knock) er det for høyt: 0,64–0,71 av forventet i rundene etter, ikke 1,00 (n = 26–61). Ikke endret ennå: én sesong, sju runder, overlappende observasjoner, og tilbaketesten på to sesonger kan ikke teste tilgjengelighet (historikken har ingen flagg). Plan: tilpass på GW3–14, test på GW15–19, endre `tilgjengelighet()` bare hvis det holder.
+- **`bytter.py` velger elleveren etter forventede poeng per spiller**, ikke etter lagverdi med innbyttere. Den starter derfor ikke en usikker spiller med en sikker dekning på benken, selv når det gir mer (Thomas/Diop i GW11: +0,45). Bør velge elleveren som maksimerer `runde()`.
 - **Chipbruk** ligger allerede i speilet (`entry/history.json` → `chips`); `bytter.md` viser nå brukt, igjen og frist.
