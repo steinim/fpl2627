@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 20.11.2026 kl. 21:48 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–10 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
+*Generert 21.11.2026 kl. 09:46 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–10 (data_checked). Horisont: GW11–15. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–10 summerer til sesongtotalene for alle 672 spillere, 19 felt
-- ✅ Speilet hentet 20.11.2026 21:30 UTC, 0.3 t gammelt ved kjøring
+- ✅ Speilet hentet 21.11.2026 09:18 UTC, 0.5 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -71,7 +71,7 @@ Bytter gjort etter GW10-deadline vises ikke.
 | Davis ★ | IPS | DEF | 4.0 | 2.94 | 3.10 | 2.96 | 2.50 | 3.03 | **14.53** | 13.55 | 0.23 | 0.18 | 1.00 | 0/10 |  | — |
 | Diop ★ | IPS | DEF | 3.9 | 2.99 | 2.94 | 2.92 | 2.54 | 2.89 | **14.27** | 14.15 | 0.03 | 0.02 | 1.00 | 5/10 |  | — |
 | Egan ★ | HUL | DEF | 4.1 | 2.80 | 2.70 | 2.94 | 2.39 | 3.15 | **13.99** | 13.80 | 0.05 | 0.03 | 1.00 | 5/10 |  | — |
-| Mbeumo ★ | MUN | MID | 7.9 | 4.43 | 5.02 | 4.63 | 5.09 | 4.67 | **23.85** | 20.79 | 0.60 | 0.44 | 1.00 | 0/10 | 2 | — |
+| Mbeumo ★ | MUN | MID | 7.8 | 4.43 | 5.02 | 4.63 | 5.09 | 4.67 | **23.85** | 20.79 | 0.60 | 0.44 | 1.00 | 0/10 | 2 | — |
 | B.Fernandes ★ | MUN | MID | 11.6 | 4.26 | 4.94 | 4.58 | 5.10 | 4.69 | **23.57** | 19.91 | 0.68 | 0.45 | 0.85 | 0/9 | 1 | første straffeskytter (penalties_order 1) |
 | Tavernier ★ | BOU | MID | 6.7 | 4.83 | 4.39 | 4.53 | 4.88 | 3.49 | **22.11** | 20.29 | 0.61 | 0.51 | 1.00 | 1/10 | 3 | — |
 | Groß ★ | BHA | MID | 6.3 | 4.31 | 4.55 | 3.78 | 3.74 | 4.26 | **20.64** | 18.52 | 0.54 | 0.42 | 1.00 | 0/10 | 1 | første straffeskytter (penalties_order 1) |
@@ -90,7 +90,7 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Trafford | LEE | GKP | 5.0 | 3.32 | 3.59 | 3.12 | 3.36 | 3.08 | **16.47** | 16.45 | 0.00 | 0.00 | 1.00 |  |  | — |
 | Tzolakis | HUL | GKP | 4.7 | 3.28 | 3.18 | 3.21 | 3.05 | 3.24 | **15.96** | 15.96 | 0.00 | 0.00 | 1.00 |  |  | — |
-| Raya | ARS | GKP | 6.2 | 3.28 | 3.06 | 2.96 | 3.22 | 3.00 | **15.52** | 15.51 | 0.00 | 0.00 | 1.00 |  |  | — |
+| Raya | ARS | GKP | 6.3 | 3.28 | 3.06 | 2.96 | 3.22 | 3.00 | **15.52** | 15.51 | 0.00 | 0.00 | 1.00 |  |  | — |
 | Suzuki | AVL | GKP | 5.1 | 3.19 | 3.01 | 3.01 | 2.85 | 2.85 | **14.90** | 14.89 | 0.00 | 0.00 | 0.99 |  |  | UAVKLART FRAVÆR GW1 — telt som ikke-start; før årsaken i context/fravaer.csv |
 | Horníček | NEW | GKP | 5.0 | 3.08 | 2.92 | 2.92 | 2.97 | 2.90 | **14.80** | 14.80 | 0.00 | 0.00 | 1.00 |  |  | — |
 | Lammens | MUN | GKP | 4.8 | 2.95 | 2.98 | 2.91 | 3.13 | 2.77 | **14.75** | 14.70 | 0.00 | 0.00 | 1.00 |  |  | — |
@@ -121,7 +121,7 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 
 | Spiller | Lag | Pos | Pris | GW11 | GW12 | GW13 | GW14 | GW15 | Sum | Robust | xGI/90 | Uten beste | Start | DC | Str | Flagg |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Mbeumo ★ | MUN | MID | 7.9 | 4.43 | 5.02 | 4.63 | 5.09 | 4.67 | **23.85** | 20.79 | 0.60 | 0.44 | 1.00 | 0/10 | 2 | — |
+| Mbeumo ★ | MUN | MID | 7.8 | 4.43 | 5.02 | 4.63 | 5.09 | 4.67 | **23.85** | 20.79 | 0.60 | 0.44 | 1.00 | 0/10 | 2 | — |
 | B.Fernandes ★ | MUN | MID | 11.6 | 4.26 | 4.94 | 4.58 | 5.10 | 4.69 | **23.57** | 19.91 | 0.68 | 0.45 | 0.85 | 0/9 | 1 | første straffeskytter (penalties_order 1) |
 | E.Le Fée | SUN | MID | 5.7 | 4.84 | 4.87 | 4.25 | 4.54 | 4.62 | **23.11** | 21.04 | 0.59 | 0.49 | 1.00 | 1/10 | 1 | første straffeskytter (penalties_order 1) |
 | Gibbs-White | NFO | MID | 7.8 | 4.41 | 4.84 | 4.55 | 4.49 | 4.25 | **22.54** | 21.59 | 0.54 | 0.48 | 1.00 | 0/9 | 1 | første straffeskytter (penalties_order 1) |
@@ -135,7 +135,7 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Enciso | IPS | MID | 5.5 | 3.56 | 3.97 | 3.61 | 3.33 | 3.79 | **18.27** | 17.56 | 0.46 | 0.41 | 1.00 | 0/10 |  | — |
 | Iwobi | FUL | MID | 5.4 | 3.53 | 3.84 | 3.54 | 3.59 | 3.76 | **18.26** | 17.01 | 0.47 | 0.38 | 1.00 | 0/10 | 3 | — |
 | Rayan | BOU | MID | 6.3 | 3.95 | 3.63 | 3.70 | 3.96 | 2.99 | **18.24** | 16.87 | 0.33 | 0.26 | 1.00 | 1/10 |  | — |
-| Wirtz | LIV | MID | 7.2 | 3.91 | 3.54 | 3.73 | 3.33 | 3.53 | **18.04** | 17.87 | 0.35 | 0.33 | 1.00 | 0/10 | 4 | — |
+| Wirtz | LIV | MID | 7.3 | 3.91 | 3.54 | 3.73 | 3.33 | 3.53 | **18.04** | 17.87 | 0.35 | 0.33 | 1.00 | 0/10 | 4 | — |
 
 ### FWD
 
