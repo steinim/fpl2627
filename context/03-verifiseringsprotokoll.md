@@ -518,6 +518,14 @@ Premier League publiserer hver kampprogramendring som et nummerert rundskriv, «
 
 ## Feillogg
 
+### Ny feil, 21. november: oppstillingen snudd tre ganger på støy
+
+**Hva skjedde:** på 5 minutter før GW11-deadline foreslo Claude tre ulike benker (Fernandes, så Groß, så Mbeumo) på forskjeller mellom 0,05 og 0,27 forventede poeng, med ny begrunnelse hver gang. Brukeren måtte rette to ganger.
+
+**Rotårsak:** hvert forslag var en ny lokal optimering i stedet for én samlet beslutning. Tabellen over alle åtte offensive med deres verdier kom først i tredje svar.
+
+**Avledet regel:** ved oppstilling: vis alle kandidater til de siste plassene i én tabell første gang, si hvilke forskjeller som er støy, og gi én anbefaling. Endres den, er det fordi ny informasjon har kommet, ikke fordi brukeren reagerte.
+
 ### Ny feil, 19. november: overstyrte modellen med en mekanisme som ikke var testet
 
 **Hva skjedde:** etter at Thomas' fravær ble ført i `fravaer.csv`, foretrakk modellen å selge Egan framfor Thomas (0,85 over GW11–15). Jeg holdt fast ved Thomas «mot modellen», med begrunnelsen at ingen kilde støttet at han er tilbake fra GW12, og førte det i `01-status.md` og som modellsvakhet. Speilets git-historikk hadde dataene som kunne teste påstanden. Testet samme time: regulære spillere flagget «d» etter to+ runder uten minutter spilte 0,87 og 1,08 av forventet i rundene etter neste. Modellen hadde rett for denne gruppen; påstanden var feil.

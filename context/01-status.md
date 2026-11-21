@@ -55,7 +55,7 @@ Claude spiller laget: foreslår og begrunner bytter, kaptein og chips. Brukeren 
 
 Anti-drift etter byttene: ingen klubb med 3 (BHA, BOU, IPS, MUN, TOT 2 hver; Hull ut). Keeper og forsvar £31,0m → £32,0m. Bank £4,7m → £2,5m; Diop → Murillo i GW12 (£1,6m) er fortsatt mulig.
 
-Kaptein Haaland, vise Barry. **Fernandes starter, Mbeumo på benken (21.11.).** Med GW8-benkingen under Carrick tatt ut av startgrunnlaget gir modellen Fernandes 4,98 i GW11 (start 9/9); Carrick er sparket, så mekanismen bak raden er borte (regel 8). Lavest blant de åtte offensive er Groß 4,31, Mbeumo 4,43, Evanilson 4,58 — innenfor støy. Mbeumo benkes framfor Groß: koster 0,12, og gir ikke to Man Utd-spillere i samme kamp under en ny trener med uprisede uttaksrisiko. Benk: Kinsky, Mbeumo, Davis, Thomas.
+Kaptein Haaland, vise Barry. **Endelig oppstilling GW11 (21.11.), 3-5-2:** Verbruggen; Van Hecke, Calafiori, Diop; Fernandes, Le Fée, Tavernier, Mbeumo, Groß; Haaland (C), Barry (V). Benk: Kinsky, Evanilson, Davis, Thomas. Fernandes inn fordi GW8-benkingen under Carrick ikke lenger har en mekanisme (testet: 4,98 uten raden). Evanilson (4,58) benket framfor Groß (4,31) eller Mbeumo (4,43); kostnad 0,27 mot modellens beste, innenfor støy. Oppstillingen ble endret tre ganger samme morgen på forskjeller under 0,3 — se feillogg.
 
 ## Åpne saker
 
