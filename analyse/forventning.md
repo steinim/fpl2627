@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 22.11.2026 kl. 20:43 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–10 (data_checked). Horisont: GW12–16. Fraværsfil: context/fravaer.csv.*
+*Generert 23.11.2026 kl. 10:43 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–10 (data_checked). Horisont: GW12–16. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–10 summerer til sesongtotalene for 54 spillere, 19 felt; 620 spillere på lag som har spilt i GW11 er kontrollert mot grunnlaget pluss live-fila
-- ✅ Speilet hentet 22.11.2026 20:28 UTC, 0.3 t gammelt ved kjøring
+- ✅ Speilet hentet 23.11.2026 09:45 UTC, 1.0 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -114,7 +114,7 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Virgil | LIV | DEF | 6.4 | 3.42 | 3.55 | 2.97 | 3.47 | 3.68 | **17.09** | 16.72 | 0.07 | 0.05 | 1.00 | 6/10 |  | — |
 | Bogle | LEE | DEF | 4.8 | 4.10 | 2.68 | 3.84 | 2.83 | 3.59 | **17.05** | 15.46 | 0.29 | 0.20 | 1.00 | 0/10 |  | — |
 | Calafiori ★ | ARS | DEF | 5.9 | 3.35 | 3.22 | 3.54 | 3.41 | 3.42 | **16.93** | 16.14 | 0.26 | 0.21 | 0.85 | 0/9 |  | — |
-| N.Williams | NFO | DEF | 4.9 | 3.42 | 3.62 | 3.11 | 3.04 | 3.54 | **16.72** | 16.09 | 0.21 | 0.18 | 1.00 | 2/10 |  | — |
+| N.Williams | NFO | DEF | 4.8 | 3.42 | 3.62 | 3.11 | 3.04 | 3.54 | **16.72** | 16.09 | 0.21 | 0.18 | 1.00 | 2/10 |  | — |
 | Justin | LEE | DEF | 4.5 | 3.99 | 2.68 | 3.70 | 2.83 | 3.51 | **16.71** | 16.03 | 0.17 | 0.12 | 1.00 | 3/10 |  | — |
 
 ### MID
@@ -135,7 +135,7 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Rudoni | COV | MID | 4.9 | 3.55 | 4.08 | 3.47 | 3.79 | 3.24 | **18.13** | 16.80 | 0.48 | 0.39 | 0.99 | 1/9 | 1 | første straffeskytter (penalties_order 1) |
 | Iwobi | FUL | MID | 5.4 | 3.84 | 3.54 | 3.59 | 3.76 | 3.39 | **18.12** | 16.88 | 0.47 | 0.38 | 1.00 | 0/10 | 3 | — |
 | Enciso | IPS | MID | 5.5 | 3.97 | 3.61 | 3.33 | 3.79 | 3.20 | **17.90** | 17.21 | 0.46 | 0.41 | 1.00 | 0/10 |  | — |
-| Wirtz | LIV | MID | 7.3 | 3.54 | 3.73 | 3.33 | 3.53 | 3.51 | **17.63** | 17.47 | 0.35 | 0.33 | 1.00 | 0/10 | 4 | — |
+| Wirtz | LIV | MID | 7.4 | 3.54 | 3.73 | 3.33 | 3.53 | 3.51 | **17.63** | 17.47 | 0.35 | 0.33 | 1.00 | 0/10 | 4 | — |
 
 ### FWD
 
@@ -145,12 +145,12 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 | Barry ★ | EVE | FWD | 5.7 | 5.13 | 5.00 | 5.18 | 4.50 | 4.48 | **24.30** | 22.58 | 0.82 | 0.73 | 1.00 | 0/10 | 1 | første straffeskytter (penalties_order 1) |
 | Evanilson ★ | BOU | FWD | 6.6 | 4.15 | 4.34 | 4.59 | 3.29 | 4.49 | **20.86** | 18.96 | 0.59 | 0.48 | 1.00 | 0/10 |  | — |
 | Isak | LIV | FWD | 9.3 | 4.16 | 4.44 | 3.93 | 4.14 | 4.04 | **20.72** | 19.72 | 0.62 | 0.56 | 0.93 | 0/9 | 2 | UAVKLART FRAVÆR GW6 — telt som ikke-start; før årsaken i context/fravaer.csv |
-| N.Jackson | AVL | FWD | 7.2 | 4.12 | 4.18 | 4.39 | 3.78 | 3.61 | **20.07** | 18.22 | 0.54 | 0.43 | 1.00 | 0/9 | 3 | — |
+| N.Jackson | AVL | FWD | 7.3 | 4.12 | 4.18 | 4.39 | 3.78 | 3.61 | **20.07** | 18.22 | 0.54 | 0.43 | 1.00 | 0/9 | 3 | — |
 | Calvert-Lewin | LEE | FWD | 6.0 | 4.31 | 3.49 | 4.31 | 3.45 | 3.88 | **19.44** | 18.58 | 0.48 | 0.43 | 1.00 | 0/10 | 1 | første straffeskytter (penalties_order 1) |
 | Gonzalo | FUL | FWD | 5.8 | 4.08 | 3.63 | 3.75 | 4.00 | 3.53 | **18.99** | 17.91 | 0.53 | 0.46 | 1.00 | 0/10 | 1 | første straffeskytter (penalties_order 1) |
 | Delap | NFO | FWD | 5.3 | 3.82 | 3.52 | 3.51 | 3.30 | 3.57 | **17.71** | 16.14 | 0.46 | 0.35 | 0.98 | 0/8 | 3 | — |
 | Havertz | ARS | FWD | 7.4 | 3.25 | 3.16 | 3.01 | 3.26 | 3.39 | **16.07** | 15.30 | 0.40 | 0.34 | 0.85 | 0/9 |  | — |
-| Kostoulas | BHA | FWD | 5.8 | 3.41 | 2.92 | 2.85 | 3.14 | 3.26 | **15.59** | 15.12 | 0.35 | 0.32 | 0.99 | 0/9 |  | — |
+| Kostoulas | BHA | FWD | 5.7 | 3.41 | 2.92 | 2.85 | 3.14 | 3.26 | **15.59** | 15.12 | 0.35 | 0.32 | 0.99 | 0/9 |  | — |
 
 ## Uavklart fravær i troppen og valgte spillere
 
