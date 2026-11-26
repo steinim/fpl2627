@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 26.11.2026 kl. 10:51 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–11 (data_checked). Horisont: GW12–16. Fraværsfil: context/fravaer.csv.*
+*Generert 26.11.2026 kl. 22:59 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–11 (data_checked). Horisont: GW12–16. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–11 summerer til sesongtotalene for alle 674 spillere, 19 felt
-- ✅ Speilet hentet 26.11.2026 10:01 UTC, 0.8 t gammelt ved kjøring
+- ✅ Speilet hentet 26.11.2026 22:34 UTC, 0.4 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
