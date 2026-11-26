@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 25.11.2026 kl. 23:05 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–11 (data_checked). Horisont: GW12–16. Fraværsfil: context/fravaer.csv.*
+*Generert 26.11.2026 kl. 10:51 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–11 (data_checked). Horisont: GW12–16. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–11 summerer til sesongtotalene for alle 674 spillere, 19 felt
-- ✅ Speilet hentet 25.11.2026 22:44 UTC, 0.4 t gammelt ved kjøring
+- ✅ Speilet hentet 26.11.2026 10:01 UTC, 0.8 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -143,7 +143,7 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Haaland ★ | MCI | FWD | 15.8 | 4.47 | 5.85 | 5.20 | 6.00 | 6.11 | **27.64** | 26.42 | 0.83 | 0.76 | 1.00 | 0/11 | 1 | første straffeskytter (penalties_order 1) |
 | Barry ★ | EVE | FWD | 5.7 | 5.07 | 4.76 | 5.12 | 4.37 | 4.34 | **23.66** | 22.01 | 0.77 | 0.68 | 1.00 | 0/11 | 1 | første straffeskytter (penalties_order 1) |
-| Isak | LIV | FWD | 9.3 | 4.61 | 4.94 | 4.32 | 4.51 | 4.40 | **22.79** | 21.62 | 0.71 | 0.62 | 0.95 | 0/10 | 2 | UAVKLART FRAVÆR GW6 — telt som ikke-start; før årsaken i context/fravaer.csv |
+| Isak | LIV | FWD | 9.4 | 4.61 | 4.94 | 4.32 | 4.51 | 4.40 | **22.79** | 21.62 | 0.71 | 0.62 | 0.95 | 0/10 | 2 | UAVKLART FRAVÆR GW6 — telt som ikke-start; før årsaken i context/fravaer.csv |
 | Evanilson ★ | BOU | FWD | 6.6 | 4.40 | 4.74 | 4.98 | 3.45 | 4.82 | **22.38** | 20.68 | 0.64 | 0.55 | 1.00 | 0/11 |  | — |
 | Calvert-Lewin | LEE | FWD | 6.0 | 4.92 | 3.78 | 4.92 | 3.69 | 4.33 | **21.64** | 19.88 | 0.57 | 0.48 | 1.00 | 0/11 | 1 | første straffeskytter (penalties_order 1) |
 | N.Jackson | AVL | FWD | 7.3 | 4.19 | 4.30 | 4.49 | 3.76 | 3.63 | **20.37** | 18.65 | 0.53 | 0.43 | 1.00 | 0/10 | 3 | — |
