@@ -50,7 +50,7 @@ Claude spiller laget: foreslår og begrunner bytter, kaptein og chips. Brukeren 
 
 **Wildcard:** Verbruggen → Trafford, Kinsky → Tzolakis, Calafiori → De Cuyper, Diop → Silva, Davis → Justin, Mbeumo → Gibbs-White. Brukeren godkjente strukturendringen (+£2,0m bak, Arsenal ut av bakre ledd).
 
-Oppstilling 3-4-3: Trafford; De Cuyper, Silva, Justin; Fernandes (C), Gibbs-White (V), Tavernier, Groß; Haaland, Barry, Evanilson. Benk: Tzolakis, Le Fée, Van Hecke, Thomas. Evanilson starter foran Le Fée (overstyrer modellen med 0,50, begrunnet med markedets lagmål). Fernandes som kaptein mot 77 % på Haaland er et bevisst differensial.
+Oppstilling 3-4-3: Trafford; De Cuyper, Silva, Justin; Fernandes (C), Gibbs-White (V), Tavernier, Groß; Haaland, Barry, Evanilson. Benk: Tzolakis, Le Fée, Van Hecke, Thomas. Evanilson starter foran Le Fée (overstyrer modellen med 0,50, begrunnet med markedets lagmål). **Endret 27.11. kl. 15:30: kaptein Gibbs-White, vise Barry.** Fernandes har virus, trente ikke fredag, avgjøres lørdag morgen (Pochettino, pressekonferanse 27.11.) — etter deadline. Han står i elleveren med Le Fée først på benken som automatisk dekning. Modellen (10:07 UTC, før flagget): Fernandes 5,29, Gibbs-White 5,16, Barry 5,07, Haaland 4,47.
 
 Bank £0,2m. Frikjøp inn i GW13: 2. Alle 15 med status «a» i speilet 27.11. 10:07 UTC.
 
