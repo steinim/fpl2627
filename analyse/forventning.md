@@ -1,12 +1,12 @@
 # Forventede poeng — generert
 
-*Generert 27.11.2026 kl. 10:49 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–11 (data_checked). Horisont: GW12–16. Fraværsfil: context/fravaer.csv.*
+*Generert 27.11.2026 kl. 18:15 UTC av `scripts/forventning.py` fra `fpl-data`. **Rør ikke fila for hånd.** Grunnlag: GW1–11 (data_checked). Horisont: GW12–16. Fraværsfil: context/fravaer.csv.*
 
 ## Kontroller
 
 - ✅ Poengregler: alle 13 kategorier i API-ets game_config stemmer med skriptet
 - ✅ Rundedata GW1–11 summerer til sesongtotalene for alle 674 spillere, 19 felt
-- ✅ Speilet hentet 27.11.2026 10:07 UTC, 0.7 t gammelt ved kjøring
+- ✅ Speilet hentet 27.11.2026 14:29 UTC, 3.8 t gammelt ved kjøring
 - ✅ Lagstyrke-prior fra context/lagstyrke-prior.csv (ρ = 0.5); opprykksprior brukt for COV, HUL, IPS
 
 ## Modell og estimerte parametre
@@ -71,9 +71,9 @@ Bytter gjort etter GW11-deadline vises ikke.
 | Thomas ★ | COV | DEF | 4.0 | 3.28 | 3.97 | 2.96 | 3.62 | 2.79 | **16.62** | 16.27 | 0.16 | 0.13 | 1.00 | 6/9 |  | — |
 | Diop ★ | IPS | DEF | 3.9 | 2.93 | 2.77 | 2.33 | 2.76 | 1.94 | **12.73** | 12.61 | 0.03 | 0.02 | 1.00 | 5/11 |  | — |
 | Davis ★ | IPS | DEF | 4.0 | 2.37 | 2.87 | 2.34 | 2.97 | 1.97 | **12.52** | 11.64 | 0.22 | 0.17 | 1.00 | 0/11 |  | GW12: FPL-sjanse 75 % |
-| B.Fernandes ★ | MUN | MID | 11.6 | 5.29 | 4.73 | 5.45 | 4.83 | 3.56 | **23.86** | 20.51 | 0.67 | 0.46 | 0.90 | 0/10 | 1 | første straffeskytter (penalties_order 1) |
 | Tavernier ★ | BOU | MID | 6.8 | 4.59 | 4.86 | 5.21 | 3.61 | 5.03 | **23.30** | 21.59 | 0.64 | 0.56 | 1.00 | 1/11 | 3 | — |
 | E.Le Fée ★ | SUN | MID | 5.7 | 4.90 | 4.13 | 4.42 | 4.65 | 5.04 | **23.13** | 21.10 | 0.55 | 0.46 | 1.00 | 1/11 | 1 | første straffeskytter (penalties_order 1) |
+| B.Fernandes ★ | MUN | MID | 11.6 | 3.97 | 4.73 | 5.45 | 4.83 | 3.56 | **22.54** | 19.38 | 0.67 | 0.46 | 0.90 | 0/10 | 1 | første straffeskytter (penalties_order 1) | GW12: FPL-sjanse 75 % |
 | Groß ★ | BHA | MID | 6.3 | 4.83 | 3.94 | 3.90 | 4.51 | 4.73 | **21.92** | 19.82 | 0.53 | 0.43 | 1.00 | 1/11 | 1 | første straffeskytter (penalties_order 1) |
 | Mbeumo ★ | MUN | MID | 7.8 | 4.80 | 4.30 | 4.89 | 4.34 | 3.30 | **21.63** | 18.97 | 0.58 | 0.43 | 1.00 | 0/11 | 2 | — |
 | Haaland ★ | MCI | FWD | 15.7 | 4.47 | 5.85 | 5.20 | 6.00 | 6.11 | **27.64** | 26.42 | 0.83 | 0.76 | 1.00 | 0/11 | 1 | første straffeskytter (penalties_order 1) |
@@ -121,10 +121,10 @@ Spillere med minst 180 minutter og status ulik «u». ★ = i troppen. Sortert p
 
 | Spiller | Lag | Pos | Pris | GW12 | GW13 | GW14 | GW15 | GW16 | Sum | Robust | xGI/90 | Uten beste | Start | DC | Str | Flagg |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| B.Fernandes ★ | MUN | MID | 11.6 | 5.29 | 4.73 | 5.45 | 4.83 | 3.56 | **23.86** | 20.51 | 0.67 | 0.46 | 0.90 | 0/10 | 1 | første straffeskytter (penalties_order 1) |
 | Gibbs-White | NFO | MID | 7.8 | 5.16 | 4.64 | 4.70 | 4.27 | 4.84 | **23.61** | 22.63 | 0.54 | 0.48 | 1.00 | 0/10 | 1 | første straffeskytter (penalties_order 1) |
 | Tavernier ★ | BOU | MID | 6.8 | 4.59 | 4.86 | 5.21 | 3.61 | 5.03 | **23.30** | 21.59 | 0.64 | 0.56 | 1.00 | 1/11 | 3 | — |
 | E.Le Fée ★ | SUN | MID | 5.7 | 4.90 | 4.13 | 4.42 | 4.65 | 5.04 | **23.13** | 21.10 | 0.55 | 0.46 | 1.00 | 1/11 | 1 | første straffeskytter (penalties_order 1) |
+| B.Fernandes ★ | MUN | MID | 11.6 | 3.97 | 4.73 | 5.45 | 4.83 | 3.56 | **22.54** | 19.38 | 0.67 | 0.46 | 0.90 | 0/10 | 1 | første straffeskytter (penalties_order 1) | GW12: FPL-sjanse 75 % |
 | Groß ★ | BHA | MID | 6.3 | 4.83 | 3.94 | 3.90 | 4.51 | 4.73 | **21.92** | 19.82 | 0.53 | 0.43 | 1.00 | 1/11 | 1 | første straffeskytter (penalties_order 1) |
 | Mbeumo ★ | MUN | MID | 7.8 | 4.80 | 4.30 | 4.89 | 4.34 | 3.30 | **21.63** | 18.97 | 0.58 | 0.43 | 1.00 | 0/11 | 2 | — |
 | Ødegaard | ARS | MID | 6.7 | 4.33 | 4.01 | 3.89 | 4.25 | 4.47 | **20.94** | 18.90 | 0.52 | 0.40 | 1.00 | 0/11 | 3 | — |
