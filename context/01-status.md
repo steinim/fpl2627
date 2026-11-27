@@ -1,6 +1,6 @@
 # Status — det som ikke ligger i `fpl-data`
 
-*Sist oppdatert: 19. november 2026, før GW11, tredje versjon — **GW11-salget snudd fra Thomas til Egan**: begrunnelsen for å gå mot modellen holdt ikke mot data (`scripts/sjanse.py`, feillogg i `03`). Erstatter `01-strategi-og-tropp.md` og `02-regler-og-sesongplan.md`, som sto stille fra 17. oktober og er flyttet til `arkiv/`.*
+*Sist oppdatert: 27. november 2026, før GW12. Wildcardbeslutningen fra 26.11. ble tatt i en økt som ikke skrev til repoet; ført inn her 27.11. fra den samtalen.*
 
 **Regel for fila:** maks én skjermside. Ingenting som kan leses fra speilet kopieres hit. Fila oppdateres i samme økt som en beslutning tas, via PR.
 
@@ -22,16 +22,15 @@ Claude spiller laget: foreslår og begrunner bytter, kaptein og chips. Brukeren 
 | Chip | Status |
 |---|---|
 | Triple Captain 1 | Brukt GW5 (Haaland, 6 × 3 = 18) |
-| Wildcard 1 | Igjen |
+| Wildcard 1 | Spilt GW12 (besluttet 26.11.) |
 | Free Hit 1 | Igjen |
 | Bench Boost 1 | Igjen |
 
 **Frist for alle tre: GW19-deadline, lørdag 2. januar kl. 14:30 norsk tid** (`05`). Én chip per runde, så de tre trenger tre ulike runder blant GW11–19.
 
-**Plan, 19.11.:** ingen fast dato.
-- **Wildcard:** ikke i GW11. `analyse/bytter.md`, seksjon «Wildcard», regner beste wildcardtropp mot beste byttepakke hver kjøring. 19.11.: +5,70 over beste plan over GW11–15 (robust +4,85), godt under modellens feilmargin. Tas når gevinsten over beste plan er tydelig større enn feilmarginen. *(Første tall, +10,5, kom fra et ad hoc-skript uten innbytterledd og før Thomas-raden i `fravaer.csv` — erstattet.)*
-- **Bench Boost:** rett etter wildcardet, som bygger benken.
-- **Free Hit:** runden der flest av våre startere har svak kamp. Avskrives ikke.
+**Plan, 26.11.:**
+- **Wildcard:** spilt GW12. +6,99 mot beste plan over GW12–16 (robust +7,31); samme chip i GW13 ga +3,73.
+- **Bench Boost og Free Hit:** to runder blant GW13–19. Vurderes hver runde mot beste senere runde før fristen, ikke mot å spare.
 
 **Trukket 19.11.:** «Wildcard GW16» fra `02`. Skrevet før sesongen på fikstursvanskelighet, aldri regnet med modellen og aldri besluttet av brukeren.
 
@@ -43,23 +42,20 @@ Claude spiller laget: foreslår og begrunner bytter, kaptein og chips. Brukeren 
 | GW9 | João Pedro, Saka | Evanilson, Tavernier |
 | GW10 | — | — |
 
-## GW11 — besluttet 19.11., deadline lørdag 21.11. kl. 12:00
+## GW11 — fasit
 
-**Slater → E.Le Fée, Egan → Van Hecke.** Minimumskravene i `03` gjennomgått 19.11. for Le Fée og Van Hecke; lagnytt fra pressekonferansene fredag gjenstår. Utføres etter dem.
+38 poeng (snitt 35). OR 3 024 051 → 2 930 717. Benkepoeng 12. Plass 100 000: 737 poeng, vi 634 (−103).
 
-**Unntak:** sier Coventry fredag at Thomas er ute lenger enn GW11, selges Thomas i stedet for Egan. Da faller antakelsen modellen bygger på. *20.11.: unntaket utløses ikke. FPL oppgraderte Thomas til d 75 % (speil 09:09 UTC), og LazyFPL 20.11. gjengir Lampard på at han trener og vurderes før helgen.*
+## GW12 — besluttet 26.11., deadline fredag 27.11. kl. 19:30
 
-**Ikke rulle et frikjøp (20.11.).** LazyFPL anbefaler å spare frikjøp før ti runder på 45 dager. Å vente med Egan → Van Hecke til GW12 koster 1,54 i GW11 og gir dårligere pakker etterpå (beste GW12-variant ligger utenfor topp 400 i `bytter.py`). Verdien av et ekstra frikjøp i desember er ikke modellert, men vi har Wildcard, Free Hit og Bench Boost ubrukt innen GW19 — det er nødkapasiteten de fleste som ruller mangler. Med OR 3 024 051 trenger vi forventede poeng nå, ikke forsikring.
+**Wildcard:** Verbruggen → Trafford, Kinsky → Tzolakis, Calafiori → De Cuyper, Diop → Silva, Davis → Justin, Mbeumo → Gibbs-White. Brukeren godkjente strukturendringen (+£2,0m bak, Arsenal ut av bakre ledd).
 
-**Thomas eller Egan ut — Egan, med modellen.** Modellen gir Thomas 0,47 sjanse i GW11 og full tilgjengelighet fra GW12. Beste plan som selger Egan er 0,85 bedre over GW11–15. Jeg gikk mot modellen tidligere samme dag, med påstanden at ingen kilde støttet at Thomas er tilbake fra GW12. Det er testet mot speilets historikk (`scripts/sjanse.py`, GW3–10): regulære spillere flagget «d» etter to eller flere runder uten minutter spilte i neste runde i 0,52 av forventet, og 0,87 og 1,08 de to rundene etter (n = 42, 36, 30). Modellens antakelse stemmer for denne gruppen. Forskjellen er liten, men det finnes ikke lenger en grunn til å overstyre.
+Oppstilling 3-4-3: Trafford; De Cuyper, Silva, Justin; Fernandes (C), Gibbs-White (V), Tavernier, Groß; Haaland, Barry, Evanilson. Benk: Tzolakis, Le Fée, Van Hecke, Thomas. Evanilson starter foran Le Fée (overstyrer modellen med 0,50, begrunnet med markedets lagmål). Fernandes som kaptein mot 77 % på Haaland er et bevisst differensial.
 
-Anti-drift etter byttene: ingen klubb med 3 (BHA, BOU, IPS, MUN, TOT 2 hver; Hull ut). Keeper og forsvar £31,0m → £32,0m. Bank £4,7m → £2,5m; Diop → Murillo i GW12 (£1,6m) er fortsatt mulig.
-
-Kaptein Haaland, vise Barry. **Endelig oppstilling GW11 (21.11.), 3-5-2:** Verbruggen; Thomas, Calafiori, Van Hecke; Fernandes, Le Fée, Tavernier, Mbeumo, Groß; Haaland (C), Barry (V). Benk: Kinsky, Evanilson, Diop, Davis. Regnet med modellens innbytterlogikk (Fernandes-raden uten Carrick-benkingen): 58,63 mot 58,18 med Diop i stedet for Thomas og 58,47 for Hubs forslag (Evanilson foran Le Fée). Thomas (0,70) starter fordi Diop kommer inn automatisk hvis han ikke spiller. Oppstillingen ble endret flere ganger samme morgen — se feillogg.
+Bank £0,2m. Frikjøp inn i GW13: 2. Alle 15 med status «a» i speilet 27.11. 10:07 UTC.
 
 ## Åpne saker
 
-- **GW12: Diop → Murillo** er modellens neste trekk. Minimumskravene ikke gjort.
 - **B.Fernandes:** benket av Carrick i GW8 (`fravaer.csv`, telles som ikke-start-risiko; startandel 0,85). Carrick er sparket og Pochettino tatt over fra 18.11. (Man Utd, bekreftet 13.11.). Mekanismen bak raden er borte, men ingen årsakskategori i `fravaer.csv` passer, og å lage en er en modellendring. Står som kjent skjevhet: Fernandes er undervurdert med omtrent 0,15 i startsannsynlighet.
 - **Gule kort:** Tavernier og Groß har 4 (summert fra `live/gw1–10.csv`). Ett til gir én kamps utestengelse. Ikke prissatt i modellen; benken dekker.
 - **Rank:** OR 3 024 051 etter GW10 (596 poeng). *(Rettet 21.11.: 2 068 776 var rundeplasseringen i GW10, ikke OR.)* Gapet til topp 100k lukkes ikke av en tropp som bare unngår tabber, og skal styre hvordan wildcardet bygges.

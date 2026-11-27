@@ -518,6 +518,22 @@ Premier League publiserer hver kampprogramendring som et nummerert rundskriv, «
 
 ## Feillogg
 
+### 26.11.2026: Wildcard utsatt på dato og uten terskel
+
+**Hva skjedde:** «Wildcard GW16» ble satt før sesongen på fikstursvanskelighet og ikke regnet før 19.11. Mens OR falt fra 669 925 til 3 469 937 (GW2–9) ble wildcard ikke vurdert. Fra 19.11. sto regelen «tas når gevinsten er tydelig større enn feilmarginen» uten tall.
+
+**Rotårsak:** chipen ble vurdert mot å spare den, men den går ut ved GW19. Alternativet er en senere runde.
+
+**Avledet regel:** en chip med utløpsdato vurderes hver runde mot beste senere runde før fristen, aldri mot å la være. En planlagt dato erstatter aldri beregning.
+
+### 27.11.2026: beslutningen 26.11. ble ikke skrevet til repoet
+
+**Hva skjedde:** økten 26.11. besluttet wildcard i GW12 og laget diffen til `01` og `03`, men den ble ikke lagt inn. `main` sto på 21.11. ved starten av GW12-økten 27.11. Samme feiltype som 19.11. (statusfiler som står stille).
+
+**Rotårsak:** økter uten skrivetilgang leverer diff som tekst, og ingen legger den inn.
+
+**Avledet regel:** første steg i hver runde-økt: sammenlign `01-status.md` med `fpl-data` og forrige samtale. Mangler en beslutning, føres den inn før noe annet gjøres.
+
 ### Ny feil, 19.–21. november: rundeplassering lest som totalplassering
 
 **Hva skjedde:** `entry/history.csv` har kolonnene `gw, points, gw_rank, overall_rank, …`. Claude leste `gw_rank` (2 068 776 i GW10) som OR og skrev i tre dager at OR var 2,07 millioner og «steg fra 3 469 937». Riktig: OR 3 469 937 etter GW9 og 3 024 051 etter GW10. Oppdaget 21.11. da `entry.json` viste `summary_overall_rank` 3 023 936.
