@@ -228,46 +228,29 @@ Ingen spillere i troppen berøres.
 
 ## Kampprogram — generert fra speilet
 
-*Generert 21.11.2026 kl. 22:25 UTC av `scripts/gen_kampprogram.py` fra `fpl-data`. **Rør ikke denne blokka for hånd** — endringer blir overskrevet ved neste kjøring. Endringsloggen og verifiseringsnotatene ligger under markøren.*
+*Generert 28.11.2026 kl. 00:42 UTC av `scripts/gen_kampprogram.py` fra `fpl-data`. **Rør ikke denne blokka for hånd** — endringer blir overskrevet ved neste kjøring. Endringsloggen og verifiseringsnotatene ligger under markøren.*
 
 **Strukturkontroll: ingen avvik.** 380 kamper, 38 runder, 20 lag, alle runder med nøyaktig 10 kamper og 20 unike lag. Ingen blankrunde, ingen dobbelrunde, 0 kamper med foreløpig klokkeslett. csv og json i speilet er identiske.
 
-**Spillerkolonnen bygger på `entry/picks/gw11.csv`** (15 spillere) — nyeste tilgjengelige øyeblikksbilde. Bytter gjort etter GW11-deadline vises ikke.
+**Spillerkolonnen bygger på `entry/picks/gw12.csv`** (15 spillere) — nyeste tilgjengelige øyeblikksbilde. Bytter gjort etter GW12-deadline vises ikke.
 
-
-### GW12
-
-| Dato | UK-tid | Kamp | Troppen |
-|---|---|---|---|
-| fre 27.11. | 20:00 | Nott'm Forest – Chelsea | — |
-| lør 28.11. | 15:00 | Leeds – Coventry City | Thomas |
-| lør 28.11. | 15:00 | Man Utd – Brentford | B.Fernandes, Mbeumo |
-| lør 28.11. | 17:30 | Ipswich Town – Aston Villa | Davis, Diop |
-| søn 29.11. | 12:00 | Everton – Liverpool | Barry |
-| søn 29.11. | 14:05 | Brighton – Newcastle | Groß, Verbruggen |
-| søn 29.11. | 14:05 | Crystal Palace – Hull City | — |
-| søn 29.11. | 14:05 | Fulham – Bournemouth | Evanilson, Tavernier |
-| søn 29.11. | 14:05 | Sunderland – Spurs | E.Le Fée, Kinsky, Van Hecke |
-| søn 29.11. | 16:30 | Arsenal – Man City | Calafiori, Haaland |
-
-15 spillere i spill. Interne oppgjør: Sunderland–Spurs (3), Arsenal–Man City (2).
 
 ### GW13
 
 | Dato | UK-tid | Kamp | Troppen |
 |---|---|---|---|
-| tir 1.12. | 20:00 | Coventry City – Ipswich Town | Davis, Diop, Thomas |
+| tir 1.12. | 20:00 | Coventry City – Ipswich Town | Thomas |
 | ons 2.12. | 19:30 | Chelsea – Crystal Palace | — |
-| ons 2.12. | 19:30 | Hull City – Nott'm Forest | — |
+| ons 2.12. | 19:30 | Hull City – Nott'm Forest | Gibbs-White, Tzolakis |
 | ons 2.12. | 19:30 | Liverpool – Sunderland | E.Le Fée |
-| ons 2.12. | 19:30 | Man City – Leeds | Haaland |
+| ons 2.12. | 19:30 | Man City – Leeds | Haaland, Justin, Trafford |
 | ons 2.12. | 20:15 | Aston Villa – Everton | Barry |
-| ons 2.12. | 20:15 | Bournemouth – Brighton | Evanilson, Groß, Tavernier, Verbruggen |
-| ons 2.12. | 20:15 | Brentford – Arsenal | Calafiori |
-| ons 2.12. | 20:15 | Newcastle – Man Utd | B.Fernandes, Mbeumo |
-| tor 3.12. | 20:00 | Spurs – Fulham | Kinsky, Van Hecke |
+| ons 2.12. | 20:15 | Bournemouth – Brighton | De Cuyper, Evanilson, Groß, Silva, Tavernier |
+| ons 2.12. | 20:15 | Brentford – Arsenal | — |
+| ons 2.12. | 20:15 | Newcastle – Man Utd | B.Fernandes |
+| tor 3.12. | 20:00 | Spurs – Fulham | Van Hecke |
 
-15 spillere i spill. Interne oppgjør: Coventry City–Ipswich Town (3), Bournemouth–Brighton (4).
+15 spillere i spill. Interne oppgjør: Hull City–Nott'm Forest (2), Man City–Leeds (3), Bournemouth–Brighton (5).
 
 ### GW14
 
@@ -275,60 +258,77 @@ Ingen spillere i troppen berøres.
 |---|---|---|---|
 | lør 5.12. | 12:30 | Chelsea – Liverpool | — |
 | lør 5.12. | 15:00 | Aston Villa – Crystal Palace | — |
-| lør 5.12. | 15:00 | Bournemouth – Hull City | Evanilson, Tavernier |
-| lør 5.12. | 15:00 | Leeds – Ipswich Town | Davis, Diop |
-| lør 5.12. | 15:00 | Man Utd – Coventry City | B.Fernandes, Mbeumo, Thomas |
-| lør 5.12. | 17:30 | Nott'm Forest – Brighton | Groß, Verbruggen |
+| lør 5.12. | 15:00 | Bournemouth – Hull City | Evanilson, Silva, Tavernier, Tzolakis |
+| lør 5.12. | 15:00 | Leeds – Ipswich Town | Justin, Trafford |
+| lør 5.12. | 15:00 | Man Utd – Coventry City | B.Fernandes, Thomas |
+| lør 5.12. | 17:30 | Nott'm Forest – Brighton | De Cuyper, Gibbs-White, Groß |
 | lør 5.12. | 20:00 | Brentford – Man City | Haaland |
 | søn 6.12. | 14:00 | Everton – Fulham | Barry |
 | søn 6.12. | 14:00 | Newcastle – Sunderland | E.Le Fée |
-| søn 6.12. | 16:30 | Spurs – Arsenal | Calafiori, Kinsky, Van Hecke |
+| søn 6.12. | 16:30 | Spurs – Arsenal | Van Hecke |
 
-15 spillere i spill. Interne oppgjør: Man Utd–Coventry City (3), Spurs–Arsenal (3).
+15 spillere i spill. Interne oppgjør: Bournemouth–Hull City (4), Man Utd–Coventry City (2), Nott'm Forest–Brighton (3).
 
 ### GW15
 
 | Dato | UK-tid | Kamp | Troppen |
 |---|---|---|---|
 | lør 12.12. | 15:00 | Fulham – Brentford | — |
-| lør 12.12. | 15:00 | Ipswich Town – Newcastle | Davis, Diop |
-| lør 12.12. | 15:00 | Liverpool – Leeds | — |
+| lør 12.12. | 15:00 | Ipswich Town – Newcastle | — |
+| lør 12.12. | 15:00 | Liverpool – Leeds | Justin, Trafford |
 | lør 12.12. | 17:30 | Man City – Chelsea | Haaland |
-| søn 13.12. | 14:00 | Arsenal – Bournemouth | Calafiori, Evanilson, Tavernier |
-| søn 13.12. | 14:00 | Brighton – Everton | Barry, Groß, Verbruggen |
-| søn 13.12. | 14:00 | Sunderland – Nott'm Forest | E.Le Fée |
+| søn 13.12. | 14:00 | Arsenal – Bournemouth | Evanilson, Silva, Tavernier |
+| søn 13.12. | 14:00 | Brighton – Everton | Barry, De Cuyper, Groß |
+| søn 13.12. | 14:00 | Sunderland – Nott'm Forest | E.Le Fée, Gibbs-White |
 | søn 13.12. | 16:30 | Coventry City – Aston Villa | Thomas |
-| søn 13.12. | 19:00 | Crystal Palace – Man Utd | B.Fernandes, Mbeumo |
-| man 14.12. | 20:00 | Hull City – Spurs | Kinsky, Van Hecke |
+| søn 13.12. | 19:00 | Crystal Palace – Man Utd | B.Fernandes |
+| man 14.12. | 20:00 | Hull City – Spurs | Tzolakis, Van Hecke |
 
-15 spillere i spill. Interne oppgjør: Arsenal–Bournemouth (3), Brighton–Everton (3).
+15 spillere i spill. Interne oppgjør: Brighton–Everton (3), Sunderland–Nott'm Forest (2), Hull City–Spurs (2).
 
 ### GW16
 
 | Dato | UK-tid | Kamp | Troppen |
 |---|---|---|---|
 | lør 19.12. | 12:30 | Brentford – Newcastle | — |
-| lør 19.12. | 15:00 | Bournemouth – Coventry City | Evanilson, Tavernier, Thomas |
-| lør 19.12. | 15:00 | Leeds – Fulham | — |
-| lør 19.12. | 15:00 | Man City – Hull City | Haaland |
-| lør 19.12. | 17:30 | Liverpool – Spurs | Kinsky, Van Hecke |
-| søn 20.12. | 14:00 | Brighton – Ipswich Town | Davis, Diop, Groß, Verbruggen |
-| søn 20.12. | 14:00 | Nott'm Forest – Everton | Barry |
+| lør 19.12. | 15:00 | Bournemouth – Coventry City | Evanilson, Silva, Tavernier, Thomas |
+| lør 19.12. | 15:00 | Leeds – Fulham | Justin, Trafford |
+| lør 19.12. | 15:00 | Man City – Hull City | Haaland, Tzolakis |
+| lør 19.12. | 17:30 | Liverpool – Spurs | Van Hecke |
+| søn 20.12. | 14:00 | Brighton – Ipswich Town | De Cuyper, Groß |
+| søn 20.12. | 14:00 | Nott'm Forest – Everton | Barry, Gibbs-White |
 | søn 20.12. | 14:00 | Sunderland – Crystal Palace | E.Le Fée |
-| søn 20.12. | 16:30 | Arsenal – Man Utd | B.Fernandes, Calafiori, Mbeumo |
+| søn 20.12. | 16:30 | Arsenal – Man Utd | B.Fernandes |
 | man 21.12. | 20:00 | Chelsea – Aston Villa | — |
 
-15 spillere i spill. Interne oppgjør: Bournemouth–Coventry City (3), Brighton–Ipswich Town (4), Arsenal–Man Utd (3).
+15 spillere i spill. Interne oppgjør: Bournemouth–Coventry City (4), Man City–Hull City (2), Nott'm Forest–Everton (2).
+
+### GW17
+
+| Dato | UK-tid | Kamp | Troppen |
+|---|---|---|---|
+| lør 26.12. | 12:30 | Aston Villa – Leeds | Justin, Trafford |
+| lør 26.12. | 15:00 | Everton – Sunderland | Barry, E.Le Fée |
+| lør 26.12. | 15:00 | Fulham – Brighton | De Cuyper, Groß |
+| lør 26.12. | 15:00 | Ipswich Town – Brentford | — |
+| lør 26.12. | 15:00 | Spurs – Bournemouth | Evanilson, Silva, Tavernier, Van Hecke |
+| lør 26.12. | 17:30 | Hull City – Liverpool | Tzolakis |
+| lør 26.12. | 20:00 | Newcastle – Man City | Haaland |
+| søn 27.12. | 14:00 | Coventry City – Chelsea | Thomas |
+| søn 27.12. | 16:30 | Man Utd – Nott'm Forest | B.Fernandes, Gibbs-White |
+| søn 27.12. | 19:00 | Crystal Palace – Arsenal | — |
+
+15 spillere i spill. Interne oppgjør: Everton–Sunderland (2), Spurs–Bournemouth (4), Man Utd–Nott'm Forest (2).
 
 ### Deadlines
 
 | Runde | Deadline (UTC) | Deadline (UK) |
 |---|---|---|
-| GW12 | `2026-11-27T18:30:00Z` | fre 27.11. 18:30 |
 | GW13 | `2026-12-01T18:30:00Z` | tir 1.12. 18:30 |
 | GW14 | `2026-12-05T11:00:00Z` | lør 5.12. 11:00 |
 | GW15 | `2026-12-12T13:30:00Z` | lør 12.12. 13:30 |
 | GW16 | `2026-12-19T11:00:00Z` | lør 19.12. 11:00 |
+| GW17 | `2026-12-26T11:00:00Z` | lør 26.12. 11:00 |
 
 ### Rundestruktur, alle 38
 
